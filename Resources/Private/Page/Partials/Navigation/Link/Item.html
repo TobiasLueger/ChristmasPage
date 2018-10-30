@@ -1,0 +1,27 @@
+<f:if condition="{item}">
+    <f:if condition="{item.data.target}">
+        <f:then>
+            <a href="{item.link}" target="{item.data.target}" title="{item.data.title}">
+        </f:then>
+        <f:else if="{item.target}">
+
+            <a href="{item.link}" target="{item.target}" title="{item.data.title}">
+        </f:else>
+        <f:else>
+
+            <f:comment>check for shortcut page types to add extra properties</f:comment>
+            <f:if condition="{item.data.doktype} === 3">
+                <f:then>
+                    <a href="{item.link}" title="{item.data.title}" target="_blank" rel="nofollow">
+                </f:then>
+                <f:else>
+                    <a href="{item.link}" title="{item.data.title}">
+                </f:else>
+            </f:if>
+
+        </f:else>
+    </f:if>
+    {item.data.title}
+    </a>
+</f:if>
+

@@ -1,0 +1,62 @@
+{{!-- layouts/M005-Form-Special.hbs --}}
+{{#> base title="" }}
+    {{#*inline "main-block"}}
+
+        <main id="main">
+            <section class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h1>Lob und Kritik</h1>
+
+                            <p>Qualität ist für uns Herzenssache! Hat Ihnen etwas besonders gut gefallen? Oder war etwas nicht zu Ihrer Zufriedenheit? Wir freuen uns über Ihr Feedback!</p>
+                        </div>
+
+                        <div class="col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                            <form class="form form--transition">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <p><em>* ) Pflichtfelder</em></p>
+                                    </div>
+
+                                    {{> input class="col-xs-12 col-md-6" id="text" label="Anrede" placeholder="Placeholder Text" }}
+                                    {{> input class="col-xs-12 col-md-6" id="text" label="Titel" placeholder="Placeholder Text" }}
+                                    {{> input class="col-xs-12 col-md-6" id="text" label="Vorname" placeholder="Placeholder Text" }}
+                                    {{> input class="col-xs-12 col-md-6" id="text" label="Nachname" placeholder="Placeholder Text" }}
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        {{> input class="col-xs-12" inputClass="toggleArea" id="checkbox1" label="betroffene Person abweichend" type="checkbox" }}
+                                    </div>
+                                </div>
+
+                                <div class="row util-hidden data-toggle-area">
+                                    {{> input class="col-xs-12 col-sm-12 col-md-4 col-lg-4" id="text" label="Anrede" placeholder="Placeholder Text" }}
+                                    {{> input class="col-xs-12 col-sm-12 col-md-4 col-lg-4" id="text" label="Vorname" placeholder="Placeholder Text" }}
+                                    {{> input class="col-xs-12 col-sm-12 col-md-4 col-lg-4" id="text" label="Nachname" placeholder="Placeholder Text" }}
+                                </div>
+
+                                <div class="row">
+                                    {{> textarea class="col-md-12" id="textarea" label="Textarea" placeholder="Placeholder Text" }}
+
+                                    <div class="col-xs-12">
+                                        <p>
+                                            <small>
+                                                Ja, ich habe die <a href="#">Datenschutzerklärung</a>
+                                                zur Kenntnis genommen und bin damit einverstanden, dass die von mir angegebenen Daten elektronisch erhoben
+                                                und gespeichert werden. Meine Daten werden dabei nur streng zweckgebunden zur Bearbeitung und Beantwortung
+                                                meiner Anfrage benutzt. Mit dem Absenden des Formulars erkläre ich mich mit der Verarbeitung einverstanden.
+                                            </small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+    {{/inline}}
+{{/base}}

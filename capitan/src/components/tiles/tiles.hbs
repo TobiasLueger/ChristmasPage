@@ -1,0 +1,102 @@
+{{!-- components/tiles --}}
+<div class="tiles">
+	<div class="tiles__items">
+		<div class="tiles__item tiles__cluster--row">
+			<div class="tiles__cluster-segment tiles__cluster-segment--col">
+				<div class="tiles__item tiles__cluster-segment tiles__cluster-segment--full">
+					<picture class="tiles__item-content tiles__item-content-img">
+						<!-- 459px max-width MOBILES BILD -->
+						<source media="(max-width: 479px)" srcset="{{imagePlaceholder width='459' height='223' bg="#eee" fg="#333"}}">
+						<!-- 727px max-width MOBILES BILD -->
+						<source media="(max-width: 767px)" srcset="{{imagePlaceholder width='727' height='354' bg="#eee" fg="#333" size="34px"}}">
+						<!-- original 951px -->
+						<img src="{{imagePlaceholder width='680' height='240' bg="#eee" fg="#333" size="34px"}}" alt="[ALT]" >
+					</picture>
+					<div class="tiles__item-content">
+						<span class="util-h3">Mehrfach ausgezeichnete Qualität</span>
+					</div>
+				</div>
+			</div>
+			<div class="tiles__cluster-segment tiles__cluster-segment--col">
+				<div class="tiles__item tiles__cluster-segment tiles__cluster-segment--half">
+					<picture class="tiles__item-content tiles__item-content-img">
+						<!-- 459px max-width MOBILES BILD -->
+						<source media="(max-width: 479px)" srcset="{{imagePlaceholder width='459' height='223' bg="#eee" fg="#333"}}">
+						<!-- 727px max-width MOBILES BILD -->
+						<source media="(max-width: 767px)" srcset="{{imagePlaceholder width='727' height='354' bg="#eee" fg="#333" size="34px"}}">
+						<!-- original 951px -->
+						<img src="{{imagePlaceholder width='330' height='240' bg="#eee" fg="#333" size="34px"}}" alt="[ALT]" >
+					</picture>
+					<div class="tiles__item-content tiles__item-content--color-accent-yellow">
+						{{> countup counterID="counter1" data-start="0" data-end="1080" label="Betten" }}
+					</div>
+				</div>
+				
+				<div class="tiles__item tiles__cluster-segment tiles__cluster-segment--half">
+					<!-- NO IMAGE -->
+					<div class="tiles__item-content tiles__item-content--color-accent-blue">
+						{{> countup counterID="counter2" data-start="0" data-end="51" label="Einrichtungen" }}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tiles__item tiles__cluster--row">
+			<div class="tiles__cluster-segment tiles__cluster-segment--col">
+				<div class="tiles__item tiles__cluster-segment tiles__cluster-segment--half">
+					<picture class="tiles__item-content tiles__item-content-img">
+						<!-- 459px max-width MOBILES BILD -->
+						<source media="(max-width: 479px)" srcset="{{imagePlaceholder width='459' height='223' bg="#eee" fg="#333"}}">
+						<!-- 727px max-width MOBILES BILD -->
+						<source media="(max-width: 767px)" srcset="{{imagePlaceholder width='727' height='354' bg="#eee" fg="#333" size="34px"}}">
+						<!-- original 951px -->
+						<img src="{{imagePlaceholder width='330' height='240' bg="#eee" fg="#333" size="34px"}}" alt="[ALT]" >
+					</picture>
+					<div class="tiles__item-content tiles__item-content--color-ci">
+						{{> countup counterID="counter3" data-start="0" data-end="142" label="Mitarbeiter" }}
+					</div>
+				</div>
+				<div class="tiles__item tiles__cluster-segment tiles__cluster-segment--half">
+					<picture class="tiles__item-content tiles__item-content-img">
+						<!-- 459px max-width MOBILES BILD -->
+						<source media="(max-width: 479px)" srcset="{{imagePlaceholder width='459' height='223' bg="#eee" fg="#333"}}">
+						<!-- 727px max-width MOBILES BILD -->
+						<source media="(max-width: 767px)" srcset="{{imagePlaceholder width='727' height='354' bg="#eee" fg="#333" size="34px"}}">
+						<!-- original 951px -->
+						<img src="{{imagePlaceholder width='330' height='240' bg="#eee" fg="#333" size="34px"}}" alt="[ALT]" >
+					</picture>
+					<div class="tiles__item-content tiles__item-content--color-accent-blue">
+						{{> countup counterID="counter4" data-start="0" data-end="63" label="Fachgebiete" }}
+					</div>
+				</div>
+				<div class="tiles__item tiles__cluster-segment tiles__cluster-segment--full">
+					<picture class="tiles__item-content tiles__item-content-img">
+						<!-- 459px max-width MOBILES BILD -->
+						<source media="(max-width: 479px)" srcset="{{imagePlaceholder width='459' height='223' bg="#eee" fg="#333"}}">
+						<!-- 727px max-width MOBILES BILD -->
+						<source media="(max-width: 767px)" srcset="{{imagePlaceholder width='727' height='354' bg="#eee" fg="#333" size="34px"}}">
+						<!-- original 951px -->
+						<img src="{{imagePlaceholder width='680' height='240' bg="#eee" fg="#333" size="34px"}}" alt="[ALT]">
+					</picture>
+					<div class="tiles__item-content">
+						<span class="util-h3">Qualifizierte Beratung</span>
+					</div>
+				</div>
+			</div>
+			<div class="tiles__cluster-segment tiles__cluster-segment--col">
+				<div class="tiles__item tiles__cluster-segment tiles__cluster-segment--full">
+					<picture class="tiles__item-content tiles__item-content-img">
+				<!-- 459px max-width MOBILES BILD -->
+				<source media="(max-width: 479px)" srcset="{{imagePlaceholder width='459' height='223' bg="#eee" fg="#333"}}">
+				<!-- 727px max-width MOBILES BILD -->
+				<source media="(max-width: 767px)" srcset="{{imagePlaceholder width='727' height='354' bg="#eee" fg="#333" size="34px"}}">
+				<!-- original 951px -->
+				<img src="{{imagePlaceholder width='680' height='500' bg="#eee" fg="#333" size="34px"}}" alt="[ALT]" >
+			</picture>
+			<div class="tiles__item-content tiles__item-content--color-ci">
+				{{> countup modifier="countup-wow" class="countup--wow" counterID="counter5" data-start="0" data-end="34" label="Patienten im Jahr 2017" unit="Mio." }}
+			</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

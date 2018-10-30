@@ -1,0 +1,60 @@
+<f:if condition="{breadcrumb}">
+    <ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"
+            class="breadcrumb__item breadcrumb__root util-icon--before">
+            <a title="MediClin" itemprop="url" href="/"><span itemprop="name">Start</span></a>
+        </li>
+        <f:for each="{breadcrumb}" as="item" iteration="breadcrumbIterator">
+            <f:render section="item" arguments="{item: item, breadcrumbDetail : breadcrumbDetail}"/>
+        </f:for>
+
+        <f:if condition="{breadcrumbDetail}">
+            <f:for each="{breadcrumbDetail}" as="item">
+                <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"
+                    class="breadcrumb__item breadcrumb__current util-icon--before">
+                    <span itemprop="name"><f:render partial="Navigation/AlternativeNavTitle" arguments="{item: item}"/></span>
+                </li>
+            </f:for>
+        </f:if>
+
+    </ul>
+</f:if>
+
+<f:section name="item">
+
+    <f:if condition="{item.current}">
+        <f:then>
+            <f:if condition="{breadcrumbDetail}">
+                <f:then>
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"
+                        class="breadcrumb__item util-icon--before">
+                        <f:render partial="Navigation/Breadcrumb/Link/Item" arguments="{item: item}"/>
+                    </li>
+                </f:then>
+                <f:else>
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"
+                        class="breadcrumb__item breadcrumb__current util-icon--before">
+                        <span itemprop="name"><f:render partial="Navigation/AlternativeNavTitle" arguments="{item: item}"/></span>
+                    </li>
+                </f:else>
+            </f:if>
+        </f:then>
+        <f:else>
+            <f:if condition="{item.active}">
+                <f:then>
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"
+                        class="breadcrumb__item util-icon--before">
+                        <f:render partial="Navigation/Breadcrumb/Link/Item" arguments="{item: item}"/>
+                    </li>
+                    <f:if condition="{item.children}">
+                        <f:for each="{item.children}" as="childItem">
+                            <f:render section="item" arguments="{item: childItem}"/>
+                        </f:for>
+                    </f:if>
+                </f:then>
+            </f:if>
+        </f:else>
+    </f:if>
+
+
+</f:section>

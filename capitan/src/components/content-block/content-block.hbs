@@ -1,0 +1,46 @@
+{{!-- components/content-block --}}
+{{#if modifier}}
+    {{#ifCond modifier '==' 'content-block-download'}}
+        <div class="content-block {{#if class}} {{class}}{{/if}}">
+            <a href="#" class="util-link">
+                <div class="content-block__icon util-icon--before util-icon--download"></div>
+                <div class="content-block__content">
+                    <p>
+                        {{content}}
+                    </p>
+                    <p>
+                        {{link}}
+                    </p>
+                </div>
+            </a>
+        </div>
+    {{/ifCond}}
+
+	{{#ifCond modifier '==' 'content-block-message'}}
+		<div class="content-block {{#if class}} {{class}}{{/if}}"{{#if id}} id="{{id}}"{{/if}} data-wrapper>
+			<div class="content-block__wrapper">
+				<div class="content-block__icon util-icon--before util-icon--checkmark"></div>
+				<div class="content-block__content">
+					<h2>
+						{{title}}
+					</h2>
+					<p>
+						{{content}}
+					</p>
+				</div>
+			</div>
+		</div>
+	{{/ifCond}}
+{{else }}
+    <div class="content-block {{#if class}} {{class}}{{/if}}">
+        <div class="content-block__icon util-icon--before util-icon--file"></div>
+        <div class="content-block__content">
+            <p>
+                {{content}}
+            </p>
+            <p>
+                <a href="#" class="util-link util-icon--after util-icon--arrow-right">{{link}}</a>
+            </p>
+        </div>
+    </div>
+{{/if}}

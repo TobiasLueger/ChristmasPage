@@ -1,0 +1,15 @@
+{
+	"extends": "airbnb-base",
+	"rules": {
+		"max-len": ["error", { "ignoreStrings": true, "ignoreComments": true }],
+		"indent": ["error", "tab"],
+		"no-tabs": "off"
+	},
+	"env": {
+		"browser": true,
+		"jquery": true
+	},
+	"globals": {
+		"Capitan": true
+	}
+}

@@ -1,0 +1,230 @@
+@charset "utf-8";
+/**
+ * Capitan main-focus.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2018-07-04
+ * MIT License (MIT)
+ */
+
+$component: 'main-focus';
+
+// block
+%#{$component} {
+	@include respondMin(point('min-sm')) {
+		display: flex;
+		flex-direction: column;
+
+	}
+
+	@include respondMin(point('min-lg')) {
+		flex-direction: row;
+		height: 100%;
+	}
+
+	> * {
+		@include respondMin(point('min-sm')) {
+			display: flex;
+			flex-direction: column;
+		}
+
+		@include respondMin(point('min-lg')) {
+			justify-content: center;
+			padding-left: $grid-gutter-width;
+			padding-right: $grid-gutter-width;
+		}
+	}
+}
+
+// element
+.#{$component}__caption {
+	background: color('white');
+	padding: $grid-gutter-width;
+
+	@include respondMin(point('min-sm')) {
+		background: color('ci');
+		color: color('white');
+		flex: 1 0 100%;
+		margin-bottom: $grid-gutter-width;
+		width: 100%;
+	}
+
+	@include respondMin(point('min-lg')) {
+		flex: 1 1 25%;
+		margin-bottom: 0;
+		padding: $grid-gutter-width $grid-gutter-width*2;
+		width: 25%;
+	}
+
+	.#{$component}__title {
+		margin-bottom: 0;
+
+		@include respondMin(point('min-sm')) {
+			margin-bottom: $grid-gutter-width;
+		}
+	}
+
+	p {
+		margin-bottom: 0;
+
+		@include respondMin(point('min-md')) {
+			margin-bottom: $grid-gutter-width;
+		}
+	}
+}
+
+.#{$component}__items {
+	background: color('white');
+	margin: 0;
+	padding: 0;
+
+	@include respondMin(point('min-sm')) {
+		align-content: space-between;
+		justify-content: space-between;
+		flex-direction: row;
+		flex-wrap: wrap;
+		background: transparent;
+		flex: 1 0 100%;
+		width: 100%;
+	}
+
+	@include respondMin(point('min-lg')) {
+		flex: 1 1 50%;
+		margin: 0 auto;
+		padding: 0 $grid-gutter-width;
+		width: 50%;
+	}
+
+	a {
+		color: color('black');
+	}
+}
+
+.#{$component}__item {
+	background: color('white');
+	border-top: 1px solid color('grey-light');
+	display: block;
+	margin: 0;
+	padding: $grid-gutter-width;
+	position: relative;
+
+	@include respondMin(point('min-sm')) {
+		align-items: baseline;
+		border-top: none;
+		display: flex;
+		flex-basis: calc(50% - 10px);
+		justify-content: center;
+		margin-bottom: $grid-gutter-width;
+		min-height: 198px;
+		padding: 0;
+		width: calc(50% - 10px);
+	}
+
+	@include respondMin(point('min-lg')) {
+		height: calc(33.33% - 13px);
+	}
+
+	&::after {
+		@include font($ff-icon);
+		@include fontSizeREM(16);
+		color: color('accent-blue');
+		content: icon(arrow-right);
+		display: block;
+		line-height: 65px;
+		position: absolute;
+		right: 15px;
+		top: 0;
+
+		@include respondMin(point('min-sm')) {
+			display: none;
+		}
+	}
+
+	a {
+		@include respondMin(point('min-sm')) {
+			height: 100%;
+			padding: $grid-gutter-width*2 $grid-gutter-width $grid-gutter-width;
+			width: 100%;
+		}
+
+		@include respondMin(point('min-md')) {
+			padding: $grid-gutter-width*2 $grid-gutter-width;
+		}
+
+		&:hover {
+			background: rgba(color('ci'), 0.2);
+			text-decoration: none;
+
+			@include respondMin(point('min-sm')) {
+			    color: color('black');
+			}
+		}
+	}
+
+	span {
+		@include fontSizeREM(16);
+		padding-right: $grid-gutter-width-half;
+		word-break: break-all;
+		/* Non standard for WebKit */
+		word-break: break-word;
+		hyphens: auto;
+
+		@include respondMin(point('min-sm')) {
+			display: block;
+			padding-right: 0;
+			text-align: center;
+		}
+
+		@include respondMin(point('min-lg')) {
+			@include fontSizeREM(18);
+		}
+
+		&::before {
+			color: color('accent-blue');
+
+			@include respondMin(point('min-sm')) {
+				@include fontSizeREM(46);
+			    display: block;
+				margin-bottom: $grid-gutter-width;
+				margin-right: 0;
+			}
+
+			@include respondMin(point('min-lg')) {
+				@include fontSizeREM(88);
+				margin-bottom: $grid-gutter-width*1.5
+			}
+		}
+	}
+}
+
+.#{$component}__specials {
+	display: none;
+
+	@include respondMin(point('min-sm')) {
+		background: color('white');
+		display: block;
+		flex: 1 0 100%;
+		padding: $grid-gutter-width;
+		width: 100%;
+	}
+
+	@include respondMin(point('min-lg')) {
+		display: flex;
+		flex: 1 1 25%;
+		padding: $grid-gutter-width $grid-gutter-width*2;
+		width: 25%;
+	}
+
+	li {
+		margin-bottom: 15px;
+	}
+}
+
+// modifier
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

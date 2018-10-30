@@ -1,0 +1,58 @@
+[globalString = ENV:HTTP_HOST = *akut.brandung-dev.de] || [globalString = ENV:HTTP_HOST = *akut-stage.mcl.kundenheimat.de] || [globalString = ENV:HTTP_HOST = herzzentrum-lahr.de] || [globalString = ENV:HTTP_HOST = www.herzzentrum-lahr.de]
+    page >
+    page {
+        10 = CASE
+        10 {
+            key.data = levelfield:-2,backend_layout_next_level,slide
+            key.override.field = backend_layout
+
+            # Default Fluid Layout
+            default = FLUIDTEMPLATE
+            default {
+                partialRootPaths {
+                    10 = EXT:fluid_styled_content/Resources/Private/Partials/
+                    20 = typo3conf/ext/bra_projectfiles_mdc_corporate/Resources/Private/Page/Partials/
+                    30 = typo3conf/ext/bra_projectfiles_mdc_corporate/Resources/Private/Akut/Page/Partials/
+                }
+
+                layoutRootPaths {
+                    10 = EXT:fluid_styled_content/Resources/Private/Layouts/
+                    20 = typo3conf/ext/bra_projectfiles_mdc_corporate/Resources/Private/Page/Layouts/
+                    30 = typo3conf/ext/bra_projectfiles_mdc_corporate/Resources/Private/Akut/Page/Layouts/
+                }
+
+                variables {
+                    contentStage < styles.content.get
+                    contentStage.select.where = colPos = 0
+                    contentMain < styles.content.get
+                    contentMain.select.where = colPos = 1
+
+                    emergencyPid = TEXT
+                    emergencyPid.value = {$emergencyPid}
+
+                    searchPid = TEXT
+                    searchPid.value = {$searchPid}
+                }
+
+                dataProcessing {
+                    10 < lib.menuMainMeta
+                    20 < lib.menuLanguage
+                    30 < lib.menuMain
+                    40 < lib.menuFooter
+                    50 < lib.menuFooterMeta
+                    60 < lib.breadcrumb
+                }
+            }
+
+            pagets__1 < .default
+            pagets__1 {
+                file = typo3conf/ext/bra_projectfiles_mdc_corporate/Resources/Private/Page/Templates/Startpage.html
+            }
+
+            pagets__2 < .default
+            pagets__2 {
+                file = typo3conf/ext/bra_projectfiles_mdc_corporate/Resources/Private/Page/Templates/Subpage.html
+            }
+        }
+    }
+[END]

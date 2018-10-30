@@ -1,0 +1,127 @@
+<footer class="footer">
+    <div class="footer__main">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-lg-9">
+                    <div class="row">
+                        <f:for each="{menuFooter}" as="footer" iteration="iterator">
+                            <div class="col-xs-12 col-lg-3">
+                                <div class="footer__content">
+                                    <p class="util-h4 footer__heading">
+
+                                        <f:comment> CHECK IF PAGE IS A SHORTCUT</f:comment>
+                                        <f:if condition="{footer.data.doktype} === 3">
+                                            <f:then>
+                                                <a href="{footer.link}" target="_blank" rel="nofollow"
+                                                   title="{footer.title}">
+                                                    {footer.title}
+                                                </a>
+                                            </f:then>
+                                            <f:else>
+                                                <a href="{footer.link}" title="{footer.title}">
+                                                    {footer.title}
+                                                </a>
+                                            </f:else>
+                                        </f:if>
+                                    </p>
+                                    <f:if condition="{footer.children}">
+                                        <ul class="footer__list">
+                                            <f:for each="{footer.children}" as="footerChildren" iteration="iterator">
+                                                <li>
+                                                    <f:comment> CHECK IF PAGE IS A SHORTCUT</f:comment>
+                                                    <f:if condition="{footerChildren.data.doktype} === 3">
+                                                        <f:then>
+                                                            <a href="{footerChildren.link}" target="_blank"
+                                                               rel="nofollow" title="{footerChildren.title}">{footerChildren.title}</a>
+                                                        </f:then>
+                                                        <f:else>
+                                                            <a href="{footerChildren.link}"
+                                                               title="{footerChildren.title}">{footerChildren.title}</a>
+                                                        </f:else>
+                                                    </f:if>
+                                                </li>
+                                            </f:for>
+                                        </ul>
+                                    </f:if>
+                                </div>
+                            </div>
+                        </f:for>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-lg-3">
+                    <div class="footer__content">
+                        <img class="footer__logo"
+                             src="/typo3conf/ext/bra_projectfiles_mdc_corporate/Resources/Public/img/svg/mediclin-logo.svg"
+                             alt="MediClin"
+                             title="MediClin"
+                             width="138" height="40"/>
+
+
+                        <p>Zu MediClin gehören bundesweit 36 <a href="#" title="Kliniken">Kliniken</a>, sieben <a
+                                href="#" title="Pflegeeinrichtungen">Pflegeeinrichtungen</a>, drei <a href="#"
+                                title="ambulante Pflegedienste">ambulante
+                            Pflegedienste</a> und neun <a href="#" title="Medizinische Versorgungszentren">Medizinische Versorgungszentren</a>.
+                            MediClin verfügt über knapp 8.300 Betten und beschäftigt rund 9.960 Mitarbeiter.</p>
+
+                        <f:switch expression="{f:cObject(typoscriptObjectPath: 'lib.currentHost')}">
+                            <f:case value="lahrbaden-akut-stage.mcl.kundenheimat.de">
+                                <f:comment><!-- disabled for this domain, see MEDICLINKR-269 --></f:comment>
+                            </f:case>
+                            <f:case value="www.herzzentrum-lahr.de">
+                                <f:comment><!-- disabled for this domain, see MEDICLINKR-269 --></f:comment>
+                            </f:case>
+                            <f:defaultCase>
+                                <div class="footer__sociallinks">
+
+                                    <f:alias
+                                            map="{currentUrl: '{f:cObject(typoscriptObjectPath: \'lib.currentURL\')}'}">
+                                        <ul>
+                                            <li>
+                                                <a href="https://www.youtube.com/watch?v={f:format.urlencode(value: {currentUrl}')}">
+                                                    <img src="/typo3conf/ext/bra_projectfiles_mdc_corporate/Resources/Public/img/svg/youtube.svg"
+                                                         width="34" height="24" title="YouTube" alt="YouTube"/>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.facebook.com/sharer.php?u={f:format.urlencode(value: '{currentUrl}')}">
+                                                    <img src="/typo3conf/ext/bra_projectfiles_mdc_corporate/Resources/Public/img/svg/facebook.svg"
+                                                         width="24" height="24" alt="Facebook" title="Facebook"/>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </f:alias>
+
+                                </div>
+                            </f:defaultCase>
+                        </f:switch>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer__secondary">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="footer__content">
+                        <small>&copy;
+                            <f:cObject typoscriptObjectPath="lib.copyright"/>
+                            MediClin AG, Offenburg - Ein Unternehmen der Asklepios Gruppe</span></small>
+                        <div class="footer__links">
+                            <ul>
+                                <f:for each="{menuFooterMeta}" as="footerMeta">
+                                    <li><a href="{footerMeta.link}"
+                                           title="{footerMeta.title}">{footerMeta.title}</a></li>
+                                </f:for>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</footer>

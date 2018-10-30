@@ -1,0 +1,19 @@
+{{!-- components/fancybox --}}
+{{#if modifier}}
+	{{#ifCond modifier '==' 'fancyformular'}}
+		<a data-fancybox {{#if datatype}}data-type="{{datatype}}"{{/if}} {{#if datasrc}}data-src="{{datasrc}}"{{/if}} href="{{#if url}}{{url}}{{else}}javascript:;{{/if}}" title="[TITLE]">
+			Open form layer
+		</a>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'fancydanke'}}
+		<a data-fancybox {{#if datatype}}data-type="{{datatype}}"{{/if}} {{#if datasrc}}data-src="{{datasrc}}"{{/if}} href="{{#if url}}{{url}}{{else}}javascript:;{{/if}}" title="[TITLE]">
+			Open 'Thanks for your message' layer
+		</a>
+	{{/ifCond}}
+
+{{else }}
+	<a data-fancybox{{#if gallery}}="{{gallery}}"{{/if}} {{#if datatype}}data-type="{{datatype}}"{{/if}} href="{{#if url}}{{url}}{{else}}javascript:;{{/if}}" data-caption="[IMAGE-CAPTION]" title="[TITLE]">
+		Open layer
+	</a>
+{{/if}}

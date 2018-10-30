@@ -1,0 +1,432 @@
+@charset "utf-8";
+/**
+ * Capitan gmaps.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2016-06-24
+ * MIT License (MIT)
+ */
+
+@import '../../sass/partials/functions';
+@import '../../sass/partials/variables';
+@import '../../sass/partials/mixins';
+
+$component: 'gmaps';
+
+// block
+%#{$component} {
+	border: 1px solid color('grey-lightest');
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 500px;
+	overflow: hidden;
+	transition: height 1s ease-out;
+
+	&.is-active {
+		height: 750px;
+
+		@include respondMin(point('min-xl')) {
+			height: 650px;
+		}
+	}
+
+	// hide gmaps alert
+	> div + div {
+		display: none;
+	}
+
+	// hide gmaps logo, description, etc
+	.gm-style-cc {
+		//display: none;
+
+		a {
+			line-height: 14px;
+		}
+	}
+
+	a[href^="http://maps.google.com/maps"] {
+		//display: none !important
+	}
+
+	a[href^="https://maps.google.com/maps"] {
+		//display: none !important
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+    // override gmaps styles
+	.gm-style-iw {
+		background-color: color('white');
+		left: 15px;
+		max-width: 740px;
+		top: 15px;
+		width: 50%;
+	 }
+}
+
+// element
+.#{$component}__container {
+	overflow: hidden;
+	position: relative;
+}
+
+.#{$component}__control {
+	@include respondMax(point('max-md')) {
+		display: none;
+	}
+
+	margin: $grid-gutter-width;
+
+	.#{$component}__button-in,
+	.#{$component}__button-out {
+		@include fontSizeREM(18);
+		background-color: color('white');
+		border: 1px solid color('ci');
+		border-radius: 50%;
+		color: color('ci');
+		margin: 5px;
+		padding: 7px 0 7px 10px;
+		text-align: center;
+
+		&:hover {
+			background-color: color('ci');
+			color: color('white');
+			cursor: pointer;
+		}
+	}
+
+	.#{$component}__button-in {
+		animation: 1s ease-out 0s normal forwards 1 drop;
+
+		&:hover span {
+			transition: transform 500ms ease;
+			transform: translateY(-3px);
+		}
+	}
+
+	.#{$component}__button-out {
+		animation: 0.5s ease-out 0s normal forwards 1 drop;
+
+		&:hover span {
+			transition: transform 500ms ease;
+			transform: translateY(3px);
+		}
+	}
+}
+
+.#{$component}__category {
+	animation: 1s ease-out 0s normal forwards 1 slide;
+	background-color: color('white');
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	list-style-type: none;
+	margin: 0;
+	padding: $grid-gutter-width;
+
+	@include respondMin(point('min-md')) {
+		border-top: 1px solid color('green-light');
+		flex-direction: row;
+	}
+
+	> li {
+		border-bottom: 1px solid color('green-light');
+		flex: 0 0 100%;
+
+		@include respondMin(point('min-md')) {
+			border-bottom: none;
+			flex: 0 0 25%;
+			max-width: 250px;
+		}
+
+		&:first-child {
+			border-top: 1px solid color('green-light');
+
+			@include respondMin(point('min-md')) {
+				border-top: none;
+			}
+		}
+
+		& + li {
+			@include respondMin(point('min-md')) {
+				border-left: 1px solid color('green-light');
+			}
+		}
+
+		&.#{$component}__category-active {
+			background-color: color('grey-light');
+
+			> a {
+				color: color('accent-blue');
+			}
+		}
+
+		> a {
+			color: color('black');
+			display: flex;
+			flex-direction: row;
+			padding: $grid-gutter-width;
+			position: relative;
+
+			@include respondMin(point('min-md')) {
+				flex-direction: column;
+				padding: $grid-gutter-width-half / 2;
+			}
+
+			&::before {
+				@include fontSizeREM(20);
+				color: color('accent-blue');
+			}
+
+			@include respondMax(point('max-sm')) {
+				&::after {
+					@include font($ff-icon);
+					@include fontSizeREM(16);
+					color: color('accent-blue');
+					content: icon(arrow-right);
+					display: block;
+					line-height: 65px;
+					position: absolute;
+					right: 15px;
+					top: 0;
+				}
+			}
+
+			&:hover {
+				color: color('ci');
+				text-decoration: none;
+
+				&::before {
+					color: color('ci');
+				}
+
+				@include respondMax(point('max-sm')) {
+					&::after {
+						color: color('ci');
+					}
+				}
+			}
+
+			> span {
+				@include font($ff-regular);
+				@include fontSizeREM(14);
+				padding-top: $grid-gutter-width-half / 2;
+			}
+		}
+	}
+}
+
+.#{$component}__location {
+	position: absolute;
+	right: $grid-gutter-width;
+	top: $grid-gutter-width;
+}
+
+.#{$component}__search {
+	position: absolute;
+	right: 250px;
+	top: 0;
+	width: 250px;
+
+	> form {
+		float: left;
+	}
+
+	> button {
+		margin: $grid-gutter-width 0 $grid-gutter-width $grid-gutter-width;
+	}
+}
+
+.#{$component}__infowindow {
+	padding: $grid-gutter-width;
+
+	img {
+		max-height: 210px;
+		width: 280px;
+	}
+
+	p {
+		margin-bottom: $grid-gutter-width-half;
+	}
+
+	a.btn {
+		margin-bottom: 0;
+	}
+
+	hr {
+	  border-color: color('green-light');
+	}
+}
+
+// override gmaps styles
+.#{$component}__infowindow-close {
+	height: $grid-gutter-width !important;
+	opacity: 1 !important;
+	right: $grid-gutter-width !important;
+	top: $grid-gutter-width !important;
+	width: $grid-gutter-width !important;
+
+	img {
+		display: none;
+	}
+
+	&::after {
+		@include fontSizeREM(18);
+		color: color('ci');
+		margin: 0;
+	}
+
+	&:hover {
+		&::after {
+			color: color('ci-hover');
+		}
+	}
+}
+
+.#{$component}__cta {
+	position: absolute;
+	bottom: 0;
+	right: $grid-gutter-width;
+}
+
+.#{$component}__item {
+	list-style-type: none;
+	margin-left: 25px;
+}
+
+.#{$component}__list {
+	background-color: color('white');
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+
+	@include respondMin(point('min-lg')) {
+		animation: 1s ease-in 0s normal forwards 1 drop;
+		box-shadow: 0 4px 8px 0 rgba(color('black'), 0.3);
+		position: absolute;
+		right: 25px;
+		top: 25px;
+		width: 500px;
+	}
+
+	> li {
+		padding: 9px 20px 4px 20px;
+
+		&:last-of-type {
+			padding: 9px 20px;
+		}
+
+		> div {
+			border: none;
+			padding: 0;
+
+			&:last-of-type.is-open {
+				border: none;
+			}
+
+			&.is-open {
+				max-height: none;
+
+				strong {
+					color: color('ci-hover');
+				}
+			}
+
+			> span {
+				@include fontSizeREM(11);
+
+				strong {
+					@include fontSizeREM(16);
+				}
+			}
+
+			> ul {
+				margin: 10px 0 !important;
+
+				li {
+					@include fontSizeREM(14);
+
+
+					&:not(.#{$component}__item) {
+						> a {
+							transform: translateX(5px);
+						}
+					}
+				}
+			}
+
+			> .btn-group {
+				display: flex;
+				margin-bottom: 0;
+
+				a {
+					margin-left: 20px;
+				}
+			}
+		}
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		+ li {
+			div:not(.btn-group):first-of-type {
+				border-top: 1px solid color('green-light');
+				padding-top: $grid-gutter-width;
+			}
+		}
+	}
+}
+
+.pac-container:after {
+	// Disclaimer: not needed to show 'powered by Google' if also a Google Map is shown
+	background-image: none !important;
+	height: 0;
+}
+
+
+// modifier
+
+.#{$component}--facility {
+	.#{$component}__search {
+		right: 0;
+		top: 0;
+	}
+}
+
+
+// keyframes
+
+@keyframes drop {
+  0% {
+    transform: translateY(-150px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes slide {
+  0% {
+	  opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+	  opacity: 1;
+	  transform: translateY(0px);
+  }
+}
+
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

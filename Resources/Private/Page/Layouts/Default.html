@@ -1,0 +1,76 @@
+<f:cObject typoscriptObjectPath="lib.gtmNoscript"/>
+
+<header class="header">
+
+    <div class="header__nav-meta">
+        <div class="container">
+            <nav class="nav-meta">
+                <f:render partial="Navigation/Meta"
+                          arguments="{menuMainMeta: menuMainMeta, menuLanguage: menuLanguage, menuLangMeta: menuLangMeta, emergencyPid: emergencyPid, searchPid: searchPid}"/>
+            </nav>
+        </div>
+
+    </div>
+
+    <div class="header__main-wrapper">
+        <div class="container">
+            <f:cObject typoscriptObjectPath="lib.logo" />
+
+            <div class="header__nav-mobile">
+                <f:if condition="{emergencyPid}">
+                    <f:link.page pageUid="{emergencyPid}" title="Notfall" class="header__nav-button"><span
+                            class="util-icon--before util-icon--emergency"></span>Notfall
+                    </f:link.page>
+                </f:if>
+                <div class="header__nav-button nav-mobile__toggle nav-mobile-trigger">
+                    <div class="header__nav-mobile-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    Menü
+                </div>
+            </div>
+
+            <div class="header__nav-main">
+                <nav class="nav-main nav-mobile">
+                    <f:render partial="Navigation/Main"
+                              arguments="{menuMain: menuMain}"/>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+</header>
+
+<div id="page-wrapper">
+
+    <main id="main" role="main">
+        <f:render section="content"/>
+    </main>
+
+    <div class="cookie-layer">
+        <div class="container">
+            <div class="cookie-layer__container">
+                <div class="cookie-layer__content">
+                    <p>
+                        Wir verwenden Cookies, um Ihnen einen besseren Service zu bieten, den Seitenverkehr zu
+                        analysieren, Inhalte zu personalisieren und gezielte Werbung zu schalten. Wenn Sie diese Seite
+                        weiterhin nutzen, stimmen Sie der Verwendung von Cookies zu. Lesen Sie, wie wir Cookies
+                        verwenden und wie Sie sie steuern können, indem Sie hier klicken:
+                        <f:link.page pageUid="22" title="Datenschutzerklärung">Datenschutzerklärung</f:link.page>
+                    </p>
+                </div>
+                <div class="cookie-layer__action">
+                    <div class="btn btn--primary-alt cookie-layer__close">
+                        Okay
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <f:cObject typoscriptObjectPath="lib.toTop"/>
+    <f:render partial="Navigation/Footer" arguments="{menuFooter: menuFooter, menuFooterMeta: menuFooterMeta}"/>
+</div>

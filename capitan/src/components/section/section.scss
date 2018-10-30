@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+/**
+ * Capitan section.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2018-06-18
+ * MIT License (MIT)
+ */
+
+$component: 'section';
+
+%#{$component} {
+	padding-top: $grid-gutter-width * 2;
+	position: relative;
+
+	header {
+		text-align: center;
+
+		h2 {
+			margin: 0 0 $grid-gutter-width-half;
+		}
+
+		h3 {
+			@include font();
+			@include fontSizeREM(20);
+			margin-bottom: $grid-gutter-width * 2.5;
+		}
+
+		p {
+			margin: 0 0 40px;
+		}
+	}
+}
+
+// modifier
+.#{$component}--bg-grey {
+	background: color('grey-light');
+}
+
+.#{$component}--bg-green-light {
+	background: rgba(color('green-light'), .7);
+}
+
+.#{$component}--bg-disease {
+	background: none;
+
+	.#{$component}__expandable {
+		max-width: 100%;
+
+		@include respondMin(point('min-sm')) {
+		    padding: 0;
+		}
+
+		&-header {
+			background: color('white');
+			margin-top: -50px;
+			padding-top: 50px;
+			padding-right: 30px;
+			padding-left: 30px;
+		}
+	}
+
+	@include respondMin(point('min-sm')) {
+		background: url('#{$folder-path}/img/jpg/diseasespictures-bg.jpg') left 150px;
+		background-size: cover;
+	}
+}
+
+.#{$component}--bg-ci {
+	background: color('ci');
+	color: color('white');
+	padding: $grid-gutter-width 0;
+	
+	@include respondMin(point('min-sm')) {
+		padding: 30px 0;
+	}
+}
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

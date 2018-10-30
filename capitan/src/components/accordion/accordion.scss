@@ -1,0 +1,393 @@
+@charset "utf-8";
+/**
+ * Capitan accordion.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2016-06-23
+ * MIT License (MIT)
+ */
+
+@import '../../sass/partials/functions';
+@import '../../sass/partials/variables';
+@import '../../sass/partials/mixins';
+
+$component: 'accordion';
+$triggerSize: 34;
+$triggerSizeMobile: 24;
+
+// block
+%#{$component} {
+	border-bottom: 1px solid color('green-light');
+	margin-bottom: $grid-gutter-width;
+	position: relative;
+}
+
+
+// element
+.#{$component}__trigger {
+	align-items: center;
+	border-top: 1px solid color('green-light');
+	cursor: pointer;
+	display: flex;
+	margin-bottom: 0;
+	padding: $grid-gutter-width-half 0;
+	position: relative;
+	text-decoration: none;
+	width: 100%;
+	color: color('black');
+	
+	&:hover {
+		color: color('accent-blue');
+
+		> span {
+			color: color('accent-blue');
+		}
+
+		&::after {
+			@include respondMin(point('min-lg')) {
+				line-height: $triggerSize + 4 + px;
+			}
+		}
+	}
+	
+	span {
+		@include font($ff-semibold, bold);
+		margin-right: $grid-gutter-width-half;
+	}
+	
+	&::after {
+		@include font($ff-icon);
+		@include fontSizeREM(16);
+		background-color: color('accent-blue');
+		border-radius: 50%;
+		color: color('white');
+		content: icon(arrow-bottom);
+		display: block;
+		flex-shrink: 0;
+		height: $triggerSizeMobile + px;
+		line-height: $triggerSizeMobile + px;
+		margin-left: auto;
+		text-align: center;
+		text-decoration: underline;
+		transition: transform 200ms ease;
+		width: $triggerSizeMobile + px;
+
+		@include respondMin(point('min-lg')) {
+			@include fontSizeREM(16);
+			height: $triggerSize + px;
+			line-height: $triggerSize + px;
+			width: $triggerSize + px;
+		}
+	}
+
+	.footer & {
+		border-bottom: 1px solid color('green-light');
+		border-top: none;
+		line-height: $triggerSize + px;
+		padding: $grid-gutter-width-half 0;
+
+		&::after {
+			@include font($ff-icon);
+			@include fontSizeREM(14);
+			
+			line-height: inherit;
+			background-color: transparent;
+			color: color('accent-blue');
+			content: icon(arrow-bottom);
+			display: block;
+			flex-shrink: 0;
+			margin-left: auto;
+			text-align: center;
+			text-decoration: underline;
+			transition: transform 200ms ease;
+		}
+
+		&::after,
+		&:hover::after {
+			text-decoration: none;
+		}
+	}
+
+	// Fix for IE removing underline on icons (adding and removing text-decoration helps)
+	&::after,
+	&:hover::after {
+		text-decoration: none;
+	}
+
+	&.is-open {
+		color: color('ci-hover');
+
+		&::after {
+			background-color: color('ci-hover');
+			transform: rotate3d(1, 0, 0, 180deg);
+		}
+	}
+	
+	// Hack for mobile hover/touch event
+	&:not(.is-open) {
+		color: color('black');
+	}
+
+	&:last-of-type {
+		&.is-open {
+			border-bottom: 1px solid color('green-light');
+		}
+	}
+
+	.footer & {
+		&::after {
+			display: inline-block;
+		}
+
+		&:last-of-type {
+			&.is-open {
+				border-bottom: none;
+			}
+		}
+
+		&.is-open {
+	         padding-bottom: 11px;
+
+			&::after {
+				background-color: transparent;
+			}
+		}
+	}
+
+	.expert-listing & {
+		&:last-of-type {
+			&.is-open {
+				border-bottom: none;
+			}
+		}
+	}
+
+	.teaser--expandable & {
+		@include fontSizeREM(16);
+		background-color: color('white');
+		border-bottom: none;
+		bottom: -($grid-gutter-width * 2);
+		cursor: pointer;
+		display: inline-block;
+		height: $grid-gutter-width * 2;
+		left: 0;
+		line-height: $grid-gutter-width * 2;
+		overflow: hidden;
+		padding-right: 25px;
+		position: absolute;
+		right: 0;
+		text-align: right;
+		text-decoration: none;
+		z-index: 3;
+
+		&::after {
+			@include fontSizeREM(16);
+			@include font($ff-icon);
+			content: icon(arrow-down);
+			position: absolute;
+			margin-left: $grid-gutter-width-half / 2;
+			right: 0;
+			top: 0;
+		}
+
+		&:last-of-type {
+			&.is-open {
+				border-bottom: none;
+			}
+		}
+		
+		
+		// Hack for mobile hover/touch event
+		&:not(.is-open) {
+			color: color('black');
+		}
+		
+		&.is-open {
+			color: color('accent-blue');
+
+			&:hover {
+				color: color('ci-hover');
+			}
+		}
+	}
+
+	.table-block--accordion & {
+		border-top: none;
+		padding: 0 $grid-gutter-width-half;
+
+		&::after {
+			display: none;
+		}
+
+		h4 {
+			border-top: 1px solid color('green-light');
+			display: flex;
+			line-height: $triggerSize + px;
+			margin-bottom: 0;
+			padding: $grid-gutter-width-half 0;
+			width: 100%;
+
+			&::after {
+				@include font($ff-icon);
+				@include fontSizeREM(16);
+				background-color: color('accent-blue');
+				border-radius: 50%;
+				color: color('white');
+				content: icon(arrow-bottom);
+				display: block;
+				flex-shrink: 0;
+				height: $triggerSize + px;
+				line-height: $triggerSize + px;
+				margin-left: auto;
+				text-align: center;
+				text-decoration: underline;
+				transition: transform 200ms ease;
+				width: $triggerSize + px;
+			}
+
+			&:hover {
+				color: color('accent-blue');
+
+				&::after {
+					@include respondMin(point('min-lg')) {
+						line-height: $triggerSize + 4 + px;
+					}
+				}
+			}
+		}
+
+		& h4::after,
+		&:hover::after {
+			text-decoration: none;
+		}
+		
+		// Hack for mobile hover/touch event
+		&:not(.is-open) h4 {
+			color: color('black');
+		}
+		
+		&.is-open {
+			h4 {
+				color: color('ci');
+
+				&::after {
+					background-color: color('ci');
+					transform: rotate3d(1, 0, 0, 180deg);
+				}
+			}
+		}
+	}
+}
+
+.#{$component}__content-wrapper {
+	@include prefix(transition, 'max-height 0.25s ease');
+	will-change: max-height;
+	max-height: 0;
+	overflow: hidden;
+	position: relative;
+	
+	& > *:first-child {
+		margin-top: $grid-gutter-width;
+	}
+
+	& > *:last-child {
+		margin-bottom: $grid-gutter-width;
+	}
+	
+	.footer & > *:first-child {
+		margin-top: 0;
+	}
+	
+	.footer &.is-open {
+		border-bottom: 1px solid color('green-light');
+		
+		@include respondMin(point('min-lg')) {
+			border-bottom: none;
+		}
+	}
+
+	.expert-listing &.is-open {
+		margin-bottom: $grid-gutter-width;
+	}
+
+	.teaser--expandable & > *:first-child {
+		margin-top: 0;
+	}
+}
+
+.#{$component}__content {
+	padding: 35px 0;
+
+	h1,
+	h2,
+	h3,
+	h4,
+	p {
+		margin-top: 0;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+// modifier
+.#{$component}__download-item {
+	padding-left: $grid-gutter-width-double * 1.5;
+	position: relative;
+
+	&::before {
+		@include font($ff-icon);
+		@include fontSizeREM(40);
+		@include prefix(transition, 'transform 400ms ease');
+		color: color('green-light');
+		content: icon('download');
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	.#{$component}__download-text {
+		@include fontSizeREM(14);
+		margin-bottom: $grid-gutter-width-half;
+	}
+
+	.#{$component}__download-link {
+		> a {
+			@include fontSizeREM(14);
+
+			&[target="_blank"] {
+				padding-right: $grid-gutter-width;
+				position: relative;
+
+				&::after {
+					@include font($ff-icon);
+					@include fontSizeREM(14);
+					@include prefix(transition, 'transform 400ms ease');
+					color: color('accent-blue');
+					content: icon('search');
+					display: block;
+					position: absolute;
+					right: 0;
+					top: 0;
+				}
+
+				&:hover {
+					&::after {
+						color: color('ci');
+						transform: translateX(3px) scale(1.2);
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

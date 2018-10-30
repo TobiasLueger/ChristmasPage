@@ -1,0 +1,103 @@
+# ==========================================================================================
+#  Subdomains (AWS)
+# ==========================================================================================
+
+[globalString = ENV:HTTP_HOST = web.poezmen-mdc-cp.brandung-dev.de]
+    liveHost = web.poezmen-mdc-cp.brandung-dev.de
+    isDevelopment = 1
+[END]
+
+[globalString = ENV:HTTP_HOST = web.poezmen-mdc-akut.brandung-dev.de]
+    liveHost = web.poezmen-mdc-akut.brandung-dev.de
+    isDevelopment = 1
+[END]
+
+[globalString = ENV:HTTP_HOST = herzzentrumlahr.poezmen-mdc-akut.brandung-dev.de]
+    liveHost = herzzentrumlahr.poezmen-mdc-akut.brandung-dev.de
+    isDevelopment = 1
+[END]
+
+[globalString = ENV:HTTP_HOST = web.gschmechel-mdc-cp.brandung-dev.de]
+    liveHost = web.gschmechel-mdc-cp.brandung-dev.de
+    isDevelopment = 1
+[END]
+
+[globalString = ENV:HTTP_HOST = web.gschmechel-mdc-akut.brandung-dev.de]
+    liveHost = web.gschmechel-mdc-akut.brandung-dev.de
+    isDevelopment = 1
+[END]
+
+[globalString = ENV:HTTP_HOST = web.fnorbutat-mdc-cp.brandung-dev.de]
+    liveHost = web.fnorbutat-mdc-cp.brandung-dev.de
+    isDevelopment = 1
+[END]
+
+[globalString = ENV:HTTP_HOST = web.fnorbutat-mdc-akut.brandung-dev.de]
+    liveHost = web.fnorbutat-mdc-akut.brandung-dev.de
+    isDevelopment = 1
+[END]
+
+# ==========================================================================================
+#  Subdomains (iQuer Stage)
+# ==========================================================================================
+
+[globalString = ENV:HTTP_HOST = mueritz-akut-stage.mcl.kundenheimat.de]
+    liveHost = mueritz-akut-stage.mcl.kundenheimat.de
+    isDevelopment = 1
+    breadcrumbPid = 2,3,4,20
+    mainNavPid = 2
+    mainMetaPid = 3
+    menuFooterPid = 4
+    menuFooterMetaPid = 20
+    newsStoragePid =
+
+    privacyPolicyPid = 64
+    legalPid = 65
+[END]
+
+[globalString = ENV:HTTP_HOST = lahrbaden-akut-stage.mcl.kundenheimat.de] || [globalString = ENV:HTTP_HOST = herzzentrum-lahr.de] || [globalString = ENV:HTTP_HOST = www.herzzentrum-lahr.de]
+    liveHost = lahrbaden-akut-stage.mcl.kundenheimat.de
+    isDevelopment = 1
+    breadcrumbPid = 42,47,48,49
+    mainNavPid = 42
+    mainMetaPid = 47
+    menuFooterPid = 48
+    menuFooterMetaPid = 49
+    langNavPid =
+    newsStoragePid =
+
+    privacyPolicyPid = 64
+    legalPid = 65
+[END]
+
+[globalString = ENV:HTTP_HOST = herzzentrum-lahr.de]
+    liveHost = herzzentrum-lahr.de
+    isDevelopment = 0
+
+    breadcrumbPid = 42,47,48,49
+    mainNavPid = 42
+    mainMetaPid = 47
+    menuFooterPid = 48
+    menuFooterMetaPid = 49
+    langNavPid =
+    newsStoragePid =
+
+    privacyPolicyPid = 64
+    legalPid = 65
+[END]
+
+[globalString = ENV:HTTP_HOST = www.herzzentrum-lahr.de]
+    liveHost = www.herzzentrum-lahr.de
+    isDevelopment = 0
+
+    breadcrumbPid = 42,47,48,49
+    mainNavPid = 42
+    mainMetaPid = 47
+    menuFooterPid = 48
+    menuFooterMetaPid = 49
+    langNavPid =
+    newsStoragePid =
+
+    privacyPolicyPid = 64
+    legalPid = 65
+[END]

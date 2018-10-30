@@ -1,0 +1,171 @@
+@charset "utf-8";
+/**
+ * Capitan custom-select v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2018-08-13
+ * MIT License (MIT)
+ */
+
+@import '../../sass/partials/functions';
+@import '../../sass/partials/variables';
+@import '../../sass/partials/mixins';
+
+$component: 'content-block';
+
+// block
+%#{$component} {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: $grid-gutter-width;
+
+
+    &.is-active {
+        > a > .#{$component}__icon {
+            animation: download 0.5s ease-out;
+        }
+    }
+}
+
+
+// element
+.#{$component}__icon {
+    margin-right: $grid-gutter-width-half * 1.5;
+
+    &::before {
+        @include fontSizeREM(40);
+        color: color('green-light');
+
+        @include respondMin(point('min-md')) {
+            @include fontSizeREM(50);
+        }
+    }
+}
+
+.#{$component}__content {
+    > p {
+        display: block;
+        margin-bottom: $grid-gutter-width-half * 1.5;
+    }
+}
+
+// modifier
+.#{$component}--download {
+    > a {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: row;
+
+        .#{$component}__icon {
+            &::before {
+                color: color('accent-turquois');
+            }
+        }
+
+        .#{$component}__content {
+            > p {
+                color: color('black');
+
+                &:last-of-type {
+                    @include font($ff-semibold);
+                    @include fontSizeREM(12);
+                    color: color('accent-turquois');
+                }
+            }
+        }
+
+        &:hover {
+            .#{$component}__icon {
+                &::before {
+                    color: color('ci-hover');
+                }
+            }
+
+            .#{$component}__content {
+                > p {
+                    color: color('ci-hover');
+                }
+            }
+        }
+    }
+}
+
+@keyframes download {
+    0% {
+        display: block;
+        opacity: 1;
+        filter: grayscale(100%);
+        transform: scale(1);
+    }
+
+    25% {
+      display: block;
+      opacity: 0.5;
+      filter: grayscale(100%);
+      transform: scale(0.5);
+    }
+
+    50% {
+        display: none;
+        opacity: 0;
+        filter: grayscale(100%);
+        transform: scale(0);
+    }
+
+    75% {
+        display: block;
+        opacity: 0.5;
+        filter: grayscale(0%);
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.#{$component}--message {
+	.#{$component}__wrapper {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+
+		@include respondMin(point('min-lg')) {
+			flex-direction: row;
+			flex-wrap: nowrap;
+			padding: $grid-gutter-width*2;
+		}
+	}
+
+	.#{$component}__icon {
+		margin: 0 0 $grid-gutter-width;
+
+		@include respondMin(point('min-lg')) {
+			margin-right: $grid-gutter-width;
+		}
+
+		&::before {
+			@include fontSizeREM(50);
+			color: color('accent-turquois');
+
+			@include respondMin(point('min-lg')) {
+				@include fontSizeREM(84);
+			}
+		}
+	}
+
+	.#{$component}__content {
+		> p {
+			color: color('black');
+		}
+	}
+}
+
+// component class selector
+.#{$component} {
+    @extend %#{$component};
+}

@@ -1,0 +1,48 @@
+@charset "utf-8";
+/**
+ * Capitan disease-box.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2018-19-10
+ * MIT License (MIT)
+ */
+
+$component: 'disease-box';
+
+// block
+%#{$component} {
+	position: relative;
+	overflow: hidden;
+	transition: 200ms ease all;
+
+	border: 1px solid color('ci');
+	padding: 25px 25px 0 25px;
+	margin: 10px;
+	border-radius: 10px;
+	transform: scale(1);
+}
+
+// element
+span.#{$component}__close {
+	position: absolute;
+	cursor: pointer;
+	top: 10px;
+	right: 0;
+}
+
+button.#{$component}__close {
+	position: relative;
+}
+
+// modifier
+.#{$component}--hidden {
+	transform: scale(0);
+	position: absolute;
+}
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

@@ -1,0 +1,29 @@
+{{!-- components/expert-header --}}
+<div class="expert-header{{#if class}} {{class}}{{/if}}">
+	<div class="row">
+		<div class="col-xs-12 col-lg-3 expert-header__profile">
+			<picture>
+				<source media="(max-width: 767px)" srcset="{{imagePlaceholder width='200' height='200' bg="#F5F6F3" fg="#333" size="34px"}}">
+				<source media="(max-width: 991px)" srcset="{{imagePlaceholder width='160' height='160' bg="#F5F6F3" fg="#333" size="34px"}}">
+				<img src="{{imagePlaceholder width='329' height='329' bg="#F5F6F3" fg="#333" size="34px"}}" alt="[ALT]" title="[TITLE]" class="expert-header__img" />
+			</picture>
+
+			<div>
+				<p class="util-h3 util-hidden-lg">{{expert-name}}</p>
+
+				<button class="btn btn--primary">Kontakt aufnehmen</button>
+			</div>
+		</div>
+
+		<div class="col-xs-12 col-lg-9 expert-header__fields">
+			<p class="util-h3 util-visible-lg">{{expert-name}}</p>
+
+			<div class="expert-header__grid">
+                {{> teaser modifier="teaser-contact-person" class="teaser--contact-person" pictureArea=false teaser-title=false expert-title-area=true expert-title="Chefarzt, Klinik für Innere Medizin und Kardiologie" teaserSpecial-normal=false teaserSpecial-small=true specialField="Herz-, Thorax- und Gefäßchirurgie" clinic="MediClin Herzzentrum Lahr/Baden Klinik für Innere Medizin und Kardiologie" contactList-telFax=true contactList=false }}
+                {{> teaser modifier="teaser-contact-person" class="teaser--contact-person" pictureArea=false teaser-title=false expert-title-area=true expert-title="Chefarzt, Klinik für Gefäßmedizin" teaserSpecial-normal=false teaserSpecial-small=true specialField="Herz-, Thorax- und Gefäßchirurgie" clinic="MediClin Dünewald-Klinik" contactList-telFax=true contactList=false }}
+                {{> teaser modifier="teaser-contact-person" class="teaser--contact-person" pictureArea=false teaser-title=false expert-title-area=true expert-title="Chefarzt, Klinik für Innere Medizin und Kardiologie" teaserSpecial-normal=false teaserSpecial-small=true specialField="Herz-, Thorax- und Gefäßchirurgie" clinic="MediClin Herzzentrum Lahr/Baden Klinik für Innere Medizin und Kardiologie" contactList-telFax=true contactList=false }}
+                {{> teaser modifier="teaser-contact-person" class="teaser--contact-person" pictureArea=false teaser-title=false expert-title-area=true expert-title="Chefarzt, Klinik für Innere Medizin und Kardiologie" teaserSpecial-normal=false teaserSpecial-small=true specialField="Herz-, Thorax- und Gefäßchirurgie" clinic="MediClin Herzzentrum Lahr/Baden Klinik für Innere Medizin und Kardiologie" contactList-telFax=true contactList=false }}
+			</div>
+		</div>
+	</div>
+</div>

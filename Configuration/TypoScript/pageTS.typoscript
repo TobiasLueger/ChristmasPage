@@ -1,0 +1,19 @@
+# ==========================================================================================
+#  To load this backendlayouts add pageTs.ts to the root page in the backend.
+#  page properties -> Ressources -> "Page TSConfig" add this command
+#
+#  <INCLUDE_TYPOSCRIPT: source="FILE:typo3conf/ext/bra_projectfiles_mdc_corporate/Configuration/TypoScript/pageTS.ts">
+# ==========================================================================================
+
+<INCLUDE_TYPOSCRIPT: source="FILE:typo3conf/ext/bra_projectfiles_mdc_corporate/Configuration/TypoScript/backendLayouts.typoscript">
+
+
+//add CKEditor Settings to TYPO3
+RTE.default.preset = custom1
+
+
+TCEFORM.tt_content.table_class {
+    addItems {
+        darkened = Darkened
+    }
+}

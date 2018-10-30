@@ -1,0 +1,231 @@
+
+renderingOptions:
+  submitButtonLabel: Abschicken
+type: Form
+identifier: aerztlicheZweitmeinung
+label: 'Ärztliche Zweitmeinung'
+prototypeName: standard
+finishers:
+  -
+    options:
+      subject: 'Formular Mediclin'
+      recipientAddress: '{text-4}'
+      recipientName: ''
+      senderAddress: info@mediclin.de
+      senderName: ''
+      replyToAddress: ''
+      carbonCopyAddress: ''
+      blindCarbonCopyAddress: ''
+      format: html
+      attachUploads: true
+    identifier: EmailToSender
+  -
+    options:
+      subject: info@mediclin.de
+      recipientAddress: info@mediclin.de
+      recipientName: ''
+      senderAddress: info@mediclin.de
+      senderName: ''
+      replyToAddress: ''
+      carbonCopyAddress: ''
+      blindCarbonCopyAddress: ''
+      format: html
+      attachUploads: true
+      translation:
+        language: ''
+    identifier: EmailToReceiver
+  -
+    options:
+      pageUid: '1'
+      additionalParameters: ''
+    identifier: Redirect
+renderables:
+  -
+    renderingOptions:
+      previousButtonLabel: ''
+      nextButtonLabel: ''
+    type: Page
+    identifier: page-1
+    label: ''
+    renderables:
+      -
+        type: GridRow
+        identifier: gridrow-1
+        label: 'Grid: Row'
+        renderables:
+          -
+            properties:
+              options:
+                Herr: Herr
+                Frau: Frau
+              elementDescription: ''
+              prependOptionLabel: 'Bitte Anrede wählen'
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '6'
+                  md:
+                    numbersOfColumnsToUse: '6'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+            type: SingleSelect
+            identifier: singleselect-1
+            label: ''
+          -
+            defaultValue: ''
+            properties:
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '6'
+                  md:
+                    numbersOfColumnsToUse: '6'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+            type: Text
+            identifier: text-5
+            label: Titel
+          -
+            defaultValue: ''
+            properties:
+              fluidAdditionalAttributes:
+                placeholder: Vorname
+                required: required
+              elementDescription: Vorname
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '6'
+                  md:
+                    numbersOfColumnsToUse: '6'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+            type: Text
+            identifier: text-1
+            label: Vorname
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            defaultValue: ''
+            properties:
+              fluidAdditionalAttributes:
+                placeholder: Nachname
+                required: required
+              elementDescription: Nachname
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '6'
+                  md:
+                    numbersOfColumnsToUse: '6'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+            type: Text
+            identifier: text-2
+            label: Nachname
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            defaultValue: ''
+            properties:
+              fluidAdditionalAttributes:
+                placeholder: Telefonnummer
+              elementDescription: Telefonnummer
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '6'
+                  md:
+                    numbersOfColumnsToUse: '6'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+            type: Text
+            identifier: text-3
+            label: Telefonnummer
+          -
+            defaultValue: ''
+            properties:
+              fluidAdditionalAttributes:
+                placeholder: E-Mail
+                type: email
+                required: required
+              elementDescription: E-Mail
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '6'
+                  md:
+                    numbersOfColumnsToUse: '6'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+            type: Text
+            identifier: text-4
+            label: E-Mail
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            defaultValue: ''
+            type: Textarea
+            identifier: textarea-1
+            label: 'Ihr Anliegen'
+            properties:
+              fluidAdditionalAttributes:
+                placeholder: 'Ihr Anliegen'
+                required: required
+              elementDescription: 'Ihr Anliegen'
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '12'
+                  md:
+                    numbersOfColumnsToUse: '12'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            properties:
+              text: ''
+              pageUidAgb: '5'
+              pageUidDataprotect: '5'
+            type: DataText
+            identifier: datatext-1
+            label: 'Datenschutz/AGB Text'
+      -
+        renderingOptions:
+          submitButtonLabel: true
+        type: Recaptcha
+        identifier: recaptcha-1
+        label: ''
+        properties:
+          gridColumnClassAutoConfiguration:
+            viewPorts:
+              lg:
+                numbersOfColumnsToUse: '6'
+              md:
+                numbersOfColumnsToUse: '6'
+              sm:
+                numbersOfColumnsToUse: '12'
+              xs:
+                numbersOfColumnsToUse: '12'
+        validators:
+          -
+            identifier: Recaptcha

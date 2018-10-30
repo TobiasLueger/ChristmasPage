@@ -1,0 +1,148 @@
+{{!-- components/animations --}}
+{{#if modifier}}
+	{{#ifCond modifier '==' 'fade-zoom-in'}}
+		{{#forLoop 0 count 1 }}
+			<div data-aos="fade-zoom-in"
+				 data-aos-easing="ease-in-back"
+				 data-aos-delay="300"
+				 data-aos-offset="0"
+				 data-aos-duration="700"
+				 data-aos-once="true">
+				{{> expert-listing expert-name="Prof. Dr. med. Eberhard von Hodenberg"}}
+			</div>
+
+			<hr class="util-add-margin-bottom-triple" />
+		{{/forLoop}}
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'fade-zoom-in-persons'}}
+		{{#forLoop 0 count 1 }}
+			<div data-aos="fade-zoom-in"
+				 data-aos-easing="ease-in-back"
+				 data-aos-delay="300"
+				 data-aos-offset="0"
+				 data-aos-duration="700"
+				 data-aos-once="true"
+				 class="col-xs-12 col-lg-6">
+				{{> teaser modifier="teaser-contact-person" class="teaser--contact-person" pictureArea=true teaser-title=true name="Rita Wanninger" expert-title-area=false teaserSpecial-normal=true teaserSpecial-small=false specialField="Leitung Personal" clinic="MediClin Dünewald-Klinik" contactList-telFax=false contactList=true }}
+			</div>
+		{{/forLoop}}
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'search-results'}}
+		{{#forLoop 0 count 1 }}
+		<div data-aos="fade-zoom-in"
+			 data-aos-easing="ease-in-back"
+			 data-aos-delay="300"
+			 data-aos-offset="0"
+			 data-aos-duration="700"
+			 data-aos-once="true">
+			{{> teaser modifier="teaser-search-result" class="teaser--search-result" title="Gesundheitsmagazin-Übersicht" showCopytext=true showLink=true }}
+		</div>
+		{{/forLoop}}
+	{{/ifCond}}
+
+    {{#ifCond modifier '==' 'media-center-brochure'}}
+        {{#forLoop 0 count 1 }}
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <div data-aos="fade-zoom-in"
+                     data-aos-easing="ease-in-back"
+                     data-aos-delay="200"
+                     data-aos-offset="0"
+                     data-aos-duration="500"
+                     data-aos-once="true">
+                    {{> teaser modifier="teaser-media" class="teaser--media" title="Bildtitel lorem ipsum dolorem, usu epicuri cu met qut" showPill=false }}
+                </div>
+            </div>
+        {{/forLoop}}
+    {{/ifCond}}
+
+    {{#ifCond modifier '==' 'media-center-claim'}}
+        {{#forLoop 0 count 1 }}
+            <div class="col-xs-12 col-md-12 col-lg-6 util-add-margin-bottom-full">
+                <div data-aos="fade-zoom-in"
+                     data-aos-easing="ease-in-back"
+                     data-aos-delay="200"
+                     data-aos-offset="0"
+                     data-aos-duration="500"
+                     data-aos-once="true">
+                    {{> teaser modifier="teaser-media-box" class="teaser--media-box" category="Ratgeber" title="Lorem ipsum dolor sit amet, consetetur sadipscing elitr" text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt, sed diam voluptua." }}
+                </div>
+            </div>
+        {{/forLoop}}
+    {{/ifCond}}
+
+    {{#ifCond modifier '==' 'media-center-video'}}
+        {{#forLoop 0 count 1 }}
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div data-aos="fade-zoom-in"
+                     data-aos-easing="ease-in-back"
+                     data-aos-delay="200"
+                     data-aos-offset="0"
+                     data-aos-duration="500"
+                     data-aos-once="true">
+                    {{> teaser modifier="teaser-media" class="teaser--media" url="https://www.youtube.com/embed/QK2b-hx50sU" title="Bildtitel lorem ipsum dolorem, usu epicuri cu met qut" showPill=true }}
+                </div>
+            </div>
+        {{/forLoop}}
+    {{/ifCond}}
+
+	{{#ifCond modifier '==' 'news-listing'}}
+		{{#forLoop 0 count 1 }}
+			<div class="col-xs-12 col-md-6 col-lg-4">
+				<div data-aos="fade-up"
+					 data-aos-duration="700"
+					 data-aos-offset="250"
+					 data-aos-once="true">
+					{{> teaser modifier="teaser-listing-news" class="teaser--listing-news" pictureArea=true title="Mediclin Reha Center" showCopytext=true showCTA=true iconSpecialarea=true }}
+				</div>
+			</div>
+		{{/forLoop}}
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'events-listing'}}
+		<div class="col-xs-12 col-md-6 col-lg-12">
+			<div data-aos="fade-up"
+				 data-aos-duration="700"
+				 data-aos-offset="0"
+				 data-aos-once="true">
+				{{> teaser modifier="teaser-listing-events" class="teaser--listing-events" title="27. Rehawissenschaftliches Kolloquium" tag="Prävention" showCopytext=true showCTA=true image=true }}
+			</div>
+		</div>
+
+		{{#forLoop 0 count 1 }}
+			<div class="col-xs-12 col-md-6">
+				<div data-aos="fade-up"
+					 data-aos-duration="700"
+					 data-aos-offset="0"
+					 data-aos-once="true">
+					{{> teaser modifier="teaser-listing-events" class="teaser--listing-events" title="27. Rehawissenschaftliches Kolloquium" tag="Prävention" showCopytext=true showCTA=true image=false }}
+				</div>
+			</div>
+		{{/forLoop}}
+	{{/ifCond}}
+{{else}}
+
+	<div data-aos="fade-up" data-aos-duration="300" data-aos-offset="30" data-aos-once="true">
+		<p class="util-h3">Fade in Animation Once - Trigger after 300px - Duration 300ms</p>
+
+		<p>Landjaeger chicken ham fatback sausage hamburger, tri-tip capicola pastrami pancetta ribeye turducken. Rump shank turkey pig kevin sausage meatloaf tenderloin drumstick short ribs short loin. Prosciutto spare ribs chuck, pork strip steak pork chop swine bacon turkey shoulder andouille. Jowl landjaeger chicken corned beef. Ham hock kielbasa pancetta ground round sausage. Spare ribs porchetta pastrami filet mignon drumstick ball tip. Beef ribs prosciutto kevin, landjaeger shoulder ham hock ham brisket sirloin chuck t-bone drumstick kielbasa pork chop.</p>
+	</div>
+
+    <hr />
+
+	<div data-aos="fade-right" data-aos-duration="300" data-aos-offset="30">
+		<p class="util-h3">Fade up Animation - Always - Trigger after 300px - Duration 300ms</p>
+
+		<p>Landjaeger chicken ham fatback sausage hamburger, tri-tip capicola pastrami pancetta ribeye turducken. Rump shank turkey pig kevin sausage meatloaf tenderloin drumstick short ribs short loin. Prosciutto spare ribs chuck, pork strip steak pork chop swine bacon turkey shoulder andouille. Jowl landjaeger chicken corned beef. Ham hock kielbasa pancetta ground round sausage. Spare ribs porchetta pastrami filet mignon drumstick ball tip. Beef ribs prosciutto kevin, landjaeger shoulder ham hock ham brisket sirloin chuck t-bone drumstick kielbasa pork chop.</p>
+	</div>
+
+    <hr />
+
+    <div data-aos="fade-left" data-aos-duration="300" data-aos-offset="30">
+		<p class="util-h3">Fade up Animation - Always - Trigger after 300px - Duration 300ms</p>
+
+		<p>Landjaeger chicken ham fatback sausage hamburger, tri-tip capicola pastrami pancetta ribeye turducken. Rump shank turkey pig kevin sausage meatloaf tenderloin drumstick short ribs short loin. Prosciutto spare ribs chuck, pork strip steak pork chop swine bacon turkey shoulder andouille. Jowl landjaeger chicken corned beef. Ham hock kielbasa pancetta ground round sausage. Spare ribs porchetta pastrami filet mignon drumstick ball tip. Beef ribs prosciutto kevin, landjaeger shoulder ham hock ham brisket sirloin chuck t-bone drumstick kielbasa pork chop.</p>
+	</div>
+{{/if}}
+

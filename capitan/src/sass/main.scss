@@ -1,0 +1,90 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   Core functions, variables and mixins
+   ========================================================================== */
+@import 'partials/functions';
+@import 'partials/variables';
+@import 'partials/mixins';
+
+/* ==========================================================================
+   Theme files
+   ========================================================================== */
+/**
+ 	the includePath node sass option looks for these files inside the theme folder
+ 	@see capitan/gulp/tasks/styles.js
+*/
+@import 'theme';
+
+/* ==========================================================================
+   Vendor bootstrap
+   ========================================================================== */
+@import '../../node_modules/bootstrap/scss/mixins/breakpoints';
+@import '../../node_modules/bootstrap/scss/mixins/grid-framework';
+@import '../../node_modules/bootstrap/scss/mixins/grid';
+@import '../../node_modules/bootstrap/scss/grid';
+@import '../../node_modules/bootstrap/scss/utilities/display';
+@import '../../node_modules/bootstrap/scss/utilities/flex';
+
+/* ==========================================================================
+   Default layout partials
+   ========================================================================== */
+@import 'partials/layout';
+@import 'partials/typo';
+@import 'partials/icon-font';
+@import 'partials/utils';
+
+/* ==========================================================================
+   Components
+   ========================================================================== */
+@import '../components/button/button';
+@import '../components/header/header';
+@import '../components/nav-main/nav-main';
+@import '../components/nav-mobile/nav-mobile';
+@import '../components/nav-services/nav-services';
+@import '../components/nav-news/nav-news';
+@import '../components/stage/stage';
+@import "../components/footer/footer";
+@import "../components/form/form";
+@import "../components/custom-select/custom-select";
+@import "../components/custom-datepicker/custom-datepicker";
+@import "../components/filter/filter";
+@import "../components/tooltip/tooltip";
+@import '../components/scrolltop/scrolltop';
+@import '../components/accordion/accordion';
+@import '../components/notification/notification';
+@import '../components/list/list';
+@import '../components/cookie-layer/cookie-layer';
+@import '../components/teaser/teaser';
+@import '../components/fancybox/fancybox';
+@import '../components/slider/slider';
+@import '../components/section/section';
+@import '../components/breadcrumb/breadcrumb';
+@import '../components/tiles/tiles';
+@import '../components/countup/countup';
+@import '../components/main-focus/main-focus';
+@import '../components/gmaps/gmaps';
+@import '../components/quicklinks/quicklinks';
+@import '../components/contact-box/contact-box';
+@import '../components/content-block/content-block';
+@import '../components/quotation/quotation';
+@import '../components/pagination/pagination';
+@import '../components/tabs/tabs';
+@import '../components/related-links/related-links';
+@import '../components/expert-header/expert-header';
+@import '../components/expert-listing/expert-listing';
+@import '../components/expert-finder/expert-finder';
+@import '../components/contact-list/contact-list';
+@import '../components/table-block/partials/table/table';
+@import '../components/table-block/table-block';
+@import '../components/listing-results/listing-results';
+@import '../components/animations/animations';
+@import '../components/reveal/reveal';
+@import '../components/info-box/info-box';
+@import '../components/search-form/search-form';
+@import '../components/anchor-nav/anchor-nav';
+@import '../components/switch/switch';
+@import '../components/news-header/news-header';
+@import '../components/event-header/event-header';
+@import '../components/disease-filter/disease-filter';
+@import '../components/disease-box/disease-box';

@@ -1,0 +1,6 @@
+/monitor/stats.json
+/src/templates/styleguide/*.html
+/node_modules
+/npm-debug.log
+/dist/*
+_capitan_/

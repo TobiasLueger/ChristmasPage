@@ -1,0 +1,102 @@
+@charset "utf-8";
+
+/**
+ * Capitan scrolltop.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2016-09-05
+ * MIT License (MIT)
+ */
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+@import '../../sass/partials/functions';
+@import '../../sass/partials/variables';
+@import '../../sass/partials/mixins';
+
+$component: 'scrolltop';
+
+// block
+%#{$component} {
+	@include prefix(box-shadow, '0 6px 20px 0 rgba(0,0,0,.3)');
+	@include prefix(transition, 'opacity .2s ease-in .1s, visibility .2s ease-in-out .1s, border-color 200ms ease');
+
+	background: color('white');
+	margin: $grid-gutter-width auto 25px;
+	text-decoration: none !important;
+	display: flex;
+	align-items: center;
+	color: color('accent-blue');
+	border: 1px solid color('accent-blue');
+	border-radius: 20px;
+	padding: 12px 35px 12px 25px;
+	visibility: hidden;
+	opacity: 0;
+
+	@include respondMax(point('max-md')) {
+		position: initial;
+		left: 50%;
+		right: 50%;
+		margin: $grid-gutter-width auto;
+		font-size: 0;
+		padding: 5px;
+		width: 58px;
+		height: 50px;
+		border-radius: 20px;
+		justify-content: center;
+	}
+
+	@include respondMin(point('min-lg')) {
+		position: fixed;
+		bottom: calc(0% + 25px); // Y-Position should be more dynamic, if scroll to Footer it should adjust distance to bottom
+		right: calc(0% + 20px);
+		z-index: 11;
+	}
+
+	// button gets cut off, so custom breakpoint with retina + button width (150px) has to be used
+	@include respondMin(pxToEm(1552)) {
+		left: 50%;
+		margin-left: $container-max-widths/2 * 1px;
+		width: 152px;
+	}
+
+
+	&:hover {
+		border-color: color('ci-hover');
+
+		&:after {
+			transform: scale(1.2);
+		}
+	}
+
+	&:after {
+		@include font($ff-icon);
+		@include fontSizeREM(13);
+		transition: transform 200ms ease;
+		display: block;
+		line-height: 1;
+		content: icon('arrow-top');
+
+		@include respondMin(point('min-lg')) {
+			position: absolute;
+			right: 16px;
+			top: 50%;
+			margin-top: -6px;
+		}
+	}
+
+	&.is-visible {
+		visibility: visible;
+		opacity: 1;
+	}
+
+}
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

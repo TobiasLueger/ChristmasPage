@@ -1,0 +1,78 @@
+#-----------------------------------
+# constants by plugins
+#-----------------------------------
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bra_news_mdc/Configuration/TypoScript/constants.typoscript">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bra_relation_mdc/Configuration/TypoScript/constants.typoscript">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bra_events_mdc/Configuration/TypoScript/constants.typoscript">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bra_contact_mdc/Configuration/TypoScript/constants.typoscript">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bra_facility_mdc/Configuration/TypoScript/constants.typoscript">
+
+#-----------------------------------
+# Default project constants
+#-----------------------------------
+
+liveHost =
+sitemapXML = 1
+notfoundPid = 34
+
+pageName = MediClin Corporate
+isDevelopment = 0
+
+logo = EXT:bra_projectfiles_mdc_corporate/Resources/Public/img/svg/mediclin-logo.svg
+
+# Wird für die Generierung der Breadcrumb benötigt
+newsStoragePid =
+# Pid Werte für die Navigationen. Wird je nach Domain überschrieben (siehe constants_domain.typoscript)
+breadcrumbPid = 2,3,4,20
+mainNavPid = 2
+mainMetaPid = 3
+menuFooterPid = 4
+menuFooterMetaPid = 20
+langNavPid = 72
+
+privacyPolicyPid = 64
+legalPid = 65
+
+searchPid = 14
+
+#-----------------------------------
+# indexed_search
+#-----------------------------------
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:indexed_search/Configuration/TypoScript/constants.txt">
+plugin.tx_indexedsearch {
+    settings {
+        rootPidList = 1
+    }
+
+    view {
+        templateRootPath = EXT:bra_projectfiles_mdc_corporate/Resources/Private/Plugins/Search/Templates/
+        partialRootPath = EXT:bra_projectfiles_mdc_corporate/Resources/Private/Plugins/Search/Partials/
+    }
+}
+
+#-----------------------------------
+# bra_clinic_mdc
+#-----------------------------------
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bra_clinic_mdc/Configuration/TypoScript/constants.ts">
+plugin.tx_braclinicmdc_clinic {
+    persistence.storagePid = 38
+}
+
+#-----------------------------------
+# sitemap_generator (https://docs.typo3.org/typo3cms/extensions/sitemap_generator/Introduction/Index.html)
+#-----------------------------------
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:sitemap_generator/Configuration/TypoScript/constants.txt">
+
+[applicationContext = Development*]
+    #ACHTUNG: conditions können nicht verschachtelt werden. D.h. innerhalb vom constants_dev.typoscript sind keine conditions möglich
+    <INCLUDE_TYPOSCRIPT: source="FILE:typo3conf/ext/bra_projectfiles/Configuration/TypoScript/constants_dev.typoscript">
+[END]
+
+# Angepasste Domainabfrage für die Livedomain
+<INCLUDE_TYPOSCRIPT: source="FILE:typo3conf/ext/bra_projectfiles_mdc_corporate/Configuration/TypoScript/constants_domain.typoscript">
+
+
+#-------------------------------------------------------------
+# LOAD SPECIFIC CONSTANTS FOR PAGE TYPE (AKUT/CORP ETC.)
+#-------------------------------------------------------------
+<INCLUDE_TYPOSCRIPT: source="FILE:typo3conf/ext/bra_projectfiles_mdc_corporate/Configuration/TypoScript/Constants/constants_akut.typoscript">

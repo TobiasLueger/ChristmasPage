@@ -1,0 +1,193 @@
+{{!-- components/gmaps --}}
+<div class="gmaps__container">
+    {{#if category}}
+        <ul class="gmaps__category">
+            <li data-category="1">
+                <a href="javascript:void(0)" class="util-icon--before util-icon--experts">
+                    <span>Arztpraxen</span>
+                </a>
+            </li>
+
+            <li data-category="2">
+                <a href="javascript:void(0)" class="util-icon--before util-icon--hospital">
+                    <span>Krankenhäuser</span>
+                </a>
+            </li>
+
+            <li data-category="3">
+                <a href="javascript:void(0)" class="util-icon--before util-icon--map">
+                    <span>Reha-Kliniken</span>
+                </a>
+            </li>
+
+            <li data-category="4">
+                <a href="javascript:void(0)" class="util-icon--before util-icon--stay">
+                    <span>Pflegeeinrichtungen</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="form__field-wrapper util-hidden-md util-text-center">
+            <a href="#" class="btn btn--tertiary">Einrichtung finden</a>
+        </div>
+    {{/if}}
+
+    <!-- data-geo for local testing, do not include this on live environments -->
+    <div class="gmaps {{#if class}}{{class}}{{/if}} {{#if visible}}util-visible-{{visible}}{{/if}}" id="storefinder"
+            data-ajax-url{{#if data}}="{{data}}"{{/if}}
+            data-type{{#if type}}="{{type}}"{{/if}}
+            data-facility{{#if facility}}="{{facility}}"{{/if}}
+            data-location{{#if location}}="{{location}}"{{/if}}
+            data-search{{#if search}}="{{search}}"{{/if}}
+            data-zoom{{#if zoom}}="{{zoom}}"{{/if}}
+            data-wording='[ "Route planen", "Fachbereiche", "Zur Klinik-Seite", "Kontakt aufnehmen", "Einrichtung finden", "Standort lokalisieren", "Ort oder PLZ eingeben" ]'></div>
+
+    {{#if modifier}}
+    	{{#ifCond modifier '==' 'gmaps-one'}}
+    	    <ul class="gmaps__list">
+                <li>
+                    <div data-marker="0">
+                        <span>
+                            Akutkrankenhaus<br />
+                            <strong>MediClin Herzzentrum Lahr/Baden</strong>
+                        </span>
+                    </div>
+
+                    <div class="">
+                        <ul class="util-reset-padding-left">
+                            <li class="util-icon util-icon--before util-icon--location-o">
+                                Hohbergweg 2,
+                            </li>
+
+                            <li class="gmaps__item">
+                                77933 Lahr
+                            </li>
+
+                            <li class="util-icon util-icon--before util-icon--tel">
+                                Tel.: <a href="tel:+4978219252501">+49 7821 925 25 01</a>
+                            </li>
+                        </ul>
+
+                        <div class="btn-group">
+                            <button class="btn btn--secondary util-reset-margin">Kontakt aufnehmen</button>
+
+                            <a href="https://www.google.de/maps/dir//MediClin+Herzzentrum+Lahr%2FBaden,+Hohbergweg,+Lahr%2FSchwarzwald/@48.3397947,7.8561908"
+                               target="_blank"
+                               class="util-link util-icon--after util-icon--arrow-right"
+                               title="Jetzt Route planen">Jetzt Route planen</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        {{/ifCond}}
+
+    	{{#ifCond modifier '==' 'gmaps-three'}}
+    	    <ul class="gmaps__list accordion">
+                <li>
+                    <div class="accordion__trigger" data-marker="0">
+                        <span>
+                            Akutkrankenhaus<br />
+                            <strong>MediClin Herzzentrum Lahr/Baden</strong>
+                        </span>
+                    </div>
+
+                    <div class="accordion__content-wrapper">
+                        <ul class="util-reset-padding-left">
+                            <li class="util-icon util-icon--before util-icon--location-o">
+                                Hohbergweg 2,
+                            </li>
+
+                            <li class="gmaps__item">
+                                77933 Lahr
+                            </li>
+
+                            <li class="util-icon util-icon--before util-icon--tel">
+                                Tel.: <a href="tel:+4978219252501">+49 7821 925 25 01</a>
+                            </li>
+                        </ul>
+
+                        <div class="btn-group">
+                            <button class="btn btn--secondary util-reset-margin">Kontakt aufnehmen</button>
+
+                            <a href="https://www.google.de/maps/dir//MediClin+Herzzentrum+Lahr%2FBaden,+Hohbergweg,+Lahr%2FSchwarzwald/@48.3397947,7.8561908"
+                               target="_blank"
+                               class="util-link util-icon--after util-icon--arrow-right"
+                               title="Jetzt Route planen">Jetzt Route planen</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="accordion__trigger" data-marker="1">
+                        <span>
+                            Fach- und Rehabilitationsklink<br />
+                            <strong>MediClin Seepark Klinik</strong>
+                        </span>
+                    </div>
+
+                    <div class="accordion__content-wrapper">
+                        <ul class="util-reset-padding-left">
+                            <li class="util-icon util-icon--before util-icon--location-o">
+                                Sebastian-Kneipp-Str. 1,
+                            </li>
+
+                            <li class="gmaps__item">
+                                29389 Bad Bodenteich
+                            </li>
+
+                            <li class="util-icon util-icon--before util-icon--tel">
+                                Tel.: <a href="tel:+4978219252501">+49 7821 925 25 01</a>
+                            </li>
+                        </ul>
+
+                        <div class="btn-group">
+                            <button class="btn btn--secondary util-reset-margin">Kontakt aufnehmen</button>
+
+                            <a href="https://www.google.de/maps/dir//MediClin%20Seepark%20Klinik,Sebastian-Kneipp-Stra%C3%9Fe%201,%2029389%20Bad%20Bodenteich/@52.82363245,10.6832706"
+                               target="_blank"
+                               class="util-link util-icon--after util-icon--arrow-right"
+                               title="Jetzt Route planen">Jetzt Route planen</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="accordion__trigger" data-marker="2">
+                        <span>
+                            Fachklinik<br />
+                            <strong>MediClin Zentrum für Psychische Gesundheit Donaueschingen</strong>
+                        </span>
+                    </div>
+
+                    <div class="accordion__content-wrapper">
+                        <ul class="util-reset-padding-left">
+                            <li class="util-icon util-icon--before util-icon--location-o">
+                                Alte-Wolterdinger-Straße 68,
+                            </li>
+
+                            <li class="gmaps__item">
+                                78166 Donaueschingen
+                            </li>
+
+                            <li class="util-icon util-icon--before util-icon--tel">
+                                Tel.: <a href="tel:+4978219252501">+49 7821 925 25 01</a>
+                            </li>
+                        </ul>
+
+                        <div class="btn-group">
+                            <button class="btn btn--secondary util-reset-margin">Kontakt aufnehmen</button>
+
+                            <a href="https://www.google.de/maps/dir//MediClin%20Zentrum%20f%C3%BCr%20Psychische%20Gesundheit%20Donaueschingen,Alte-Wolterdinger-Stra%C3%9Fe%2068,78166%20Donaueschingen/@47.9547793,8.4771798"
+                               target="_blank"
+                               class="util-link util-icon--after util-icon--arrow-right"
+                               title="Jetzt Route planen">Jetzt Route planen</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        {{/ifCond}}
+    {{else}}
+
+    {{/if}}
+</div>
+

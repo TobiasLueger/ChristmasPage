@@ -1,0 +1,90 @@
+@charset "utf-8";
+/**
+ * Capitan breadcrumb.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2018-06-18
+ * MIT License (MIT)
+ */
+
+@import '../../sass/partials/functions';
+@import '../../sass/partials/variables';
+@import '../../sass/partials/mixins';
+
+$component: 'breadcrumb';
+
+// block
+%#{$component} {
+	display: none;
+	margin: 0;
+	padding: 18px 0;
+
+	@include respondMin(point('min-md')) {
+		align-items: center;
+		display: flex;
+	}
+
+	a {
+		@include font();
+		color: color('black');
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+
+// element
+.#{$component}__item {
+	display: flex;
+	align-items: center;
+	margin-right: $grid-gutter-width-half;
+	padding-left: 0;
+
+	&,
+	a {
+		@include font($ff-regular);
+		@include fontSizeREM(14);
+		line-height: 16px;
+	}
+
+	&::before {
+		@include fontSizeREM(12);
+		color: color('ci');
+		content: icon('arrow-right');
+		display: block;
+		margin-right: $grid-gutter-width-half;
+	}
+
+	&:first-child {
+		&::before {
+			display: none;
+		}
+	}
+}
+
+.#{$component}__root {
+	padding-left: 0;
+
+	&::before {
+		content: icon('home');
+		margin-right: 0;
+	}
+}
+
+.#{$component}__current {
+	@include font($ff-semibold);
+	color: color('accent-blue');
+}
+
+// modifier
+
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

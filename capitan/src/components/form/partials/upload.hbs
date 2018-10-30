@@ -1,0 +1,21 @@
+{{!-- forms/partials/input.hbs --}}
+<div class="form__field-wrapper {{class}}">
+	<div class="form__upload">
+		<input type="file"
+			   id="{{id}}"
+			   name="{{name}}"
+			   value="{{value}}"
+			   title="{{label}}"
+			   placeholder="{{placeholder}}"
+			   data-parsley-max-file-size="{{maxfilesize}}"
+			   {{#if disabled}}disabled{{/if}}
+			   {{#if checked}}checked{{/if}}
+			   {{#if required}}required{{/if}}
+			   {{#if pattern}}pattern="{{pattern}}" {{/if}}
+			   {{#if errorMsg}}data-error-message="{{errorMsg}}" {{/if}}
+		/>
+		<label class="form__label" for="{{id}}"><span>{{label}} {{#if required}}*{{/if}}</span></label>
+		<small>Laden Sie Ihre Datei als JPG, PDF, oder PNG hoch. Das Upload-Limit beträgt 5 MB.</small>
+	</div>
+</div>
+

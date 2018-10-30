@@ -1,0 +1,11 @@
+<ul class="nav-mobile__vertical">
+
+    <f:for each="{childMenu}" as="childItem" iteration="childItemIter">
+        <li class="level2 nav-4-{childItemIter.cycle}" role="presentation">
+            <a href="{childItem.link}" title="{childItem.title}">
+                <span>{childItem.title}</span>
+            </a>
+        </li>
+    </f:for>
+
+</ul>

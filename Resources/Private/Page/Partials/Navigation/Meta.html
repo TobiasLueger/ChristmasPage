@@ -1,0 +1,81 @@
+<f:if condition="{menuMainMeta}">
+    <ul>
+        <f:for each="{menuMainMeta}" as="item" iteration="i">
+            <f:render partial="Navigation/Meta/Item" arguments="{item: item}"/>
+        </f:for>
+    </ul>
+
+    <f:comment>emergencyPid is set into layouts_akut.typoscript</f:comment>
+    <f:if condition="{emergencyPid}">
+        <div class="nav-meta--emergency">
+            <f:link.page pageUid="{emergencyPid}" title="Notfall" class="util-icon--before util-icon--emergency">
+                Notfall
+            </f:link.page>
+        </div>
+    </f:if>
+
+</f:if>
+
+<ul class="nav-meta--config-bar">
+    <li title="{f:translate(key: 'LLL:EXT:bra_projectfiles_mdc_corporate/Resources/Private/Language/locallang.xlf:search.title')}"
+        class="nav-meta__flyout--toggle util-icon--before util-icon--search">
+        <div class="nav-meta__flyout nav-meta__flyout--search">
+            <div class="nav-meta__flyout--content">
+                <div class="util-h4 util-visible-lg">
+                    <f:translate key="LLL:EXT:bra_projectfiles_mdc_corporate/Resources/Private/Language/locallang.xlf:search.label"/>
+                </div>
+                <form method="get" name="form_kesearch_searchfield" class="search-form">
+                    <input type="hidden" name="id" value="{searchPid}"/>
+                    <input class="search-form__input"
+                           name="tx_kesearch_pi1[sword]"
+                           placeholder="{f:translate(key: 'LLL:EXT:bra_projectfiles_mdc_corporate/Resources/Private/Language/locallang.xlf:search.placeholder')}">
+                    <button type="submit" class="search-form__button btn btn--primary btn--icon btn--icon-only util-icon--before util-icon--search"></button>
+                </form>
+            </div>
+        </div>
+    </li>
+
+    <li title="Einstellungen" class="nav-meta__flyout--toggle util-icon--before util-icon--font">
+        <span class="util-icon--after util-icon--arrow-bottom"></span>
+
+        <div class="nav-meta__flyout nav-meta__flyout--fontsize">
+            <div class="nav-meta__flyout--content">
+                <strong>Kontraststärke</strong>
+                <p>
+                    Verstärken Sie den Kontrast für eine leichtere Leseerfahrung.
+                </p>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="switch__slider">
+                        <span class="off">Aus</span>
+                        <span class="on">An</span>
+                    </span>
+                </label>
+            </div>
+            <div class="nav-meta__flyout--content">
+                <strong>Schriftgröße anpassen</strong>
+                <p>
+                    Halten Sie auf Ihrer Tastatur die Taste <strong>STRG</strong> gedrückt und betätigen Sie
+                    gleichzeitig
+                    die <strong>Plus- (+)</strong> oder <strong>Minus-Taste (-)</strong>, um die Schrift größer oder
+                    kleiner
+                    zu stellen. Mit <strong>STRG</strong> und <strong>0</strong> gelangen Sie wieder zur Ausgangsgröße.
+                </p>
+            </div>
+        </div>
+    </li>
+
+    <f:if condition="{menuLangMeta}">
+        <li title="Sprache" class="nav-meta__flyout--toggle util-icon--before" data-current-lang="Lang">
+            <span class="util-icon--after util-icon--arrow-bottom"></span>
+            <div class="nav-meta__flyout nav-meta__flyout--language">
+                <div class="nav-meta__flyout--content">
+                    <f:for each="{menuLangMeta}" as="langMenu">
+                        <a href="{langMenu.link}" title="{langMenu.title}">{langMenu.title}</a>
+                    </f:for>
+                </div>
+            </div>
+        </li>
+    </f:if>
+
+</ul>

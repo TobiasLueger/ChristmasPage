@@ -1,0 +1,145 @@
+@charset "utf-8";
+
+/**
+ * Capitan variables.scss v3.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2015-06-27
+ * MIT License (MIT)
+ */
+
+/* ==========================================================================
+   Base settings
+   ========================================================================== */
+
+/* base path */
+$folder-path: '..' !default;
+
+/* Base sizes */
+$base-em: 16 !default;
+
+/* Body font size */
+$body-font-size-px: 16 !default;
+$body-font-size: percentage(($body-font-size-px / $base-em) * 100 / 100) !default; // in percent
+
+/* Font Style */
+$ff-regular: 'Montserrat Regular', sans-serif;
+$ff-medium: 'Montserrat Medium', sans-serif;
+$ff-semibold: 'Montserrat SemiBold', sans-serif;
+$ff-icon: iconfont !default;
+
+//font weights
+$typo-weight-normal: 400;
+$typo-weight-medium: 500;
+$typo-weight-bold: 600;
+
+//letter spacing
+$typo-letterspacing-none: normal;
+$typo-letterspacing-default: 0.1em;
+
+/* ==========================================================================
+   Grid-System
+   ========================================================================== */
+
+// Grid breakpoints
+$featurephone: 320 !default;
+$smartphone: 480 !default;
+$tablet: 768 !default;
+$desktop: 992 !default;
+$retina: 1200 !default;
+$extended: 1440 !default;
+
+// Quickly modify global grid styling
+$enable-flex: true !default;
+$enable-grid-classes: true !default;
+
+// Grid Container max- and min-width dimensions
+$container-max-widths: 1440 !default;
+$container-min-widths: $featurephone !default;
+
+// Number of columns in the grid.
+$grid-columns: 12 !default;
+
+// Padding between columns.
+$grid-gutter-width: 20px !default;
+
+// Gets divided in half for the left and right.
+$grid-gutter-width-half: $grid-gutter-width / 2 !default;
+$grid-gutter-width-double: $grid-gutter-width * 2 !default;
+$grid-gutter-width-base: $grid-gutter-width !default;
+$grid-gutter-widths: (
+	xs: $grid-gutter-width-base,
+	sm: $grid-gutter-width-base,
+	md: $grid-gutter-width-base,
+	lg: $grid-gutter-width-base,
+	xl: $grid-gutter-width-base,
+	xxl: $grid-gutter-width-base
+) !default;
+
+// map for bootstrap mixins
+$grid-breakpoints: (
+		'xs': $featurephone + px,
+		'sm': $smartphone + px,
+		'md': $tablet + px,
+		'lg': $desktop + px,
+		'xl': $retina + px,
+		'xxl': $extended + px
+) !default;
+
+// map for respondMin/respondMax mixin
+$breakpoints: (
+		'min-xs': pxToEm($featurephone),
+		'min-sm': pxToEm($smartphone),
+		'min-md': pxToEm($tablet),
+		'min-lg': pxToEm($desktop),
+		'min-xl': pxToEm($retina),
+		'min-xxl': pxToEm($extended),
+		'max-xs': pxToEm($smartphone - 1),
+		'max-sm': pxToEm($tablet - 1),
+		'max-md': pxToEm($desktop - 1),
+		'max-lg': pxToEm($retina - 1),
+		'max-xl': pxToEm($extended - 1)
+) !default;
+
+
+/* ==========================================================================
+   Colors
+   ========================================================================== */
+
+$colors: (
+		'black': #191919,
+		'white': #fff,
+		'ci': #3FAC9A,
+		'ci-hover': #00C0A1,
+		'grey-light': #EEE,
+		'grey-lightest': #F5F5F5,
+		'grey-even-lighter-than-lightest-its-nearly-white': #fefefe,
+		'green-light': #D7DBCF,
+		'green-lightest': #F5F6F3,
+		'accent-blue': #258EA6,
+		'accent-yellow': #DAB707,
+		'accent-turquois': #329DA0,
+		'success': #00C0A1,
+		'error': #ED254E
+) !default;
+
+/* ==========================================================================
+   Icons
+   ========================================================================== */
+
+$icons: (
+		arrow-left: '\e902',
+		arrow-right: '\e903'
+) !default;
+
+/* ==========================================================================
+   Custom Variables
+   ========================================================================== */
+
+$header-sticky-class: 'is-header-sticky';
+$header-mobile-height: 95px;
+$header-mobile-sticky-height: 95px;
+$header-desktop-height: 138px;
+$header-desktop-sticky-height: 100px;

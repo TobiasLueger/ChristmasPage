@@ -1,0 +1,157 @@
+@charset "utf-8";
+
+/**
+ * Capitan layout.scss v2.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2016-09-05
+ * MIT License (MIT)
+ */
+
+/* ==========================================================================
+   Global Layout
+   ========================================================================== */
+
+* {
+	@include prefix(box-sizing, border-box);
+}
+
+html,
+body {
+	font-size: $body-font-size;
+}
+
+body {
+	@include font();
+	background: color('white');
+	color: color('black');
+	line-height: 1.4;
+	margin: 0;
+	position: relative;
+}
+
+main {
+	display: block;
+}
+
+/* ==========================================================================
+   Grid overrides
+   ========================================================================== */
+
+// Container widths
+.container {
+	min-width: ($container-min-widths / $body-font-size-px) + em;
+	max-width: ($container-max-widths / $body-font-size-px) + em;
+	margin: 0 auto;
+	padding: 0 $grid-gutter-width*1.5;
+
+	// smaller offset on mobile
+	@include respondMax(point('max-xs')) {
+		padding: 0 $grid-gutter-width;
+	}
+}
+
+// Row
+.row {
+	margin-bottom: $grid-gutter-width-half;
+
+	// smaller offset on mobile
+	@include respondMax(point('max-xs')) {
+		margin: 0 (-$grid-gutter-width / 4);
+	}
+
+	// fix for incorrect use of row without columns
+	& > *:not([class*="col-"]) {
+		width: 100%;
+		flex-basis: 100%;
+	}
+}
+
+.row--divided {
+	@include respondMin(point('min-md')) {
+	    margin: 0 (-40px);
+	}
+
+	& > [class*="col-"] {
+		&:first-child {
+			@include respondMin(point('min-md')) {
+				border-right: 1px solid color('grey-light');
+			}
+		}
+
+		.btn-group {
+			@include respondMin(point('min-md')) {
+			    margin-top: auto;
+			}
+		}
+
+		@include respondMin(point('min-md')) {
+		    padding: 0 40px;
+			display: flex;
+			flex-direction: column;
+		}
+	}
+}
+
+[class*="col-"] {
+	// smaller offset on mobile
+	@include respondMax(point('max-xs')) {
+		padding: 0 $grid-gutter-width-half / 2;
+	}
+}
+
+/* ==========================================================================
+  Content Elements
+  ========================================================================== */
+
+img {
+	height: auto;
+	outline: 0;
+	max-width: 100%;
+}
+
+hr {
+	margin: 20px 0;
+	border: 0;
+	border-top: 1px solid color('grey-medium');
+}
+
+/* ==========================================================================
+  Reset Offsets
+  ========================================================================== */
+
+div[class*='offset'] {
+	@include respondMin(point('min-sm')) {
+		div[class*='offset-sm'] {
+			flex: 0 0 100%;
+			margin-left: 0;
+			max-width: 100%;
+		}
+	}
+
+	@include respondMin(point('min-md')) {
+		div[class*='offset-md'] {
+			flex: 0 0 100%;
+			margin-left: 0;
+			max-width: 100%;
+		}
+	}
+
+	@include respondMin(point('min-lg')) {
+		div[class*='offset-lg'] {
+			flex: 0 0 100%;
+			margin-left: 0;
+			max-width: 100%;
+		}
+	}
+
+	@include respondMin(point('min-xl')) {
+		div[class*='offset-xl'] {
+			flex: 0 0 100%;
+			margin-left: 0;
+			max-width: 100%;
+		}
+	}
+}

@@ -1,0 +1,69 @@
+{{!-- layouts/base.hbs --}}
+<!doctype html>
+<html class="no-js" lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>{{#if title}}{{title}}{{else}}Advents Gewinnspiel{{/if}}</title>
+
+		{{!-- Custom <head> content per page could be added. --}}
+		{{#> head-block}}
+		{{!--
+		The `includes/head` partial is the default content,
+		but can be overridden.
+		--}}
+		{{> head }}
+		{{/head-block}}
+
+	</head>
+	<body>
+		{{#> header-block}}
+				{{> header }}
+		{{/header-block}}
+		<div id="page-wrapper">
+			{{!-- Custom service content goes here. --}}
+			{{#> services-block}}
+			{{!--
+			The `components/browsehappy` and  `components/noscript` partial are
+			the default content, but can be overridden.
+			--}}
+			{{> browsehappy }}
+			{{> noscript }}
+			{{/services-block}}
+
+			{{!-- Main content goes here. --}}
+			{{#> main-block}}
+			{{/main-block}}
+
+			{{!-- Custom <footer> content per page could be added. --}}
+			{{#> footer-block}}
+			{{!--
+			The `includes/footer` partial is the default content,
+			but can be overridden.
+			--}}
+			{{> cookie-layer }}
+			{{> footer }}
+			{{/footer-block}}
+
+			{{!-- Custom scripts per page can be added. --}}
+			{{#> scripts-block}}
+			{{!--
+			The `includes/jsfooter` partial is the default content,
+			but can be overridden.
+			--}}
+			{{> jsfooter }}
+			{{/scripts-block}}
+		</div>
+	</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gewinnspiel</title>
+
+</head>
+<body>
+
+
+</body>
+</html>

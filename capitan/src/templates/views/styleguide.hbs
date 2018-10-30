@@ -1,0 +1,820 @@
+{{!-- views/styleguide.hbs --}}
+
+{{#> base title="Styleguide" }}
+
+	{{#*inline "main-block"}}
+		<main id="main" role="main">
+			<div data-role="sg" data-type="sg__section">
+				<div class="container">
+					<h1 class="sg__title">Styleguide</h1>
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="1. Colors">
+				<div class="container">
+					<h2 class="sg__hl">1. Colors</h2>
+					{{> colors }}
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="2. Icons">
+				<div class="container">
+					<h2 class="sg__hl">2. Icons</h2>
+					{{> icons }}
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="3. Breakpoints">
+				<div class="container">
+					<h2 class="sg__hl">3. Breakpoints</h2>
+					{{> breakpoints }}
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="4. Grid">
+				<div class="container">
+					<h2 class="sg__hl">4. Grid</h2>
+					{{> grid }}
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="5. Typo Elements">
+				<div class="container">
+					<h2 class="sg__hl">5. Typo Elements</h2>
+					{{> typo }}
+				</div>
+			</div>
+			<div data-role="sg" data-type="sg__section" data-name="6. Tables">
+
+				<div class="container">
+					<h3 class="sg__hl">6. Tables</h3>
+					<div class="row">
+						<div class="col-xs-12">
+							{{> table class="table--underlined-rows" showCaption=true }}
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12">
+							{{> table class="table--highlighted-rows" showCaption=false }}
+						</div>
+					</div>
+				</div>
+
+				<div class="container">
+					<h3 class="sg__hl">Table-Block</h3>
+					{{> table-block title="Text" showTitle=true showHeader=true }}
+					{{> table-block title="Text Fluent Double" class="table-block--text-fluent-double" showTitle=true showHeader=false }}
+					{{> table-block title="Text Fluent Triple" class="table-block--text-fluent-triple" showTitle=true showHeader=false }}
+					{{> table-block modifier="text-double" showTitle=true showHeader=true }}
+					{{> table-block modifier="text-triple" showTitle=true showHeader=true }}
+					{{> table-block modifier="mixed" showTitle=true showHeader=true }}
+					{{> table-block modifier="picture-single" howHeader=true }}
+					{{> table-block modifier="picture-double" howHeader=false }}
+					{{> table-block modifier="picture-textLeft" showTitle=true showHeader=false }}
+					{{> table-block modifier="picture-textRight" showTitle=true showHeader=false }}
+					{{> table-block modifier="picture-textTop" showTitle=true showHeader=false }}
+					{{> table-block modifier="picture-textBottom" showTitle=true showHeader=false }}
+					{{> table-block modifier="picture-tableLeft" showHeader=false }}
+					{{> table-block modifier="picture-tableRight" showHeader=false }}
+					{{> table-block modifier="video" textTop=false showHeader=true textBottom=false }}
+					{{> table-block modifier="video-textTop" titleTop=true title=true showHeader=false }}
+					{{> table-block modifier="video-textBottom" titleTop=false title=true showHeader=false }}
+					{{> table-block modifier="icon" showHeader=true }}
+					{{> table-block modifier="title-accordion" class="table-block--accordion" showTitle=true showHeader=true }}
+				</div>
+				<div class="container">
+					<h3 class="sg__hl">Quotation</h3>
+					<div class="row">
+						<div class="col-xs-12">
+							{{> quotation content="Unterbreche niemals deinen Feind, wenn er Fehler macht." author="Pinar Ö." }}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="7. Components">
+				<div class="container">
+					<h2 class="sg__hl">7. Components</h2>
+
+					<div data-role="sg" data-type="sg__component" data-name="Buttons">
+						<h3 class="sg__hl sg__hl--subline">Button defaults</h3>
+
+						{{> button type="button" text="Button" }}
+						{{> button type="anker" text="Anker Button" url="/test" }}
+						{{> button type="input" text="Input Button" inputType="submit" }}
+						{{> button type="button" text="Button disabled" disabled=true }}
+
+						<h3 class="sg__hl sg__hl--subline">Button Variants</h3>
+						{{> button type="button" text=".btn--block" class="btn--block" }}
+
+						<h3 class="sg__hl sg__hl--subline">Button Styles</h3>
+						{{> button type="button" text=".btn--primary" class="btn--primary" }}
+						{{> button type="button" text=".btn--secondary" class="btn--secondary" }}
+						{{> button type="button" text=".btn--tertiary" class="btn--tertiary" }}
+						{{> button type="button" text=".btn--ghost" class="btn--ghost" }}
+						{{> button type="button" text=".btn--cta" class="btn--cta" }}
+						{{> button type="button" text=".btn--small" class="btn--small" }}
+						{{> button type="button" text=".btn--plain" class="btn--plain" }}
+						{{> button type="button" text=".btn--pill" class="btn--pill" }}
+						{{> button type="button" text=".btn--filter" class="btn--filter" }}
+						{{> button type="button" text=".btn--filter" class="btn--filter-active" }}
+						{{> button type="button" text=".btn--invert" class="btn--invert" }}
+
+						<h3 class="sg__hl sg__hl--subline">Buttons with Icon</h3>
+						{{> button type="button" text=".btn--icon" class="btn--primary btn--icon btn--icon-only util-icon--before util-icon--arrow-right" }}
+						{{> button type="button" text=".btn--icon--small" class="btn--primary btn--small btn--icon btn--icon-only util-icon--before util-icon--arrow-right" }}
+						{{> button type="button" text=".btn--icon" class="btn--primary btn--icon util-icon--after util-icon--arrow-right" }}
+						{{> button type="button" text=".btn--icon--small" class="btn--primary btn--small btn--icon util-icon--after util-icon--arrow-right" }}
+						{{> button type="button" text=".btn--plain" class="btn--primary btn--plain btn--icon util-icon--after util-icon--arrow-right" }}
+						{{> button type="button" text=".btn--icon-forward" class="btn--primary btn--plain btn--icon btn--icon-forward util-icon--after util-icon--arrow-right" }}
+						{{> button type="button" text=".btn--pill.btn--icon--small" class="btn--pill btn--small btn--icon util-icon--before util-icon--arrow-right" }}
+
+						<h3 class="sg__hl sg__hl--subline">Button Group alignments</h3>
+						{{> button group-start=true }}
+						{{> button type="button" text="Button" }}
+						{{> button type="button" text="Button" }}
+						{{> button group-end=true }}
+
+						{{> button group-start=true class="btn-group--centered" }}
+						{{> button type="button" text="Button" }}
+						{{> button type="button" text="Button" }}
+						{{> button group-end=true }}
+
+						{{> button group-start=true class="btn-group--right" }}
+						{{> button type="button" text="Button" }}
+						{{> button type="button" text="Button" }}
+						{{> button group-end=true }}
+
+						{{> button group-start=true class="btn-group--inline" }}
+						{{> button type="button" text="Button" class="util-left" }}
+						{{> button type="button" text="Button" class="util-right" }}
+						{{> button group-end=true }}
+
+						{{> button group-start=true class="btn-group--flex" }}
+						{{> button type="button" text="Button" }}
+						{{> button type="button" text="Button mit Text" }}
+						{{> button type="button" text="Button und noch viel mehr, wo soll es hin?" }}
+						{{> button type="button" text="Button mit langem Text" }}
+						{{> button type="button" text="Button" }}
+						{{> button group-end=true }}
+					</div>
+
+					<div data-role="sg" data-type="sg__component" data-name="Image Guidline">
+						<h3 class="sg__hl sg__hl--subline">Image Guidline</h3>
+						<img src="{{imagePlaceholder width='100' height='100' bg="#000" fg="#fff"}}"
+							 alt="example image"><br/>
+						<img src="{{imagePlaceholder width='1920' height='1080' bg="#eee" fg="#333" size="34px"}}"
+							 alt="example image">
+						<img src="{{imagePlaceholder width='1920' height='1080' bg="#eee" fg="#333" size="34px"
+													 text="Stage"}}" alt="example image">
+					</div>
+
+					<div data-role="sg" data-type="sg__component" data-name="Custom-Select" style="margin-top: 100px">
+						<h3 class="sg__hl sg__hl--subline">Custom select</h3>
+						{{> custom-select }}
+
+						<h3 class="sg__hl sg__hl--subline">Filter - Custom filter</h3>
+						{{> filter }}
+
+					</div>
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="8. Form">
+				<div class="container">
+					<h2 class="sg__hl">8. Form</h2>
+					{{> form validate=true class="form--transition" }}
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="9. Accordion">
+				<div class="container">
+					<h2 class="sg__hl">9. Accordion</h2>
+					{{#getJsonContext
+							'{
+                                "items": [
+                                    {
+                                        "title": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+                                        "content": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+                                    },
+                                    {
+                                        "title": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr 2",
+                                        "content": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+                                    },
+                                    {
+                                        "title": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr 3",
+                                        "content": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+                                    }
+                                ]
+                            }'
+					}}
+						{{> accordion this class="" }}
+					{{/getJsonContext}}
+				</div>
+
+				<div class="container">
+					<h2 class="sg__hl">Reveal</h2>
+					<div class="row">
+						<div class="col-xs-12 col-lg-6">
+							{{> reveal }}
+						</div>
+						<div class="col-xs-12 col-lg-6">
+							{{> reveal class="reveal--center" }}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="10. Notifications">
+				<div class="container">
+					<h2 class="sg__hl">10. Notifications</h2>
+					{{> notification }}
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="11. List">
+				<div class="container">
+					<h2 class="sg__hl">11. List</h2>
+					<div class="row">
+						<div class="col-xs-12">
+							<h4>Ungeordnete Liste einspaltig</h4>
+							{{> list class="" }}
+						</div>
+						<div class="col-xs-12">
+							<h4>Geordnete Liste einspaltig</h4>
+							{{> list class="" ordered=true }}
+						</div>
+						<div class="col-xs-12">
+							<h4>Ungeordnete Liste zweispaltig</h4>
+							{{> list modifier="column-double" class="list--column-double"}}
+						</div>
+						<div class="col-xs-12">
+							<h4>Geordnete Liste zweispaltig</h4>
+							{{> list modifier="column-double" class="list--column-double" ordered=true }}
+						</div>
+						<div class="col-xs-12">
+							{{> list modifier="column-triple" class="list--column-triple" }}
+						</div>
+						<div class="col-xs-12">
+							{{> list modifier="icon" class="list--icon" }}
+						</div>
+						<div class="col-xs-12">
+							{{> list modifier="picture" class="list--picture" }}
+						</div>
+						<div class="col-xs-12">
+							{{> list modifier="quicklinks" class="list--quicklinks" }}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="12. Breadcrumbs">
+				<div class="container">
+					<h2 class="sg__hl">12. Breadcrumbs</h2>
+					{{> breadcrumb }}
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="13. Fancybox">
+				<div class="container">
+					<h2 class="sg__hl">13. Fancybox</h2>
+					<div class="row">
+						<div class="col-xs-12">
+							{{> fancybox url="http://via.placeholder.com/797x415" }}
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<h4 class="sg__hl sg__hl--subline">Formular-Fancybox</h4>
+						</div>
+						<div class="col-xs-12">
+							{{> fancybox modifier="fancyformular" datasrc="#fancyformular" }}
+							{{> form modifier="fancyformular" validate=true id="fancyformular" upload=true class="form--transition" }}
+						</div>
+						<div class="col-xs-12">
+							{{> fancybox modifier="fancydanke" datasrc="#formSuccesLayer" }}
+							{{> content-block id="formSuccesLayer" modifier="content-block-message" class="content-block--message" title="Ihre Nachricht wurde erfolgreich versendet!" content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua." }}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="14. Medizinische Schwerpunkte">
+				<div class="container">
+					<h2 class="sg__hl">14. Medizinische Schwerpunkte</h2>
+					<div class="row">
+						<div class="col-xs-12">
+							{{> main-focus title="Medizinische Schwerpunkte bei MediClin" }}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="15. Kontakt Module">
+				<div class="container">
+					<h2 class="sg__hl">15. Kontakt Module</h2>
+					<div class="row">
+						<div class="col-xs-12">
+							<h4 class="sg__hl sg__hl--subline">Kontakt-Box</h4>
+						</div>
+						<div class="col-xs-12">
+							{{> contact-box }}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="16. Kachelmodul">
+				<div class="container">
+					<h2 class="sg__hl">16. Kachelmodul</h2>
+					<div class="row">
+						<div class="col-xs-12">
+							{{> tiles }}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="17. Count up">
+				<div class="container">
+					<h2 class="sg__hl">17. Count up</h2>
+
+					<h4 class="sg__hl sg__hl--subline">Default</h4>
+					<div class="row">
+						<div class="col-xs-12 col-md-6 col-lg-3 util-add-padding-bottom-double">
+							{{> countup counterID="counter6" class="countup--small" data-start="0" data-end="55" label="Einrichtungen" }}
+						</div>
+						<div class="col-xs-12 col-md-6 col-lg-3 util-add-padding-bottom-double">
+							{{> countup counterID="counter7" class="countup--small" data-start="0" data-end="9982" label="Mitarbeiter" }}
+						</div>
+						<div class="col-xs-12 col-md-6 col-lg-3 util-add-padding-bottom-double">
+							{{> countup counterID="counter8" class="countup--small" data-start="0" data-end="305" label="Ausbildungsplätze" }}
+						</div>
+						<div class="col-xs-12 col-md-6 col-lg-3 util-add-padding-bottom-double">
+							{{> countup counterID="counter9" class="countup--small" data-start="0" data-end="224" label="Berufsfelder" }}
+						</div>
+					</div>
+
+					<h4 class="sg__hl sg__hl--subline">Icons</h4>
+					<div class="row">
+						<div class="col-xs-12 col-md-6 col-lg-3 util-add-padding-bottom-double">
+							{{> countup counterID="counter10" modifier="countup-icon" class="countup--small countup--icon" data-start="0" data-end="55" label="Einrichtungen" }}
+						</div>
+						<div class="col-xs-12 col-md-6 col-lg-3 util-add-padding-bottom-double">
+							{{> countup counterID="counter11" modifier="countup-icon" class="countup--small countup--icon" data-start="0" data-end="9982" label="Mitarbeiter" }}
+						</div>
+						<div class="col-xs-12 col-md-6 col-lg-3 util-add-padding-bottom-double">
+							{{> countup counterID="counter12" modifier="countup-icon" class="countup--small countup--icon" data-start="0" data-end="305" label="Ausbildungsplätze" }}
+						</div>
+						<div class="col-xs-12 col-md-6 col-lg-3 util-add-padding-bottom-double">
+							{{> countup counterID="counter13" modifier="countup-icon" class="countup--small countup--icon" data-start="0" data-end="224" label="Berufsfelder" }}
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12">
+							{{> countup counterID="counter14" modifier="countup-wow" class="countup--wow" data-start="0" data-end="24" label="Patienten im Jahr 2017" unit="Mio." }}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="18. Schnelleinstieg">
+				<div class="container">
+					<h2 class="sg__hl">18. Schnelleinstieg</h2>
+					<div class="row">
+						<div class="col-xs-12">
+							{{> quicklinks }}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="19. Pagination">
+				<div class="container">
+					<h2 class="sg__hl">19. Pagination</h2>
+					<div class="row">
+						<div class="col-xs-12">
+							Standard
+							{{> pagination }}
+
+							Indexedsearch
+							{{> pagination modifier="indexedsearch" }}
+
+							Indexedsearch2 case without prev and next
+							{{> pagination modifier="indexedsearch-no-arrows" }}
+
+							Month
+							{{> pagination modifier="pagination-months" }}
+						</div>
+					</div>
+					<div class="row">
+						<h2 class="sg__hl">Pagination Listing</h2>
+						<div class="col-xs-12">
+							{{> listing-results searchterm="1236 Experten gefunden" }}
+						</div>
+						<div class="col-xs-12">
+							{{> listing-results modifier="listing-results-bottom" class="listing-results--bottom" }}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="20. Content Module">
+				<div class="container">
+					<h2 class="sg__hl">20. Content Block</h2>
+					<div class="row">
+						<div class="col-xs-12">
+							<h4 class="sg__hl sg__hl--subline">Content Block</h4>
+						</div>
+						<div class="col-xs-12 col-lg-6 col-xl-5 offset-xl-1">
+							{{> content-block class="content-block" link="Zum Artikel" content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua." }}
+						</div>
+						<div class="col-xs-12 col-lg-6 col-xl-5">
+							{{> content-block class="content-block" link="Zum Artikel" content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore." }}
+						</div>
+						<div class="col-xs-12 col-lg-6 col-xl-5 offset-xl-1">
+							{{> content-block class="content-block" link="Zum Artikel" content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua." }}
+						</div>
+						<div class="col-xs-12 col-lg-6 col-xl-5">
+							{{> content-block class="content-block" link="Zum Artikel" content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore." }}
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12">
+							<h4 class="sg__hl sg__hl--subline">Content Block - Message</h4>
+						</div>
+						<div class="col-xs-12">
+							{{> content-block modifier="content-block-message" class="content-block--message" title="Ihre Nachricht wurde erfolgreich versendet!" content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua." }}
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12">
+							<h4 class="sg__hl sg__hl--subline">Content Block - Accordion</h4>
+						</div>
+						<div class="col-xs-12">
+							<div class="accordion">
+								<div class="accordion__trigger">
+									<span>Hier gibt es immer tolles zu lesen</span>
+								</div>
+
+								<div class="accordion__content-wrapper">
+									<div class="row">
+										<div class="col-xs-12 col-lg-6 col-xl-5 offset-xl-1">
+											{{> content-block link="Zum Artikel" content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua." }}
+										</div>
+										<div class="col-xs-12 col-lg-6 col-xl-5">
+											{{> content-block link="Zum Artikel" content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore." }}
+										</div>
+										<div class="col-xs-12 col-lg-6 col-xl-5 offset-xl-1">
+											{{> content-block link="Zum Artikel" content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua." }}
+										</div>
+										<div class="col-xs-12 col-lg-6 col-xl-5">
+											{{> content-block link="Zum Artikel" content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore." }}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12">
+							<h4 class="sg__hl sg__hl--subline">Download Block</h4>
+						</div>
+						<div class="col-xs-12 col-lg-6 col-xl-4">
+							{{> content-block modifier="content-block-download" class="content-block--download" link="PDF-Datei (94,5 Kb)" content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy." }}
+						</div>
+						<div class="col-xs-12 col-lg-6 col-xl-4">
+							{{> content-block modifier="content-block-download" class="content-block--download" link="PDF-Datei (94,5 Kb)" content="Lorem ipsum dolor sit amet, consetetur sadnt ut labore." }}
+						</div>
+						<div class="col-xs-12 col-lg-6 col-xl-4">
+							{{> content-block modifier="content-block-download" class="content-block--download" link="PDF-Datei (94,5 Kb)" content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr." }}
+						</div>
+						<div class="col-xs-12 col-lg-6 col-xl-4">
+							{{> content-block modifier="content-block-download" class="content-block--download" link="PDF-Datei (94,5 Kb)" content="Lorem ipsum dolor sit amet ut labore." }}
+						</div>
+						<div class="col-xs-12 col-lg-6 col-xl-4">
+							{{> content-block modifier="content-block-download" class="content-block--download" link="PDF-Datei (94,5 Kb)" content="Lorem ipsum dolor sit voluptua." }}
+						</div>
+						<div class="col-xs-12 col-lg-6 col-xl-4">
+							{{> content-block modifier="content-block-download" class="content-block--download" link="PDF-Datei (94,5 Kb)" content="Lorem ipsum dolor sit amet, consetetur sed diam nonumy tempor." }}
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12">
+							<h4 class="sg__hl sg__hl--subline">Download Block - Accordion</h4>
+						</div>
+						<div class="col-xs-12">
+							<div class="accordion">
+								<div class="accordion__trigger">
+									<span>Hier kannst du spannende Dokumente herunterladen</span>
+								</div>
+
+								<div class="accordion__content-wrapper">
+									<div class="row">
+										<div class="col-xs-12 col-lg-6 col-xl-4">
+											{{> content-block modifier="content-block-download" class="content-block--download" link="PDF-Datei (94,5 Kb)" content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy." }}
+										</div>
+										<div class="col-xs-12 col-lg-6 col-xl-4">
+											{{> content-block modifier="content-block-download" class="content-block--download" link="PDF-Datei (94,5 Kb)" content="Lorem ipsum dolor sit amet, consetetur sadnt ut labore." }}
+										</div>
+										<div class="col-xs-12 col-lg-6 col-xl-4">
+											{{> content-block modifier="content-block-download" class="content-block--download" link="PDF-Datei (94,5 Kb)" content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr." }}
+										</div>
+										<div class="col-xs-12 col-lg-6 col-xl-4">
+											{{> content-block modifier="content-block-download" class="content-block--download" link="PDF-Datei (94,5 Kb)" content="Lorem ipsum dolor sit amet ut labore." }}
+										</div>
+										<div class="col-xs-12 col-lg-6 col-xl-4">
+											{{> content-block modifier="content-block-download" class="content-block--download" link="PDF-Datei (94,5 Kb)" content="Lorem ipsum dolor sit voluptua." }}
+										</div>
+										<div class="col-xs-12 col-lg-6 col-xl-4">
+											{{> content-block modifier="content-block-download" class="content-block--download" link="PDF-Datei (94,5 Kb)" content="Lorem ipsum dolor sit amet, consetetur sed diam nonumy tempor." }}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12">
+							<h4 class="sg__hl sg__hl--subline">Download Block - Table</h4>
+						</div>
+						<div class="col-xs-12 col-md-12 col-lg-3 util-add-padding-bottom-double">
+							<strong>Antragsformulare</strong>
+						</div>
+						<div class="col-xs-12 col-md-12 col-lg-9">
+							<div class="row">
+								<div class="col-xs-12 col-md-6">
+									{{> content-block modifier="content-block-download" class="content-block--download" link="PDF-Datei (94,5 Kb)" content="Lorem ipsum dolor sit amet, consetetur sed diam nonumy tempor." }}
+								</div>
+								<div class="col-xs-12 col-md-6">
+									{{> content-block modifier="content-block-download" class="content-block--download" link="PDF-Datei (94,5 Kb)" content="Lorem ipsum dolor sit amet, consetetur sed diam nonumy tempor." }}
+								</div>
+								<div class="col-xs-12 col-md-6">
+									{{> content-block modifier="content-block-download" class="content-block--download" link="PDF-Datei (94,5 Kb)" content="Lorem ipsum dolor sit amet, consetetur sed diam nonumy tempor." }}
+								</div>
+								<div class="col-xs-12 col-md-6">
+									{{> content-block modifier="content-block-download" class="content-block--download" link="PDF-Datei (94,5 Kb)" content="Lorem ipsum dolor sit amet, consetetur sed diam nonumy tempor." }}
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 util-add-padding-bottom-double">
+							<hr/>
+						</div>
+						<div class="col-xs-12 col-md-12 col-lg-3 util-add-padding-bottom-double">
+							<strong>Patientenanmeldung</strong>
+						</div>
+						<div class="col-xs-12 col-md-12 col-lg-9">
+							<div class="row">
+								<div class="col-xs-12 col-md-6">
+									{{> content-block modifier="content-block-download" class="content-block--download" link="PDF-Datei (94,5 Kb)" content="Lorem ipsum dolor sit amet, consetetur sed diam nonumy tempor." }}
+								</div>
+								<div class="col-xs-12 col-md-6">
+									{{> content-block modifier="content-block-download" class="content-block--download" link="PDF-Datei (94,5 Kb)" content="Lorem ipsum dolor sit amet, consetetur sed diam nonumy tempor." }}
+								</div>
+								<div class="col-xs-12 col-md-6">
+									{{> content-block modifier="content-block-download" class="content-block--download" link="PDF-Datei (94,5 Kb)" content="Lorem ipsum dolor sit amet, consetetur sed diam nonumy tempor." }}
+								</div>
+								<div class="col-xs-12 col-md-6">
+									{{> content-block modifier="content-block-download" class="content-block--download" link="PDF-Datei (94,5 Kb)" content="Lorem ipsum dolor sit amet, consetetur sed diam nonumy tempor." }}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="21. Embed Video">
+				<div class="container">
+					<h2 class="sg__hl">21. Embed Video</h2>
+					<div class="row">
+						<div class="col-xs-12 col-md-6">
+							{{> embed-video id="qicY-onepyQ" showTeaserTextUnder=true showTeaserTextOver=false showHeadline=true }}
+						</div>
+						<div class="col-xs-12 col-md-6">
+							{{> embed-video id="qicY-onepyQ" showTeaserTextUnder=true showTeaserTextOver=false showHeadline=true }}
+						</div>
+					</div>
+					{{> embed-video id="qicY-onepyQ" url="https://www.youtube-nocookie.com/embed/qicY-onepyQ" showTeaserTextUnder=true showTeaserTextOver=false showHeadline=true }}
+					{{> embed-video id="qicY-onepyQ" url="https://www.youtube-nocookie.com/embed/qicY-onepyQ" showTeaserTextUnder=false showTeaserTextOver=true showHeadline=true }}
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="22. Expert Header">
+				<div class="container">
+					<h2 class="sg__hl">22. Expert Header</h2>
+					<div class="row">
+						<div class="col-xs-12">
+							{{> expert-header expert-name="Prof. Dr. med.Eberhard von Hodenberg"}}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="23. Expert Listing">
+				<div class="container">
+					<h2 class="sg__hl">23. Expert Listing</h2>
+					<div class="row">
+						<div class="col-xs-12">
+							{{> expert-listing expert-name="Prof. Dr. med. Eberhard von Hodenberg"}}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="25. Animations">
+				<div class="container">
+					<h2 class="sg__hl">25. Animations</h2>
+					<div class="row">
+						<div class="col-xs-12">
+							{{> animations }}
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							{{> animations modifier="fade-zoom-in" count="3" }}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="26. Related Links">
+				<div class="container">
+					<h2 class="sg__hl">26. Related Links</h2>
+					<div class="row">
+						<div class="col-xs-12 col-md-6">
+							{{> related-links title="Lorem ipsum dolor sit amet, consetetur sadipscing1" copytext="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut l" }}
+						</div>
+						<div class="col-xs-12 col-md-6">
+							{{> related-links title="Lorem ipsum dolor sit amet, consetetur sadipscing1" copytext="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut l" }}
+						</div>
+						<div class="col-xs-12 col-md-6">
+							{{> related-links title="Lorem ipsum dolor sit amet, consetetur sadipscing1" copytext="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut l" }}
+						</div>
+						<div class="col-xs-12 col-md-6">
+							{{> related-links title="Lorem ipsum dolor sit amet, consetetur sadipscing1" copytext="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut l" }}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="27. Related Links">
+				<div class="container">
+					<h2 class="sg__hl">27. Quicklinks</h2>
+					<div class="row">
+						<div class="col-xs-12">
+							{{> quicklinks }}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="28. Info-Box">
+				<div class="container">
+					<h2 class="sg__hl">28. Info-Box</h2>
+					<div class="row">
+						<div class="col-xs-12">
+							{{> info-box}}
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-lg-6">
+							{{> info-box}}
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							{{> info-box modifier="info-box-icon" }}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="29. Tabs">
+				<div class="container">
+					<h2 class="sg__hl">29. Tabs</h2>
+					<div class="row">
+						<div class="col-xs-12">
+							{{#getJsonContext
+									'{
+                                        "tabID": "ID-fuer-das-erste-Tab-Modul",
+                                        "tabItems": [
+                                            {
+                                                "content": "Bülebülelablebab das hier ist der Conten aus dem ersten Tab",
+                                                "icon": "location-o",
+                                                "title": "Einrichtungen",
+                                                "visibility": ""
+                                            },
+                                            {
+                                                "content": "Schubidubiba, der Contenten aus dem zweitem Tab ist da",
+                                                "icon": "list",
+                                                "title": "Listenansicht",
+                                                "visibility": "tabs--visible tabs--visible-sm"
+                                            },
+                                            {
+                                                "content": "Völlig verrückt, der Content aus dem dritten Tab ist reingerückt",
+                                                "icon": "map",
+                                                "title": "Kartenansicht",
+                                                "visibility": "tabs--visible tabs--visible-md"
+                                            },
+                                            {
+                                                "content": "Und das ist einfach der Content aus dem vierten Tab. Keine Lust mehr zu reimen",
+                                                "icon": "location",
+                                                "title": "Standortansicht"
+                                            }
+                                        ]
+                                    }'
+							}}
+								{{> tabs this}}
+							{{/getJsonContext}}
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12">
+							{{#getJsonContext
+									'{
+                                        "tabID": "ID-fuer-das-zweite-Tab-Modul",
+                                        "tabItems": [
+                                            {
+                                                "content": "Bülebülelablebab das hier ist der Conten aus dem ersten Tab",
+                                                "icon": "location-o",
+                                                "title": "Einrichtungen"
+                                            },
+                                            {
+                                                "content": "Schubidubiba, der Contenten aus dem zweitem Tab ist da",
+                                                "icon": "list",
+                                                "title": "Listenansicht"
+                                            },
+                                            {
+                                                "content": "Völlig verrückt, der Content aus dem dritten Tab ist reingerückt",
+                                                "icon": "map",
+                                                "title": "Kartenansicht"
+                                            }
+                                        ]
+                                    }'
+							}}
+								{{> tabs this}}
+							{{/getJsonContext}}
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12">
+							{{#getJsonContext
+									'{
+                                        "tabID": "ID-fuer-das-dritte-Tab-Modul",
+                                        "tabItems": [
+                                            {
+                                                "content": "Bülebülelablebab das hier ist der Conten aus dem ersten Tab",
+                                                "icon": "location-o",
+                                                "title": "Einrichtungen"
+                                            },
+                                            {
+                                                "content": "Schubidubiba, der Contenten aus dem zweitem Tab ist da",
+                                                "icon": "list",
+                                                "title": "Listenansicht"
+                                            }
+                                        ]
+                                    }'
+							}}
+								{{> tabs this}}
+							{{/getJsonContext}}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="30. News-Navigation">
+				<div class="container">
+					<h2 class="sg__hl">30. News-Navigation</h2>
+					<div class="row">
+						<div class="col-xs-12">
+							{{> nav-news }}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div data-role="sg" data-type="sg__section" data-name="31. Event Detail Header">
+				<div class="container">
+					<h2 class="sg__hl">31. Event Detail Header</h2>
+					<div class="row">
+						<div class="col-xs-12">
+							{{> event-header showSignIn=true showCopytext=true showRoom=true showOrganizer=true	}}
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</main>
+
+	{{/inline}}
+
+{{/base}}

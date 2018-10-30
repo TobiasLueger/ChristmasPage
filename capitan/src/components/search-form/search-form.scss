@@ -1,0 +1,128 @@
+@charset "utf-8";
+
+/**
+ * Capitan search-form.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2018-06-18
+ * MIT License (MIT)
+ */
+
+$component: 'search-form';
+
+%#{$component} {
+	position: relative;
+	z-index: 2;
+}
+
+// element
+
+.#{$component}__input {
+	width: 100%;
+	border: none;
+	border-radius: 0;
+	border: 1px solid color('grey-light');
+	box-shadow: 0px 5px 25px 0px rgba(color('black'), .25 );
+	margin: 0;
+	padding: 13px 10px;
+	-webkit-appearance: none;
+	z-index: 1;
+
+	.nav-mobile__meta-search & {
+		box-shadow: 0px 5px 25px 0px color('grey-light');
+
+		@include respondMin(point('min-lg')) {
+			box-shadow: 0px 5px 25px 0px rgba(color('black'), .25 );
+		}
+	}
+}
+
+.#{$component}__button {
+	background: color('white');
+	border: 1px solid color('grey-light');
+	border-left: none;
+	border-radius: 0;
+	color: color('accent-turquois');
+	height: 47px;
+	margin: 0;
+	padding: 0 10px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	-webkit-appearance: none;
+
+	@include respondMin(point('min-lg')) {
+		border: none !important;
+	}
+
+	&:after {
+		@include fontSizeREM(20);
+		position: absolute;
+		color: color('ci');
+		right: 15px;
+		top: 10px;
+
+		@include respondMin(point('min-lg')) {
+			top: 30px;
+			right: 30px;
+		}
+	}
+}
+
+.#{$component}__autocomplete {
+	background: color('white');
+	border: 1px solid color('grey-light');
+	border-top: none;
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	top: 100%;
+	transform: translateY(-3em);
+	transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+	visibility: hidden; /* hides sub-menu */
+	width: 100%;
+	z-index: -1;
+
+
+	.#{$component}__input:focus + & {
+		margin-top: -1px;
+		opacity: 1;
+		transform: translateY(0%);
+		transition-delay: 0s, 0s, 0s; /* this removes the transition delay so the menu will be visible while the other styles transition */
+		visibility: visible; /* shows sub-menu */
+		z-index: 1;
+	}
+
+	ul {
+		box-shadow: 0px 15px 25px 0px rgba(color('black'), .25 );
+		display: block;
+		margin: 0;
+		overflow-y: auto;
+		padding: 0 10px;
+	}
+
+	li {
+		border-top: 1px solid color('green-light');
+		color: color('black');
+		cursor: pointer;
+		display: block;
+		line-height: 48px;
+		margin-bottom: 0;
+		padding: 0 $grid-gutter-width-half;
+		width: 100%;
+
+		&:hover {
+			background: color('grey-lightest');
+			color: color('ci-hover');
+		}
+	}
+}
+
+// modifier
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

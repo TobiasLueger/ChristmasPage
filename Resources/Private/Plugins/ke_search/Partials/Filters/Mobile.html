@@ -1,0 +1,13 @@
+<div class="form__field-wrapper util-add-margin-top-double util-hidden-lg">
+    <div class="custom-select custom-select--filter " data-placeholder="" data-label="" data-filter-type="" data-ajax-type="">
+        <label class="form__label" for="{filter.id}"><f:translate key="LLL:EXT:ke_search/pi1/locallang.xml:filter_title" /></label>
+        <select id="{filter.id}" name="single-select" required size="4" >
+            <option value="" selected><f:translate key="LLL:EXT:ke_search/pi1/locallang.xml:reset_filter" /></option>
+            <f:for each="{filter.options}" as="option">
+                <option data-target="{option.link}" value="{option.value}" {f:if(condition: '{option.selected}', then: 'selected')}>
+                {option.title} ({option.results})
+                </option>
+            </f:for>
+        </select>
+    </div>
+</div>

@@ -1,0 +1,107 @@
+<!--
+ Capitan quicklinks.hbs v1.0.0
+
+ Copyright brandung GmbH & Co.KG
+ http://www.brandung.de/
+
+ Date: 2018-06-13
+ MIT License (MIT)
+ -->
+
+{{#if modifier}}
+    {{#ifCond modifier '==' 'quicklinks'}}
+        <ul class="list {{class}}">
+            <li role="heading" class="list__headline util-h4">Quicklinks</li>
+            <li>
+                <a class="util-icon util-icon--before util-icon--download" href="#">Lorem ipsum dolor</a>
+            </li>
+            <li>
+                <a class="util-icon util-icon--before util-icon--download" href="#">Lorem ipsum sit amet</a>
+            </li>
+            <li>
+                <a class="util-icon util-icon--before util-icon--download" href="#">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy</a>
+            </li>
+            <li>
+                <a class="util-icon util-icon--before util-icon--download" href="#">Lorem ipsum sit amet</a>
+            </li>
+        </ul>
+    {{/ifCond}}
+
+    {{#ifCond modifier '==' 'column'}}
+		{{#if ordered}}
+			<ol class="list {{class}}">
+				<li>Lorem ipsum dolor sit amet, consetetur sadipscing.</li>
+				<li>Lorem ipsum dolor sit amet, consetetur sadipscing.</li>
+				<li>Lorem ipsum dolor sit amet, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing.</></li>
+				<li>Lorem ipsum dolor sit amet, consetetur sadipscing.</li>
+				<li>Lorem ipsum dolor sit amet, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing.</li>
+				<li>Lorem ipsum dolor sit amet, consetetur sadipscing.</li>
+			</ol>
+		{{ else}}
+			<ul class="list {{class}}">
+				<li>Lorem ipsum dolor sit amet, consetetur sadipscing.</li>
+				<li>Lorem ipsum dolor sit amet, consetetur sadipscing.</li>
+				<li>Lorem ipsum dolor sit amet, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing.</li>
+				<li>Lorem ipsum dolor sit amet, consetetur sadipscing.</li>
+				<li>Lorem ipsum dolor sit amet, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing.</li>
+				<li>Lorem ipsum dolor sit amet, consetetur sadipscing.</li>
+			</ul>
+		{{/if}}
+    {{/ifCond}}
+
+    {{#ifCond modifier '==' 'icon'}}
+        {{#if default}}
+            <ul class="list {{class}}">
+                <li class="util-icon util-icon--before util-icon--checkmark">Lorem ipsum dolor sit amet, consetetur sadipscing, consetetur sadipscing.</li>
+                <li class="util-icon util-icon--before util-icon--checkmark">Lorem ipsum dolor sit amet, consetetur sadipscing.</li>
+                <li class="util-icon util-icon--before util-icon--checkmark">Lorem ipsum dolor sit amet, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing.</li>
+                <li class="util-icon util-icon--before util-icon--checkmark">Lorem ipsum dolor sit amet, consetetur sadipscing.</li>
+            </ul>
+        {{ else}}
+            <ul class="list {{class}}">
+                <li class="util-icon util-icon--before util-icon--list">Lorem ipsum dolor sit amet, consetetur sadipscing, consetetur sadipscing.</li>
+                <li class="util-icon util-icon--before util-icon--list">Lorem ipsum dolor sit amet, consetetur sadipscing.</li>
+                <li class="util-icon util-icon--before util-icon--list">Lorem ipsum dolor sit amet, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing.</li>
+                <li class="util-icon util-icon--before util-icon--list">Lorem ipsum dolor sit amet, consetetur sadipscing.</li>
+            </ul>
+        {{/if}}
+    {{/ifCond}}
+
+    {{#ifCond modifier '==' 'picture'}}
+        <div class="row">
+            <div class="col-xs-12 col-md-6 util-visible-md">
+                <picture class="teaser__media">
+                    <!-- 459px max-width MOBILES BILD -->
+                    <source media="(max-width: 479px)" srcset="{{imagePlaceholder width='459' height='223' bg="#eee" fg="#333"}}">
+                    <!-- 727px max-width MOBILES BILD -->
+                    <source media="(max-width: 767px)" srcset="{{imagePlaceholder width='727' height='354' bg="#eee" fg="#333" size="34px"}}">
+                    <!-- original 951px -->
+                    <img src="{{imagePlaceholder width='951' height='415' bg="#eee" fg="#333" size="34px"}}" alt="[ALT]" >
+                </picture>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <h5>Lorem ipsum dolor sit amet</h5>
+
+                <ul class="list {{class}}">
+                    <li>Lorem ipsum dolor sit amescing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing.</li>
+                    <li>Lorem ipsum dolor sit amet, consetet, consetetur sadipscing.</li>
+                    <li>Lorem ipsum dolor sit amet, consetetur sadipscing.</li>
+                </ul>
+            </div>
+        </div>
+    {{/ifCond}}
+{{else}}
+	{{#if ordered }}
+		<ol class="list {{class}}">
+			<li>Lorem ipsum dolor sit amet, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing.</li>
+			<li>Lorem ipsum dolor sit amet, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing.</li>
+			<li>Lorem ipsum dolor sit amet, consetetur sadipscing.</li>
+		</ol>
+	{{ else }}
+		<ul class="list {{class}}">
+			<li>Lorem ipsum dolor sit amet, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing.</li>
+			<li>Lorem ipsum dolor sit amet, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing.</li>
+			<li>Lorem ipsum dolor sit amet, consetetur sadipscing.</li>
+		</ul>
+	{{/if }}
+{{/if}}

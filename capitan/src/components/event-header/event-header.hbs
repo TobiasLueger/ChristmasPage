@@ -1,0 +1,91 @@
+{{!-- components/event-header --}}
+<div class="event-header{{#if class}} {{class}}{{/if}}">
+	<div class="row">
+		<div class="col-xs-12 util-hidden-lg">
+			<span class="event-header__tag">Wissen/Prävention</span>
+
+			<h1>27. Rehawissenschaftliches Kolloquium</h1>
+		</div>
+
+		<div class="event-header__list-wrapper col-xs-12 col-md-6">
+			<div class="event-header__head util-visible-lg">
+				<span class="event-header__tag">Wissen/Prävention</span>
+
+				<h1>27. Rehawissenschaftliches Kolloquium</h1>
+			</div>
+
+			<div class="event-header__list">
+				<span class="util-h4">Termin</span>
+				<ul class="util-reset-padding-left">
+					<li class="util-icon util-icon--before util-icon--event">
+						26. - 28. Februar
+					</li>
+
+					<li class="util-icon util-icon--before util-icon--info">
+						10:30 bis 17:00 Uhr
+					</li>
+
+					<li class="event-header__item">
+						<a href="#" class="util-link util-icon--after util-icon--arrow-right" title="Im Kalender eintragen">Im Kalender eintragen</a>
+					</li>
+				</ul>
+			</div>
+
+			{{#if showOrganizer}}
+				<div class="event-header__list">
+					<span class="util-h4">Veranstalter</span>
+					<p class="util-reset-padding-bottom">Hier ist ein Text</p>
+				</div>
+			{{/if}}
+
+			{{#if showRoom}}
+				<div class="event-header__list">
+					<span class="util-h4">Raum</span>
+					<p class="util-reset-padding-bottom">Hier ist ein Text</p>
+				</div>
+			{{/if}}
+		</div>
+
+		<div class="col-xs-12 col-md-6">
+			<picture>
+				<!-- 440px max-width MOBILES BILD -->
+				<source media="(max-width: 479px)" srcset="{{imagePlaceholder width='440' height='220' bg="#bbb" fg="#333" size="28px"}}">
+				<!-- 727px max-width MOBILES BILD -->
+				<source media="(max-width: 767px)" srcset="{{imagePlaceholder width='727' height='363' bg="#ccc" fg="#333" size="30px"}}">
+				<!-- 456px max-width MOBILES BILD -->
+				<source media="(max-width: 991px)" srcset="{{imagePlaceholder width='456' height='228' bg="#ddd" fg="#333" size="32px"}}">
+				<!-- original 562px -->
+				<img src="{{imagePlaceholder width='562' height='281' bg="#eee" fg="#333" size="34px"}}" alt="[ALT]" >
+			</picture>
+
+			<span class="util-h4">Internationales Congress Center</span>
+
+			<ul class="util-reset-padding-left">
+				<li class="util-icon util-icon--before util-icon--location-o">
+					Messegelände
+				</li>
+
+				<li class="event-header__item">
+					81823 München
+				</li>
+
+				<li class="event-header__item">
+					<a href="https://www.google.de/maps/search/81823+M%C3%BCnchensad+Messegel%C3%A4nde/@48.1360072,11.6915376,17z/data=!3m1!4b1" target="_blank" class="util-link util-icon--after util-icon--arrow-right" title="Jetzt Route planen">Jetzt Route planen</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	{{#if showSignIn}}
+		<div class="event-header__sign-in">
+			{{> button type="anker" class="btn--tertiary" url="/" text="Anmelden"}}
+		</div>
+	{{/if}}
+
+	{{#if showCopytext}}
+		<p>
+			Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien. Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen.
+			Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht – ein geradezu unorthographisch. Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien. Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht – ein geradezu unorthographisch
+		</p>
+	{{/if}}
+</div>

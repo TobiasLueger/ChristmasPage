@@ -1,0 +1,28 @@
+clearCachePage = PAGE
+clearCachePage {
+    typeNum = 1536663413
+    config {
+        debug= 0
+        no_cache = 0
+        index_enable = 0
+        xhtml_cleaning = 0
+        disableAllHeaderCode = 1
+        additionalHeaders {
+            10 {
+                header = Content-Type: application/json
+                replace = 1
+            }
+        }
+    }
+
+
+    10 < tt_content.list.20.braprojectfilesmdccorporate_map
+    10 = USER_INT
+    10 {
+        switchableControllerActions {
+            JsonMap {
+                1 = coords
+            }
+        }
+    }
+}

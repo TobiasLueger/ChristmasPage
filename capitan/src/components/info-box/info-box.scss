@@ -1,0 +1,94 @@
+@charset "utf-8";
+/**
+ * Capitan info-box.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2018-07-05
+ * MIT License (MIT)
+ */
+
+$component: 'info-box';
+
+// block
+%#{$component} {
+	background: rgba(color('ci'), .2);
+	margin-bottom: $grid-gutter-width-half;
+	min-height: 100px;
+	overflow: hidden;
+	padding: $grid-gutter-width;
+	position: relative;
+	width: 100%;
+	z-index: 0;
+	
+	&:after {
+		@include font($ff-icon);
+		@include fontSizeREM(80);
+		color: rgba(color('ci'), .2);
+		content: icon('info');
+		display: inline-block;
+		position: absolute;
+		top: -.4em;
+		right: -.3em;
+		z-index: -1;
+		
+		@include respondMin(point('min-md')) {
+			@include fontSizeREM(200);
+		}
+		
+		@include respondMin(point('min-lg')) {
+			@include fontSizeREM(400);
+		}
+	}
+	
+	.col-lg-6 & {
+		[class*="col"] {
+			flex: 0 0 100%;
+			margin-left: 0;
+			max-width: 100%;
+		}
+	}
+	
+	& *:not(.btn) {
+		background-color: transparent;
+	}
+}
+
+// element
+
+
+// modifier
+.#{$component}--icon {
+	display: flex;
+	flex-direction: column;
+	
+	@include respondMin(point('min-md')) {
+		flex-direction: row;
+	}
+	
+	&:before {
+		@include font($ff-icon);
+		@include fontSizeREM(36);
+		color: color('ci');
+		content: icon('emergency-o');
+		margin-bottom: $grid-gutter-width-half;
+		margin-right: $grid-gutter-width;
+		
+		@include respondMin(point('min-md')) {
+			@include fontSizeREM(80);
+			margin-bottom: 0;
+		}
+	}
+	
+	&.#{$component}--emergency {
+		&:before {
+			color: color('error');
+		}
+	}
+}
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

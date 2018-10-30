@@ -1,0 +1,223 @@
+#-----------------------------------
+# Plugins
+#-----------------------------------
+
+#-----------------------------------
+# bra_relation_mdc
+#-----------------------------------
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bra_relation_mdc/Configuration/TypoScript/setup.typoscript">
+
+#-----------------------------------
+# bra_news_mdc
+#-----------------------------------
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bra_news_mdc/Configuration/TypoScript/setup.typoscript">
+
+#-----------------------------------
+# bra_events_mdc
+#-----------------------------------
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bra_events_mdc/Configuration/TypoScript/setup.typoscript">
+
+#-----------------------------------
+# bra_contact_mdc
+#-----------------------------------
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bra_contact_mdc/Configuration/TypoScript/setup.typoscript">
+
+#-----------------------------------
+# bra_facility_mdc
+#-----------------------------------
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bra_facility_mdc/Configuration/TypoScript/setup.typoscript">
+
+#-----------------------------------
+# bra_symptoms_mdc
+#-----------------------------------
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bra_symptoms_mdc/Configuration/TypoScript/setup.typoscript">
+
+
+#-----------------------------------
+# bra_mediacenter_mdc
+#-----------------------------------
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bra_mediacenter_mdc/Configuration/TypoScript/setup.typoscript">
+
+
+# ==========================================================================================
+# Mapping of Typo3 Forms
+# ==========================================================================================
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:form/Configuration/TypoScript/setup.txt">
+plugin.tx_form.settings.yamlConfigurations.100 = EXT:bra_projectfiles_mdc_corporate/Configuration/Plugin/Form/FormSetup.yaml
+module.tx_form {
+    settings {
+        yamlConfigurations {
+            40 = EXT:bra_projectfiles_mdc_corporate/Configuration/Plugin/Form/FormSetup.yaml
+            50 = EXT:bra_projectfiles_mdc_corporate/Configuration/Plugin/Form/FormEditorSetup.yaml
+        }
+    }
+}
+
+
+lib.seoSearch = COA
+lib.seoSearch {
+# Schuetzt vor XSS, daher auch ein COA!
+    stdWrap.htmlSpecialChars = 1
+    10 = TEXT
+    10 {
+        data = GP:tx_indexedsearch_pi2|search|sword
+        if.isTrue.data = GP:tx_indexedsearch_pi2|search|sword
+    }
+}
+
+#-----------------------------------
+# Search
+#-----------------------------------
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:indexed_search/Configuration/TypoScript/setup.txt">
+
+page.config.index_enable = 1
+page.config.index_externals = 0
+
+config.index_enable = 1
+config.index_externals = 0
+
+#-----------------------------------
+# Extension - indexed_search
+#-----------------------------------
+plugin.tx_indexedsearch {
+    features.requireCHashArgumentForActionArguments = 0
+    settings {
+
+    # show the rules
+        displayRules = 0
+
+        # show a link to the advanced search
+        displayAdvancedSearchLink = 0
+
+        # show the number of results
+        displayResultNumber = 1
+
+        breadcrumbWrap = / || /
+
+        # show the parse times
+        displayParsetimes = 0
+        displayLevel1Sections = 1
+        displayLevel2Sections = 0
+        displayLevelxAllTypes = 0
+        clearSearchBox = 0
+        clearSearchBox.enableSubSearchCheckBox = 1
+        displayForbiddenRecords = 0
+        alwaysShowPageLinks = 1
+        mediaList =
+
+        #search.rootPidList
+        rootPidList = {$plugin.tx_indexedsearch.settings.rootPidList}
+        page_links = 10
+        detectDomainRcords = 0
+        defaultFreeIndexUidList =
+        searchSkipExtendToSubpagesChecking = 0
+        exactCount = 1
+        forwardSearchWordsInResultLink = 0
+        forwardSearchWordsInResultLink.no_cache = 1
+
+        # various crop/offset settings for single result items
+        results {
+            titleCropAfter = 50
+            titleCropSignifier = ...
+            summaryCropAfter = 180
+            summaryCropSignifier =
+            hrefInSummaryCropAfter = 60
+            hrefInSummaryCropSignifier = ...
+            markupSW_summaryMax = 300
+            markupSW_postPreLgd = 60
+            markupSW_postPreLgd_offset = 5
+            markupSW_divider = ...
+            markupSW_divider.noTrimWrap = | | |
+        }
+
+        # Blinding of option-selectors / values in these (advanced search)
+        blind {
+            searchType = 0
+            defaultOperand = 0
+            sections = 1
+            freeIndexUid = 1
+            mediaType = 0
+            sortOrder = 0
+            group = 0
+            languageUid = 0
+            desc = 0
+            # defaultOperand.1 = 1
+            # extResume=1
+        }
+        defaultOptions {
+            defaultOperand = 0
+            sections = 0
+            freeIndexUid = -1
+            mediaType = -1
+            sortOrder = rank_flag
+            languageUid = 0
+            sortDesc = 1
+            searchType = 1
+            numberOfResults = 10
+        }
+
+    }
+
+    view {
+        templateRootPath >
+        templateRootPaths {
+            0 = EXT:indexed_search/Resources/Private/Templates/
+            1 = {$plugin.tx_indexedsearch.view.templateRootPath}
+        }
+
+        partialRootPath >
+        partialRootPaths {
+            0 = EXT:indexed_search/Resources/Private/Partials/
+            1 = {$plugin.tx_indexedsearch.view.partialRootPath}
+        }
+    }
+
+    _LOCAL_LANG.de {
+        displayResults = Ergebnisse <strong>%1$s - %2$s</strong> von <strong>%3$s</strong>
+        displayResults.page =
+        displayResults.next = Nächste
+        displayResults.previous = Vorherige
+    }
+
+    _LOCAL_LANG.default {
+        displayResults = Ergebnisse <strong>%1$s - %2$s</strong> von <strong>%3$s</strong>
+        displayResults.page =
+        displayResults.next = Nächste
+        displayResults.previous = Vorherige
+    }
+}
+
+
+#-----------------------------------
+# sitemap_generator (https://docs.typo3.org/typo3cms/extensions/sitemap_generator/Introduction/Index.html)
+#-----------------------------------
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:sitemap_generator/Configuration/TypoScript/setup.txt">
+plugin.tx_sitemapgenerator {
+    urlEntries {
+        pages = 1
+        pages {
+            rootPageId = 1
+            allowedDoktypes = 1
+            stopPageTreeDoktypes >
+        }
+    }
+}
+
+#-----------------------------------
+# Extension - ke_search
+# Default Templates are overwritten with files from this folder
+#-----------------------------------
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:ke_search/Configuration/TypoScript/setup.txt">
+
+plugin.tx_kesearch_pi1 {
+    templateRootPaths.5 = EXT:bra_projectfiles_mdc_corporate/Resources/Private/Plugins/ke_search/Templates/
+    layoutRootPaths.5 = EXT:bra_projectfiles_mdc_corporate/Resources/Private/Plugins/ke_search/Layouts/
+    partialRootPaths.5 = EXT:bra_projectfiles_mdc_corporate/Resources/Private/Plugins/ke_search/Partials/
+}
+
+plugin.tx_kesearch_pi2 {
+    templateRootPaths.5 = EXT:bra_projectfiles_mdc_corporate/Resources/Private/Plugins/ke_search/Templates/
+    layoutRootPaths.5 = EXT:bra_projectfiles_mdc_corporate/Resources/Private/Plugins/ke_search/Layouts/
+    partialRootPaths.5 = EXT:bra_projectfiles_mdc_corporate/Resources/Private/Plugins/ke_search/Partials/
+}

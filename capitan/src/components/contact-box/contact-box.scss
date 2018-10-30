@@ -1,0 +1,100 @@
+@charset "utf-8";
+/**
+ * Capitan contact-box.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2018-07-11
+ * MIT License (MIT)
+ */
+
+$component: 'contact-box';
+
+// block
+%#{$component} {
+	@include respondMin(point('min-md')) {
+		align-items: flex-start;
+		display: flex;
+	}
+
+	@include respondMin(point('min-lg')) {
+		margin: auto;
+		max-width: 80%;
+	}
+
+	> * {
+		padding: 0;
+
+		@include respondMin(point('min-md')) {
+			flex-basis: 50%;
+			max-width: 50%;
+			padding: $grid-gutter-width*3 $grid-gutter-width*2;
+		}
+
+		@include respondMin(point('min-lg')) {
+			padding: $grid-gutter-width * 3;
+		}
+
+		p:first-of-type {
+			margin-bottom: $grid-gutter-width-half * 1.5;
+		}
+	}
+}
+
+// element
+.#{$component}__data {
+	border-bottom: 1px solid color('grey-light');
+	margin-bottom: $grid-gutter-width * 1.5;
+
+	@include respondMin(point('min-md')) {
+		align-items: center;
+		border-bottom: none;
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 0;
+	}
+
+	small {
+		margin-bottom: 0;
+	}
+
+	a[href^="tel:"] {
+		@include fontSizeREM(30);
+		display: block;
+		position: relative;
+		
+		@include respondMin(point('min-lg')) {
+			color: color('black');
+			pointer-events: none;
+		}
+
+		&::before {
+			display: none;
+
+			@include respondMin(point('min-md')) {
+				@include fontSizeREM(53);
+				color: color('accent-blue');
+				display: block;
+				height: 53px;
+				left: -73px;
+				position: absolute;
+				top: -20px;
+				width: 53px;
+			}
+		}
+	}
+}
+
+.#{$component}__contact-person {
+	@include respondMin(point('min-md')) {
+		border-left: 1px solid color('grey-light');
+	}
+}
+
+// modifier
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

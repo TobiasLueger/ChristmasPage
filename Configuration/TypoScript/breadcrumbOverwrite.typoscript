@@ -1,0 +1,33 @@
+#---------------------------------------
+# Breadcrumb Event Detail überschreiben
+#---------------------------------------
+[globalVar = GP:tx_braeventsmdc_event|event > 0]
+    lib.breadcrumbDetail = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+    lib.breadcrumbDetail {
+        if {
+        }
+        pidInList.dataWrap = {$plugin.tx_braeventsmdc_event.persistence.storagePid}
+        where.data = GP:tx_braeventsmdc_event|event
+        where.intval = 1
+        where.wrap = uid=|
+        table = tx_braeventsmdc_domain_model_event
+        as = breadcrumbDetail
+    }
+[end]
+
+#-----------------------------------
+# Breadcrumb News Detail überschreiben
+#-----------------------------------
+[globalVar = GP:tx_news_pi1|news > 0]
+    lib.breadcrumbDetail = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+    lib.breadcrumbDetail {
+        if {
+        }
+        pidInList.dataWrap = {$newsStoragePid}
+        where.data = GP:tx_news_pi1|news
+        where.intval = 1
+        where.wrap = uid=|
+        table = tx_news_domain_model_news
+        as = breadcrumbDetail
+    }
+[end]

@@ -1,0 +1,20 @@
+<!--
+	=====================
+	Partials/PageBrowser.html
+-->
+<f:if condition="{numberofresults} > {conf.resultsPerPage}">
+    <div class="container">
+        <div class="pagination pagination--indexedsearch">
+            <div class="tx-indexedsearch-browsebox">
+                <p>
+                    {f:translate(key: 'LLL:EXT:ke_search/pi1/locallang.xml:results')} <strong>{pagebrowser.start}
+                    {f:translate(key: 'LLL:EXT:ke_search/pi1/locallang.xml:until')} {pagebrowser.end}</strong>
+                    {f:translate(key: 'LLL:EXT:ke_search/pi1/locallang.xml:of')} {f:translate(key:
+                    'LLL:EXT:ke_search/pi1/locallang.xml:results_total_of')} <strong>{pagebrowser.total}</strong>
+                </p>
+                <!-- render the anchor-links to the sections inside the displayed result rows -->
+                <f:format.raw>{pagebrowser.pages_list}</f:format.raw>
+            </div>
+        </div>
+    </div>
+</f:if>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <type>module</type>
+        <description>Language labels for plugin &quot;tx_kesearch_pi1&quot;</description>
+    </meta>
+    <data type="array">
+        <!-- DEFAULT -->
+        <languageKey index="default" type="array">
+            <label index="reset_filter">All results</label>
+            <label index="filter_title">Filter results</label>
+            <label index="results">Display of results</label>
+            <label index="num_results">%s searchresults for: </label>
+            <label index="num_results_plain">searchresults for: </label>
+            <label index="results_total_of">total</label>
+        </languageKey>
+        <!-- GERMAN -->
+        <languageKey index="de" type="array">
+            <label index="reset_filter">Alle Ergebnisse</label>
+            <label index="filter_title">Ergebnisse weiter einschränken</label>
+            <label index="results">Anzeige der Ergebnisse</label>
+            <label index="num_results">%s Suchergebnisse für: </label>
+            <label index="num_results_plain">Suchergebnisse für: </label>
+            <label index="results_total_of">insgesamt</label>
+        </languageKey>
+    </data>
+</T3locallang>

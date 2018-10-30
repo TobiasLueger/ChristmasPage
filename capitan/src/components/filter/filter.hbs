@@ -1,0 +1,22 @@
+<!--
+ Capitan filter.hbs v1.0.0
+
+ Copyright brandung GmbH & Co.KG
+ http://www.brandung.de/
+
+ Date: 2017-11-06
+ MIT License (MIT)
+ -->
+<div class="filter">
+    <form>
+        <div class="row">
+            {{> custom-select class="col-xs-12 col-md-4" selectId="filter-select-1" modifier="expert-specialfield" selectClass="custom-select--nosearch custom-select--label" selectLabel="Mediclin Experten" selectFilterType="expert" ajaxType="1527842430" ajax="true" ajaxUrl="http://www.mocky.io/v2/5b8425c5310000432f0d229c" }}
+            {{> custom-select class="col-xs-12 col-md-4" selectId="filter-select-2" modifier="expert-specialfield" selectClass="custom-select--nosearch custom-select--label" selectLabel="Einrichtung" selectFilterType="department" ajaxType="1527842430" ajax="true" ajaxUrl="http://www.mocky.io/v2/5b8425c5310000432f0d229c" }}
+            {{> custom-select class="col-xs-12 col-md-4" selectId="filter-select-3" modifier="expert-specialfield" selectClass="custom-select--nosearch custom-select--label" selectLabel="Krankheitsbild" selectFilterType="diseasepicture" ajaxType="1527842430" ajax="true" ajaxUrl="http://www.mocky.io/v2/5b8425c5310000432f0d229c" }}
+        </div>
+    </form>
+	{{#if result }}
+		<div class="filter__results">
+		</div>
+	{{/if}}
+</div>

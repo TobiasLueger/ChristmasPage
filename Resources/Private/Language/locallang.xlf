@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="de" datatype="plaintext" original="messages" date="2017-08-02T07:49:36Z"
+          product-name="bra_projectfiles_mdc_corporate">
+        <header/>
+        <body>
+            <trans-unit id="quicklinksnavi">
+                <source>Quicklinks in der Navigation</source>
+            </trans-unit>
+            <trans-unit id="planRoute">
+                <source>Jetzt Route planen</source>
+            </trans-unit>
+            <trans-unit id="makeContact">
+                <source>Kontakt aufnehmen</source>
+            </trans-unit>
+            <trans-unit id="nav_title2">
+                <source>Alternativer Navigationstitel Teil 2</source>
+            </trans-unit>
+
+            <trans-unit id="wordingPlanRoute">
+                <source>Route planen</source>
+            </trans-unit>
+            <trans-unit id="wordingSpecialFields">
+                <source>Fachbereiche</source>
+            </trans-unit>
+            <trans-unit id="wordingToClinicPage">
+                <source>Zur Klinik-Seite</source>
+            </trans-unit>
+            <trans-unit id="wordingFindFacility">
+                <source>Einrichtung finden</source>
+            </trans-unit>
+            <trans-unit id="wordingLocalization">
+                <source>Standort lokalisieren</source>
+            </trans-unit>
+            <trans-unit id="wordingPutPlaceOrZIP">
+                <source>Ort oder PLZ eingeben</source>
+            </trans-unit>
+            <trans-unit id="search.title">
+                <source>Suche</source>
+            </trans-unit>
+            <trans-unit id="search.label">
+                <source>Wonach suchen Sie?</source>
+            </trans-unit>
+            <trans-unit id="search.placeholder">
+                <source>Was suchen Sie?</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

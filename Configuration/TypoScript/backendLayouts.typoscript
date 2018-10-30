@@ -1,0 +1,118 @@
+#
+# BackendLayout
+# Quelle: https://www.braune-digital.com/blog/typo3-backend-layouts-ueber-page-tsconfig-in-dateien-auslagern/
+    #
+mod {
+    web_layout {
+        BackendLayouts {
+            1 {
+                title = Startseite
+                config {
+                    backend_layout {
+                        colCount = 1
+                        rowCount = 3
+                        rows {
+                            1 {
+                                columns {
+                                    1 {
+                                        name = Bühne
+                                        colPos = 0
+                                    }
+                                }
+                            }
+                            2 {
+                                columns {
+                                    1 {
+                                        name = Inhalt
+                                        colPos = 1
+                                    }
+                                }
+                            }
+                            3 {
+                                columns {
+                                    1 {
+                                        name = Inhaltselemente(Im Frontend nicht sichtbar)
+                                        colPos = 999
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                icon = EXT:bra_projectfiles_vflb/Resources/Public/backend/ext_icon.gif
+            }
+            2 {
+                title = Unterseite
+                config {
+                    backend_layout {
+                        colCount = 1
+                        rowCount = 3
+                        rows {
+                            1 {
+                                columns {
+                                    1 {
+                                        name = Bühne
+                                        colPos = 0
+                                    }
+                                }
+                            }
+                            2 {
+                                columns {
+                                    1 {
+                                        name = Inhalt
+                                        colPos = 1
+                                    }
+                                }
+                            }
+                            3 {
+                                columns {
+                                    1 {
+                                        name = Inhaltselemente(Im Frontend nicht sichtbar)
+                                        colPos = 999
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                icon = EXT:bra_projectfiles_vflb/Resources/Public/backend/ext_icon.gif
+            }
+            3 {
+                title = Gesundheitsmagazin
+                config {
+                    backend_layout {
+                        colCount = 1
+                        rowCount = 3
+                        rows {
+                            1 {
+                                columns {
+                                    1 {
+                                        name = Bühne
+                                        colPos = 0
+                                    }
+                                }
+                            }
+                            2 {
+                                columns {
+                                    1 {
+                                        name = Inhalt
+                                        colPos = 1
+                                    }
+                                }
+                            }
+                            3 {
+                                columns {
+                                    1 {
+                                        name = Inhaltselemente(Im Frontend nicht sichtbar)
+                                        colPos = 999
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                icon = EXT:bra_projectfiles_vflb/Resources/Public/backend/ext_icon.gif
+            }
+        }
+    }
+}

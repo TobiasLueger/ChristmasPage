@@ -1,0 +1,211 @@
+@charset "utf-8";
+/**
+ * Capitan custom-select v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2015-11-17
+ * MIT License (MIT)
+ */
+
+@import '../../sass/partials/functions';
+@import '../../sass/partials/variables';
+@import '../../sass/partials/mixins';
+
+$component: 'custom-select';
+$plugin: 'select2';
+$input-height: 72px;
+
+
+
+// block
+%#{$component} {
+	position: relative;
+	
+	.form__label {
+		@include prefix(transform, 'translate(0,-36px)');
+		@include fontSizeREM(14);
+		background: color('white');
+		position: absolute;
+		top: 14px;
+		left: 10px;
+		color: color('black');
+		z-index: 1;
+
+		@include respondMin(point('min-md')) {
+			left: 20px;
+		}
+	}
+
+	& > select {
+		display: none;
+
+		&.select2-hidden-accessible {
+			display: block;
+		}
+	}
+}
+
+
+
+// element
+.#{$component}__img {
+	width: 20px;
+	margin-right: 5px;
+}
+
+
+
+// modifier
+.#{$component}--filter {
+	.form__label {
+		background: transparent !important;
+	}
+}
+
+
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}
+
+
+.#{$plugin} {
+	@include fontSizeREM(16);
+	width: 100% !important;
+}
+
+
+.#{$plugin}-selection {
+	height: 50px !important;
+	border: 1px solid color('green-light') !important;
+	background: color('grey-lightest') !important;
+}
+
+
+.#{$plugin}-selection__arrow {
+	background: color('ci');
+	border-radius: 100%;
+	height: 24px !important;
+	right: 10px !important;
+	top: 13px !important;
+	width: 24px !important;
+	
+	@include respondMin(point('min-md')) {
+		height: 34px !important;
+		top: 8px !important;
+		width: 34px !important;
+	}
+
+	b {
+		display: none;
+	}
+
+	&:before {
+		@include font($ff-icon);
+
+		color: color('white');
+		content: icon('arrow-bottom');
+		display: block;
+		line-height: 26px;
+		text-align: center;
+		
+		@include respondMin(point('min-md')) {
+			line-height: 35px;
+		}
+	}
+}
+
+
+.#{$plugin}-selection__rendered {
+	@include font($ff-medium, $typo-weight-normal);
+	line-height: 50px !important;
+	padding: 0 40px 0 $grid-gutter-width-half !important;
+	color: color('ci') !important;
+
+	@include respondMin(point('min-md')) {
+		padding: 0 40px 0 $grid-gutter-width !important;
+	}
+}
+
+
+.#{$plugin}-container--open {
+	.#{$plugin}-selection__arrow {
+		&:before {
+			content: icon('arrow-top');
+			line-height: 24px;
+			
+			@include respondMin(point('min-md')) {
+			    line-height: 34px;
+			}
+		}
+	}
+}
+
+
+.#{$plugin}-results__option--highlighted {
+	background: color('grey-lightest') !important;
+	color: color('ci-hover') !important;
+}
+
+
+.#{$plugin}-dropdown {
+	border-color: color('green-light') !important;
+
+	.fancybox-container ~ .#{$plugin}-container & {
+		z-index: 99993 !important;
+	}
+}
+
+
+.#{$plugin}-container--default {
+	.#{$plugin}-results > .#{$plugin}-results__options {
+		max-height: 300px;
+		padding: 0 $grid-gutter-width-half;
+		
+		.#{$plugin}-results__option {
+			border-top: 1px solid color('green-light');
+			line-height: 48px;
+			margin-bottom: 0;
+			padding: 0 $grid-gutter-width-half;
+		}
+	}
+	
+	.#{$plugin}-selection--single {
+		border: 1px solid color('green-light') !important;
+		border-radius: 0 !important;
+	}
+	
+	&.#{$plugin}-container--focus {
+		* {
+			outline: none !important;
+		}
+	}
+	
+	&.#{$plugin}-container--open {
+		.#{$plugin}-selection--single {
+			background: color('white') !important;
+			border: 1px solid color('green-light') !important;
+			border-bottom: none !important;
+		}
+		
+		.#{$plugin}-dropdown--below {
+			border-radius: 0;
+		}
+
+		&.#{$plugin}-container--above {
+			.#{$plugin}-selection--single {
+				border-bottom: 1px solid color('green-light') !important;
+				border-top: none !important;
+			}
+		}
+	}
+}
+
+
+.#{$plugin}-selection__placeholder,
+.#{$plugin}-selection__rendered {
+	color: color('black') !important;
+}

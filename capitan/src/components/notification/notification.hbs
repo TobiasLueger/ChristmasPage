@@ -1,0 +1,16 @@
+{{!-- components/notification --}}
+
+<div class="notification--error notification is-active">
+    <div data-bind="html: message.text"><strong>Fehler:</strong> Es ist ein Fehler aufgetreten!</div>
+    <span class="notification__close util-icon--before util-icon--close">Schließen</span>
+</div>
+
+<div class="notification--notice notification is-active">
+    <div data-bind="html: message.text"><strong>Hinweis:</strong> Sie haben Test Produkt 2 zu Ihrem Warenkorb hinzugefügt.</div>
+    <span class="notification__close util-icon--before util-icon--close">Schließen</span>
+</div>
+
+<div class="notification--success notification is-active">
+    <div data-bind="html: message.text"><strong>Erfolg:</strong> Die Aktion wurde erfolgreich durchgeführt.</div>
+    <span class="notification__close util-icon--before util-icon--close">Schließen</span>
+</div>

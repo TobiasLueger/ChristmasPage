@@ -1,0 +1,923 @@
+{{!-- components/teaser --}}
+{{#if modifier}}
+	{{#ifCond modifier '==' 'teaser-horizontal'}}
+		<div class="teaser{{#if class}} {{class}}{{/if}}">
+			<a data-fancybox{{#if gallery}}="{{gallery}}"{{/if}}
+					href="{{#if url}}{{url}}{{else}}#{{/if}}"
+					class="teaser__link"
+					data-caption="{{title}}"
+					data-content-type="images"
+                    title="[TITLE]"
+			>
+				<picture class="teaser__media">
+					<!-- 459px max-width MOBILES BILD -->
+					<source media="(max-width: 479px)"
+							srcset="{{imagePlaceholder width='459' height='223' bg="#ccc" fg="#333"}}">
+					<!-- 727px max-width MOBILES BILD -->
+					<source media="(max-width: 767px)"
+							srcset="{{imagePlaceholder width='727' height='354' bg="#ddd" fg="#333" size="34px"}}">
+					<!-- original 951px -->
+					<img src="{{imagePlaceholder width='951' height='415' bg="#eee" fg="#333" size="34px"}}" alt="[ALT]" title="[TITLE]" />
+				</picture>
+			</a>
+
+			<div class="teaser__caption">
+                <p class="util-h4 teaser__title">{{{title}}}</p>
+
+				{{#if showCopytext}}
+					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+						ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+				{{/if}}
+
+				{{#if showCTA}}
+					{{>button type="anker" class="teaser__cta btn--primary" url="#" text="Mehr erfahren" }}
+				{{/if}}
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'teaser-horizontal-swap'}}
+		<div class="teaser{{#if class}} {{class}}{{/if}}">
+			<div class="teaser__caption">
+                <p class="util-h4 teaser__title">{{{title}}}</p>
+
+				{{#if showCopytext}}
+					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+						ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+				{{/if}}
+
+				{{#if showCTA}}
+					{{>button type="anker" class="teaser__cta btn--primary" url="#" text="Mehr erfahren" }}
+				{{/if}}
+			</div>
+
+			<a data-fancybox{{#if gallery}}="{{gallery}}"{{/if}}
+					href="{{#if url}}{{url}}{{else}}#{{/if}}"
+					class="teaser__link"
+					data-caption="{{title}}"
+					data-content-type="images"
+                    title="[TITLE]"
+			>
+				<picture class="teaser__media">
+					<!-- 459px max-width MOBILES BILD -->
+					<source media="(max-width: 479px)"
+							srcset="{{imagePlaceholder width='459' height='223' bg="#ccc" fg="#333"}}">
+					<!-- 727px max-width MOBILES BILD -->
+					<source media="(max-width: 767px)"
+							srcset="{{imagePlaceholder width='727' height='354' bg="#ddd" fg="#333" size="34px"}}">
+					<!-- original 951px -->
+					<img src="{{imagePlaceholder width='951' height='415' bg="#eee" fg="#333" size="34px"}}" alt="[ALT]" title="[TITLE]" />
+
+					<span class="btn btn--pill btn--small btn--icon btn--icon-only util-icon--before util-icon--img">22 Fotos</span>
+				</picture>
+			</a>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'teaser-horizontal-portrait'}}
+		<div class="teaser{{#if class}} {{class}}{{/if}}">
+			<a href="#"
+               class="teaser__link"
+               title="[TITLE]">
+				<picture class="teaser__media">
+					<!-- 162px max-width MOBILES BILD -->
+					<source media="(max-width: 479px)"
+							srcset="{{imagePlaceholder width='162' height='228' bg="#eee" fg="#333"}}">
+					<!-- 162px max-width MOBILES BILD -->
+					<source media="(max-width: 991px)"
+							srcset="{{imagePlaceholder width='162' height='228' bg="#eee" fg="#333" size="34px"}}">
+					<!-- original 951px -->
+					<img src="{{imagePlaceholder width='449' height='632' bg="#eee" fg="#333" size="34px"}}" alt="[ALT]" title="[TITLE]" />
+				</picture>
+			</a>
+
+			<div class="teaser__caption">
+                <p class="util-h4 teaser__title">{{{title}}}</p>
+
+				{{#if showCopytext}}
+					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+						ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+				{{/if}}
+
+				{{#if showCTA}}
+					{{> button type="anker" class="teaser__cta btn--primary" url="#" text="Mehr erfahren" }}
+				{{/if}}
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'teaser-video'}}
+		<div class="teaser{{#if class}} {{class}}{{/if}}">
+			<a data-fancybox{{#if gallery}}="{{gallery}}"{{/if}}
+					href="{{#if url}}{{url}}{{else}}#{{/if}}"
+					class="teaser__link"
+					data-caption="{{title}}"
+					data-content-type="video"
+                    title="[TITLE]"
+			>
+
+				<picture class="teaser__media">
+					<!-- 459px max-width MOBILES BILD -->
+					<source media="(max-width: 479px)"
+							srcset="{{imagePlaceholder width='459' height='223' bg="#ccc" fg="#333"}}">
+					<!-- 727px max-width MOBILES BILD -->
+					<source media="(max-width: 767px)"
+							srcset="{{imagePlaceholder width='727' height='354' bg="#ddd" fg="#333" size="34px"}}">
+					<!-- original 797px -->
+					<img src="{{imagePlaceholder width='797' height='415' bg="#eee" fg="#333" size="34px"}}" alt="[ALT]" title="[TITLE]" />
+				</picture>
+			</a>
+
+			<div class="teaser__caption">
+                <p class="util-h4 teaser__title">{{{title}}}</p>
+
+				{{#if showCopytext}}
+					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+						ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+				{{/if}}
+
+				{{#if showCTA}}
+					<a data-fancybox{{#if gallery}}="{{gallery}}"{{/if}} href="{{#if url}}{{url}}{{else}}#{{/if}}"
+                         data-content-type="video"
+                         class="teaser__cta btn btn--primary"
+                         title="{{text}}" data-fancybox
+                         data-caption="{{title}}">{{text}}</a>
+				{{/if}}
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'teaser-pictures'}}
+		<div class="teaser{{#if class}} {{class}}{{/if}}">
+			<a data-fancybox{{#if gallery}}="{{gallery}}"{{/if}}
+                href="{{#if url}}{{url}}{{else}}#{{/if}}"
+                class="teaser__link"
+                data-caption="{{title}}"
+                data-content-type="images"
+                title="[TITLE]"
+			>
+
+				<picture class="teaser__media">
+					<!-- 459px max-width MOBILES BILD -->
+					<source media="(max-width: 479px)"
+							srcset="{{imagePlaceholder width='459' height='223' bg="#ccc" fg="#333"}}">
+					<!-- 727px max-width MOBILES BILD -->
+					<source media="(max-width: 767px)"
+							srcset="{{imagePlaceholder width='727' height='354' bg="#ddd" fg="#333" size="34px"}}">
+					<!-- original 797px -->
+					<img src="{{imagePlaceholder width='797' height='415' bg="#eee" fg="#333" size="34px"}}" alt="[ALT]" title="[TITLE]" />
+				</picture>
+			</a>
+			<div class="teaser__caption">
+                <p class="util-h4 teaser__title">{{{title}}}</p>
+
+				{{#if showCopytext}}
+					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+						ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+				{{/if}}
+
+				{{#if showCTA}}
+					<a data-fancybox{{#if gallery}}="{{gallery}}"{{/if}} href="{{#if url}}{{url}}{{else}}#{{/if}}"
+                         data-content-type="images"
+                         class="teaser__cta btn btn--primary"
+                         title="{{text}}" data-fancybox
+                         data-caption="{{title}}">{{text}}</a>
+				{{/if}}
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'teaser-gallery'}}
+		<div class="teaser{{#if class}} {{class}}{{/if}}">
+			<a data-fancybox{{#if gallery}}="{{gallery}}"{{/if}}
+                href="{{#if url}}{{url}}{{else}}#{{/if}}"
+                class="teaser__link"
+                data-caption="{{title}}"
+                data-content-type="images"
+                title="[TITLE]"
+			>
+				{{#ifCond class '==' 'teaser--gallery-big'}}
+					<picture class="teaser__media">
+						<!-- 459px max-width MOBILES BILD -->
+						<source media="(max-width: 479px)"
+								srcset="{{imagePlaceholder width='440' height='231' bg="#ccc" fg="#000" size="20px"}}">
+						<!-- 727px max-width MOBILES BILD -->
+						<source media="(max-width: 767px)"
+								srcset="{{imagePlaceholder width='708' height='372' bg="#ddd" fg="#333" size="24px"}}">
+						<!-- original 797px -->
+						<img src="{{imagePlaceholder width='946' height='497' bg="#eee" fg="#666" size="28px"}}" alt="[ALT]" title="[TITLE]" />
+
+						<span class="btn btn--pill btn--small btn--icon btn--icon-only util-icon--before util-icon--zoom">Vergrößern</span>
+					</picture>
+				{{/ifCond}}
+
+				{{#ifCond class '==' 'teaser--gallery-small'}}
+					<picture class="teaser__media">
+						<!-- 459px max-width MOBILES BILD -->
+						<source media="(max-width: 479px)"
+								srcset="{{imagePlaceholder width='215' height='119' bg="#ccc" fg="#000" size="20px"}}">
+						<!-- 727px max-width MOBILES BILD -->
+						<source media="(max-width: 767px)"
+								srcset="{{imagePlaceholder width='223' height='123' bg="#ddd" fg="#333" size="24px"}}">
+						<!-- original 797px -->
+						<img src="{{imagePlaceholder width='302' height='167' bg="#eee" fg="#666" size="28px"}}" alt="[ALT]" title="[TITLE]" />
+					</picture>
+
+					<div class="teaser__layer">
+						<p>
+							+{{hits}}<br />
+							<span>weitere Bilder</span>
+						</p>
+					</div>
+				{{/ifCond}}
+
+				{{#ifCond class '==' 'teaser--gallery-bar'}}
+					<picture class="teaser__media">
+						<!-- 459px max-width MOBILES BILD -->
+						<source media="(max-width: 479px)"
+								srcset="{{imagePlaceholder width='440' height='220' bg="#ccc" fg="#000" size="20px"}}">
+						<!-- 727px max-width MOBILES BILD -->
+						<source media="(max-width: 767px)"
+								srcset="{{imagePlaceholder width='344' height='172' bg="#ddd" fg="#333" size="24px"}}">
+						<!-- original 797px -->
+						<img src="{{imagePlaceholder width='456' height='228' bg="#eee" fg="#666" size="28px"}}" alt="[ALT]" title="[TITLE]" />
+					</picture>
+				{{/ifCond}}
+			</a>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'teaser-expandable'}}
+		<div class="teaser{{#if class}} {{class}}{{/if}} accordion">
+			<a href="#"
+               class="teaser__link"
+               title="[TITLE]">
+				<picture class="teaser__media">
+					<!-- 459px max-width MOBILES BILD -->
+					<source media="(max-width: 479px)"
+							srcset="{{imagePlaceholder width='459' height='223' bg="#eee" fg="#333"}}">
+					<!-- 727px max-width MOBILES BILD -->
+					<source media="(max-width: 767px)"
+							srcset="{{imagePlaceholder width='727' height='354' bg="#eee" fg="#333" size="34px"}}">
+					<!-- original 797px -->
+					<img src="{{imagePlaceholder width='797' height='415' bg="#eee" fg="#333" size="34px"}}" alt="[ALT]" title="[TITLE]" />
+				</picture>
+			</a>
+
+			<div class="teaser__caption">
+                <p class="util-h4 teaser__title">{{{title}}}</p>
+
+				{{#if showCopytext}}
+					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+						ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+				{{/if}}
+
+				{{#if showCTA}}
+					{{> button type="anker" class="teaser__cta btn--primary" url="#" text="Mehr erfahren" }}
+				{{/if}}
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'teaser-triple'}}
+		<div class="teaser{{#if class}} {{class}}{{/if}}">
+			<a href="#"
+               class="teaser__link"
+               title="[TITLE]">
+				<picture class="teaser__media">
+					<!-- 439px max-width MOBILES BILD -->
+					<source media="(max-width: 479px)"
+							srcset="{{imagePlaceholder width='439' height='223' bg="#F5F6F3" fg="#333"}}">
+					<!-- 707px max-width MOBILES BILD -->
+					<source media="(max-width: 767px)"
+							srcset="{{imagePlaceholder width='707' height='354' bg="#F5F6F3" fg="#333" size="34px"}}">
+					<!-- original 456px -->
+					<img src="{{imagePlaceholder width='456' height='335' bg="#F5F6F3" fg="#333" size="34px"}}" alt="[ALT]" title="[TITLE]" />
+
+					<span class="btn btn--pill btn--small btn--icon btn--icon-only util-icon--before util-icon--img">22 Fotos</span>
+				</picture>
+			</a>
+
+			<div class="teaser__caption">
+				<p class="util-h4 teaser__title">{{{title}}}</p>
+
+				{{#if showCopytext}}
+					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+						ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+				{{/if}}
+
+				{{#if showLink}}
+					<a href="#" class="util-link util-icon--after util-icon--arrow-right" title="[TITLE]">Jetzt informieren</a>
+				{{/if}}
+
+				{{#if showLinkList}}
+					<ul class="list list--links">
+						<li><a href="/" class="util-link util-icon--after util-icon--arrow-right" title="[TITLE]">Pflegegrade
+							& Pflegesätze</a></li>
+						<li><a href="/" class="util-link util-icon--after util-icon--arrow-right" title="[TITLE]">Pflegegrad
+							beantragen</a></li>
+						<li><a href="/" class="util-link util-icon--after util-icon--arrow-right" title="[TITLE]">Ansprechpartner
+							& Downloads</a></li>
+					</ul>
+				{{/if}}
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier "==" "teaser-events"}}
+		<div class="teaser{{#if class}} {{class}}{{/if}}" itemscope="itemscope" itemtype="http://schema.org/Article">
+			<a href="#"
+               class="teaser__link"
+               title="[TITLE]">
+				<picture class="teaser__media">
+					<!-- 439px max-width MOBILES BILD -->
+					<source media="(max-width: 479px)"
+							srcset="{{imagePlaceholder width='439' height='223' bg="#ccc" fg="#333" }}">
+					<!-- 727px max-width MOBILES BILD -->
+					<source media="(max-width: 767px)"
+							srcset="{{imagePlaceholder width='727' height='354' bg="#ddd" fg="#333" size="34px" }}">
+					<!-- original 951px -->
+					<img src="{{imagePlaceholder width='951' height='415' bg="#eee" fg="#333" size="34px" }}" alt="[ALT]" title="[TITLE]" />
+				</picture>
+			</a>
+
+			<div class="teaser__caption">
+				<span class="util-icon--before util-icon--event">Vortrag | 04. April | Musterstadt</span>
+
+				<p class="util-h4 teaser__title" itemprop="headline">{{{title}}}</p>
+
+				{{#if showCopytext}}
+					<p itemprop="description">Referent: Prof. Stefan Bauer, Leitender Oberarzt der Herzchirurgie</p>
+				{{/if}}
+
+				{{#if showCTA}}
+					{{> button type="anker" class="teaser__cta btn--secondary" url="#" text="Mehr erfahren" }}
+				{{/if}}
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'teaser-testimonial'}}
+		<div class="teaser{{#if class}} {{class}}{{/if}}">
+			<a href="#"
+               class="teaser__link"
+               title="[TITLE]">
+				<picture class="teaser__media">
+					<!-- 439px max-width MOBILES BILD -->
+					<source media="(max-width: 479px)"
+							srcset="{{imagePlaceholder width='439' height='243' bg="#F5F6F3" fg="#333" }}">
+					<!-- 707px max-width MOBILES BILD -->
+					<source media="(max-width: 767px)"
+							srcset="{{imagePlaceholder width='707' height='532' bg="#F5F6F3" fg="#333" size="34px" }}">
+					<!-- original 935px -->
+					<img src="{{imagePlaceholder width='935' height='705' bg="#F5F6F3" fg="#333" size="34px" }}" alt="[ALT]" title="[TITLE]" />
+				</picture>
+			</a>
+
+			<div class="teaser__caption">
+				<p class="teaser__title util-h3">{{{title}}}</p>
+
+				{{#if showCopytext}}
+					<p class="util-wow-paragraph">Lisa Meier, Azubi, MediClin Müritz-Klinikum</p>
+				{{/if}}
+
+				{{#if showCTA}}
+					{{>button type="anker" class="teaser__cta btn--primary" url="/" text="Mehr erfahren" }}
+				{{/if}}
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier "==" "teaser-health-magazine"}}
+		<div class="teaser{{#if class}} {{class}}{{/if}}" itemscope="itemscope" itemtype="http://schema.org/Article">
+			<div class="teaser__media">
+				<picture class="teaser__main-image">
+					<!-- 439px max-width MOBILES BILD -->
+					<source media="(max-width: 479px)"
+							srcset="{{imagePlaceholder width='439' height='223' bg="#eee" fg="#333"}}">
+					<!-- 727px max-width MOBILES BILD -->
+					<source media="(max-width: 767px)"
+							srcset="{{imagePlaceholder width='727' height='354' bg="#eee" fg="#333" size="34px"}}">
+					<!-- original 951px -->
+					<img src="{{imagePlaceholder width='931' height='600' bg="#eee" fg="#333" size="34px"}}"
+						 alt="[ALT]">
+				</picture>
+			</div>
+
+			<div class="teaser__caption">
+				<div class="teaser__main-content">
+					<small>Psyche & Gesundheit</small>
+					<p class="util-h5 teaser__title" itemprop="headline">{{{title}}}</p>
+
+					{{#if showCopytext}}
+						<p itemprop="description">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+							nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
+					{{/if}}
+				</div>
+
+				{{#if showCTA}}
+					{{> button type="anker" class="teaser__cta btn--secondary" url="#" text="Jetzt lesen" }}
+				{{/if}}
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'teaser-news'}}
+		<div class="teaser{{#if class}} {{class}}{{/if}}">
+			<a href="#"
+               class="teaser__link"
+               title="[TITLE]">
+				<picture class="teaser__media">
+					<!-- 429px max-width MOBILES BILD -->
+					<source media="(max-width: 479px)"
+							srcset="{{imagePlaceholder width='439' height='329' bg="#F5F6F3" fg="#333"}}">
+					<!-- 707px max-width MOBILES BILD -->
+					<source media="(max-width: 767px)"
+							srcset="{{imagePlaceholder width='708' height='531' bg="#F5F6F3" fg="#333" size="34px"}}">
+					<!-- original 456px -->
+					<img src="{{imagePlaceholder width='680' height='510' bg="#F5F6F3" fg="#333" size="34px"}}" alt="[ALT]" title="[TITLE]" />
+				</picture>
+			</a>
+
+			<div class="teaser__caption">
+				<small>02.02.2018</small>
+				<p class="util-h5 teaser__title">{{{title}}}</p>
+				{{#if showLink}}
+					<a href="#" class="util-link util-icon--after util-icon--arrow-right" title="[TITLE]">Mehr erfahren</a>
+				{{/if}}
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'teaser-expert'}}
+		<div class="teaser{{#if class}} {{class}}{{/if}}">
+			<a href="#"
+               class="teaser__link"
+               title="[TITLE]">
+				<picture class="teaser__media">
+					<!-- 429px max-width MOBILES BILD -->
+					<source media="(max-width: 479px)"
+							srcset="{{imagePlaceholder width='329' height='329' bg="#F5F6F3" fg="#333"}}">
+					<!-- 707px max-width MOBILES BILD -->
+					<source media="(max-width: 767px)"
+							srcset="{{imagePlaceholder width='329' height='329' bg="#F5F6F3" fg="#333" size="34px"}}">
+					<!-- original 456px -->
+					<img src="{{imagePlaceholder width='329' height='329' bg="#F5F6F3" fg="#333" size="34px"}}" alt="[ALT]" title="[TITLE]" />
+				</picture>
+			</a>
+
+			<div class="teaser__caption">
+				<p class="util-h4 teaser__title">
+					<a href="#" class="util-link" title="[TITLE]">{{{name}}}</a>
+				</p>
+
+				{{#if specialField}}
+					<p>
+						{{{specialField}}}
+					</p>
+				{{/if}}
+
+				{{> contact-list tel=true fax=true mail=true }}
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'teaser-icon'}}
+		<div class="teaser{{#if class}} {{class}}{{/if}}">
+			{{#if iconSpecialarea}}
+				<span class="util-icon--after util-icon--hospital"></span>
+			{{/if}}
+
+			<div class="teaser__caption">
+				<small>{{name}}</small>
+
+				<p class="util-h4 teaser__title">
+					<a href="#" class="util-link"  title="[TITLE]">{{{title}}}</a>
+				</p>
+
+				<p>
+                    {{copyText}}
+                </p>
+
+				{{#if showCTA}}
+					{{>button type="anker" class="teaser__cta btn--secondary" url="#" text="Mehr erfahren"}}
+				{{/if}}
+
+				{{#if showLink}}
+					<a href="#" class="util-link util-icon--after util-icon--arrow-right" title="[TITLE]">Mehr erfahren</a>
+				{{/if}}
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'teaser-icon-text'}}
+		<div class="teaser{{#if class}} {{class}}{{/if}}">
+			{{#if iconSpecialarea}}
+				<span class="util-icon--after util-icon--hospital"></span>
+			{{/if}}
+
+			<div class="teaser__caption">
+				<p class="util-h4 teaser__title">
+					<a href="#" class="util-link"  title="[TITLE]">{{{title}}}</a>
+				</p>
+
+				<p>{{copyText}}</p>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'teaser-contact-person'}}
+		<div class="teaser{{#if class}} {{class}}{{/if}}">
+			{{#if pictureArea}}
+				<picture class="teaser__media">
+					<!-- 439px max-width MOBILES BILD -->
+					<source media="(max-width: 479px)"
+							srcset="{{imagePlaceholder width='55' height='73' bg="#ccc" fg="#333" size="20px"}}">
+					<!-- 727px max-width MOBILES BILD -->
+					<source media="(max-width: 767px)"
+							srcset="{{imagePlaceholder width='162' height='216' bg="#ccc" fg="#333" size="24px"}}">
+					<!-- original 951px -->
+					<img src="{{imagePlaceholder width='215' height='286' bg="#ccc" size="28px"}}" alt="[ALT]" title="[TITLE]" />
+				</picture>
+			{{/if}}
+
+			<div class="teaser__caption">
+				{{#if teaser-title}}
+					<p class="util-h4 teaser__title">{{name}}</p>
+				{{/if}}
+
+				{{#if expert-title-area}}
+					<p class="teaser__expert-title">{{expert-title}}</p>
+				{{/if}}
+
+				{{#if teaserSpecial-normal}}
+					<p class="teaser__special">{{specialField}}</p>
+				{{/if}}
+
+				{{#if teaserSpecial-small}}
+					<p class="teaser__special">
+						<strong>Behandlungsschwerpunkt:</strong>
+
+						<span>{{specialField}}</span>
+					</p>
+				{{/if}}
+
+				<p class="teaser__clinic">
+                    {{clinic}}
+                </p>
+
+				{{#if contactList}}
+					{{> contact-list tel=true fax=true contactLayer=true }}
+				{{/if}}
+
+				{{#if contactList-telFax}}
+					{{> contact-list tel=true fax=true contactLayer=false }}
+				{{/if}}
+
+				{{#if contactList-addressTelFax}}
+					{{> contact-list address=true tel=true fax=true contactLayer=false }}
+				{{/if}}
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'teaser-expert-listing'}}
+		<div class="teaser{{#if class}} {{class}}{{/if}}">
+			{{#if pictureArea}}
+				<picture class="teaser__media">
+					<!-- 439px max-width MOBILES BILD -->
+					<source media="(max-width: 479px)"
+							srcset="{{imagePlaceholder width='55' height='73' bg="#eee" fg="#333" size="20px"}}">
+					<!-- 727px max-width MOBILES BILD -->
+					<source media="(max-width: 767px)"
+							srcset="{{imagePlaceholder width='162' height='216' bg="#eee" fg="#333" size="24px"}}">
+					<!-- original 951px -->
+					<img src="{{imagePlaceholder width='215' height='286' bg="#eee" size="28px"}}" alt="[ALT]" title="[TITLE]" />
+				</picture>
+			{{/if}}
+
+			<div class="teaser__caption">
+				{{#if teaser-title}}
+					<p class="util-h4 teaser__title">{{name}}</p>
+				{{/if}}
+
+				{{#if expert-title-area}}
+					<p class="teaser__expert-title"><strong>{{expert-title}}</strong></p>
+				{{/if}}
+
+				<div class="teaser__content">
+					{{#if teaserSpecial-normal}}
+						<p class="teaser__special">{{specialField}}</p>
+					{{/if}}
+
+					{{#if teaserSpecial-small}}
+						<p class="teaser__special">
+							<small><b>Behandlungsschwerpunkt:</b> {{specialField}}</small>
+						</p>
+					{{/if}}
+
+					<p class="teaser__clinic">
+                        <a href="#" title="[TITLE]" target="_blank"><strong>{{clinic}}</strong></a>
+                    </p>
+
+					{{#if contactList}}
+						{{> contact-list tel=true fax=true mail=true }}
+					{{/if}}
+
+					{{#if contactList-telFax}}
+						{{> contact-list tel=true fax=true mail=false }}
+					{{/if}}
+
+					{{#if contactList-addressTelFax}}
+						{{> contact-list address=true tel=true fax=true mail=false }}
+					{{/if}}
+				</div>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'teaser-search-result'}}
+		<div class="teaser{{#if class}} {{class}}{{/if}}">
+			<div class="teaser__caption">
+				<p class="util-h4 teaser__title">{{{title}}}</p>
+
+				{{#if showCopytext}}
+					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+						ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+				{{/if}}
+
+				{{#if showLink}}
+					<a href="#" class="util-link util-icon--after util-icon--arrow-right" title="[TITLE]">Link der
+						Seite</a>
+				{{/if}}
+			</div>
+		</div>
+
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'teaser-between'}}
+		<div class="teaser{{#if class}} {{class}}{{/if}} {{#if
+				icon}}teaser--between-icon util-icon--before util-icon--{{icon}}{{/if}}">
+			{{#if image}}
+                <div class="teaser__wrapper">
+                    <picture class="teaser__media">
+                        <!-- 380px max-width MOBILES BILD -->
+                        <source media="(max-width: 479px)"
+                                srcset="{{imagePlaceholder width='380' height='167' bg="#bbb" fg="#333" size="28px" }}">
+                        <!-- 667px max-width MOBILES BILD -->
+                        <source media="(max-width: 767px)"
+                                srcset="{{imagePlaceholder width='667' height='292' bg="#ccc" fg="#333" size="30px" }}">
+                        <!-- 871px max-width MOBILES BILD -->
+                        <source media="(max-width: 991px)"
+                                srcset="{{imagePlaceholder width='871' height='381' bg="#ddd" fg="#333" size="32px" }}">
+                        <!-- original 727px -->
+                        <img src="{{imagePlaceholder width='727' height='318' bg="#eee" fg="#333" size="34px" }}" alt="[ALT]" title="[TITLE]" />
+                    </picture>
+                {{/if}}
+
+                <div class="teaser__caption">
+                    {{#if showCopytext}}
+                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
+                    {{/if}}
+
+                    <p class="teaser__title">
+                        <span class="util-h3">
+                            {{{ title }}}
+                        </span>
+                    </p>
+
+                    {{#if telephone}}
+                        <p class="teaser__telephone">
+                            <span class="util-h2">
+                                {{{ telephone }}}
+                            </span>
+                        </p>
+                    {{/if}}
+
+                    {{#if showCTA}}
+                        {{> button type="anker" class="teaser__cta btn--invert" url="#" text="Mehr erfahren" }}
+                    {{/if}}
+
+                    {{#if showCTAGroup}}
+                        {{> button group-start=true class="util-reset-margin-top" }}
+
+                        {{#forLoop 0 buttonCount 1 }}
+                            {{> button type="anker" text="Mehr erfahren" class="teaser__cta btn--invert" }}
+                        {{/forLoop}}
+
+                        {{> button group-end=true }}
+                    {{/if}}
+                </div>
+			{{#if image}}
+            </div>
+			{{/if}}
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'teaser-media'}}
+		<div class="teaser{{#if class}} {{class}}{{/if}}">
+			<a data-fancybox{{#if gallery}}="{{gallery}}"{{/if}}
+                href="{{#if url}}{{url}}{{else}}#{{/if}}"
+                class="teaser__link"
+                data-caption="{{title}}"
+                data-content-type="images"
+                title="[TITLE]"
+			>
+				<picture class="teaser__media">
+					<!-- 439px max-width MOBILES BILD -->
+					<source media="(max-width: 479px)"
+							srcset="{{imagePlaceholder width='439' height='223' bg="#ccc" fg="#333"}}">
+					<!-- 707px max-width MOBILES BILD -->
+					<source media="(max-width: 767px)"
+							srcset="{{imagePlaceholder width='707' height='354' bg="#ddd" fg="#333" size="34px"}}">
+					<!-- original 456px -->
+					<img src="{{imagePlaceholder width='456' height='335' bg="#eee" fg="#333" size="34px"}}" alt="[ALT]" title="[TITLE]" />
+
+					{{#if showPill}}
+						<span class="btn btn--pill btn--small btn--icon btn--icon-only util-icon--before util-icon--play">01:41</span>
+					{{/if}}
+				</picture>
+			</a>
+
+			<div class="teaser__caption">
+				<p>
+					<span class="util-small">28.04.2018</span>
+					<br />
+					<strong class="teaser__title">{{{title}}}</strong>
+				</p>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'teaser-media-box'}}
+		<div class="teaser{{#if class}} {{class}}{{/if}}">
+			<div class="teaser__download content-block content-block--download">
+				<a href="#"
+                   class="util-link"
+                   title="[TITLE]">
+					<div class="content-block__icon util-icon--before util-icon--download"></div>
+
+					<div class="content-block__content">
+						<p>
+							PDF-Datei<br/>
+                            94,5 Kb
+						</p>
+					</div>
+				</a>
+			</div>
+
+			<div class="teaser__caption">
+				<p>
+					{{{category}}} - <a href="#" title="[TITLE]" target="_self">Psychosomatik</a>
+				</p>
+
+				<p>
+					<strong>{{{title}}}</strong>
+				</p>
+
+				<p>
+					{{{text}}}
+				</p>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'teaser-listing-news'}}
+		<div class="teaser{{#if class}} {{class}}{{/if}}">
+			{{#if pictureArea}}
+				<a href="#"
+                   class="teaser__link"
+                   title="[TITLE]">
+					<picture class="teaser__media">
+						<!-- 400px max-width MOBILES BILD -->
+						<source media="(max-width: 479px)" srcset="{{imagePlaceholder width='400' height='175' bg="#ccc" fg="#333" size="30px" }}">
+						<!-- 708px max-width MOBILES BILD -->
+						<source media="(max-width: 767px)" srcset="{{imagePlaceholder width='708' height='309' bg="#ddd" fg="#333" size="32px" }}">
+						<!-- original 440px -->
+						<img src="{{imagePlaceholder width='440' height='192' bg="#eee" fg="#333" size="34px"}}" alt="[ALT]" title="[TITLE]" />
+					</picture>
+				</a>
+			{{/if}}
+
+			<div class="teaser__caption">
+				{{#if iconSpecialarea}}
+					<div class="row">
+						<div class="col-xs-12 col-xl-4 teaser__icon-area">
+							<small class="util-icon--before util-icon--calendar">02.02.2018</small>
+						</div>
+
+						<div class="col-xs-12 col-xl-8 teaser__icon-area">
+							<small class="util-icon--before util-icon--tag">Tag, Tag mit mehr Text, Langer Tag mit sehr viel Text</small>
+						</div>
+					</div>
+				{{/if}}
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p class="util-h4 teaser__title">
+                            <a href="#" class="util-link" title="[TITLE]">
+                                {{title}}
+                            </a>
+                        </p>
+
+                        {{#if showCopytext}}
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+                        {{/if}}
+
+                        {{#if showCTA}}
+                            {{> button type="anker" class="teaser__cta btn--primary" url="#" text="Beitrag lesen" }}
+                        {{/if}}
+                    </div>
+			    </div>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier "==" "teaser-listing-events"}}
+		<div class="teaser{{#if class}} {{class}}{{/if}} row">
+			<div class="teaser__caption {{#if image}}col-lg-6 col-md-12{{/if}}">
+				<div class="teaser__head-area">
+					<div class="teaser__preview-area">
+						<p class="util-h3 util-icon--before util-icon--event">04. - 26. Februar</p>
+
+						<span class="teaser__tag">{{{tag}}}</span>
+					</div>
+
+					<div class="teaser__icon-area">
+						<span class="util-icon--before util-icon--location-o">10:30 Uhr bis 17:00 Uhr</span>
+
+						<div class="util-icon--before util-icon--location-o">
+                            <p class="teaser__location">
+                                <span>Internationeales Congress Center</span>
+                                <span>Messegelände</span>
+                                <span>81823 München</span>
+                            </p>
+                        </div>
+					</div>
+				</div>
+
+				<p class="util-h4 teaser__title" itemprop="headline">{{{title}}}</p>
+
+				{{#if showCopytext}}
+					<p itemprop="description">Referent: Prof. Stefan Bauer, Leitender Oberarzt der Herzchirurgie</p>
+				{{/if}}
+
+				{{#if showCTA}}
+					<div class="btn-group">
+						{{> button type="anker" class="teaser__cta btn--secondary " url="#" text="Details ansehen" }}
+
+						{{> button type="anker" text="Anmelden" class="teaser__cta btn--primary" fancybox=true url="javascript:;" }}
+					</div>
+				{{/if}}
+			</div>
+
+			{{#if image}}
+				<div class="teaser__img-area col-lg-6 util-visible-lg">
+					<picture class="teaser__media">
+						<!-- 439px max-width MOBILES BILD -->
+						<source media="(max-width: 479px)"
+								srcset="{{imagePlaceholder width='439' height='223' bg="#ccc" fg="#333"}}">
+						<!-- 727px max-width MOBILES BILD -->
+						<source media="(max-width: 767px)"
+								srcset="{{imagePlaceholder width='727' height='354' bg="#ddd" fg="#333" size="34px"}}">
+						<!-- original 951px -->
+						<img src="{{imagePlaceholder width='951' height='415' bg="#eee" fg="#333" size="34px"}}" alt="[ALT]" title="[TITLE]" />
+					</picture>
+				</div>
+			{{/if}}
+		</div>
+
+	{{/ifCond}}
+
+{{else }}
+
+	<div class="teaser{{#if class}} {{class}}{{/if}}">
+		<a href="#"
+           class="teaser__link"
+           title="[TITLE]">
+			<picture class="teaser__media">
+				<!-- 459px max-width MOBILES BILD -->
+				<source media="(max-width: 479px)"
+						srcset="{{imagePlaceholder width='459' height='223' bg="#ccc" fg="#333"}}">
+				<!-- 727px max-width MOBILES BILD -->
+				<source media="(max-width: 767px)"
+						srcset="{{imagePlaceholder width='727' height='354' bg="#ddd" fg="#333" size="34px"}}">
+				<!-- original 797px -->
+				<img src="{{imagePlaceholder width='1146' height='601' bg="#eee" fg="#333" size="34px"}}" alt="[ALT]" title="[TITLE]" />
+			</picture>
+		</a>
+
+		<div class="teaser__caption">
+			<p class="util-h4 teaser__title">{{{title}}}</p>
+
+			{{#if showCopytext}}
+				<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+					ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+			{{/if}}
+
+			{{#if showCTA}}
+				{{> button type="anker" class="teaser__cta btn--primary" url="#" text="Mehr erfahren"}}
+			{{/if}}
+		</div>
+	</div>
+{{/if}}

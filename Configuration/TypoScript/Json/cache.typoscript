@@ -1,0 +1,27 @@
+clearCachePage = PAGE
+clearCachePage {
+    typeNum = 1536235329
+    config {
+        debug= 0
+        no_cache = 0
+        index_enable = 0
+        xhtml_cleaning = 0
+        disableAllHeaderCode = 1
+        additionalHeaders {
+            10 {
+                header = Content-Type: application/json
+                replace = 1
+            }
+        }
+    }
+
+    10 < tt_content.list.20.braprojectfilesmdccorporate_cache
+    10 = USER_INT
+    10 {
+        switchableControllerActions {
+            Cache {
+                1 = clear
+            }
+        }
+    }
+}

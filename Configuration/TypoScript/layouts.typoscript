@@ -1,0 +1,67 @@
+#-----------------------------------
+# Layout configuration
+#
+# 0 = Normal (styles.content.get)
+# 1 = Links (styles.content.getLeft)
+# 2 = Rechts (styles.content.getRight)
+# 3 = Rand (styles.content.getBorder)
+#-----------------------------------
+page {
+    10 = CASE
+    10 {
+        key.data = levelfield:-2,backend_layout_next_level,slide
+        key.override.field = backend_layout
+
+        # Default Fluid Layout
+        default = FLUIDTEMPLATE
+        default {
+            partialRootPaths {
+                10 = EXT:fluid_styled_content/Resources/Private/Partials/
+                20 = typo3conf/ext/bra_projectfiles_mdc_corporate/Resources/Private/Page/Partials/
+            }
+            layoutRootPaths{
+                10 = EXT:fluid_styled_content/Resources/Private/Layouts/
+                20 = typo3conf/ext/bra_projectfiles_mdc_corporate/Resources/Private/Page/Layouts/
+            }
+            variables {
+                contentStage < styles.content.get
+                contentStage.select.where = colPos = 0
+                contentMain < styles.content.get
+                contentMain.select.where = colPos = 1
+
+                searchPid = TEXT
+                searchPid.value = {$searchPid}
+
+            }
+
+            dataProcessing {
+                10 < lib.menuMainMeta
+                30 < lib.menuMain
+                40 < lib.menuFooter
+                50 < lib.menuFooterMeta
+                60 < lib.breadcrumb
+                70 < lib.breadcrumbDetail
+                80 < lib.tabMenu
+                90 < lib.menuLangMeta
+            }
+        }
+
+        pagets__1  < .default
+        pagets__1 {
+            file = typo3conf/ext/bra_projectfiles_mdc_corporate/Resources/Private/Page/Templates/Startpage.html
+        }
+        pagets__2 < .default
+        pagets__2 {
+            file = typo3conf/ext/bra_projectfiles_mdc_corporate/Resources/Private/Page/Templates/Subpage.html
+        }
+    }
+}
+
+#Override Fluid Styled Content template to remove <div id="c{data.uid}">
+lib.fluidContent.layoutRootPaths.30 = typo3conf/ext/bra_projectfiles_mdc_corporate/Resources/Private/Page/Layouts/FluidStyledContent
+
+
+#-------------------------------------------------------------
+# LOAD SPECIFIC LAYOUTS FOR PAGE TYPE (AKUT/CORP ETC.)
+#-------------------------------------------------------------
+<INCLUDE_TYPOSCRIPT: source="FILE:typo3conf/ext/bra_projectfiles_mdc_corporate/Configuration/TypoScript/Layouts/layouts_akut.typoscript">

@@ -1,0 +1,149 @@
+<!--
+ Capitan custom-select v1.0.0
+
+ Copyright brandung GmbH & Co.KG
+ http://www.brandung.de/
+
+ Date: 2015-11-17
+ MIT License (MIT)
+ -->
+{{#if modifier}}
+
+	{{#ifCond modifier '==' 'custom-filter'}}
+		<div class="form__field-wrapper {{class}}">
+			<div class="custom-select custom-select--filter {{selectClass}}" data-placeholder="{{selectPlaceholder}}" data-label="{{selectLabel}}"
+			 data-filter-type="{{selectFilterType}}" data-ajax-type="{{ajaxType}}">
+				{{#if label}}<label class="form__label" for="{{formId}}-{{id}}">{{label}} {{#if required}}*{{/if}}</label>{{/if}}
+				<select id="{{selectId}}" name="single-select" required size="4" {{#if selectMultiple}} multiple="multiple" {{/if}}>
+					<option value="" selected>Alle</option>
+					<option value="1">Option 1</option>
+					<option value="2">Option 2</option>
+					<option value="3">Option 3</option>
+				</select>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'expert-expert'}}
+		<div class="form__field-wrapper {{class}}">
+			<div class="custom-select custom-select--filter {{selectClass}}" data-placeholder="{{selectPlaceholder}}" data-label="{{selectLabel}}"
+			 data-ajax-type="{{ajaxType}}" data-ajax-url="{{ajaxUrl}}" data-ajax="{{ajax}}">
+				<select id="{{selectId}}" name="tx_brafacilitymdc_expert[expert]" required size="4" {{#if selectMultiple}} multiple="multiple"
+				 {{/if}}>
+					<option value="0" selected>Alle</option>
+					<option value="1">Option 1</option>
+					<option value="2">Option 2</option>
+					<option value="3">Option 3</option>
+				</select>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'expert-facility'}}
+		<div class="form__field-wrapper {{class}}">
+			<div class="custom-select custom-select--filter {{selectClass}}" data-placeholder="{{selectPlaceholder}}" data-label="{{selectLabel}}"
+			 data-ajax-type="{{ajaxType}}" data-ajax-url="{{ajaxUrl}}" data-ajax="{{ajax}}">
+				<select id="{{selectId}}" name="tx_brafacilitymdc_expert[facility]" required size="4" {{#if selectMultiple}}
+				 multiple="multiple" {{/if}}>
+					<option value="0" selected>Alle</option>
+					<option value="1">Option 1</option>
+					<option value="2">Option 2</option>
+					<option value="3">Option 3</option>
+				</select>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'expert-specialfield'}}
+		<div class="form__field-wrapper {{class}}">
+			<div class="custom-select custom-select--filter {{selectClass}}" data-placeholder="{{selectPlaceholder}}" data-label="{{selectLabel}}"
+			 data-ajax-type="{{ajaxType}}" data-ajax-url="{{ajaxUrl}}" data-ajax="{{ajax}}">
+				<select id="{{selectId}}" name="tx_brafacilitymdc_expert[specialfield]" required size="4" {{#if selectMultiple}}
+				 multiple="multiple" {{/if}}>
+					<option value="0" selected>Alle</option>
+					<option value="1">Kardiologie</option>
+					<option value="2">Chirurgie</option>
+					<option value="3">Psychiatrie</option>
+				</select>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'media-facility'}}
+		<div class="form__field-wrapper {{class}}">
+			<div class="custom-select custom-select--filter {{selectClass}}" data-placeholder="{{selectPlaceholder}}" data-label="{{selectLabel}}"
+			 data-ajax-type="{{ajaxType}}" data-ajax-url="{{ajaxUrl}}" data-ajax="{{ajax}}">
+				<select id="{{selectId}}" name="tx_bramediacentermdc_list[filter][facility]" size="1">
+					<option value="0" selected>Alle</option>
+					<option value="1">Einrichtung 1</option>
+					<option value="2">Einrichtung 2</option>
+					<option value="3">Einrichtung 3</option>
+				</select>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'media-topic'}}
+		<div class="form__field-wrapper {{class}}">
+			<div class="custom-select custom-select--filter {{selectClass}}" data-placeholder="{{selectPlaceholder}}" data-label="{{selectLabel}}"
+			 data-ajax-type="{{ajaxType}}" data-ajax-url="{{ajaxUrl}}" data-ajax="{{ajax}}">
+				<select id="{{selectId}}" name="tx_bramediacentermdc_list[filter][topic]" size="1">
+					<option value="0" selected>Alle</option>
+					<option value="1">Thema 1</option>
+					<option value="2">Thema 2</option>
+					<option value="3">Thema 3</option>
+				</select>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'media-tabs'}}
+		<div class="custom-select {{selectClass}}" data-placeholder="{{selectPlaceholder}}" data-ajax-type="{{ajaxType}}"
+		 data-ajax-url="{{ajaxUrl}}" data-ajax="{{ajax}}">
+		<select id="{{selectId}}" name="tx_bramediacentermdc_list[type]" size="1">
+			<option value="http://localhost:3000/T050a-Mediathek-Flyer.html" {{#ifCond selectTab '==' '1'}} selected{{/ifCond}}>Broschüren & Flyer</option> 
+		 	<option value="http://localhost:3000/T050b-Mediathek-Checklisten.html" {{#ifCond selectTab '==' '2'}} selected{{/ifCond}}>Anträge & Checklisten</option> 
+		 	<option value="http://localhost:3000/T050c-Mediathek-Videos.html" {{#ifCond selectTab '==' '3'}} selected{{/ifCond}}>Videos </option> 
+		 </select>
+		</div> 
+	{{/ifCond}}
+				 
+				 
+	{{#ifCond modifier '==' 'disease-select'}} <div class="form__field-wrapper">
+		<div class="custom-select {{selectClass}}" data-placeholder="Krankheitsbild auswählen">
+			<select id="-" name="">
+				<option value="">Krankheitsbild auswählen</option>
+				<optgroup label="A">
+					<option value="herzinsuffizienz/weitere/infos">Akute Herzinsuffizienz</option>
+					<option value="herzinsuffizienz">Aneurysma</option>
+					<option value="test.html">Angeborene Fehlbildungen der Aorta</option>
+				</optgroup>
+				<optgroup label="B">
+					<option value="1">Bluthochdruck</option>
+					<option value="2">Bradykardie</option>
+				</optgroup>
+				<optgroup label="C">
+					<option value="test.html">Carotisstenose</option>
+					<option value="test.html">Chronische Herzinsuffizienz</option>
+					<option value="test.html">Chronische ischämische Herzkrankheit</option>
+				</optgroup>
+			</select>
+		</div>
+	{{/ifCond}}
+
+{{else}}
+
+	<div class="form__field-wrapper">
+		<label class="form__label" for="{{id}}">{{label}} {{#if required}}*{{/if}}</label>
+		<div class="custom-select {{selectClass}}" data-placeholder="{{#if placeholder}}{{placeholder}}{{else}}Bitte wählen{{/if}}"
+		 data-label="{{selectLabel}}" data-filter-type="{{selectFilterType}}" data-ajax-type="{{ajaxType}}" data-ajax-url="{{ajaxUrl}}"
+		 data-ajax="{{ajax}}">
+			<select id="{{formId}}-{{id}}" name="{{id}}" {{#if required}} required{{/if}}> <option value="">Alle</option>
+				<option value="1">Option 1</option>
+				<option value="2">Option 2</option>
+				<option value="3">Option 3</option>
+			</select>
+		</div>
+	</div>
+
+{{/if}}

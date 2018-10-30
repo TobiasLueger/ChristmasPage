@@ -1,0 +1,168 @@
+{{!-- components/nav-services --}}
+<nav class="nav-services">
+	<ul class="nav-services__list">
+		<li title="[TITLE]" class="nav-services__flyout--toggle">
+			<a
+				href="#"
+				class="level-top util-icon--before util-icon--experts"
+				aria-haspopup="true"
+				tabindex="-1"
+				role="menuitem">
+				<span class="pointer"></span>
+				<span>Experten</span>
+			</a>
+			<div class="nav-services__flyout nav-services__flyout--experts">
+				<div class="nav-services__flyout--content">
+					<strong class="util-h3">Unsere Spezialisten aus Medizin, Therapie & Pflege</strong>
+					<p>
+						Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+					</p>
+					<form class="form form--transition"
+						  method="{{#if method}}{{method}}{{else}}get{{/if}}"
+						  action="{{#if action}}{{action}}{{else}}/{{/if}}"
+						  data-validate="true"
+					>
+						<div class="row">
+							<div class="col-md-3">
+								{{#getJsonContext
+										'{
+                                            "options": [
+                                                {"text": "Alle"},
+                                                {"value": "0", "text": "Option 1"},
+                                                {"value": "1", "text": "Option 2"},
+                                                {"value": "2", "text": "Option 3"}
+                                            ]
+                                        }'
+								}}
+									{{> select this id="select-experts-1" label="MediClin Experten" }}
+								{{/getJsonContext}}
+							</div>
+							<div class="col-md-4">
+								{{#getJsonContext
+										'{
+                                            "options": [
+                                                {"text": "Alle"},
+                                                {"value": "0", "text": "Option 1"},
+                                                {"value": "1", "text": "Option 2"},
+                                                {"value": "2", "text": "Option 3"}
+                                            ]
+                                        }'
+								}}
+									{{> select this id="select-experts-2" label="Name der Einrichtung" }}
+								{{/getJsonContext}}
+							</div>
+							<div class="col-md-3">
+								{{#getJsonContext
+										'{
+                                            "options": [
+                                                {"text": "Alle"},
+                                                {"value": "0", "text": "Option 1"},
+                                                {"value": "1", "text": "Option 2"},
+                                                {"value": "2", "text": "Option 3"}
+                                            ]
+                                        }'
+								}}
+									{{> select this id="select-experts-3" label="Fachbereich" }}
+								{{/getJsonContext}}
+							</div>
+							<div class="form__field-wrapper col-xs-12 col-md-2">
+								<button class="btn">Suchen</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</li>
+		<li title="[TITLE]" class="nav-services__flyout--toggle">
+			<a
+				href="#"
+				class="level-top util-icon--before util-icon--facilities"
+				aria-haspopup="true"
+				tabindex="-1"
+				role="menuitem">
+				<span class="pointer"></span>
+				<span>Einrichtungen</span>
+			</a>
+			<div class="nav-services__flyout nav-services__flyout--facilities">
+				<div class="nav-services__flyout--content">
+					<strong class="util-h3">Unsere Einrichtungen</strong>
+					<p>
+						Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+					</p>
+					<form class="form form--transition"
+						  method="{{#if method}}{{method}}{{else}}get{{/if}}"
+						  action="{{#if action}}{{action}}{{else}}/{{/if}}"
+						  data-validate="true"
+					>
+						<div class="row">
+							{{> input class="col-xs-12 col-md-3" id="zip-city" label="PLZ oder Ort" placeholder="PLZ oder Ort" }}
+							<div class="col-md-3">
+								{{#getJsonContext
+										'{
+                                            "options": [
+                                                {"text": "Alle"},
+                                                {"value": "0", "text": "Option 1"},
+                                                {"value": "1", "text": "Option 2"},
+                                                {"value": "2", "text": "Option 3"}
+                                            ]
+                                        }'
+								}}
+									{{> select this id="select-facilities-1" label="Art der Einrichtung" }}
+								{{/getJsonContext}}
+							</div>
+							<div class="col-md-4">
+								{{#getJsonContext
+										'{
+                                            "options": [
+                                                {"text": "Alle"},
+                                                {"value": "0", "text": "Option 1"},
+                                                {"value": "1", "text": "Option 2"},
+                                                {"value": "2", "text": "Option 3"}
+                                            ]
+                                        }'
+								}}
+									{{> select this id="select-facilities-2" label="Name der Einrichtung" }}
+								{{/getJsonContext}}
+							</div>
+							<div class="form__field-wrapper col-xs-12 col-md-2">
+								<button class="btn">Suchen</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</li>
+		<li title="[TITLE]" class="nav-services__flyout--toggle">
+			<a
+				href="#"
+				class="level-top util-icon--before util-icon--search"
+				aria-haspopup="true"
+				tabindex="-1"
+				role="menuitem">
+				<span class="pointer"></span>
+				<span>Suche</span>
+			</a>
+			<div class="nav-services__flyout nav-services__flyout--search">
+				<div class="nav-services__flyout--content">
+					<strong class="util-h3">Was suchen Sie?</strong>
+					<p>
+						Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+					</p>
+					<form class="form form--transition"
+						  method="{{#if method}}{{method}}{{else}}get{{/if}}"
+						  action="{{#if action}}{{action}}{{else}}/{{/if}}"
+						  data-validate="true"
+					>
+						<div class="row">
+							{{> input class="col-xs-12 col-md-10" id="search-term" label="Ihr Suchbegriff" placeholder="Ihr Suchbegriff" }}
+							<div class="form__field-wrapper col-xs-12 col-md-2">
+								<button class="btn">Suchen</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</li>
+	</ul>
+	<a href="#" class="nav-services__close-btn">Schließen</a>
+</nav>

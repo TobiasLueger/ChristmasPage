@@ -1,0 +1,14 @@
+
+[globalString = ENV:HTTP_HOST = *akut.brandung-dev.de] || [globalString = ENV:HTTP_HOST = *akut-stage.mcl.kundenheimat.de]
+    #-----------------------------------
+    # Akut project constants
+    #-----------------------------------
+
+    emergencyPid = 39
+[END]
+
+[globalString = ENV:HTTP_HOST = herzzentrum-lahr.de] || [globalString = ENV:HTTP_HOST = www.herzzentrum-lahr.de] || [globalString = ENV:HTTP_HOST = lahrbaden-akut-stage.mcl.kundenheimat.de]
+    logo = EXT:bra_projectfiles_mdc_corporate/Resources/Public/img/svg/logos/Herzzentrum-Lahr.svg
+    emergencyPid = 50
+    searchPid = 79
+[END]

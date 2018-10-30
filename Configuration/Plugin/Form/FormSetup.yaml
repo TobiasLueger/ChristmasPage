@@ -1,0 +1,184 @@
+TYPO3:
+  CMS:
+    Form:
+      mixins:
+        formElementMixins:
+          ########### OWN FIELD TYPE IN STAGE ###########
+          TypeFormElementMixin:
+            formEditor:
+              predefinedDefaults:
+                properties:
+                  options: []
+              editors:
+                600:
+                  identifier: 'input-type'
+                  templateName: 'Inspector-SingleSelectEditor'
+                  label: 'Input Type'
+                  propertyPath: 'properties.fluidAdditionalAttributes.type'
+                  compatibilityPropertyPath: 'properties.type'
+                  selectOptions:
+                    10:
+                      value: 'text'
+                      label: 'Text'
+                    20:
+                      value: 'date'
+                      label: 'Datum'
+                    30:
+                      value: 'email'
+                      label: 'Email'
+                    40:
+                      value: 'number'
+                      label: 'Nummerisch'
+                    50:
+                      value: 'password'
+                      label: 'Passwort'
+              dynamicRequireJsModules:
+                additionalViewModelModules:
+                  - 'TYPO3/CMS/FormElementLinkedCheckbox/Backend/FormEditor/ViewModel'
+              formEditorPartials:
+                FormElement-LinkedCheckbox: 'Stage/SimpleTemplate'
+          formEmailFinisherMixin:
+            editors:
+              1000:
+               identifier: 'format'
+               templateName: 'Inspector-SingleSelectEditor'
+               label: 'formEditor.elements.Form.finisher.EmailToSender.editor.format.label'
+               propertyPath: 'options.format'
+               selectOptions:
+                 10:
+                   value: 'plaintext'
+                   label: 'formEditor.elements.Form.finisher.EmailToSender.editor.format.1'
+                 20:
+                   value: 'html'
+                   label: 'formEditor.elements.Form.finisher.EmailToSender.editor.format.2'
+                 30:
+                   value: 'MailTemplate1'
+                   label: 'Standard Email Vorlage 1'
+                 40:
+                   value: 'MailTemplate1'
+                   label: 'Standard Email Vorlage 2'
+        finishersEmailMixin:
+          options:
+            templatePathAndFilename: 'EXT:bra_projectfiles_mdc_corporate/Resources/Private/Plugins/Form/Frontend/Templates/Finishers/Email/{@format}.html'
+      persistenceManager:
+        allowedFileMounts:
+          100: 'EXT:bra_projectfiles_mdc_corporate/Configuration/Plugin/Form/FormConfiguration'
+          200: '1:/TYPO3Forms/'
+        allowedExtensionPaths:
+          10: 'EXT:bra_projectfiles_mdc_corporate/Configuration/Plugin/Form/FormConfiguration'
+        allowSaveToExtensionPaths: true
+        allowDeleteFromExtensionPaths: true
+      prototypes:
+        standard:
+          formElementsDefinition:
+            Form:
+              renderingOptions:
+                templateRootPaths:
+                  10: 'EXT:bra_projectfiles_mdc_corporate/Resources/Private/Plugins/Form/Frontend/Templates/'
+                partialRootPaths:
+                  10: 'EXT:bra_projectfiles_mdc_corporate/Resources/Private/Plugins/Form/Frontend/Partials/'
+              formEditor:
+                editors:
+                  600:
+                    identifier: 'formValidationRules'
+                    templateName: 'Inspector-TextareaEditor'
+                    label: 'Form FE Validation Rules'
+                    propertyPath: 'renderingOptions.formValidationRules'
+            DataText:
+              __inheritances:
+                10: 'TYPO3.CMS.Form.prototypes.standard.formElementsDefinition.StaticText'
+              formEditor:
+                label: 'Datenschutz/AGB Text'
+                group: custom
+                groupSorting: 600
+                iconIdentifier: 't3-form-icon-static-text'
+                editors:
+                  100:
+                    identifier: 'header'
+                    templateName: 'Inspector-FormElementHeaderEditor'
+                  300:
+                    identifier: 'pageUidAgb'
+                    templateName: 'Inspector-Typo3WinBrowserEditor'
+                    label: 'Seiten ID (AGB)'
+                    buttonLabel: 'Seitenbaum'
+                    browsableType: pages
+                    # very important setting -> defines the written form definition
+                    propertyPath: 'properties.pageUidAgb'
+                    propertyValidatorsMode: 'OR'
+                    propertyValidators:
+                      10: 'Integer'
+                      20: 'FormElementIdentifierWithinCurlyBracesExclusive'
+                  400:
+                    identifier: 'pageUidDataprotect'
+                    templateName: 'Inspector-Typo3WinBrowserEditor'
+                    label: 'Seiten ID (Datenschutz)'
+                    buttonLabel: 'Seitenbaum'
+                    browsableType: pages
+                    # very important setting -> defines the written form definition
+                    propertyPath: 'properties.pageUidDataprotect'
+                    propertyValidatorsMode: 'OR'
+                    propertyValidators:
+                      10: 'Integer'
+                      20: 'FormElementIdentifierWithinCurlyBracesExclusive'
+                  500:
+                    identifier: 'gridColumnViewPortConfiguration'
+                    templateName: 'Inspector-GridColumnViewPortConfigurationEditor'
+                    label: 'formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.label'
+                    configurationOptions:
+                      viewPorts:
+                        10:
+                          viewPortIdentifier: 'xs'
+                          label: 'formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.xs.label'
+                        20:
+                          viewPortIdentifier: 'sm'
+                          label: 'formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.sm.label'
+                        30:
+                          viewPortIdentifier: 'md'
+                          label: 'formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.md.label'
+                        40:
+                          viewPortIdentifier: 'lg'
+                          label: 'formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.lg.label'
+                      numbersOfColumnsToUse:
+                        label: 'formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.numbersOfColumnsToUse.label'
+                        propertyPath: 'properties.gridColumnClassAutoConfiguration.viewPorts.{@viewPortIdentifier}.numbersOfColumnsToUse'
+                        fieldExplanationText: 'formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.numbersOfColumnsToUse.fieldExplanationText'
+            Fieldset:
+              formEditor:
+                editors:
+                  7000:
+                    identifier: 'class'
+                    templateName: 'Inspector-TextEditor'
+                    label: 'Class'
+                    propertyPath: 'properties.fluidAdditionalAttributes.class'
+            Textarea:
+              formEditor:
+                editors:
+                  7000:
+                    identifier: 'class'
+                    templateName: 'Inspector-TextEditor'
+                    label: 'Css Klasse'
+                    propertyPath: 'properties.fluidAdditionalAttributes.class'
+            Text:
+              formEditor:
+                editors:
+                  7000:
+                    identifier: 'class'
+                    templateName: 'Inspector-TextEditor'
+                    label: 'Css Klasse'
+                    propertyPath: 'properties.fluidAdditionalAttributes.class'
+            GridRow:
+              formEditor:
+                editors:
+                  7000:
+                    identifier: 'class'
+                    templateName: 'Inspector-TextEditor'
+                    label: 'Class'
+                    propertyPath: 'properties.fluidAdditionalAttributes.class'
+            Checkbox:
+              formEditor:
+                editors:
+                  7000:
+                    identifier: 'class'
+                    templateName: 'Inspector-TextEditor'
+                    label: 'Class'
+                    propertyPath: 'properties.fluidAdditionalAttributes.class'

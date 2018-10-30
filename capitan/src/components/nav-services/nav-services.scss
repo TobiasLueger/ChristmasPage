@@ -1,0 +1,351 @@
+@charset "utf-8";
+
+/**
+ * Capitan nav-services.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2016-09-05
+ * MIT License (MIT)
+ */
+
+
+/* ==========================================================================
+   Services Navigation
+   ========================================================================== */
+
+$component: 'nav-services';
+$nav-services-transition-speed: 200;
+
+// block
+%#{$component} {
+	align-items: center;
+	background: color('white');
+	bottom: 0;
+	box-shadow: 0 -12px 24px -10px rgba(color('black'), 0.1);
+	color: color('accent-blue');
+	display: flex;
+	left: 0;
+	position: fixed;
+	right: 0;
+	z-index: 10;
+
+	@include respondMin(point('min-md')) {
+		background: color('ci');
+		box-shadow: none;
+		color: color('white');
+	}
+
+	& > ul {
+		display: flex;
+		list-style-type: none;
+		margin: 0 auto;
+		padding: 0;
+
+		&:focus {
+			outline: none;
+		}
+
+		& > li {
+			transition: all 0.4s ease;
+			cursor: pointer;
+
+			& > a {
+				cursor: pointer;
+				color: color('accent-blue');
+				display: block;
+				padding: 12px $grid-gutter-width-half $grid-gutter-width-half;
+				position: relative;
+				text-align: center;
+				text-decoration: none;
+
+				@include respondMin(point('min-sm')) {
+					padding: 12px $grid-gutter-width $grid-gutter-width-half;
+				}
+
+				@include respondMin(point('min-md')) {
+					color: color('white');
+					padding: 12px $grid-gutter-width*3 $grid-gutter-width-half;
+					text-align: left;
+				}
+
+				&:before {
+					display: block;
+					margin-right: 5px;
+
+					@include respondMin(point('min-md')) {
+					    display: inline-block;
+					}
+				}
+
+				&:hover {
+					color: color('ci-hover');
+					text-decoration: none;
+
+					@include respondMin(point('min-md')) {
+						color: color('white');
+					}
+				}
+			}
+
+			&:hover {
+				a {
+					&:after {
+						border-bottom: 2px solid color('white');
+						bottom: -2px;
+						content: '';
+						display: inline-block;
+						left: 0;
+						position: absolute;
+						right: 0;
+					}
+				}
+			}
+
+			&.is-active {
+				a {
+					&:after {
+						border-bottom: 2px solid color('ci-hover');
+						bottom: -2px;
+						content: '';
+						display: inline-block;
+						left: 0;
+						position: absolute;
+						right: 0;
+					}
+				}
+			}
+
+			&.util-icon--before {
+				display: flex;
+				align-items: center;
+			}
+		}
+	}
+
+	.is-nav-services-open & {
+		background: color('white');
+		
+		& > ul > li {
+			a {
+				color: color('accent-turquois');
+			}
+
+			&.is-active {
+				a {
+					color: color('ci-hover');
+				}
+			}
+		}
+	}
+}
+
+
+// element
+.#{$component}__list {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	margin: 0;
+	padding: 0;
+	z-index: 10;
+
+	& > .is-active {
+		& > a > .pointer {
+			&:before,
+			&:after {
+				@include prefix('transform', 'scale(1)');
+			}
+		}
+
+		.#{$component}__flyout {
+			@include prefix('transition-delay', $nav-services-transition-speed*2 + ms);
+			height: calc(100vh - 48px);
+			opacity: 1;
+			visibility: visible;
+
+			@include respondMin(point('min-md')) {
+			    height: auto;
+			}
+		}
+	}
+}
+
+.#{$component}__flyout {
+	background: color('white');
+	color: color('black');
+	text-align: left;
+	transition: opacity $nav-services-transition-speed + ms ease, visibility $nav-services-transition-speed + ms ease;
+	transition-delay: $nav-services-transition-speed + ms;
+	align-items: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	position: absolute;
+	left: 50%;
+	width: 100%;
+	top: calc(-100vh + 134px);
+	transform: translateX(-50%);
+	z-index: 2;
+	visibility: hidden;
+	opacity: 0;
+	padding: 0 $grid-gutter-width;
+	overflow: auto;
+	overflow-x: hidden;
+	max-width: $container-max-widths + px;
+	flex: 1 auto;
+
+	@include respondMin(point('min-md')) {
+		bottom: 100%;
+		text-align: center;
+		top: auto;
+	}
+
+	&--content {
+		margin: $grid-gutter-width*3 auto $grid-gutter-width*2;
+
+		@include respondMin(point('min-md')) {
+		    margin-top: $grid-gutter-width*1.5;
+		}
+
+		strong {
+			@include font($ff-semibold);
+			display: block;
+		}
+
+		form {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			margin: $grid-gutter-width-half 0;
+			text-align: left;
+			width: 100%;
+
+			.row {
+				justify-content: center;
+				justify-items: center;
+				margin: auto;
+				width: 100%;
+
+				@include respondMin(point('min-lg')) {
+					width: 90%;
+				}
+
+				> * {
+					padding: 0;
+					
+					@include respondMin(point('min-md')) {
+					    padding: 0 $grid-gutter-width-half;
+					}
+				}
+			}
+
+			.btn {
+				display: block;
+				padding: 0 $grid-gutter-width;
+				width: 100%;
+
+				@include respondMin(point('min-md')) {
+					display: inline-block;
+				    width: auto;
+				}
+
+				@include respondMin(point('min-lg')) {
+					padding: 0 $grid-gutter-width*1.5;
+				}
+			}
+		}
+	}
+}
+
+.#{$component}__flyout-layer {
+	@include prefix('transform-origin', '50% 0');
+	@include prefix('transition', 'transform #{$nav-services-transition-speed + ms} ease');
+	@include prefix('transform', 'scaleY(0)');
+	@include prefix('transition-delay', $nav-services-transition-speed*2 + ms);
+	will-change: transform;
+	background: color('white');
+	position: absolute;
+	z-index: -1;
+	left: 0;
+	right: 0;
+	bottom: calc(100% - 1px);
+	height: 1px;
+
+	.is-nav-services-open & {
+		@include prefix('transition-delay', $nav-services-transition-speed + ms);
+	}
+
+	@include respondMax(point('max-md')) {
+		display: none;
+	}
+}
+
+.#{$component}__overlay {
+	@include prefix('transition', 'opacity #{$nav-services-transition-speed + ms} ease, visibility #{$nav-services-transition-speed + ms} ease');
+	@include prefix('transition-delay', $nav-services-transition-speed*3 + ms);
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: rgba(color('black'), .4);
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	z-index: 9;
+
+	.is-nav-services-open & {
+		@include prefix('transition-delay', $nav-services-transition-speed*2 + ms);
+		opacity: 0.85;
+		visibility: visible;
+		pointer-events: auto;
+	}
+}
+
+.#{$component}__close-btn {
+	color: color('ci');
+	font-size: 0;
+	text-decoration: none;
+	position: absolute;
+	z-index: 15;
+	right: $grid-gutter-width;
+	top: calc(-100vh + 154px);
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity $nav-services-transition-speed + ms ease, visibility $nav-services-transition-speed + ms ease;
+	transition-delay: $nav-services-transition-speed + ms;
+	display: flex;
+	align-items: center;
+
+	@include respondMin(point('min-md')) {
+		bottom: calc(100% + 230px);
+		display: none;
+		top: auto;
+	}
+	
+	@include respondMin(point('min-xxl')) {
+		display: flex;
+	}
+
+	&:after {
+		@include font($ff-icon);
+		@include fontSizeREM(18);
+		content: icon('close');
+		margin-left: 10px;
+	}
+
+	.is-nav-services-open & {
+		opacity: 1;
+		visibility: visible;
+		transition-delay: $nav-services-transition-speed*2 + ms;
+	}
+}
+
+// modifier
+
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

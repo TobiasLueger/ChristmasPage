@@ -1,0 +1,21 @@
+<f:if condition="{menuMain->f:count()} < 5">
+    <f:then>
+        <f:variable name="menuAddedClass" value="level0--even"/>
+    </f:then>
+    <f:else>
+        <f:variable name="menuAddedClass" value=""/>
+    </f:else>
+</f:if>
+
+<ul class="nav-main__list" itemscope itemtype="http://schema.org/SiteNavigationElement" role="menu" tabindex="0">
+    <f:for each="{menuMain}" as="menu" iteration="itemIter">
+        <f:if condition="{menu.children}">
+            <f:then>
+                <f:render partial="Navigation/Menu/MenuSub" arguments="{menu: menu, itemIter: itemIter.cycle, menuAddedClass: menuAddedClass}"/>
+            </f:then>
+            <f:else>
+                <f:render partial="Navigation/Menu/Menu" arguments="{menu: menu, itemIter: itemIter.cycle, menuAddedClass: menuAddedClass}"/>
+            </f:else>
+        </f:if>
+    </f:for>
+</ul>

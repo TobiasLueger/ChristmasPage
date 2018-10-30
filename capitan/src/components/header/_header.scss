@@ -1,0 +1,322 @@
+@charset "utf-8";
+
+/**
+ * Capitan header.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2016-09-05
+ * MIT License (MIT)
+ */
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+$component: 'header';
+
+// block
+%#{$component} {
+	@include prefix(transition, 'transform 400ms ease');
+	z-index: 11;
+	left: 0;
+	right: 0;
+	top: 0;
+	background: color('white');
+	box-shadow: 0 4px 8px rgba(color('black'), 0.1);
+	will-change: transform;
+
+	&.is-fixed {
+		position: fixed;
+	}
+
+	ul {
+		list-style-type: none;
+	}
+
+	a {
+		@include font($ff-regular);
+		color: color('black');
+		text-decoration: none;
+
+		&:hover {
+			color: color('ci');
+			text-decoration: none;
+		}
+	}
+
+	@include respondMin(point('min-lg')) {
+		.#{$header-sticky-class} & {
+			@include prefix(transform, 'translate3d(0, -38px, 0)');
+		}
+
+		.#{$header-sticky-class} & .#{$component}__main-wrapper {
+			padding: 12px 30px;
+		}
+
+		.#{$header-sticky-class} & .#{$component}__logo img {
+			transform: scale3d(0.8, 0.8, 1);
+		}
+	}
+
+	.mm-wrapper_opened & {
+		border-bottom: 2px solid color('ci');
+		box-shadow: none;
+	}
+
+
+	.anchor-nav {
+		display: none;
+		border-top: 1px solid color('green-light');
+	}
+
+	&.has-anchor {
+		.anchor-nav {
+			display: block;
+
+			.is-nav-open &,
+			.is-nav-services-open &,
+			.mm-wrapper_opened & {
+				display: none;	
+			}
+
+			a {
+				@include font($ff-semibold);
+				color: color('accent-blue');
+			}
+
+			li.is-active, li:hover {
+				a {
+					color: color('ci-hover');
+				}
+			}
+
+			ul {
+				@include respondMax(point('max-md')) {
+					display: none;
+				}
+			}
+			.anchor-nav--mobile {
+				display: none;
+
+				@include respondMax(point('max-md')) {
+					display: block;
+				}
+			}
+		}
+	}
+
+	&.off-canvas {
+		transform: translate3d(0, calc(-100% + 66px), 1px);
+
+		@include respondMax(point('max-md')) {
+			transform: translate3d(0, calc(-100% + 80px), 1px);
+		}
+	}
+
+}
+
+// element
+.#{$component}__nav-meta {
+	display: none;
+	background: color('green-lightest');
+	box-shadow: inset 0 -24px 10px -21px rgba(color('black'), 0.1);
+
+	@include respondMin(point('min-lg')) {
+		display: block;
+	}
+}
+
+.#{$component}__main-wrapper {
+	@include prefix(transition, 'padding 400ms ease');
+	padding: 25px 30px;
+	border-bottom: 2px solid transparent;
+	
+	@include respondMax(point('max-sm')) {
+		padding: 25px 10px;
+		border-bottom: none;
+	}
+
+	.container {
+		min-width: auto;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 10px;
+		
+		@include respondMin(point('min-lg')) {
+		    padding: 0;
+		}
+	}
+
+	.is-nav-open & {
+		border-bottom: 2px solid color('ci');
+	}
+}
+
+.#{$component}__logo {
+	display: block;
+	padding-right: 0;
+	
+	@include respondMin(point('min-lg')) {
+		padding-right: 20px;
+	}
+	
+	@include respondMin(point('min-xl')) {
+		flex-shrink: 0;
+		padding-right: 40px;
+	}
+	
+	img {
+		@include prefix(transition, 'transform 400ms ease');
+		display: block;
+		transform-origin: 0 50%;
+		max-width: 150px;
+		height: 100%;
+
+		@include respondMin(point('min-lg')) {
+			max-width: 160px;
+		}
+		
+		@include respondMin(point('min-xl')) {
+			max-width: 200px;
+		}
+	}
+}
+
+.#{$component}__nav-main {
+	display: none;
+	
+	@include respondMin(point('min-lg')) {
+		width: 100%;
+		display: inline-block;
+	}
+}
+
+.#{$component}__nav-mobile {
+	@include fontSizeREM(13);
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+
+	.util-icon--emergency,
+	.#{$component}__nav-mobile-icon {
+		position: relative;
+		margin: 5px auto;
+		cursor: pointer;
+		justify-content: center;
+
+		&:before {
+			@include fontSizeREM(16);
+			color: color('red');
+			margin: auto;
+		}
+	}
+
+	a:hover {
+		color: color('black');
+	}
+
+	@include respondMin(point('min-lg')) {
+		display: none;
+	}
+}
+
+.#{$component}__nav-button {
+	cursor: pointer;
+	margin-left: 25px;
+}
+
+.#{$component}__nav-mobile-icon {
+	@include prefix(transition, '.5s ease-in-out');
+	@include prefix(transform, 'rotate(0deg)');
+	width: 22px;
+	height: 17px;
+
+	& > span {
+		@include prefix(transition, '.25s ease-in-out');
+		@include prefix(transform, 'rotate(0deg)');
+		display: block;
+		position: absolute;
+		height: 3px;
+		width: 100%;
+		background: color('accent-blue');
+		opacity: 1;
+		left: 0;
+
+		&:nth-child(1) {
+			top: 0px;
+		}
+
+		&:nth-child(2),
+		&:nth-child(3) {
+			top: 7px;
+		}
+
+		&:nth-child(4) {
+			top: 14px;
+		}
+	}
+
+	// x close state
+	.is-active & {
+		&:before,
+		&:after {
+			transition: transform 200ms ease;
+			content: '';
+			display: block;
+			width: 0;
+			height: 0;
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;
+			border-bottom: 12px solid color('white');
+			border-top: 10px solid transparent;
+			position: absolute;
+			z-index: 4;
+			left: 50%;
+			bottom: -50px;
+			margin-left: -8px;
+		}
+
+		&:after {
+			border-left: 12px solid transparent;
+			border-right: 12px solid transparent;
+			border-bottom: 16px solid color('ci');
+			border-top: 12px solid transparent;
+			z-index: 3;
+			margin-left: -10px;
+		}
+
+		> span {
+			background: color('ci-hover');
+
+			&:nth-child(1) {
+				top: 7px;
+				width: 0%;
+				left: 50%;
+			}
+
+			&:nth-child(2) {
+				@include prefix(transform, 'rotate(45deg)');
+			}
+
+			&:nth-child(3) {
+				@include prefix(transform, 'rotate(-45deg)');
+			}
+
+			&:nth-child(4) {
+				top: 7px;
+				width: 0%;
+				left: 50%;
+			}
+		}
+	}
+}
+
+// modifier
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

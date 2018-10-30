@@ -1,0 +1,29 @@
+<!--
+	=====================
+	Partials/ResultRows.html
+-->
+<f:render partial="PageBrowser" arguments="{conf: conf, numberofresults:numberofresults, pagebrowser:pagebrowser}" />
+<section class="section section--bg-grey">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-lg-3">
+				<f:if condition="{searchword}">
+					<h1 class="util-h3 util-hidden-lg">{numberofresults} {f:translate(key: 'LLL:EXT:ke_search/pi1/locallang.xml:num_results_plain')}: "{searchword}"</h1>
+				</f:if>
+				<f:if condition="{filters}">
+					<f:render partial="Filters" arguments="{conf: conf, numberofresults: numberofresults, resultrows: resultrows, filters: filters}" />
+				</f:if>
+			</div>
+			<div class="col-xs-12 col-lg-9">
+				<f:if condition="{searchword}">
+					<h1 class="util-h3 util-visible-lg">{numberofresults} {f:translate(key: 'LLL:EXT:ke_search/pi1/locallang.xml:num_results_plain')} "{searchword}"</h1>
+				</f:if>
+
+				<f:for each="{resultrows}" as="resultrow">
+					<f:render partial="ResultRow" arguments="{conf: conf, resultrow: resultrow}" />
+				</f:for>
+			</div>
+		</div>
+	</div>
+</section>
+<f:render partial="PageBrowser" arguments="{conf: conf, numberofresults:numberofresults, pagebrowser:pagebrowser}" />

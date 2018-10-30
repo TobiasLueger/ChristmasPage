@@ -1,0 +1,33 @@
+#-----------------------------------
+# Copyright year
+#----------------------------------
+lib.copyright = TEXT
+lib.copyright {
+  data = date : U
+  strftime = %Y
+}
+
+#
+# Get over fluid the Current URL
+#
+lib.currentURL = TEXT
+lib.currentURL.data = getIndpEnv:TYPO3_REQUEST_URL
+
+lib.currentHost = TEXT
+lib.currentHost.data = getIndpEnv:HTTP_HOST
+
+lib.toTop = TEXT
+lib.toTop.value = <a href="#top" class="scrolltop" title="nach oben">nach oben</a>
+
+lib.contentElementRendering = RECORDS
+lib.contentElementRendering {
+  tables = tt_content
+  source.current = 1
+  dontCheckPid = 1
+}
+
+lib.privacyPolicyPid = TEXT
+lib.privacyPolicyPid.value = {$privacyPolicyPid}
+
+lib.legalPid = TEXT
+lib.legalPid.value = {$legalPid}

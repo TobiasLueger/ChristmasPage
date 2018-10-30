@@ -1,0 +1,216 @@
+{{#if modifier}}
+
+	{{#ifCond modifier '==' 'init-md-start'}}
+		<div class="row slider {{#if class}} {{class}}{{/if}}">
+			{{#forLoop 0 count 1 }}
+				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 slider__slide" data-nav-title="[title]">
+					{{> teaser modifier="teaser-triple" class="teaser--triple" title="Wer wir sind" showCopytext=true showLink=true }}
+				</div>
+			{{/forLoop}}
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'init-md-start-3-news'}}
+		<div class="row slider {{#if class}} {{class}}{{/if}}">
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-6 slider__slide" data-nav-title="[title]">
+				{{> teaser modifier="teaser-news" class="teaser--news" title="PD Dr. Harald Hausmann ist Ärztlicher Direktor am MediClin Herzzentrum Coswig" showLink=true }}
+			</div>
+
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 slider__slide" data-nav-title="[title]">
+				{{> teaser modifier="teaser-news" class="teaser--news" title="MediClin Waldkrankenhaus Bad Düben bindet talentierte Nachwuchskräfte langfristig." showLink=true }}
+			</div>
+
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 slider__slide" data-nav-title="[title]">
+				{{> teaser modifier="teaser-news" class="teaser--news" title="MediClin Reha-Zentrum Gernsbach: Andrea Ritz wird Nachfolgerin von Jürgen Knosp." showLink=true }}
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'init-md-start-2-news'}}
+		<div class="row slider{{#if class}} {{class}}{{/if}} justify-content-lg-center">
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 slider__slide" data-nav-title="[title]">
+				{{> teaser modifier="teaser-news" class="teaser--news" title="PD Dr. Harald Hausmann ist Ärztlicher Direktor am MediClin Herzzentrum Coswig" showLink=true }}
+			</div>
+
+			<div class="col-xs-12 col-sm-12 col-md-6 col-xl-3 slider__slide" data-nav-title="[title]">
+				{{> teaser modifier="teaser-news" class="teaser--news" title="MediClin Waldkrankenhaus Bad Düben bindet talentierte Nachwuchskräfte langfristig." showLink=true }}
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'init-md-start-1-news'}}
+		<div class="row slider{{#if class}} {{class}}{{/if}} justify-content-lg-center">
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 slider__slide" data-nav-title="[title]">
+				{{> teaser modifier="teaser-news" class="teaser--news" title="PD Dr. Harald Hausmann ist Ärztlicher Direktor am MediClin Herzzentrum Coswig" showLink=true }}
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'slider-events'}}
+		<div class="slider {{#if class}} {{class}}{{/if}}">
+            {{#forLoop 0 count 1 }}
+                <div class="slider__slide">
+                    {{> teaser modifier="teaser-events" class="teaser--horizontal teaser--events" title="Gesundheitsvortrag: Herz & Sport" showCopytext=true showCTA=true }}
+                </div>
+			{{/forLoop}}
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'slider-testimonial'}}
+		<div class="slider {{#if class}} {{class}}{{/if}}">
+			<div class=" slider__slide">
+				{{> teaser modifier="teaser-testimonial" class="teaser--horizontal teaser--testimonial" title="„Mein Herz schlägt für die Klinik, weil bei uns das Team an erster Stelle steht”" showCopytext=true showCTA=false }}
+			</div>
+
+			<div class=" slider__slide">
+				{{> teaser modifier="teaser-testimonial" class="teaser--horizontal teaser--testimonial" title="„Mein Herz schlägt für die Klinik, weil bei uns das Team an erster Stelle steht”" showCopytext=true showCTA=true }}
+			</div>
+
+            {{#forLoop 0 count 1 }}
+                <div class=" slider__slide">
+                    {{> teaser modifier="teaser-testimonial" class="teaser--horizontal teaser--testimonial" title="„Mein Herz schlägt für die Klinik!”" showCopytext=true showCTA=false }}
+                </div>
+            {{/forLoop}}
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'slider-expert'}}
+		<div class="row slider {{#if class}} {{class}}{{/if}}" data-wrapper="{{#if wrapper}}{{wrapper}}{{/if}}">
+			<div class="col-xs-12 slider__slide" data-nav-title="[title]">
+				{{> teaser modifier="teaser-expert" class="teaser--expert" name="Prof. Dr. med. Eberhard von Hodenberg" specialField="Chefarzt der Klinik für Innere Medizin und Kardiologie" tel="+4978219251200" fax="+4978219251210" email="test@mediclin.de" }}
+			</div>
+			<div class="col-xs-12 slider__slide" data-nav-title="[title]">
+				{{> teaser modifier="teaser-expert" class="teaser--expert" name="Prof. Dr. med. Ralf Sodian" specialField="Chefarzt der Klinik für Herz-, Thorax- und Gefäßchirurgie" tel="+4978219251200" fax="+4978219251210" email="test@mediclin.de" }}
+			</div>
+			<div class="col-xs-12 slider__slide" data-nav-title="[title]">
+				{{> teaser modifier="teaser-expert" class="teaser--expert" name="Prof. Dr. med. Robert Bauernschmitt" specialField="Chefarzt der Klinik für Herz-, Thorax- und Gefäßchirurgie Leiter interventionelle Herzklappentherapie" tel="+4978219251200" fax="+4978219251210" email="test@mediclin.de" }}
+			</div>
+			<div class="col-xs-12 slider__slide" data-nav-title="[title]">
+				{{> teaser modifier="teaser-expert" class="teaser--expert" name="Prof. Dr. med. Jan Feldmann" specialField="Lorem ipsum dolor sit amet, consetetur sadipscing elitr" }}
+			</div>
+			<div class="col-xs-12 slider__slide" data-nav-title="[title]">
+				{{> teaser modifier="teaser-expert" class="teaser--expert" name="Prof. Dr. med. Doro Buck" specialField="Lorem ipsum dolor sit amet, consetetur sadipscing elit" }}
+			</div>
+			<div class="col-xs-12 slider__slide" data-nav-title="[title]">
+				{{> teaser modifier="teaser-expert" class="teaser--expert" name="Prof. Dr. med. Matthias Schott" specialField="Lorem ipsum dolor sit amet, consetetur sadipscing elitr" }}
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'slider-disease'}}
+		<div class="slider {{#if class}} {{class}}{{/if}} util-visible-sm">
+			<div class="slider__slide" data-nav-title="[title]">
+				{{> teaser modifier="teaser-icon" class="teaser--icon" iconSpecialarea=false name="Kardiologie" showCTA=false showLink=true title="Erkrankungen der Herzklappe" copyText="Herzklappenerkrankungen machen oft über längere Zeit keine Beschwerden und werdenHerzklappenerkrankungen machen oft über längere Zeit keine Beschwerden und werden nur zufällig entdeckt. Dennoch sind sie immer ernst zu nehmen." }}
+			</div>
+
+			{{#forLoop 0 count 1 }}
+				<div class="slider__slide" data-nav-title="[title]">
+					{{> teaser modifier="teaser-icon" class="teaser--icon" iconSpecialarea=false name="Kardiologie" showCTA=false showLink=true title="Erkrankungen der Herzklappe" copyText="Herzklappenerkrankungen machen oft über längere Zeit keine Beschwerden und werden nur zufällig entdeckt. Dennoch sind sie immer ernst zu nehmen." }}
+				</div>
+			{{/forLoop}}
+		</div>
+
+		<div class="teaser--icon teaser--icon-sm util-hidden-sm">
+			<ul class="teaser--icon-sm__items">
+				<li class="teaser--icon-sm__item">
+					<a href="#" title="[TITLE]"><span class="">Orthopädie</span></a>
+				</li>
+				<li class="teaser--icon-sm__item">
+					<a href="#" title="[TITLE]"><span class="">Neurologie</span></a>
+				</li>
+				<li class="teaser--icon-sm__item">
+					<a href="#" title="[TITLE]"><span class="">Psychosomatik</span></a>
+				</li>
+				<li class="teaser--icon-sm__item">
+					<a href="#" title="[TITLE]"><span class="">Wirbelsäulenerkrankungen -<br> Traumatologie</span></a>
+				</li>
+			</ul>
+
+			{{>button type="anker" class="teaser__cta btn--secondary btn--block" url="/" text="Alle Krankheitsbilder anzeigen"}}
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'slider--disease-minimal'}}
+		<div class="slider {{#if class}} {{class}}{{/if}} util-visible-sm">
+            {{#forLoop 0 count 1 }}
+                <div class="slider__slide" data-nav-title="[title]">
+                    {{> teaser modifier="teaser-icon" class="teaser--icon" iconSpecialarea=true name="Kardiologie" showCTA=true showLink=false title="Erkrankungen der Herzklappe" copyText="Herzklappenerkrankungen machen oft über längere Zeit keine Beschwerden und werden nur zufällig entdeckt. Dennoch sind sie immer ernst zu nehmen." }}
+                </div>
+            {{/forLoop}}
+		</div>
+
+		<div class="teaser--icon teaser--icon-sm util-hidden-sm">
+			<ul class="teaser--icon-sm__items">
+				<li class="teaser--icon-sm__item">
+					<a href="#" title="[TITLE]"><span class="">Orthopädie</span></a>
+				</li>
+				<li class="teaser--icon-sm__item">
+					<a href="#" title="[TITLE]"><span class="">Neurologie</span></a>
+				</li>
+				<li class="teaser--icon-sm__item">
+					<a href="#" title="[TITLE]"><span class="">Psychosomatik</span></a>
+				</li>
+				<li class="teaser--icon-sm__item">
+					<a href="#" title="[TITLE]"><span class="">Wirbelsäulenerkrankungen -<br> Traumatologie</span></a>
+				</li>
+			</ul>
+
+			{{> button type="anker" class="teaser__cta btn--secondary btn--block" url="/" text="Alle Krankheitsbilder anzeigen" }}
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'slider--portrait'}}
+		<div class="slider {{#if class}} {{class}}{{/if}}">
+            {{#forLoop 0 count 1 }}
+                <div class="slider__slide">
+                    {{> teaser modifier="teaser-horizontal-portrait" class="teaser--horizontal-portrait" title="„Mein Herz schlägt für die Klinik, weil bei uns das Team an erster Stelle steht”" showCopytext=true showCTA=false }}
+                </div>
+            {{/forLoop}}
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'slider-related-news'}}
+		<div class="slider {{#if class}} {{class}}{{/if}}">
+            {{#forLoop 0 count 1 }}
+                <div class="col-xs-12 slider__slide">
+                    {{> teaser modifier="teaser-listing-news" class="teaser--listing-news" pictureArea=true title="Mediclin Reha-Zentrum Gernsbach: Andrea Ritz wird Nachfolgerin von Jürgen Knosp" showCopytext=false showCTA=true iconSpecialarea=true }}
+                </div>
+            {{/forLoop}}
+		</div>
+	{{/ifCond}}
+
+{{else}}
+
+	<div class="slider">
+		<div>
+			<picture>
+				<source media="(max-width: 479px)" srcset={{imagePlaceholder width='480' height='480' bg="#eee" fg="#333" size="50px" text="Stage-XS"}}>
+				<source media="(max-width: 767px)" srcset={{imagePlaceholder width='768' height='500' bg="#eee" fg="#333" size="50px" text="Stage-SM"}}>
+				<source media="(max-width: 991px)" srcset={{imagePlaceholder width='992' height='600' bg="#eee" fg="#333" size="50px" text="Stage-MD"}}>
+				<source media="(max-width: 1151px)" srcset={{imagePlaceholder width='1200' height='800' bg="#eee" fg="#333" size="50px" text="Stage-LG"}}>
+				<img src="{{imagePlaceholder width='1920' height='600' bg="#eee" fg="#333" size="50px" text="Stage-XL"}}" alt="example image" title="[TITLE]" />
+			</picture>
+		</div>
+
+		<div>
+			<picture>
+				<source media="(max-width: 479px)" srcset={{imagePlaceholder width='480' height='480' bg="#eee" fg="#333" size="50px" text="Stage-XS"}}>
+				<source media="(max-width: 767px)" srcset={{imagePlaceholder width='768' height='500' bg="#eee" fg="#333" size="50px" text="Stage-SM"}}>
+				<source media="(max-width: 991px)" srcset={{imagePlaceholder width='992' height='600' bg="#eee" fg="#333" size="50px" text="Stage-MD"}}>
+				<source media="(max-width: 1151px)" srcset={{imagePlaceholder width='1200' height='800' bg="#eee" fg="#333" size="50px" text="Stage-LG"}}>
+				<img src="{{imagePlaceholder width='1920' height='600' bg="#eee" fg="#333" size="50px" text="Stage-XL"}}" alt="example image" title="[TITLE]" />
+			</picture>
+		</div>
+
+		<div>
+			<picture>
+				<source media="(max-width: 479px)" srcset={{imagePlaceholder width='480' height='480' bg="#eee" fg="#333" size="50px" text="Stage-XS"}}>
+				<source media="(max-width: 767px)" srcset={{imagePlaceholder width='768' height='500' bg="#eee" fg="#333" size="50px" text="Stage-SM"}}>
+				<source media="(max-width: 991px)" srcset={{imagePlaceholder width='992' height='600' bg="#eee" fg="#333" size="50px" text="Stage-MD"}}>
+				<source media="(max-width: 1151px)" srcset={{imagePlaceholder width='1200' height='800' bg="#eee" fg="#333" size="50px" text="Stage-LG"}}>
+				<img src="{{imagePlaceholder width='1920' height='600' bg="#eee" fg="#333" size="50px" text="Stage-XL"}}" alt="example image" title="[TITLE]" />
+			</picture>
+		</div>
+	</div>
+{{/if}}
+

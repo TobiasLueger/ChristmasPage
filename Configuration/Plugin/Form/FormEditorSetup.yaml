@@ -1,0 +1,27 @@
+TYPO3:
+  CMS:
+    Form:
+      prototypes:
+        standard:
+          formEditor:
+            formEditorPartials:
+              FormElement-ExtendedEmailElement: 'Stage/SimpleTemplate'
+          formElementsDefinition:
+            ########### Overwrite Standard TYPO3 Text Field and add OWN TYPE mixin###########
+            Text:
+              __inheritances:
+                10: 'TYPO3.CMS.Form.mixins.formElementMixins.TextMixin'
+                20: 'TYPO3.CMS.Form.mixins.formElementMixins.TypeFormElementMixin'
+      ########### FORM MANAGER CONFIGURATION ###########
+      formManager:
+        selectablePrototypesConfiguration:
+          100:
+            identifier: 'standard'
+            label: 'formManager.selectablePrototypesConfiguration.standard.label'
+            newFormTemplates:
+              100:
+                templatePath: 'EXT:form/Resources/Private/Backend/Templates/FormEditor/Yaml/NewForms/BlankForm.yaml'
+                label: 'formManager.selectablePrototypesConfiguration.standard.newFormTemplates.blankForm.label'
+              200:
+                templatePath: 'EXT:form/Resources/Private/Backend/Templates/FormEditor/Yaml/NewForms/SimpleContactForm.yaml'
+                label: 'formManager.selectablePrototypesConfiguration.standard.newFormTemplates.simpleContactForm.label'

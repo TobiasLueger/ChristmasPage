@@ -1,0 +1,12 @@
+{{!-- components/listing-results --}}
+{{#if modifier}}
+	{{#ifCond modifier '==' 'listing-results-bottom'}}
+		<div class="listing-results{{#if class}} {{class}}{{/if}}">
+			{{> pagination modifier="pagination-listing" }}
+		</div>
+	{{/ifCond}}
+{{else}}
+	<div class="listing-results">
+		{{> pagination modifier="pagination-listing" }}
+	</div>
+{{/if}}

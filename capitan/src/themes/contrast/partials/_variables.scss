@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+/**
+ * Capitan variables.scss v3.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2015-06-27
+ * MIT License (MIT)
+ */
+
+/* ==========================================================================
+   Colors
+   ========================================================================== */
+
+/* <@colors */
+$colors: (
+		'black': #191919,
+		'white': #fff,
+		'ci': #3FAC9A,
+		'ci-hover': #00C0A1,
+		'grey-light': #EEE,
+		'grey-lightest': #F5F5F5,
+		'green-light': #D7DBCF,
+		'green-lightest': #F5F6F3,
+		'accent-blue': #258EA6,
+		'accent-yellow': #DAB707,
+		'accent-turquois': #329DA0,
+		'success': #00C0A1,
+		'error': #ED254E
+);
+
+/* colors@> */
+
+/* ==========================================================================
+   Icons
+   ========================================================================== */
+
+/* <@icons */
+$icons: (
+		close: '\e900'
+);
+
+/* icons@> */

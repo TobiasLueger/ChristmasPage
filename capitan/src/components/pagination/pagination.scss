@@ -1,0 +1,466 @@
+@charset "utf-8";
+
+/**
+ * Capitan pagination.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2018-07-30
+ * MIT License (MIT)
+ */
+/* ==========================================================================
+   Notification
+   ========================================================================== */
+@import '../../sass/partials/functions';
+@import '../../sass/partials/variables';
+@import '../../sass/partials/mixins';
+
+$component: 'pagination';
+$paginationSize: 34px;
+$fontsize: 16;
+
+// block
+%#{$component} {
+	text-align: center;
+
+	ul {
+		display: flex;
+		justify-content: center;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		li:not(.#{$component}__previous,
+		.#{$component}__next,
+		.#{$component}__first,
+		.#{$component}__last) {
+			display: none;
+			margin: 0;
+			position: relative;
+
+			@include respondMin(point('min-sm')) {
+				display: block;
+				margin: 0 4px;
+			}
+
+			a,
+			span {
+				@include font($ff-semibold);
+				color: color('black');
+				display: block;
+				line-height: $paginationSize;
+				text-decoration: none;
+				transition: background 200ms ease-in-out;
+				width: $paginationSize;
+				cursor: default;
+
+				@include respondMin(point('min-sm')) {
+					cursor: pointer;
+					font-size: inherit;
+					color: color('accent-blue');
+				}
+			}
+
+			a {
+				&:hover {
+					text-decoration: none;
+				}
+			}
+
+			&.is-active {
+				@include font($ff-semibold);
+				@include fontSizeREM($fontsize);
+				background: color('success');
+				color: color('white');
+				display: block;
+				line-height: $paginationSize;
+				width: $paginationSize;
+			}
+		}
+
+		li.is-active, .#{$component}__previous, .#{$component}__next {
+			display: block;
+
+			&.is-active {
+				a {
+					color: color('black');
+				}
+			}
+		}
+	}
+
+	.is-first, .is-last {
+		opacity: 0.7;
+
+		&:hover {
+			cursor: default;
+
+			& a:before {
+				background-color: color('accent-blue');
+			}
+
+			& span {
+				color: color('accent-blue');
+				cursor: default;
+			}
+		}
+
+		a:hover {
+			cursor: default;
+		}
+	}
+}
+
+// element
+.#{$component}__previous,
+.#{$component}__next,
+.#{$component}__first,
+.#{$component}__last {
+	color: color('white');
+	display: block;
+	margin: 0 2px;
+
+	a {
+		@include font($ff-semibold);
+		color: color('white');
+		text-decoration: none;
+		width: auto;
+
+		&:before {
+			@include font($ff-icon);
+			@include fontSizeREM($fontsize);
+			content: icon('right');
+			background: color('accent-blue');
+			border-radius: 50%;
+			display: block;
+			height: $paginationSize;
+			width: $paginationSize;
+			color: color('white');
+			line-height: $paginationSize;
+			transition: background 200ms ease-in-out;
+			margin-left: 3px;
+		}
+
+		&:hover {
+			color: color('white');
+
+			&:before {
+				background: color('success');
+				border-radius: 50%;
+				color: color('white');
+			}
+		}
+	}
+}
+
+.#{$component}__previous {
+	a {
+		&:before {
+			content: icon('arrow-left');
+			margin-left: -3px;
+		}
+	}
+}
+
+.#{$component}__first {
+	a {
+		&:before {
+			content: icon('to-first');
+			margin-left: 0;
+		}
+	}
+}
+
+.#{$component}__next {
+	a {
+		&:before {
+			content: icon('arrow-right');
+			margin-left: 3px;
+		}
+	}
+}
+
+.#{$component}__last {
+	a {
+		&:before {
+			content: icon('to-last');
+			margin-left: 0;
+		}
+	}
+}
+
+.#{$component}__skip {
+	span {
+		cursor: default;
+	}
+}
+
+
+// modifier
+.#{$component}--media,
+.#{$component}--listing {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin: $grid-gutter-width 0;
+
+	@include respondMin(point('min-md')) {
+	    flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	@include respondMin(point('min-lg')) {
+	    flex-wrap: nowrap;
+	}
+
+	> * {
+		margin-bottom: $grid-gutter-width-half;
+
+		@include respondMin(point('min-md')) {
+		    margin-bottom: $grid-gutter-width;
+		}
+
+		@include respondMin(point('min-lg')) {
+		    margin-bottom: 0;
+		}
+	}
+
+	ul {
+		flex-grow: 1;
+		order: 3;
+
+		@include respondMin(point('min-md')) {
+			border-top: 1px solid color('green-light');
+			flex-basis: 100%;
+			padding-top: 20px;
+		}
+
+		@include respondMin(point('min-lg')) {
+			border-top: none;
+			order: 3;
+			padding-top: 0;
+		}
+
+		li {
+			a,
+			span {
+				font-size: pxToEm($fontsize);
+				line-height: $paginationSize;
+				width: $paginationSize;
+
+				&:before {
+					@include fontSizeREM($fontsize);
+					line-height: $paginationSize;
+				}
+			}
+
+			&.is-active {
+				&.is-active {
+					a {
+						color: color('black');
+					}
+				}
+			}
+		}
+
+		.is-first,
+		.is-last {
+			opacity: .3;
+		}
+	}
+
+	> *:first-child:not(p) {
+		@include respondMin(point('min-lg')) {
+			transform: translateX(25%);
+		}
+	}
+
+	p:first-child {
+		@include fontSizeREM(20);
+		order: 1;
+		text-align: left;
+		visibility: hidden;
+		
+		@include respondMin(point('min-md')) {
+			flex-basis: 50%;
+			visibility: visible;
+		}
+	}
+	
+	p:last-child {
+		order: 2;
+		text-align: right;
+		
+		@include respondMin(point('min-md')) {
+			flex-basis: 50%;
+		}
+
+		@include respondMin(point('min-lg')) {
+			order: 3;
+		}
+	}
+
+	.listing-results--bottom & {
+		p:first-child {
+			visibility: hidden;
+		}
+		
+		p:last-child {
+			flex-basis: 100%;
+			
+			@include respondMin(point('min-lg')) {
+				flex-basis: 50%;
+			}
+		}
+
+		ul {
+			border-top: none;
+			padding-top: 0;
+		}
+	}
+
+	.#{$component}__previous,
+	.#{$component}__next,
+	.#{$component}__first,
+	.#{$component}__last {
+		height: $paginationSize;
+		width: $paginationSize;
+	}
+}
+
+.#{$component}--media {
+
+	p:first-child,
+	p:last-child {
+		flex-basis: 100%;
+
+		@include respondMin(point('min-lg')) {
+			flex-basis: 50%;
+		}
+	}
+}
+
+.#{$component}--indexedsearch {
+	margin: $grid-gutter-width 0 0;
+
+	@include respondMin(point('min-lg')) {
+		margin: $grid-gutter-width*2 0 0;
+	}
+
+	p {
+		margin-bottom: 25px;
+	}
+
+	ul.tx-indexedsearch-browsebox {
+		margin-bottom: $grid-gutter-width;
+		font-size: 0;
+
+		@include respondMin(point('min-lg')) {
+			margin-bottom: $grid-gutter-width*2;
+		}
+
+		li:not(.#{$component}__previous,
+		.#{$component}__next,
+		.#{$component}__first,
+		.#{$component}__last) {
+			display: block;
+		}
+
+		.#{$component}__previous,
+		.#{$component}__next,
+		.#{$component}__first,
+		.#{$component}__last {
+			font-size: 0;
+		}
+
+		li.tx-indexedsearch-browselist-currentPage {
+
+			a {
+				color: color('accent-blue');
+
+				@include respondMin(point('min-sm')) {
+					color: color('black');
+				}
+			}
+		}
+	}
+}
+
+.#{$component}--months {
+	width: 100%;
+	padding: 20px 0;
+
+	ul {
+		padding:0;
+		justify-content: space-between;
+	}
+
+	a {
+		width: 100%!important;
+
+		&:hover {
+			color: color('success');
+			transition: color 200ms ease-in-out;
+
+			& span {
+				color: color('success');
+				transition: color 200ms ease-in-out;
+			}
+		}
+	}
+
+	.#{$component}__month {
+		@include font($ff-semibold);
+		@include fontSizeREM(20);
+		flex-grow: 1;
+		display: block;
+	}
+
+	.#{$component}__previous,
+	.#{$component}__next {
+		margin-right: 20px;
+
+		a {
+			display: flex;
+			margin-right: 20px;
+		}
+
+		span {
+			width: auto;
+		}
+	}
+
+	.#{$component}__previous {
+		margin-left: 20px;
+		a {
+			&:before {
+				order: 1;
+			}
+		}
+
+		span {
+			order: 2;
+			margin-left: 10px;
+		}
+	}
+
+	.#{$component}__next {
+		a {
+			&:before {
+				order: 2;
+			}
+		}
+
+		span {
+			order: 1;
+			margin-right: 10px;
+		}
+	}
+}
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

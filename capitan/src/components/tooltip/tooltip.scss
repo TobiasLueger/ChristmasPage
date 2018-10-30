@@ -1,0 +1,65 @@
+@charset "utf-8";
+/**
+ * Capitan tooltip.scss v1.5.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2017-01-20
+ * MIT License (MIT)
+ */
+
+@import '../../sass/partials/functions';
+@import '../../sass/partials/variables';
+@import '../../sass/partials/mixins';
+
+$component: 'tooltipster';
+
+// block
+%#{$component} {
+	@include clearfix();
+}
+
+.#{$component}-base {
+	@include fontSizeREM(14);
+	text-align: center;
+}
+
+.#{$component}-base.#{$component}-error {
+	 .#{$component}-box {
+		background: color('error');
+		border: none;
+		border-radius: 6px;
+		box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.1);
+	}
+
+	.#{$component}-content {
+		color: color('white');
+		padding: 8px;
+	}
+
+	&.#{$component}-bottom {
+		//margin-top: -40px;
+	}
+
+	&.#{$component}-bottom .#{$component}-arrow-border {
+		border-bottom-color: color('error');
+	}
+
+	&.#{$component}-bottom .#{$component}-arrow-background {
+		border-bottom-color: color('error');
+	}
+
+	&.#{$component}-top .#{$component}-arrow-border {
+		border-top-color: color('error');
+	}
+
+	&.#{$component}-top .#{$component}-arrow-background {
+		border-top-color: color('error');
+	}
+}
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

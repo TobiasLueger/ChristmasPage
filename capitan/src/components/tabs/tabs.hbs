@@ -1,0 +1,70 @@
+{{!-- components/tabss --}}
+
+<div class="tabs{{#ifCond tabItems.length '>' 2}} tabs--{{tabItems.length}}-tabs{{/ifCond}}{{#if class}} {{class}}{{/if}}">
+    <div class="tabs__dropdown custom-select">
+        <select>
+            {{#if modifier}}
+
+                {{#ifCond modifier '==' 'tabs-redirect'}}
+                    {{#each tabItems as |tabItem|}}
+                        <option value="{{tabItem.url}}" {{#if tabItem.active }} selected {{/if}}>
+                            {{tabItem.title}}
+                        </option>
+                    {{/each}}
+                {{/ifCond}}
+
+            {{else}}
+
+                {{#each tabItems as |tabItem|}}
+                    <option value="{{../tabID}}-{{@index}}">
+                        {{tabItem.title}}
+                    </option>
+                {{/each}}
+
+            {{/if}}
+
+        </select>
+    </div>
+
+    <div class="tabs__wrapper">
+        <ul class="tabs__navigation">
+            {{#if modifier}}
+
+                {{#ifCond modifier '==' 'tabs-redirect'}}
+                    {{#each tabItems as |tabItem|}}
+                        <li class="{{#if tabItem.active }} active {{/if}}">
+                            {{#if tabItem.icon}}
+                                <span class="util-icon--before util-icon--{{tabItem.icon}}"></span>
+                            {{/if}}
+
+                            <a href="{{tabItem.url}}" target="_self">{{tabItem.title}}</a>
+                        </li>
+                    {{/each}}
+                {{/ifCond}}
+
+            {{else}}
+
+                {{#each tabItems as |tabItem|}}
+                    <li>
+                        {{#if tabItem.icon}}
+                            <span class="util-icon--before util-icon--{{tabItem.icon}}"></span>
+                        {{/if}}
+
+                        <a href="#{{../tabID}}-{{@index}}">{{tabItem.title}}</a>
+                    </li>
+                {{/each}}
+
+            {{/if}}
+        </ul>
+
+        {{#ifCond modifier '!=' 'tabs-redirect'}}
+
+            {{#each tabItems as |tabItem|}}
+                <div id="{{../tabID}}-{{@index}}" class="tabs__content">
+                    {{tabItem.content}}
+                </div>
+            {{/each}}
+
+        {{/ifCond}}
+    </div>
+</div>

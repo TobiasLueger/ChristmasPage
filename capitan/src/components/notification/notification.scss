@@ -1,0 +1,110 @@
+@charset "utf-8";
+
+/**
+ * Capitan notification.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2018-05-28
+ * MIT License (MIT)
+ */
+
+/* ==========================================================================
+   Notification
+   ========================================================================== */
+
+@import '../../sass/partials/functions';
+@import '../../sass/partials/variables';
+@import '../../sass/partials/mixins';
+
+$component: 'notification';
+
+// block
+%#{$component} {
+	@include clearfix();
+}
+
+// element
+.#{$component}__close {
+	@include fontSizeREM(0);
+	cursor: pointer;
+	display: inline-block;
+	position: absolute;
+	right: $grid-gutter-width;
+	top: $grid-gutter-width-half;
+	
+	&:before {
+		@include fontSizeREM(16);
+	}
+}
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+	opacity: 0;
+	position: relative;
+	visibility: hidden;
+
+	&.is-active {
+		height: auto;
+		opacity: 1;
+		margin-bottom: $grid-gutter-width;
+		padding: 9px $grid-gutter-width;
+		visibility: visible;
+
+		@include respondMin(point('min-md')) {
+			padding: 9px $grid-gutter-width*1.5;
+		}
+	}
+}
+
+// modifier
+.#{$component}--error {
+	background: color('error');
+	color: color('white');
+}
+
+.#{$component}--success {
+	background: color('success');
+	color: color('white');
+}
+
+.#{$component}--notice {
+	background: color('green-light');
+	color: color('black');
+}
+
+.#{$component}--ajax {
+	@include prefix(transform, translateY(-80px));
+	opacity: 0;
+	animation: notification 3s ease;
+	left: $grid-gutter-width * 2;
+	position: fixed;
+	top: $grid-gutter-width;
+	visibility: hidden;
+	z-index: 1000;
+}
+
+@keyframes notification {
+	0% {
+		@include prefix(transform, translateY(0));
+		opacity: 0;
+		visibility: visible;
+	}
+	25% {
+		@include prefix(transform, translateY(30px));
+		opacity: 1;
+		visibility: visible;
+	}
+	75% {
+		@include prefix(transform, translateY(30px));
+		opacity: 1;
+		visibility: visible;
+	}
+	100% {
+		@include prefix(transform, translateY(0));
+		opacity: 0;
+		visibility: hidden;
+	}
+}

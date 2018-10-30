@@ -1,0 +1,358 @@
+
+renderingOptions:
+  submitButtonLabel: Abschicken
+  formValidationRules: ''
+type: Form
+identifier: lobKritik
+label: 'Lob & Kritik'
+prototypeName: standard
+finishers:
+  -
+    options:
+      subject: 'Formular Mediclin'
+      recipientAddress: '{text-4}'
+      recipientName: ''
+      senderAddress: info@mediclin.de
+      senderName: ''
+      replyToAddress: ''
+      carbonCopyAddress: ''
+      blindCarbonCopyAddress: ''
+      format: html
+      attachUploads: true
+    identifier: EmailToSender
+  -
+    options:
+      subject: info@mediclin.de
+      recipientAddress: info@mediclin.de
+      recipientName: ''
+      senderAddress: info@mediclin.de
+      senderName: ''
+      replyToAddress: ''
+      carbonCopyAddress: ''
+      blindCarbonCopyAddress: ''
+      format: html
+      attachUploads: true
+      translation:
+        language: ''
+    identifier: EmailToReceiver
+  -
+    options:
+      pageUid: '1'
+      additionalParameters: ''
+    identifier: Redirect
+renderables:
+  -
+    renderingOptions:
+      previousButtonLabel: ''
+      nextButtonLabel: ''
+    type: Page
+    identifier: page-1
+    label: ''
+    renderables:
+      -
+        type: GridRow
+        identifier: gridrow-1
+        label: 'Grid: Row'
+        renderables:
+          -
+            properties:
+              options:
+                Herr: Herr
+                Frau: Frau
+              elementDescription: ''
+              prependOptionLabel: 'Bitte Anrede wählen'
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '6'
+                  md:
+                    numbersOfColumnsToUse: '6'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+            type: SingleSelect
+            identifier: singleselect-1
+            label: ''
+          -
+            defaultValue: ''
+            properties:
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '6'
+                  md:
+                    numbersOfColumnsToUse: '6'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+            type: Text
+            identifier: text-5
+            label: Titel
+          -
+            defaultValue: ''
+            properties:
+              fluidAdditionalAttributes:
+                placeholder: Vorname
+              elementDescription: Vorname
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '6'
+                  md:
+                    numbersOfColumnsToUse: '6'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+            type: Text
+            identifier: text-1
+            label: Vorname
+          -
+            defaultValue: ''
+            properties:
+              fluidAdditionalAttributes:
+                placeholder: Nachname
+              elementDescription: Nachname
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '6'
+                  md:
+                    numbersOfColumnsToUse: '6'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+            type: Text
+            identifier: text-2
+            label: Nachname
+          -
+            properties:
+              text: 'eine E-Mail Adresse wird benötigt wird wenn eine Antwort auf die Kontaktaufnahme erwartet wird.'
+            type: StaticText
+            identifier: statictext-2
+            label: ''
+      -
+        type: GridRow
+        identifier: gridrow-2
+        label: 'Grid: Row'
+        properties:
+          fluidAdditionalAttributes:
+            class: toggleArea
+        renderables:
+          -
+            defaultValue: ''
+            properties:
+              fluidAdditionalAttributes:
+                placeholder: E-Mail
+                type: email
+                required: required
+              elementDescription: E-Mail
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '12'
+                  md:
+                    numbersOfColumnsToUse: '12'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+            type: Text
+            identifier: text-4
+            label: E-Mail
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            properties:
+              options:
+                Patient: Patient
+                Angehöriger: Angehöriger
+                Besucher: Besucher
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '12'
+                  md:
+                    numbersOfColumnsToUse: '12'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+              fluidAdditionalAttributes:
+                required: required
+            type: SingleSelect
+            identifier: singleselect-2
+            label: 'Angaben zur Person'
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            type: Checkbox
+            identifier: checkbox-1
+            label: 'betroffene Person abweichend'
+            properties:
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '12'
+                  md:
+                    numbersOfColumnsToUse: '12'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+              fluidAdditionalAttributes:
+                class: toggleArea
+      -
+        type: GridRow
+        identifier: gridrow-4
+        label: 'Grid: Row'
+        properties:
+          fluidAdditionalAttributes:
+            class: 'util-hidden data-toggle-area'
+        renderables:
+          -
+            properties:
+              options:
+                Herr: Herr
+                Frau: Frau
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '4'
+                  md:
+                    numbersOfColumnsToUse: '4'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+            type: SingleSelect
+            identifier: singleselect-4
+            label: Anrede
+          -
+            defaultValue: ''
+            properties:
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '4'
+                  md:
+                    numbersOfColumnsToUse: '4'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+            type: Text
+            identifier: text-3
+            label: Vorname
+          -
+            defaultValue: ''
+            properties:
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '4'
+                  md:
+                    numbersOfColumnsToUse: '4'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+            type: Text
+            identifier: text-6
+            label: Nachname
+      -
+        type: GridRow
+        identifier: gridrow-3
+        label: 'Grid: Row'
+        renderables:
+          -
+            properties:
+              options:
+                Lob: Lob
+                'Anregung/ Idee': 'Anregung/ Idee'
+                Beschwerde: Beschwerde
+                Fehler: Fehler
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '12'
+                  md:
+                    numbersOfColumnsToUse: '12'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+              fluidAdditionalAttributes:
+                required: required
+            type: SingleSelect
+            identifier: singleselect-3
+            label: 'Grund für Ihre Kontaktaufnahme '
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            defaultValue: ''
+            type: Textarea
+            identifier: textarea-1
+            label: 'Ihr Anliegen'
+            properties:
+              fluidAdditionalAttributes:
+                placeholder: 'Ihr Anliegen'
+                required: required
+              elementDescription: 'Ihr Anliegen'
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '12'
+                  md:
+                    numbersOfColumnsToUse: '12'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            properties:
+              text: ''
+              pageUidDataprotect: '5'
+              pageUidAgb: '5'
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '12'
+                  md:
+                    numbersOfColumnsToUse: '12'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+            type: DataText
+            identifier: datatext-1
+            label: 'Datenschutz/AGB Text'
+      -
+        renderingOptions:
+          submitButtonLabel: true
+        type: Recaptcha
+        identifier: recaptcha-1
+        label: ''
+        properties:
+          gridColumnClassAutoConfiguration:
+            viewPorts:
+              lg:
+                numbersOfColumnsToUse: '6'
+              md:
+                numbersOfColumnsToUse: '6'
+              sm:
+                numbersOfColumnsToUse: '12'
+              xs:
+                numbersOfColumnsToUse: '12'
+        validators:
+          -
+            identifier: Recaptcha

@@ -1,0 +1,94 @@
+@charset "utf-8";
+
+/**
+ * Capitan switch.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2018-09-18
+ * MIT License (MIT)
+ */
+
+/* ==========================================================================
+   Switch
+   ========================================================================== */
+
+@import '../../sass/partials/functions';
+@import '../../sass/partials/variables';
+@import '../../sass/partials/mixins';
+
+$component: 'switch';
+
+// block
+%#{$component} {
+	user-select: none;
+	position: relative;
+	display: inline-block;
+	width: 72px;
+	height: 34px;
+	margin-top: $grid-gutter-width-half;
+
+	input {
+		display: none;
+
+		&:checked + .#{$component}__slider {
+			background: color('green-lightest');
+		}
+
+		&:focus + .#{$component}__slider {
+			box-shadow: 0 0 1px rgba(color('black'), 0.1);
+		}
+
+		&:checked + .#{$component}__slider:before {
+			@include prefix(transform, 'translateX(28px)');
+		}
+	}
+
+	.nav-mobile & {
+		margin: $grid-gutter-width-half;
+	}
+}
+
+.#{$component}__slider {
+	@include fontSizeREM(11);
+	@include prefix(transition, '.4s');
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: color('green-lightest');
+	border-radius: 34px;
+	border: 2px solid color('black');
+
+	&:before {
+		@include prefix(transition, '.4s');
+		border-radius: 34px;
+		position: absolute;
+		content: '';
+		height: 26px;
+		width: 34px;
+		left: 3px;
+		bottom: 2px;
+		background: color('black');
+	}
+
+	span {
+		line-height: 1.8rem;
+
+		&.on {
+			margin-left: 15px;
+		}
+
+		&.off {
+			margin-left: 6px;
+		}
+	}
+}
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

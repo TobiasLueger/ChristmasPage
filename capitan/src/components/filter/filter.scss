@@ -1,0 +1,209 @@
+@charset "utf-8";
+/**
+ * Capitan filter.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2017-11-06
+ * MIT License (MIT)
+ */
+@import '../../sass/partials/functions';
+@import '../../sass/partials/variables';
+@import '../../sass/partials/mixins';
+
+$component: 'filter';
+$plugin: 'select2';
+$bg-color: color('grey-lightest');
+$border-color-focus: color('green-light');
+$input-height: 72px;
+$input-height-tablet: 72px;
+$input-height-mobile: 72px;
+$input-font-size: 19px;
+$input-font-size-focus: 14px;
+$input-font-size-mobile: 16px;
+$input-font-size-mobile-focus: 12px;
+
+// block
+%#{$component} {
+    > .row {
+        margin-bottom: 40px;
+    }
+
+    .#{$plugin} {
+        @include font($ff-medium);
+        @include fontSizeREM(15);
+        
+        transition: opacity 200ms ease;
+        position: relative;
+        z-index: 1;
+        background: $bg-color;
+        width: 100%;
+        border: none;
+        height: $input-height;
+        line-height: $input-height;
+        padding: 0;
+        color: color('placeholder');
+
+        @include respondMax(point('max-md')) {
+            font-size: $input-font-size-mobile;
+            height: $input-height-tablet;
+        }
+
+        @include respondMax(point('max-sm')) {
+            font-size: $input-font-size-mobile;
+            height: $input-height-mobile;
+        }
+
+        @include respondMax(point('max-sm')) {
+            padding: 0;
+        }
+
+        &:hover,
+        &[readonly] {
+            cursor: pointer;
+        }
+
+        &[disabled] {
+            background: color('grey-lightest');
+            color: color('grey');
+            cursor: not-allowed;
+        }
+
+        &:focus {
+            @include prefix(box-shadow, 1);
+            outline: none;
+            color: color('black');
+            border-color: $border-color-focus;
+        }
+
+        &.is-invalid {
+            border-color: color('error');
+        }
+    }
+    
+    .#{$plugin}-selection__rendered {
+    
+        & > h4 {
+            margin: 0;
+
+            @include respondMin(point('min-lg')) {
+                margin: 10px 0 0;
+            }
+        }
+
+        & > span {
+            @include font($ff-regular);
+            @include fontSizeREM(15);
+            line-height: 19px !important;
+            position: absolute;
+        }
+    }
+
+    .#{$plugin}-container--default .#{$plugin}-selection--single .#{$plugin}-selection__placeholder {
+        @include font($ff-regular);
+        @include fontSizeREM(19);
+        color: color('black');
+    }
+    
+    .#{$plugin}-container--default {
+        .#{$plugin}-selection--single {
+            border: 1px solid color('green-light') !important;
+            height: $input-height-tablet !important;
+            
+            @include respondMin(point('min-lg')) {
+                height: $input-height !important;
+            }
+        }
+        
+        &.#{$plugin}-container--open {
+            .#{$plugin}-selection--single {
+                background: color('white');
+                border: 1px solid color('green-light');
+                border-bottom: none;
+                height: $input-height-tablet;
+                
+                @include respondMin(point('min-lg')) {
+                    height: $input-height;
+                }
+            }
+        
+            .#{$plugin}-dropdown--below {
+                border-radius: 0;
+            }
+        
+            &.#{$plugin}-container--above {
+                .#{$plugin}-selection--single {
+                    border-bottom: 1px solid color('green-light') !important;
+                    border-top: none !important;
+                }
+            }
+        }
+    }
+    
+    .#{$plugin}-selection__arrow {
+        background: transparent !important;
+        height: 24px !important;
+        right: 10px !important;
+        top: 13px !important;
+        width: 24px !important;
+        
+        @include respondMin(point('min-md')) {
+            height: 34px !important;
+            top: 19px !important;
+            width: 34px !important;
+        }
+        
+        b {
+            display: none;
+        }
+        
+        &:before {
+            @include font($ff-icon);
+            
+            color: color('ci') !important;
+            content: icon('arrow-bottom');
+            display: block;
+            line-height: 26px;
+            text-align: center;
+            
+            @include respondMin(point('min-md')) {
+                line-height: 35px;
+            }
+        }
+    }
+    
+    .#{$plugin}-container--open {
+        .#{$plugin}-selection__arrow {
+            &:before {
+                content: icon('arrow-top');
+                line-height: 24px;
+                
+                @include respondMin(point('min-md')) {
+                    line-height: 34px;
+                }
+            }
+        }
+    }
+    
+    &.util-spinner {
+        .#{$plugin},
+        .#{$component}__results {
+            pointer-events: none;
+            opacity: 0.3;
+        }
+    }
+}
+
+// element
+.#{$component}__results {
+    transition: opacity 200ms ease;
+    margin: 60px 0 30px;
+}
+
+// modifier
+
+// component class selector
+.#{$component} {
+    @extend %#{$component};
+}

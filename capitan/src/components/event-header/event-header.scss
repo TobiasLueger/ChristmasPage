@@ -1,0 +1,106 @@
+@charset "utf-8";
+
+/**
+ * Capitan event-header.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2018-10-09
+ * MIT License (MIT)
+ */
+
+/* ==========================================================================
+   Event-Header
+	 ========================================================================== */
+
+$component: 'event-header';
+
+// block
+%#{$component} {
+	@include clearfix();
+	
+	img {
+		margin-bottom: $grid-gutter-width;
+		display: block;
+	}
+
+	h1 {
+		@include prefix(hyphens, 'auto');
+	}
+}
+
+// element
+.#{$component}__list-wrapper {
+
+	.#{$component}__list {
+		border-bottom: 1px solid color('green-light');
+		padding: 0;
+		margin-bottom: 20px;
+
+		@include respondMin(point('min-lg')) {
+			display: flex;
+
+			ul, p:last-child {
+				margin-top: 5px;
+			}
+
+			p:first-child, span {
+				width: 40%;
+			}
+		}
+
+		&:nth-child(2) {
+			border-top: 1px solid color('green-light');
+			padding-top: 20px;
+		}
+
+		& .#{$component}__item {
+			margin-left: 0;
+		}
+
+		li {
+			margin-bottom: 10px;
+		}
+	}
+}
+
+.#{$component}__item {
+	list-style-type: none;
+	margin-left: 25px;
+}
+
+.#{$component}__tag {
+	@include fontSizeREM(13);
+	background-color: color('ci');
+	color: color('white');
+	border-radius: 20px;
+	display: inline-table;
+	padding: 0 8px;
+	margin-bottom: 10px;
+	margin-top: 20px;
+
+	@include respondMin(point('min-md')) {
+		margin-top: 0;
+	}
+}
+
+.#{$component}__sign-in {
+	margin-top: 20px;
+
+	a {
+		width: 100%;
+		margin-bottom: 40px;
+
+		@include respondMin(point('min-md')) {
+			width: auto;
+		}
+	}
+}
+
+// modifier
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

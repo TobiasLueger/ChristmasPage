@@ -1,0 +1,92 @@
+@charset "utf-8";
+
+/**
+ * Capitan anchor-nav v1.5.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.Capitan.de/
+ *
+ * Date: 2018-08-21
+ * MIT License (MIT)
+ *
+ */
+
+$component: 'anchor-nav';
+
+// block
+%#{$component} {
+
+	ul {
+		min-width: 20em;
+		max-width: 90em;
+		margin: -1px auto;
+		padding: 0 30px;
+		display: flex;
+		flex-direction: column;
+
+		@include respondMin(point('min-lg')) {
+			flex-direction: row;
+		}
+
+		li {
+			list-style: none;
+			flex: 1;
+			display: flex;
+			justify-content: center;
+			border-bottom: 1px solid color('green-light');
+			color: color('accent-blue');
+			margin: 0;
+
+			a {
+				@include fontSizeREM(16);
+				display: flex;
+				width: 100%;
+				height: 100%;
+				padding: 20px 0;
+				align-items: center;
+				transition: color 150ms ease;
+				border-bottom: 3px solid transparent;
+
+				@include respondMin(point('min-lg')) {
+					@include fontSizeREM(18);
+					justify-content: center;
+				}
+			}
+
+			&:hover, &.is-active {
+				a {
+					border-bottom: 3px solid color('ci-hover');
+					color: color('ci-hover');
+					text-decoration: none;
+				}
+			}
+		}
+	}
+
+	&.is-fixed {
+		position: fixed;
+		top: 0;
+		z-index: 100;
+		background: color('white');
+		width: 100%;
+
+		ul {
+			flex-direction: row;
+		}
+	}
+
+}
+
+// element
+.#{$component}--mobile {
+	padding: 15px;
+	display: none;
+}
+
+// modifier
+
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

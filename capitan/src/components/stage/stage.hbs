@@ -1,0 +1,105 @@
+{{!-- components/stage --}}
+
+{{#if modifier}}
+	{{#ifCond modifier '==' 'stage-filter'}}
+		<div class="stage {{stage-class}}">
+            <form>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-10 offset-md-1">
+                            <h1 class="util-text-center util-h2"><span class="util-icon--before util-icon--emergency"></span>Expertenfinder: Unsere Spezialisten aus Medizin, Therapie & Pflege</h1>
+
+                            <p class="util-text-center">Nutzen Sie unsere Filter für Ihre Suche:</p>
+                        </div>
+                    </div>
+
+                    <div class="row filter">
+                        {{> custom-select class="col-xs-12 col-md-4" selectId="filter-select-1" modifier="expert-expert" selectClass="custom-select--label custom-select--expert" selectLabel="Mediclin Experten" selectFilterType="expert" ajaxType="1535377457" ajax="true" ajaxUrl="" }}
+                        {{> custom-select class="col-xs-12 col-md-4" selectId="filter-select-2" modifier="expert-facility" selectClass="custom-select--label custom-select--facility" selectLabel="Einrichtung" selectFilterType="facility" ajaxType="1535377457" ajax="true" ajaxUrl="" }}
+                        {{> custom-select class="col-xs-12 col-md-4" selectId="filter-select-3" modifier="expert-specialfield" selectClass="custom-select--label custom-select--specialfield" selectLabel="Fachbereich" selectFilterType="specialfield" ajaxType="1535377457" ajax="true" ajaxUrl="" }}
+                    </div>
+                </div>
+            </form>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'stage-small'}}
+		<div class="stage {{stage-class}}">
+			<div class="container util-reset-padding">
+				<div class="row">
+					<div class="col-md-12 col-lg-6 stage__image-container" >
+						<picture>
+							<!-- 544px max-width MOBILE -->
+							<source media="(max-width: 479px)" srcset="/Resources/Public/img/jpg/Contentbuehne-MDC-SM-544x272.jpg">
+							<!-- 916px max-width MOBILE -->
+							<source media="(max-width: 991px)" srcset="/Resources/Public/img/jpg/Contentbuehne-MDC-LG-916x458.jpg">
+							<!-- original 1104px -->
+							<img class="stage__image" src="/Resources/Public/img/jpg/Contentbuehne-MDC-XL-1104x552.jpg" alt="[ALT]" title="[TITLE]" />
+						</picture>
+					</div>
+
+					<div class="col-md-12 col-lg-6 stage__content">
+						<h2>Lorem ipsum dolor sit amet</h2>
+
+						<p class="util-reset-margin">
+							Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	{{/ifCond}}
+
+{{else }}
+	<div class="stage {{stage-class}}">
+		<div class="stage__media">
+			<picture class="stage__main-image">
+				<source media="(max-width: 479px)" srcset={{imagePlaceholder width='480' height='240' bg="#eee" fg="#333" size="50px" text="Stage-XS" }}>
+				<img src={{imagePlaceholder width='1920' height='960' bg="#ccc" fg="#aaa" size="30px" text="Stage-Default"}} alt="[ALT]" title="[TITLE]" />
+			</picture>
+
+			<div class="stage__additional">
+				<div class="stage__additional-content">
+					<picture>
+						<source media="(max-width: 479px)" srcset={{imagePlaceholder width='51' height='105' bg="#fdd" fg="#333" size="13px" text="Certificate-XS" }}>
+						<img src={{imagePlaceholder width='102' height='211' bg="#fdd" fg="#aaa" size="20px" text="Certificate"}} alt="[ALT]" title="[TITLE]" />
+					</picture>
+
+					<picture>
+						<source media="(max-width: 479px)" srcset={{imagePlaceholder width='51' height='105' bg="#fdd" fg="#333" size="13px" text="Certificate-XS" }}>
+						<img src={{imagePlaceholder width='102' height='211' bg="#fdd" fg="#aaa" size="20px" text="Certificate"}} alt="[ALT]" title="[TITLE]" />
+					</picture>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row align-items-lg-end">
+				<div class="stage__content col-lg-5 col-xl-4 offset-lg-1">
+					{{#if showHeader }}
+						<header>
+							<h1 class="util-small">MediClin Herzzentrum Lahr</h1>
+							<h2>Spezialisten für Ihr Herz</h2>
+						</header>
+					{{/if}}
+
+					{{#if showCopy }}
+					    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. </p>
+					{{/if}}
+
+					{{#if showList }}
+						<ul class="list list--icon">
+							<li class="util-icon util-icon--before util-icon--checkmark"><span>3.500 Herz-Operationen pro Jahr</span></li>
+							<li class="util-icon util-icon--before util-icon--checkmark"><span>24 Stunden Herzinfarkt-Versorgung</span></li>
+                            <li class="util-icon util-icon--before util-icon--checkmark"><span>Jederzeit persönlich für Sie da</span></li>
+						</ul>
+					{{/if}}
+
+					{{#if showCTA }}
+						<a href="#" title="[TITLE]" class="btn btn--invert">Lorem ipsum dolor</a>
+					{{/if}}
+				</div>
+			</div>
+		</div>
+	</div>
+{{/if}}

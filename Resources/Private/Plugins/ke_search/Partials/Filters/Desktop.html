@@ -1,0 +1,13 @@
+<p class="util-visible-lg"><f:translate key="LLL:EXT:ke_search/pi1/locallang.xml:filter_title" /></p>
+<div class="btn-group util-visible-lg">
+    <a href="{filter.resetLink}" class="btn btn--block btn--filter {f:if(condition: '{filter.selectedOptions -> f:count()} == 0', then: ' btn--filter-active')}">
+        <f:translate key="LLL:EXT:ke_search/pi1/locallang.xml:reset_filter" /> ({numberofresults})
+    </a>
+    <f:for each="{filter.options}" as="option">
+        <f:alias map="{title: '{option.title} ({option.results})'}">
+            <a href="{option.link}" class="btn btn--block btn--filter{f:if(condition: '{option.selected}', then: ' btn--filter-active')}" title="{title}">
+                {title}
+            </a>
+        </f:alias>
+    </f:for>
+</div>

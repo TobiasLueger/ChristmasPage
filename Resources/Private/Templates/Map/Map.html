@@ -1,0 +1,101 @@
+{namespace brandung=Cobra3\BraRelationMdc\ViewHelpers}
+
+<f:variable name="wordingPlanRoute" value="<f:translate key='LLL:EXT:bra_projectfiles_mdc_corporate/Resources/Private/Language/locallang.xlf:wordingPlanRoute'/>"/>
+<f:variable name="wordingSpecialFields" value="<f:translate key='LLL:EXT:bra_projectfiles_mdc_corporate/Resources/Private/Language/locallang.xlf:wordingSpecialFields'/>"/>
+<f:variable name="wordingToClinicPage" value="<f:translate key='LLL:EXT:bra_projectfiles_mdc_corporate/Resources/Private/Language/locallang.xlf:wordingToClinicPage'/>"/>
+<f:variable name="wordingMakeContact" value="<f:translate key='LLL:EXT:bra_projectfiles_mdc_corporate/Resources/Private/Language/locallang.xlf:makeContact'/>"/>
+<f:variable name="wordingFindFacility" value="<f:translate key='LLL:EXT:bra_projectfiles_mdc_corporate/Resources/Private/Language/locallang.xlf:wordingFindFacility'/>"/>
+<f:variable name="wordingLocalization" value="<f:translate key='LLL:EXT:bra_projectfiles_mdc_corporate/Resources/Private/Language/locallang.xlf:wordingLocalization'/>"/>
+<f:variable name="wordingPutPlaceOrZIP" value="<f:translate key='LLL:EXT:bra_projectfiles_mdc_corporate/Resources/Private/Language/locallang.xlf:wordingPutPlaceOrZIP'/>"/>
+
+<section class="section section--bg-grey">
+    <f:if condition="{headline} || {subheadline}">
+        <f:then>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                        <f:if condition="{headline}">
+                            <f:then>
+                                <h2 class="util-text-center">{headline}</h2>
+                            </f:then>
+                        </f:if>
+                        <f:if condition="{subheadline}">
+                            <f:then>
+                                <p class="util-text-center util-wow-paragraph">{subheadline}</p>
+                            </f:then>
+                        </f:if>
+                    </div>
+                </div>
+            </div>
+        </f:then>
+
+    </f:if>
+    <div class="gmaps__container">
+
+        <!-- data-geo for local testing, do not include this on live environments -->
+        <div class="gmaps gmaps--clinic " id="storefinder"
+             data-ajax-url="?type=1536663413&tx_braprojectfilesmdccorporate_map[ids]={clinicIds}&tx_braprojectfilesmdccorporate_map[action]=coords&tx_braprojectfilesmdccorporate_map[controller]=JsonMap"
+             data-type="accordion"
+             data-facility
+             data-location
+             data-search
+             data-zoom="true"
+             data-wording='[ "{wordingPlanRoute}", "{wordingSpecialFields}", "{wordingToClinicPage}", "{wordingMakeContact}", "{wordingFindFacility}", "{wordingLocalization}", "{wordingPutPlaceOrZIP}" ]'></div>
+
+        <f:alias map="{clinicCount: '{clinics -> f:count()}'}">
+            <ul class="gmaps__list {f:if(condition: '{clinicCount} > 1', then: 'accordion')}">
+                <f:for each="{clinics}" as="clinic" iteration="iter">
+                    <li>
+                        <div class="{f:if(condition: '{clinicCount} > 1', then: 'accordion__trigger')}"
+                             data-marker="{iter.index}">
+                        <span>
+                            {clinic.subtitle}<br/>
+                            <strong>{clinic.name}</strong>
+                        </span>
+                        </div>
+
+                        <div class="{f:if(condition: '{clinicCount} > 1', then: 'accordion__content-wrapper')}">
+                            <ul class="util-reset-padding-left">
+                                <f:if condition="{clinic.street} || {clinic.houseNumber}">
+                                    <li class="util-icon util-icon--before util-icon--location-o">
+                                        {clinic.street} {clinic.houseNumber}
+                                    </li>
+                                </f:if>
+
+                                <f:if condition="{clinic.zip} || {clinic.city}">
+                                    <li class="gmaps__item">
+                                        {clinic.zip} {clinic.city}
+                                    </li>
+                                </f:if>
+
+                                <f:if condition="{clinic.phone}">
+                                    <li class="util-icon util-icon--before util-icon--tel">
+                                        Tel.: <a href="tel:0049{brandung:phone(phoneNumber:'{clinic.phone}')}" title="{clinic.phone}">{clinic.phone}</a>
+                                    </li>
+                                </f:if>
+
+                            </ul>
+
+                            <div class="btn-group">
+                                <f:link.typolink parameter="{contactPid}" class="btn btn--secondary util-reset-margin"
+                                                 title="{f:translate(key: 'LLL:EXT:bra_projectfiles_mdc_corporate/Resources/Private/Language/locallang.xlf:makeContact')}">
+                                    <f:translate key="LLL:EXT:bra_projectfiles_mdc_corporate/Resources/Private/Language/locallang.xlf:makeContact"/>
+                                </f:link.typolink>
+
+                                <f:if condition="{clinic.directionsLink}">
+                                    <a href="{clinic.directionsLink}" target="_blank"
+                                       class="util-link util-icon--after util-icon--arrow-right"
+                                       title="{f:translate(key: 'LLL:EXT:bra_projectfiles_mdc_corporate/Resources/Private/Language/locallang.xlf:planRoute')}">
+                                        <f:translate key="LLL:EXT:bra_projectfiles_mdc_corporate/Resources/Private/Language/locallang.xlf:planRoute"/>
+                                    </a>
+                                </f:if>
+                            </div>
+
+                        </div>
+                    </li>
+                </f:for>
+            </ul>
+        </f:alias>
+    </div>
+
+</section>

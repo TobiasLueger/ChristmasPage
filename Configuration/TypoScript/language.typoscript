@@ -1,0 +1,81 @@
+#-----------------------------------
+#   Default Deutsch
+#-----------------------------------
+config {
+    linkVars = L(0-1)
+    sys_language_uid = 0
+    sys_language_isocode = de
+    sys_language_isocode_default = de
+    sys_language_overlay = hideNonTranslated
+    sys_language_mode = strict
+    language = de
+    locale_all = de_DE.utf-8
+    htmlTag_setParams = lang="de" class="no-js"
+    htmlTag_langKey = de_De
+    defaultGetVars.L = 0
+
+
+    metaCharset = utf-8
+    additionalHeaders = Content-Type:text/html;charset=utf-8
+    doctype = html5
+    xmlprologue = none
+    xhtml_cleaning = all
+    removeDefaultJS = external
+    message_page_is_being_generated = Bitte haben Sie einen Moment Geduld!
+}
+
+page {
+    config {
+        language = de
+        local_all = de_DE.utf-8
+        sys_language_overlay = hideNonTranslated
+        sys_language_mode = strict
+    }
+}
+
+#lang to set by default
+lib.dataCurrentLang = TEXT
+lib.dataCurrentLang.value = de
+
+#-----------------------------------
+#       Deutsch
+#-----------------------------------
+[globalVar = GP:L = 0]
+    config {
+        sys_language_uid = 0
+        language = de
+        locale_all = de_DE.utf-8
+        htmlTag_langKey = de
+    }
+    
+[END]
+
+#-----------------------------------
+#       Englisch
+#-----------------------------------
+[globalVar = GP:L = 1]
+    config {
+        sys_language_uid = 1
+        sys_language_isocode = en
+        language = en
+        locale_all = en_GB.utf-8
+        htmlTag_langKey = en_GB
+        htmlTag_setParams = lang="en" class="no-js"
+        defaultGetVars.L = 1
+    }
+
+    page{
+        config {
+            language = en
+            local_all = en_GB.utf-8
+        }
+
+        meta {
+            content-language = en
+            og:locale = en_GB
+        }
+    }
+
+    lib.dataCurrentLang = TEXT
+    lib.dataCurrentLang.value = en
+[END]

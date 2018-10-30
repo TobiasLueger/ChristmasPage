@@ -1,0 +1,43 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<section>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+
+
+                <formvh:renderRenderable renderable="{form}">
+                    <formvh:form
+                            class="form form--transition"
+                            object="{form}"
+                            action="{form.renderingOptions.controllerAction}"
+                            method="{form.renderingOptions.httpMethod}"
+                            id="{form.identifier}"
+                            section="{form.identifier}"
+                            enctype="{form.renderingOptions.httpEnctype}"
+                            addQueryString="{form.renderingOptions.addQueryString}"
+                            argumentsToBeExcludedFromQueryString="{form.renderingOptions.argumentsToBeExcludedFromQueryString}"
+                            additionalParams="{form.renderingOptions.additionalParams}"
+                            additionalAttributes="{data-validate: 'true', novalidate: ''}"
+                    >
+                        <f:render partial="{form.currentPage.templateName}" arguments="{page: form.currentPage}"/>
+                        <div class="util-right util-add-padding-top-double">
+
+                            <f:render partial="Form/NavigationNew" arguments="{form: form}"/>
+                        </div>
+                    </formvh:form>
+                </formvh:renderRenderable>
+            </div>
+            <f:if condition="{form.formDefinition.renderingOptions.formValidationRules}">
+                <f:format.raw>
+                    <script>
+                        {form.formDefinition.renderingOptions.formValidationRules}
+                    </script>
+                </f:format.raw>
+            </f:if>
+        </div>
+    </div>
+</section>
+</html>

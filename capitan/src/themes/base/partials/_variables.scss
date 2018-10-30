@@ -1,0 +1,190 @@
+@charset "utf-8";
+
+/**
+ * Capitan variables.scss v3.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2015-06-27
+ * MIT License (MIT)
+ */
+
+/* ==========================================================================
+   Base settings
+   ========================================================================== */
+
+/* @see capitan/src/sass/partials/_variables.scss */
+
+/* ==========================================================================
+   Grid-System
+   ========================================================================== */
+
+/* @see capitan/src/sass/partials/_variables.scss */
+
+/* ==========================================================================
+   Colors
+   ========================================================================== */
+
+/* <@colors */
+$colors: (
+		'black': #191919,
+		'white': #fff,
+		'red': #ED254E,
+		'ci': #b71709,
+		'ci-hover': #650f07,
+		'grey-light': #EEE,
+		'grey-lightest': #F5F5F5,
+		'green-light': #D7DBCF,
+		'green-lightest': #F5F6F3,
+		'accent-blue': #b71709,
+		'accent-yellow': #DAB707,
+		'accent-turquois': #b71709,
+		'success': #b71709,
+		'error': #ED254E,
+		'orange': #e46648,
+		'orange-dark': #cf4e35
+);
+
+/* colors@> */
+
+/* ==========================================================================
+   Icons
+   ========================================================================== */
+
+/* <@icons */
+$icons: (
+	about: '\e95f',
+	acute-psychosomatic: '\e960',
+	arthropathy: '\e961',
+	awards: '\e962',
+	back-joints: '\e963',
+	clinical-pictures: '\e964',
+	endoprostheses: '\e965',
+	facebook: '\e966',
+	hand-feet-surgery: '\e967',
+	health-daily: '\e968',
+	health-old-age: '\e969',
+	heart-lungs: '\e96a',
+	medical-fields: '\e96b',
+	nerves-brain: '\e96c',
+	news-events: '\e96d',
+	news: '\e96e',
+	organs-metabolism: '\e96f',
+	pain-medicine: '\e970',
+	palliative-medicine: '\e971',
+	proktology: '\e972',
+	psyche-body: '\e973',
+	quality: '\e974',
+	radiology: '\e975',
+	radiotherapy: '\e976',
+	special-pain-treatment: '\e977',
+	sports-medicine: '\e978',
+	tag: '\e979',
+	vessels-blood: '\e97a',
+	weaning: '\e97b',
+	whatsapp: '\e97c',
+	xing: '\e97d',
+	acute-neurology: '\e900',
+	addiction-therapy: '\e901',
+	allergology: '\e904',
+	ambulant-geriatric-care: '\e906',
+	anesthesiology: '\e907',
+	angiology: '\e90a',
+	aphasia-department: '\e90b',
+	arrow-bottom: '\e90c',
+	arrow-top: '\e90d',
+	attachment: '\e90e',
+	calendar: '\e911',
+	cardiology: '\e912',
+	career: '\e913',
+	checkmark-alt: '\e914',
+	children-medicine: '\e915',
+	close: '\e916',
+	day-hospital: '\e917',
+	department-eating-disorders: '\e918',
+	diabetology: '\e919',
+	download: '\e91a',
+	education: '\e91b',
+	emergency-o: '\e91c',
+	ENT: '\e91d',
+	event: '\e91e',
+	experts-alt: '\e91f',
+	experts: '\e920',
+	external-link: '\e921',
+	facilities: '\e922',
+	file: '\e923',
+	font: '\e924',
+	gastroenterology: '\e925',
+	general-medicine: '\e926',
+	general-surgery: '\e927',
+	geriatric-care: '\e928',
+	geriatry: '\e929',
+	gynecology: '\e92a',
+	health-care-facility: '\e92b',
+	heart-surgery: '\e92c',
+	heart-medicine: '\e92d',
+	hospital: '\e92e',
+	img: '\e92f',
+	info: '\e930',
+	internal-medicine: '\e932',
+	lecture: '\e933',
+	list: '\e934',
+	location-cluster: '\e935',
+	location-o: '\e936',
+	location: '\e937',
+	mail: '\e938',
+	map: '\e939',
+	medical-practice: '\e93a',
+	minus: '\e93b',
+	musician-medicine: '\e93c',
+	nephrology: '\e93d',
+	neurology-rehab: '\e93e',
+	neurology: '\e93f',
+	neurosurgery: '\e940',
+	onkology: '\e941',
+	orthopedy: '\e942',
+	outpatient-care: '\e943',
+	play-alt: '\e944',
+	play: '\e945',
+	plus: '\e946',
+	pneumonology: '\e947',
+	psychiatric-outpatient-department-adults: '\e948',
+	psychiatric-outpatient-department-children: '\e949',
+	psychiatry-adults: '\e94a',
+	psychiatry-children: '\e94b',
+	psychiatry: '\e94c',
+	psychosomatic-adults: '\e94d',
+	psychosomatic-children: '\e94e',
+	psychosomatic: '\e94f',
+	psychotherapy: '\e950',
+	quote: '\e951',
+	rehabilitation-center: '\e952',
+	rheumatology: '\e953',
+	somnology: '\e954',
+	specializations: '\e955',
+	spine: '\e956',
+	staff: '\e957',
+	stroke-unit: '\e958',
+	tcm: '\e959',
+	tel-alt: '\e95a',
+	tel: '\e95b',
+	tinnitus: '\e95c',
+	urology: '\e95d',
+	zoom: '\e95e',
+	arrow-left: '\e902',
+	arrow-right: '\e903',
+	checkmark: '\e905',
+	emergency: '\e908',
+	fax: '\e909',
+	search: '\e90f',
+	stay: '\e910'
+);
+
+/* icons@> */
+
+/* ==========================================================================
+   Custom Variables
+   ========================================================================== */
+
+$header-sticky-class: 'is-header-sticky';

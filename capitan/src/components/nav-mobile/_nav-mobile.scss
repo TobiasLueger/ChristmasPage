@@ -1,0 +1,325 @@
+@charset "utf-8";
+
+/**
+ * Capitan navigation.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2016-09-05
+ * MIT License (MIT)
+ */
+
+
+/* ==========================================================================
+   Main Navigation
+   ========================================================================== */
+
+$component: 'nav-mobile';
+$nav-mobile-toggle-strength: 3;
+$offset-top: 130;
+
+// block
+%#{$component} {
+	// hide menu until it is initialized
+	opacity: 0;
+	height: 0;
+	z-index: 10;
+	top: $header-mobile-height;
+	width: 100%;
+	max-width: none;
+	max-height: calc(100vh - #{$header-mobile-height});
+	overflow: auto;
+
+	.#{$header-sticky-class} & {
+		top: $header-mobile-sticky-height;
+		max-height: calc(100vh - #{$header-mobile-sticky-height});
+	}
+
+	&:not(.mm-menu) {
+		display: none;
+	}
+
+	&.mm-menu_opened {
+		opacity: 1;
+		height: 100vh;
+		bottom: initial;
+	}
+
+	@include respondMin(point('min-lg')) {
+		display: none;
+	}
+}
+
+
+// element
+.#{$component}__meta-search {
+
+	.container {
+		padding: 0;
+	}
+
+	.nav-meta__flyout--content {
+		position: relative;
+	}
+}
+
+.#{$component}__meta-contrast {
+	background: color('green-light');
+
+	.nav-meta__flyout--content {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		flex-direction: row-reverse;
+		flex-wrap: wrap-reverse;
+
+		p {
+			@include fontSizeREM(14);
+			@include font($ff-semibold);
+			font-weight: 600;
+			margin: $grid-gutter-width-half;
+		}
+
+		strong {
+			display: none;
+		}
+	}
+
+	div:not(:first-child) {
+		display: none;
+	}
+
+}
+
+.#{$component}__meta-language {
+
+	.nav-meta__flyout--content {
+		display: flex;
+
+		a {
+			@include fontSizeREM(14);
+			padding: 10px;
+			margin: 0;
+
+			&.is-active {
+				border: 1px solid color('ci');
+				border-radius: 25px;
+			}
+		}
+	}
+}
+
+// modifier
+
+// page dim styling
+html.mm-wrapper_opening .mm-page__blocker {
+	opacity: 0.8;
+	background: color('black');
+
+	@include respondMin(point('min-lg')) {
+		display: none;
+	}
+}
+
+// component class selector
+##{$component} {
+	@extend %#{$component};
+
+	&.mm-menu {
+		background: transparent;
+	}
+
+	.mm-listitem {
+		border-left: none;
+
+		&[role="heading"] {
+			padding: $grid-gutter-width-half $grid-gutter-width;
+		}
+
+		&:last-child {
+			border-bottom: white;
+		}
+
+		.mm-btn_next {
+			&:before {
+				display: none;
+			}
+		}
+
+		& > a,
+		& > span {
+			@include font($ff-semibold);
+			padding: $grid-gutter-width $grid-gutter-width-half $grid-gutter-width $grid-gutter-width;
+
+			@include respondMin(point('min-md')) {
+				padding: 25px $grid-gutter-width-half 25px $grid-gutter-width;
+			}
+		}
+	}
+
+	.mm-custom-item {
+		background: color('grey-light');
+	}
+
+	.mm-btn:after,
+	.mm-btn:before,
+	.mm-listview .mm-btn_next:after {
+		border-color: color('accent-blue') !important;
+	}
+
+	.mm-btn_next:after,
+	.mm-btn_prev:before {
+		border-top: 3px solid transparent;
+		border-left: 3px solid transparent;
+	}
+
+	.mm-btn_prev:before {
+		left: 3px;
+	}
+
+	.mm-panels {
+		background: color('white');
+		top: 100px;
+		bottom: 135px;
+
+		& > .mm-panel {
+			&:before,
+			&:after {
+				height: 0;
+			}
+
+			& > .mm-listview:first-child,
+			& > .mm-panels > .mm-panel > .mm-navbar + .mm-listview {
+				margin-top: 0;
+			}
+
+			& > .mm-listview {
+				margin-bottom: 0;
+				margin-top: 0;
+			}
+		}
+	}
+
+	.mm-panel_has-navbar {
+		padding-top: 0;
+	}
+
+	.mm-listitem_vertical {
+		& > .mm-btn_next {
+			height: 60px;
+
+			&:after {
+				transition: transform 200ms ease;
+				transform: rotate(225deg);
+			}
+
+			@include respondMin(point('min-md')) {
+			    height: 70px;
+			}
+		}
+
+		& > .mm-panel {
+			padding: 0 $grid-gutter-width*2;
+
+			li {
+				border-bottom: color('white');
+			}
+
+			a {
+				@include font($ff-regular);
+				padding-top: 10px;
+			}
+		}
+
+		&.mm-listitem_opened {
+			.mm-btn_next {
+				&:after {
+					@include prefix('transform', 'rotate(45deg)');
+					right: 23px;
+				}
+			}
+		}
+	}
+
+	.mm-navbars_top {
+		border-bottom: none;
+		background: color('white');
+
+		.mm-navbar {
+			height: 100%;
+
+			.nav-mobile__meta-search {
+				padding: 25px 20px;
+				padding-top: 45px;
+			}
+
+			.nav-meta__flyout--content {
+				padding: 0;
+			}
+		}
+	}
+
+	.mm-navbars_bottom {
+		background: color('green-light');
+		border-top: 2px solid color('ci');
+
+		.mm-navbar {
+			height: 100%;
+
+			.nav-mobile__meta-language,
+			.nav-mobile__meta-contrast {
+				padding: 10px;
+			}
+
+			.nav-meta__flyout--content {
+				padding: 0;
+			}
+		}
+	}
+
+	.mm-navbar {
+		display: flex;
+		flex-direction: column;
+		height: 70px;
+		padding-left: 0;
+		padding-right: 0;
+		position: relative;
+		text-align: left;
+
+		& > *,
+		a {
+			color: color('black');
+		}
+
+		& > * {
+			padding: $grid-gutter-width $grid-gutter-width-half $grid-gutter-width 0;
+
+			@include respondMin(point('min-md')) {
+				padding: 25px $grid-gutter-width-half 25px 0;
+			}
+		}
+	}
+
+	.mm-btn {
+		height: 60px;
+
+		@include respondMin(point('min-md')) {
+		    height: 70px;
+		}
+	}
+
+	&.mm-menu .mm-listitem_divider,
+	&.mm-menu .mm-listitem_opened > .mm-btn_next,
+	&.mm-menu .mm-listitem_opened > .mm-panel {
+		background: color('white');
+	}
+
+	&.mm-menu .mm-panels > .mm-panel.mm-panel_opened:first-of-type .mm-navbar {
+		display: none;
+	}
+
+	&.mm-menu .mm-panels > .mm-panel:not(:first-of-type) .mm-navbar__title {
+		padding-left: $grid-gutter-width*1.5;
+	}
+}

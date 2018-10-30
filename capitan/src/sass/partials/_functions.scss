@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+/**
+ * Capitan functions.scss v2.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2014-09-23
+ * MIT License (MIT)
+ */
+
+
+/* ==========================================================================
+   Global functions
+   ========================================================================== */
+
+/**
+ * Calculate PX to EM
+ *
+ * @param {number} $targetPx - pixel value without unit
+ *
+ */
+@function pxToEm($targetPx, $basePx: $body-font-size-px) {
+	// base em is $basePx wide
+	@return ($targetPx / $basePx) + 0em;
+}
+
+/**
+ * Return specific breakpoint
+ */
+@function point($breakpoint) {
+	@return map-get($breakpoints, $breakpoint);
+}
+
+/**
+ * Return specific color
+ */
+@function color($color) {
+	@return map-get($colors, $color);
+}
+
+/**
+ * Return specific Icon
+ */
+@function icon($icon) {
+	@return map-get($icons, $icon);
+}

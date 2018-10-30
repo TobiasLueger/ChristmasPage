@@ -1,0 +1,146 @@
+{{!-- components/pagination --}}
+{{#if modifier}}
+	{{#ifCond modifier '==' 'indexedsearch'}}
+		<div class="pagination pagination--indexedsearch">
+			<div class="tx-indexedsearch-browsebox">
+				<p>
+					Anzeige der Ergebnisse <strong>1 bis 10</strong> von insgesamt <strong>1134</strong>
+				</p>
+				<!-- render the anchor-links to the sections inside the displayed result rows -->
+				<ul class="tx-indexedsearch-browsebox">
+					<li class="pagination__previous"><a href="#">Vorherige</a></li>
+					<li class="tx-indexedsearch-browselist-currentPage">
+						<strong><a href="#">1</a></strong>
+					</li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li class="pagination__next"><a href="#">Nächste</a></li>
+				</ul>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'indexedsearch-no-arrows'}}
+		<div class="pagination pagination--indexedsearch">
+			<div class="tx-indexedsearch-browsebox">
+				<p>
+					Anzeige der Ergebnisse <strong>1 bis 10</strong> von insgesamt <strong>1134</strong>
+				</p>
+				<!-- render the anchor-links to the sections inside the displayed result rows -->
+				<ul class="tx-indexedsearch-browsebox">
+					<li class="tx-indexedsearch-browselist-currentPage">
+						<strong><a href="#">1</a></strong>
+					</li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+				</ul>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'pagination-listing'}}
+		<nav class="pagination pagination--listing">
+			{{#if searchterm}}<p>{{searchterm}}</p>{{/if}}
+			<ul>
+				<li class="pagination__previous is-first">
+					<a href="#"></a>
+				</li>
+				<li class="is-active">
+					<a href="#">1</a>
+				</li>
+				<li>
+					<a href="#">2</a>
+				</li>
+				<li>
+					<a href="#">3</a>
+				</li>
+				<li>
+					<a href="#">4</a>
+				</li>
+				<li>
+					<a href="#">5</a>
+				</li>
+				<li class="pagination__next">
+					<a href="#"></a>
+				</li>
+			</ul>
+			<p><strong>1-8</strong> von insgesamt <strong>24 Ergebnissen</strong></p>
+		</nav>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'pagination-media'}}
+		<nav class="pagination pagination--media">
+			<ul>
+				<li class="pagination__previous is-first">
+					<a href="#"></a>
+				</li>
+				<li class="is-active">
+					<a href="#">1</a>
+				</li>
+				<li>
+					<a href="#">2</a>
+				</li>
+				<li>
+					<a href="#">3</a>
+				</li>
+				<li>
+					<a href="#">4</a>
+				</li>
+				<li>
+					<a href="#">5</a>
+				</li>
+				<li class="pagination__next">
+					<a href="#"></a>
+				</li>
+			</ul>
+			<p><strong>1-16</strong> von insgesamt <strong>48 Ergebnissen</strong></p>
+        </nav>
+    {{/ifCond}}
+
+	{{#ifCond modifier '==' 'pagination-months'}}
+		<nav class="pagination pagination--months">
+			<ul>
+				<li class="pagination__previous is-first" rel="prev">
+					<a href="#">
+						<span class="util-visible-md">September</span>
+					</a>
+				</li>
+				<li class="pagination__month">
+					Oktober
+				</li>
+				<li class="pagination__next" rel="next">
+					<a href="#">
+						<span class="util-visible-md">November</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	{{/ifCond}}
+
+{{else}}
+
+	<nav class="pagination">
+		<p><strong>10-20</strong> von insgesamt 40</p>
+		<ul>
+			<li class="pagination__previous is-first">
+				<a href="#"></a>
+			</li>
+			<li class="is-active">
+				<a href="#">10</a>
+			</li>
+			<li cLass="pagination__skip">
+				<span>...</span>
+			</li>
+			<li>
+				<a href="#">20</a>
+			</li>
+			<li class="pagination__next">
+				<a href="#"></a>
+			</li>
+		</ul>
+	</nav>
+{{/if}}

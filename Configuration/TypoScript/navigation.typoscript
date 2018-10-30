@@ -1,0 +1,120 @@
+#-----------------------------------
+# Language Menu
+#-----------------------------------
+lib.menuLanguage = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+lib.menuLanguage {
+    special = language
+    special.value = 0,1
+    special.normalWhenNoLanguage = 0
+    #addQueryString = 1
+    as = menuLanguage
+}
+
+#-----------------------------------
+# Main navigation
+#-----------------------------------
+lib.menuMain = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+lib.menuMain {
+    special = directory
+    special.value = {$mainNavPid}
+    levels = 3
+    includeSpacer = 1
+    excludeUidList =
+    as = menuMain
+}
+
+#-----------------------------------
+# Main Meta Menu
+#-----------------------------------
+lib.menuMainMeta = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+lib.menuMainMeta {
+    special = directory
+    special.value = {$mainMetaPid}
+    levels = 2
+    includeSpacer = 1
+    excludeUidList = {$emergencyPid}
+    as = menuMainMeta
+}
+
+#-----------------------------------
+# Footer  Menu
+#-----------------------------------
+lib.menuFooter = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+lib.menuFooter {
+    special = directory
+    special.value = {$menuFooterPid}
+    levels = 3
+    includeSpacer = 1
+    as = menuFooter
+}
+
+lib.menuFooterMeta < lib.menuFooter
+lib.menuFooterMeta.special.value = {$menuFooterMetaPid}
+lib.menuFooterMeta.as = menuFooterMeta
+
+#-----------------------------------
+# Breadcrumb
+#-----------------------------------
+lib.breadcrumb = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+lib.breadcrumb {
+    special = directory
+    special.value = {$breadcrumbPid}
+    levels = 10
+    entryLevel = 1
+    includeSpacer = 0
+    as = breadcrumb
+}
+
+#-----------------------------------------
+# Breadcrumb Overwrite for detail pages
+#-----------------------------------------
+<INCLUDE_TYPOSCRIPT: source="FILE:typo3conf/ext/bra_projectfiles_mdc_corporate/Configuration/TypoScript/breadcrumbOverwrite.typoscript">
+
+#-----------------------------------
+# Home Logo
+#-----------------------------------
+lib.logo = IMAGE
+lib.logo {
+    file = {$logo}
+    file {
+        width = 200
+        height = 40
+    }
+
+    titleText = MediClin
+    altText = MediClin
+
+    imageLinkWrap = 1
+    imageLinkWrap {
+        enable = 1
+        typolink {
+            parameter = 1
+            useCacheHash = 1
+            no_cache = 0
+            ATagParams = class="header__logo"
+            title = MediClin
+        }
+    }
+}
+
+#-----------------------------------
+# Sub Menu
+#-----------------------------------
+lib.tabMenu = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+lib.tabMenu {
+    levels = 1
+    entryLevel = -2
+    as = tabMenu
+}
+
+#-----------------------------------
+# PAGE STATIC Language Menu
+#-----------------------------------
+lib.menuLangMeta = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+lib.menuLangMeta {
+    special = directory
+    special.value = {$langNavPid}
+    levels = 1
+    includeSpacer = 1
+    as = menuLangMeta
+}

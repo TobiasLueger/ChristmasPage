@@ -1,0 +1,127 @@
+@charset "utf-8";
+/**
+ * Capitan cookie-layer.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2017-01-20
+ * MIT License (MIT)
+ */
+
+@import '../../sass/partials/functions';
+@import '../../sass/partials/variables';
+@import '../../sass/partials/mixins';
+
+$component: 'cookie-layer';
+
+// block
+%#{$component} {
+	padding: 0 $grid-gutter-width*1.5;
+	position: fixed;
+	top: 100%;
+	left: 0;
+	z-index: 1000;
+	width: 100%;
+	opacity: 0;
+	visibility: hidden;
+	background: color('white');
+	box-shadow: 0 -1px 4px rgba(color('black'), 0.25);
+	transition: opacity 200ms ease, visibility 200ms ease, transform 400ms ease;
+
+	&.is-active {
+		transform: translate3d(0, -100%, 0);
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+.#{$component}__container {
+	padding: 15px 0;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-between;
+	min-width: ($container-min-widths / $body-font-size-px) + em;
+	max-width: ($container-max-widths / $body-font-size-px) + em;
+	margin: 0 auto;
+	
+	@include respondMax(point('max-xs')) {
+		min-width: 0;
+	}
+
+	@include respondMin(point('min-md')) {
+		flex-wrap: nowrap;
+	}
+}
+
+.#{$component}__content {
+	margin-bottom: $grid-gutter-width;
+	text-align: left;
+
+	p {
+		@include fontSizeREM(14);
+		line-height: 1.4em;
+		margin-bottom: 0;
+
+		@include respondMin(point('min-md')) {
+			@include fontSizeREM(16);
+			padding-right: 35px;
+		}
+	}
+
+	@include respondMin(point('min-md')) {
+		max-width: calc(100% - 60px);
+	}
+
+	@include respondMin(point('min-lg')) {
+		margin-bottom: 0;
+
+		.#{$component}__header {
+			margin-bottom: 0;
+		}
+	}
+
+	a {
+		@include fontSizeREM(14);
+		line-height: 1.4em;
+	}
+
+	@include respondMin(point('min-md')) {
+		a {
+			@include fontSizeREM(15);
+			line-height: 1.4em;
+		}
+	}
+}
+
+.#{$component}__action {
+	@include respondMax(point('max-sm')) {
+		margin-left: auto;
+	}
+}
+
+.#{$component}__close {
+	@include fontSizeREM(14);
+	position: relative;
+	bottom: 0;
+	left: 0;
+	margin: 0;
+	z-index: 100;
+	float: right;
+	padding: 0 10px;
+	min-width: 80px;
+
+	&:before {
+		@include fontSizeREM(15);
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

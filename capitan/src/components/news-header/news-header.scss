@@ -1,0 +1,153 @@
+@charset "utf-8";
+
+/**
+ * Capitan news-header.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2018-08-16
+ * MIT License (MIT)
+ */
+
+/* ==========================================================================
+   News-Header
+	 ========================================================================== */
+
+$component: 'news-header';
+
+// block
+%#{$component} {
+	margin-left: -20px;
+	margin-right: -20px;
+
+	@include respondMin(point('min-lg')) {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+}
+// element
+.#{$component}__wrapper {
+	@include respondMin(point('min-lg')) {
+		flex-direction: row;
+	}
+
+	& .#{$component}__first-container {
+		padding: 0;
+
+		@include respondMin(point('min-lg')) {
+			padding: 0 $grid-gutter-width-half;
+		}
+
+		.#{$component}__media {
+			& a {
+				bottom: 30px;
+				position: absolute;
+				left: 30px;
+				margin: 0;
+
+				@include respondMin(point('min-md')) {
+					top: 30px;
+					bottom: inherit;
+				}
+			}
+
+			& img {
+				width: 100%;
+			}
+		}
+
+		@include respondMin(point('min-lg')) {
+			order: 2;
+		}
+	}
+
+	& .#{$component}__second-container {
+		padding: 10px 30px 0;
+
+		@include respondMin(point('min-lg')) {
+			order: 1;
+			padding: 0;
+		}
+
+		& .#{$component}__icon-listing {
+			margin-bottom: 10px;
+
+			@include respondMin(point('min-md')) {
+				display: flex;
+			}
+
+			& span {
+				align-items: inherit;
+				margin-bottom: 10px;
+
+				&:first-child{
+					margin-right: 40px;
+				}
+
+				&:last-child{
+					margin-bottom: 25px;
+
+					@include respondMin(point('min-md')) {
+						margin-bottom: 0;
+					}
+
+					@include respondMin(point('min-lg')) {
+						margin-bottom: 25px;
+					}
+				}
+
+				&:before{
+					@include fontSizeREM(15);
+				}
+			}
+		}
+
+		& .#{$component}__title {
+			border-top: 1px solid color('green-light');
+			padding-top: 20px;
+		}
+
+		& .#{$component}__links {
+			display: flex;
+
+			& span {
+				padding: 10px 10px 10px 0;
+				font-weight: bold;
+			}
+
+			& a {
+				border-radius: 50%;
+				padding: 8px;
+				height: fit-content;
+				background-color: color('accent-blue');
+				color: color('white');
+				@include fontSizeREM(25);
+				margin-right: 15px;
+
+				&:hover {
+					text-decoration: none;
+				}
+
+				&:before {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+// modifier
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

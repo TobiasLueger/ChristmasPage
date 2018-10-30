@@ -1,0 +1,24 @@
+<f:layout name="Default"/>
+
+<f:section name="content">
+
+    <f:if condition="{breadcrumb}">
+        <div class="container">
+            <f:render partial="Navigation/Breadcrumb"
+                      arguments="{breadcrumb: breadcrumb, breadcrumbDetail : breadcrumbDetail}"/>
+        </div>
+    </f:if>
+
+    <f:format.html parseFuncTSPath="">{contentStage}</f:format.html>
+
+
+    <f:if condition="{data.showTabNaviSubpages}">
+        <f:render partial="Navigation/Tabmenu" arguments="{_all}"/>
+    </f:if>
+
+
+    <!--TYPO3SEARCH_begin-->
+    <f:format.html parseFuncTSPath="">{contentMain}</f:format.html>
+    <!--TYPO3SEARCH_end-->
+</f:section>
+

@@ -1,0 +1,212 @@
+@charset "utf-8";
+/**
+ * Capitan tiles.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2018-07-05
+ * MIT License (MIT)
+ */
+
+$component: 'tiles';
+
+// block
+%#{$component} {
+	margin-left: -$grid-gutter-width-half;
+	margin-right: -$grid-gutter-width-half;
+	max-width: ($container-max-widths / $body-font-size-px) + em;
+}
+
+// element
+.#{$component}__items {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+
+	@include respondMin(point('min-md')) {
+		column-count: 2;
+		-webkit-column-count: 2;
+		column-gap: 0;
+		-webkit-column-gap: 0;
+	}
+}
+
+.#{$component}__item {
+	border: 10px solid color('white');
+	break-inside: avoid;
+	color: color('white');
+	position: relative;
+	text-align: left;
+
+	@include respondMin(point('min-lg')) {
+		text-align: center;
+	}
+}
+
+.#{$component}__item-content {
+	align-items: center;
+	display: flex;
+	height: 100%;
+	justify-content: flex-start;
+	left: 0;
+	max-width: 100%;
+	padding: 0 $grid-gutter-width;
+	position: absolute;
+	right: 0;
+	top: 0;
+
+	@include respondMin(point('min-lg')) {
+		justify-content: center;
+	}
+
+	&::before {
+		content: '';
+		display: block;
+		height: 100%;
+		left: 0;
+		opacity: 1;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+
+	&--color-accent-blue {
+		&::before {
+			background: rgba(color('accent-blue'), .5);
+		}
+	}
+
+	&--color-ci {
+		&::before {
+			background: rgba(color('ci'), .5);
+		}
+	}
+
+	&--color-accent-yellow {
+		&::before {
+			background: rgba(color('accent-yellow'), .5);
+		}
+	}
+	span{
+		z-index: 1;
+	}
+}
+
+.#{$component}__item-content-img {
+	align-items: center;
+	display: flex;
+	line-height: 0;
+	max-width: 100%;
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+	width: 100%;
+
+	&::before {
+		content: '';
+		display: block;
+		height: 100%;
+		left: 0;
+		opacity: 1;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+
+	&+.#{$component}__item-content {
+		align-items: center;
+		display: flex;
+		height: 100%;
+		justify-content: flex-start;
+		left: 0;
+		max-width: 100%;
+		padding: 0 $grid-gutter-width;
+		position: absolute;
+		right: 0;
+		top: 0;
+
+		@include respondMin(point('min-lg')) {
+			justify-content: center;
+		}
+	}
+
+	img {
+		height: 100%;
+		object-fit: cover;
+		width: 100%;
+
+	}
+}
+
+.#{$component}__cluster {
+	.#{$component}__item {
+		margin-bottom: 0;
+	}
+}
+
+.#{$component}__cluster-segment {
+	display: flex;
+	flex: 1;
+	flex-wrap: wrap;
+	margin: -10px;
+	width: calc(100% + 20px);
+}
+
+// modifier
+
+.#{$component}__cluster-segment--half {
+	flex-basis: 100%;
+	height: auto;
+	margin: 0;
+	max-width: 100%;
+
+	@include respondMin(point('min-md')) {
+		flex-basis: 50%;
+		margin: 0;
+		max-width: 50%;
+	}
+}
+
+.#{$component}__cluster-segment--full {
+	flex-basis: 100%;
+	margin: 0;
+	width: 100%;
+}
+
+.#{$component}__cluster-segment--half,
+.#{$component}__cluster-segment--full {
+	height: 223px;
+
+	@include respondMin(point('min-md')) {
+		height: auto
+	}
+}
+
+.#{$component}__cluster-segment--col {
+	margin: 0;
+	min-width: 100%;
+
+	@include respondMin(point('min-lg')) {
+		flex-basis: 50%;
+		min-width: 50%;
+	}
+}
+
+.#{$component}__cluster--row {
+	display: flex;
+	flex: 1;
+	flex-wrap: wrap;
+	min-width: 100%;
+	border-bottom: 0;
+	border-top: 0;
+}
+
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

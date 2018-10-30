@@ -1,0 +1,13 @@
+{{!-- components/breadcrumb --}}
+
+<ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+	<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="breadcrumb__item breadcrumb__root util-icon--before">
+		<a title="[title]" itemprop="url" href="/"><span itemprop="name">Start</span></a>
+	</li>
+	<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="breadcrumb__item util-icon--before">
+		<a title="[title]" itemprop="url" href="/"><span itemprop="name">Unterseite</span></a>
+	</li>
+	<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="breadcrumb__item breadcrumb__current util-icon--before">
+		<span itemprop="name">{{#if title}}{{title}}{{else}}Aktuelle Seite{{/if}}</span>
+	</li>
+</ul>

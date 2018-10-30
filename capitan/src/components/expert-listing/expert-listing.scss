@@ -1,0 +1,130 @@
+@charset "utf-8";
+
+/**
+ * Capitan expert-listing.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2018-08-16
+ * MIT License (MIT)
+ */
+
+/* ==========================================================================
+   Expert-Header
+   ========================================================================== */
+
+$component: 'expert-listing';
+
+// block
+%#{$component} {
+	@include clearfix();
+}
+
+// element
+
+.#{$component}__container {
+	display: flex;
+	flex-wrap: wrap;
+
+	@include respondMin(point('min-lg')) {
+		flex-wrap: nowrap;
+	}
+}
+
+.#{$component}__pre-content {
+	text-align: center;
+	min-width: 348px;
+	width: 100%;
+
+	@include respondMin(point('min-md')) {
+		text-align: left;
+		width: auto;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	@include respondMin(point('min-lg')) {
+		padding-right: 50px;
+	}
+
+	img {
+		margin-bottom: 20px;
+	}
+}
+
+.#{$component}__content {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: left;
+	align-content: flex-start;
+}
+
+.#{$component}__head {
+	width: 100%;
+}
+
+.#{$component}__item {
+	flex-wrap: wrap;
+	flex: 0 0 100%;
+	justify-content: space-between;
+	text-align: left;
+	width: 100%;
+
+	@include respondMin(point('min-md')) {
+		text-align: left;
+		justify-items: center;
+		max-width: 48%;
+		margin-right: 2%;
+
+		h3 {
+			font-weight: bold;
+		}
+	}
+
+	@include respondMin(point('min-lg')) {
+		padding: 0;
+		margin-left: 0;
+		margin-right: 13%;
+		max-width: 37%;
+
+		h3 {
+			margin-left: 0;
+		}
+	}
+
+}
+
+.#{$component}__item__img {
+	display: flex;
+	flex: 1 0 auto;
+	margin: 0 0 25px 0;
+	justify-content: center;
+
+	@include respondMin(point('min-md')) {
+		margin-right: 25px;
+	}
+}
+
+//modifier
+.#{$component}__item--full {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	text-align: center;
+
+	@include respondMin(point('min-md')) {
+		text-align: left;
+		flex-direction: row;
+	}
+}
+
+
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

@@ -1,0 +1,156 @@
+@charset "utf-8";
+
+/**
+ * Capitan nav-news.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2016-09-05
+ * MIT License (MIT)
+ */
+
+
+/* ==========================================================================
+   News Navigation
+   ========================================================================== */
+
+$component: 'nav-news';
+$nav-news-height: 132px;
+
+// block
+%#{$component} {
+	display: none;
+
+	@include respondMin(point('min-lg')) {
+		display: inline-block;
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		margin: 0;
+	}
+
+	a,
+	a:hover {
+		color: color('black');
+	}
+}
+
+
+// element
+.#{$component}__previous,
+.#{$component}__next {
+	cursor: pointer;
+	height: $nav-news-height;
+	max-height: $nav-news-height;
+	overflow: hidden;
+	position: fixed;
+	top: 50%;
+	transform: translateY(-66px);
+	transition: all 0.3s ease;
+	width: 60px;
+	z-index: 909;
+
+	&::before,
+	&::after {
+		@include font($ff-icon);
+		@include fontSizeREM(50);
+		color: color('white');
+		background: color('accent-blue');
+		display: block;
+		height: $nav-news-height;
+		line-height: $nav-news-height;
+		position: absolute;
+		text-align: center;
+		transition: all 0.3s ease;
+		width: 60px;
+		z-index: 1;
+	}
+
+	&:hover {
+		box-shadow: 0 5px 8px 0 rgba(color('black'), .1);
+		width: 535px;
+
+		&::before,
+		&::after {
+			width: 120px;
+		}
+	}
+}
+
+.#{$component}__previous {
+	left: 0;
+
+	&::before {
+		content: icon('arrow-left');
+		left: 0
+	}
+}
+
+.#{$component}__next {
+	right: 0;
+	text-align: right;
+
+	&::after {
+		content: icon('arrow-right');
+		right: 0;
+	}
+}
+
+.#{$component}__preview {
+	align-items: center;
+	background: color('white');
+	border: 1px solid color('grey-light');
+	display: flex;
+	flex-direction: row;
+	height: $nav-news-height;
+	padding: $grid-gutter-width-half;
+	position: absolute;
+	width: 415px;
+
+	.#{$component}__previous & {
+		right: 0;
+	}
+
+	.#{$component}__next & {
+		left: 0;
+	}
+
+	img {
+		flex-shrink: 0;
+		height: 110px;
+		width: 110px;
+	}
+}
+
+.#{$component}__caption {
+	padding-left: $grid-gutter-width;
+
+	small {
+		margin-bottom: $grid-gutter-width-half/2;
+	}
+
+	h4 {
+		margin-bottom: 0;
+	}
+
+	.#{$component}__next & {
+		order: 2;
+		padding-left: 0;
+		padding-right: $grid-gutter-width;
+	}
+}
+
+	// modifier
+
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

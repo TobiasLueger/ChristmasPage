@@ -1,0 +1,131 @@
+@charset "utf-8";
+
+/**
+ * Capitan expert-header.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2018-08-16
+ * MIT License (MIT)
+ */
+
+/* ==========================================================================
+   Expert-Header
+	 ========================================================================== */
+
+$component: 'expert-header';
+
+// block
+%#{$component} {
+	display: block;
+	margin-top: -20px;
+	
+	@include respondMin(point('min-lg')) {
+	    border-bottom: solid 1px color('green-light');
+	    border-top: solid 1px color('green-light');
+		padding-top: 60px;
+		margin-top: -60px;
+	}
+
+	h3 {
+		@include font($ff-semibold);
+	}
+}
+// element
+.#{$component}__profile {
+	display: flex;
+	align-items: center;
+
+	@include respondMax(point('max-sm')) {
+		flex-direction: column;
+	}
+
+	@include respondMin(point('min-lg')) {
+		flex-direction: column;
+	}
+
+	h3 {
+
+		@include respondMax(point('max-sm')) {
+			text-align: center;
+		}
+	}
+
+	img {
+		padding-bottom: $grid-gutter-width;
+		
+		@include respondMin(point('min-lg')) {
+			padding-bottom: 0;
+		}
+	}
+	
+	div {
+		padding-bottom: $grid-gutter-width*2.5;
+		
+		@include respondMin(point('min-md')) {
+			padding-left: 30px;
+		}
+		
+		@include respondMin(point('min-lg')) {
+			width: 100%;
+			padding-left: 0;
+			padding-top: 20px;
+		}
+	}
+
+	.btn {
+
+		@include respondMax(point('max-sm')) {
+			width: 100%;
+		}
+
+		@include respondMin(point('min-lg')) {
+			width: 100%;
+		}
+	}
+}
+
+.#{$component}__grid {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	
+	& > .teaser--contact-person {
+		padding-bottom: $grid-gutter-width*2.5;
+		
+		@include respondMin(point('min-md')) {
+			padding-bottom: 30px;
+			width: 50%;
+		}
+		
+		@include respondMin(point('min-xl')) {
+			padding-bottom: $grid-gutter-width*2.5;
+		}
+		
+		.teaser__caption {
+			padding: 0;
+		}
+		
+		&:nth-child(odd) {
+			padding-right: $grid-gutter-width;
+		}
+	}
+}
+
+.#{$component}__fields {
+	h3 {
+		margin-bottom: $grid-gutter-width*2;
+	}
+
+	@include respondMin(point('min-lg')) {
+		padding-left: 40px;
+	}
+}
+
+// modifier
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

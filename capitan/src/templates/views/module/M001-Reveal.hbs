@@ -1,0 +1,22 @@
+{{!-- layouts/M001-Reveal.hbs --}}
+{{#> base title="" }}
+    {{#*inline "main-block"}}
+
+        <main id="main">
+            <section class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            {{> reveal }}
+                        </div>
+
+                        <div class="col-xs-12">
+                            {{> reveal class="reveal--center" }}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+    {{/inline}}
+{{/base}}

@@ -1,0 +1,29 @@
+{{!-- components/countup --}}
+{{#if modifier}}
+	{{#ifCond modifier '==' 'countup-wow'}}
+		<div class="countup{{#if class}} {{class}}{{/if}}">
+			<span class="countup__digit" id="{{counterID}}" data-start="{{data-start}}" data-end="{{data-end}}">{{data-start}}</span>
+			{{#if unit}} <span class="countup__unit">{{unit}}</span>{{/if}}
+			<span class="countup__label">{{label}}</span>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'countup-icon'}}
+		<div class="countup{{#if class}} {{class}}{{/if}}">
+            <span class="util-icon--before util-icon--hospital"></span>
+            <div class="countup__content">
+                <span class="countup__label">{{label}}</span>
+                <span class="countup__digit" id="{{counterID}}" data-start="{{data-start}}" data-end="{{data-end}}">{{data-start}}</span>
+                {{#if unit}} <span class="countup__unit">{{unit}}</span>{{/if}}
+            </div>
+		</div>
+	{{/ifCond}}
+
+{{else }}
+
+	<div class="countup{{#if class}} {{class}}{{/if}}">
+		<span class="countup__digit" id="{{counterID}}" data-start="{{data-start}}" data-end="{{data-end}}">{{data-start}}</span>
+		{{#if unit}}<span class="countup__unit"> {{unit}}</span>{{/if}}
+		<span class="countup__label">{{label}}</span>
+	</div>
+{{/if}}

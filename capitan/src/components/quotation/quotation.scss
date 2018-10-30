@@ -1,0 +1,56 @@
+@charset "utf-8";
+/**
+ * Capitan quotation.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2018-07-27
+ * MIT License (MIT)
+ */
+
+@import '../../sass/partials/functions';
+@import '../../sass/partials/variables';
+@import '../../sass/partials/mixins';
+
+$component: 'quotation';
+
+// block
+%#{$component} {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 0;
+
+  @include respondMin(point('min-md')) {
+    padding: 10px 0;
+  }
+
+  @include respondMin(point('min-lg')) {
+    padding: 20px 0;
+  }
+
+  .util-icon {
+
+    &::before {
+      margin-top: -10px;
+      margin-left: auto;
+      font-size: 2rem;
+      color: color('accent-yellow');
+
+      @include respondMin(point('min-sm')) {
+        margin-top: -20px;
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+.#{$component}__author {
+  @include font($ff-semibold);
+  margin-bottom: 0;
+}
+
+// component class selector
+.#{$component} {
+  @extend %#{$component};
+}

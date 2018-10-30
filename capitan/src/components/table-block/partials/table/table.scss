@@ -1,0 +1,91 @@
+@charset "utf-8";
+/**
+ * Capitan table.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2018-07-05
+ * MIT License (MIT)
+ */
+
+$component: 'table';
+
+// block
+%#{$component} {
+	@include clearfix();
+	table {
+		border-collapse: collapse;
+		margin-bottom: $grid-gutter-width*2;
+		text-align: left;
+		width: 100%;
+
+		caption {
+			@include font($ff-semibold);
+			@include fontSizeREM(21);
+			text-align: left;
+			border-bottom: solid 1px color('green-light');
+			padding-bottom: $grid-gutter-width;
+			margin-bottom: $grid-gutter-width;
+
+			@include respondMin(point('min-lg')) {
+				@include fontSizeREM(25);
+			}
+		}
+
+		th,
+		td {
+			padding: 13px $grid-gutter-width;
+		}
+
+		td {
+			width: 50%;
+		}
+
+		th {
+			font-weight: $typo-weight-bold;
+		}
+	}
+}
+
+// element
+
+// modifier
+.#{$component}--underlined-rows{
+	th {
+		border-bottom: 1px solid color('black');
+	}
+
+	td {
+		border-bottom: 1px solid color('grey-light');
+	}
+}
+
+.#{$component}--highlighted-rows{
+	tr:nth-child(even) {
+		background-color: color('grey-lightest');
+	}
+
+	th, td  {
+		padding: 13px 10px 13px 0px!important;
+	}
+}
+
+.#{$component}--single-twoColumns{
+	th {
+		padding-left: 0!important;
+	}
+
+	td {
+		background-color: color('grey-lightest');
+	}
+
+	td:nth-child(2) {
+		text-align: right;
+	}
+}
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

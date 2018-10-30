@@ -1,0 +1,59 @@
+{{!-- components/expert-listing --}}
+<div class="expert-listing{{#if class}} {{class}}{{/if}}">
+	<div class="row">
+		<div class="col-xs-12 expert-listing__container">
+			<div class="expert-listing__pre-content">
+				<img src="{{imagePlaceholder width='298' height='298' bg="#F5F6F3" fg="#333" size="34px"}}" alt="[ALT]" class="expert-listing__img util-hidden util-visible-lg">
+				{{> button type="anker" text="Kontakt aufnehmen" class="btn--block btn--secondary util-hidden util-visible-lg"
+				fancybox=true fancydatasrc="#hidden-content" url="javascript:;" }}
+				{{> button type="anker" text="Expertensteckbrief" class="btn btn--block util-hidden util-visible-lg" }}
+			</div>
+			<div class="expert-listing__content">
+				<div class="expert-listing__item--full">
+					<div class="expert-listing__item__img util-hidden-lg">
+						<img src="{{imagePlaceholder width='298' height='298' bg="#F5F6F3" fg="#333" size="34px"}}" alt="[ALT]" class="expert-listing__img">
+					</div>
+					<div class="expert-listing__head">
+                        <p class="util-h3">{{expert-name}}</p>
+
+						{{> button group-start=true class="btn-group--flex" }}
+						{{> button type="anker" text="Kontakt aufnehmen" class="btn btn--secondary btn--block util-hidden-md"
+						fancybox=true fancydatasrc="#hidden-content" url="javascript:;" }}
+						{{> button type="anker" text="Kontakt aufnehmen" class="btn btn--secondary util-hidden util-visible-md
+						util-hidden-lg" fancybox=true fancydatasrc="#hidden-content" url="javascript:;" }}
+						{{> button type="anker" text="Expertensteckbrief" class="btn btn--block util-hidden-md" }}
+						{{> button type="anker" text="Expertensteckbrief" class="btn util-hidden util-visible-md util-hidden-lg" }}
+						{{> button group-end=true }}
+					</div>
+				</div>
+				<div class="expert-listing__item">
+					{{> teaser modifier="teaser-expert-listing" class="teaser--expert-listing" pictureArea=false teaser-title=false
+					expert-title-area=true expert-title="Chefarzt, Klinik für Innere Medizin und Kardiologie"
+					teaserSpecial-normal=false teaserSpecial-small=true specialField="Herz-, Thorax- und Gefäßchirurgie"
+					clinic="MediClin Herzzentrum Lahr/Baden Klinik für Innere Medizin und Kardiologie" contactList-addressTelFax=true
+					}}
+				</div>
+				<div class="expert-listing__item">
+					{{> teaser modifier="teaser-expert-listing" class="teaser--expert-listing" pictureArea=false teaser-title=false
+					expert-title-area=true expert-title="Chefarzt, Klinik für Gefäßmedizin" teaserSpecial-normal=false
+					teaserSpecial-small=true specialField="Herz-, Thorax- und Gefäßchirurgie" clinic="MediClin Dünewald-Klinik"
+					contactList-addressTelFax=true }}
+				</div>
+				<div class="expert-listing__item">
+					{{> teaser modifier="teaser-expert-listing" class="teaser--expert-listing" pictureArea=false teaser-title=false
+					expert-title-area=true expert-title="Chefarzt, Klinik für Innere Medizin und Kartiologie"
+					teaserSpecial-normal=false teaserSpecial-small=true specialField="Herz-, Thorax- und Gefäßchirurgie"
+					clinic="MediClin Herzzentrum Lahr/Baden Klinik für Innere Medizin und Kardiologie" contactList-addressTelFax=true
+					}}
+				</div>
+				<div class="expert-listing__item">
+					{{> teaser modifier="teaser-expert-listing" class="teaser--expert-listing" pictureArea=false teaser-title=false
+					expert-title-area=true expert-title="Chefarzt, Klinik für Innere Medizin und Kartiologie"
+					teaserSpecial-normal=false teaserSpecial-small=true specialField="Herz-, Thorax- und Gefäßchirurgie"
+					clinic="MediClin Herzzentrum Lahr/Baden Klinik für Innere Medizin und Kardiologie" contactList-addressTelFax=true
+					}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,123 @@
+@charset "utf-8";
+/**
+ * Capitan reveal.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2016-06-03
+ * MIT License (MIT)
+ */
+
+@import '../../sass/partials/functions';
+@import '../../sass/partials/variables';
+@import '../../sass/partials/mixins';
+
+$component: 'reveal';
+
+// block
+%#{$component} {
+	@include clearfix();
+	
+	border-top: 1px solid color('green-light');
+	border-bottom: 1px solid color('green-light');
+	padding: $grid-gutter-width 0;
+}
+
+// element
+.#{$component}__content {
+	@include prefix(transition, 'max-height 0.5s ease-in');
+	margin-top: -#{$grid-gutter-width};
+	margin-bottom: 0;
+	max-height: 0;
+	overflow: hidden;
+}
+
+
+.#{$component}__trigger {
+	@include clearfix();
+	@include fontSizeREM(14);
+	@include font($ff-semibold);
+	cursor: pointer;
+	color: color('accent-blue');
+	padding: $grid-gutter-width 0 $grid-gutter-width-half;
+	
+	&:hover {
+		color: color('ci-hover');
+		
+		&::before {
+			background-color: color('ci-hover');
+		}
+	}
+	
+	&::before {
+		@include font($ff-icon);
+		@include fontSizeREM(16);
+		height: 34px;
+		width: 34px;
+		line-height: 34px;
+		background-color: color('accent-blue');
+		border-radius: 50%;
+		color: color('white');
+		content: icon(arrow-bottom);
+		display: inline-block;
+		text-align: center;
+		transition: all 200ms ease;
+	}
+	
+	// Add some margin to comprehend the overlapping icon when revealing the content.
+	& + .reveal__content > *:first-child {
+		margin-top: 25px;
+	}
+	
+	.is-open > & {
+		color: color('ci');
+		
+		&:hover {
+			color: color('ci-hover');
+		}
+		
+		&::before {
+			background-color: color('ci');
+			content: icon(arrow-up);
+			transform: rotate3d(1, 0, 0, 180deg);
+		}
+	}
+}
+
+
+.#{$component}__trigger-text {
+	@include font($ff-semibold, bold);
+	margin-left: $grid-gutter-width-half;
+}
+
+.#{$component}__title {
+	@include font($ff-semibold);
+	.is-open > & {
+		color: color('ci');
+	}
+}
+
+
+// modifier
+
+.#{$component}--center {
+	
+	.#{$component}__trigger {
+		text-align: center;
+		
+		&::before {
+			margin: 0 auto 10px;
+			display: block;
+		}
+		
+		&-text {
+			margin-left: 0;
+		}
+	}
+}
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

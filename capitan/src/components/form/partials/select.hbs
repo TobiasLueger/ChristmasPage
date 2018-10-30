@@ -1,0 +1,26 @@
+{{!-- forms/partials/select.hbs --}}
+<div class="{{class}}">
+	<div class="form__field-wrapper">
+		<div class="custom-select {{selectClass}}">
+			<label class="form__label" for="{{formId}}-{{id}}">{{label}} {{#if required}}*{{/if}}</label>
+			<select
+					id="{{formId}}-{{id}}"
+					name="{{formId}}-{{name}}"
+					title="{{label}}"
+					data-placeholder="Bitte wählen"
+				{{#if disabled}}disabled{{/if}}
+				{{#if required}}required{{/if}}
+				{{#if errorMsg}}data-error-message="{{errorMsg}}" {{/if}}
+			>
+				{{#each options}}
+					<option
+							value="{{this.value}}"
+							{{#if this.selected}}selected{{/if}}
+					>
+						{{this.text}}
+					</option>
+				{{/each}}
+			</select>
+		</div>
+	</div>
+</div>

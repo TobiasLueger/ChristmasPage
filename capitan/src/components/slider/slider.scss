@@ -1,0 +1,648 @@
+@charset "utf-8";
+/**
+ * Capitan slider.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2016-06-10
+ * MIT License (MIT)
+ */
+
+@import '../../sass/partials/functions';
+@import '../../sass/partials/variables';
+@import '../../sass/partials/mixins';
+
+$component: 'slider';
+
+%#{$component} {
+	margin-bottom: $grid-gutter-width;
+	opacity: 0;
+	position: relative;
+	transition: opacity 200ms ease;
+
+	// hide until initialized to avoid page jumps
+	&.slick-initialized {
+		opacity: 1; // TODO IE11 Bug doesn't turn opacity to 1 because class on-loading-done is not set
+	}
+
+	.slick-track {
+		display: flex !important;
+	}
+
+	.slick-slide {
+		// get slides and contents to equal heights
+		&,
+		& > div,
+		& > div > * {
+			flex-grow: 1;
+			flex-direction: column;
+			height: auto !important;
+		}
+	}
+
+	.row & {
+		&,
+		& > div,
+		& > div > * {
+			min-width: 1px;
+		}
+	}
+}
+
+.#{$component}__dots {
+	list-style: none;
+	padding: 0;
+	margin: $grid-gutter-width-half 0 0 0;
+	text-align: center;
+
+	> li {
+		margin: 0 5px;
+		display: inline-block;
+
+		@include respondMax(point('max-xs')) {
+			display: none;
+		}
+
+		> button {
+			@include prefix('border-radius', 50px);
+			background: color('white');
+			border: 1px solid color('grey-light');
+			font-size: 0;
+			height: 20px;
+			width: 20px;
+
+			&:focus {
+				outline: none;
+			}
+		}
+
+		@include respondMax(point('max-xs')) {
+			&:not(.slick-visible) + .slick-visible {
+				position: relative;
+
+				&::before {
+					border: 1px solid color('grey-light');
+					border-radius: 50%;
+					content: ' ';
+					display: inline-block;
+					height: 8px;
+					margin-right: 10px;
+					position: relative;
+					top: 5px;
+					width: 8px;
+				}
+			}
+
+			&.slick-visible {
+				display: inline-block;
+
+				+ li:not(.slick-visible) {
+					display: inline-block;
+
+					> button {
+						display: none;
+					}
+
+					&::after {
+						border: 1px solid color('grey-light');
+						border-radius: 50%;
+						content: ' ';
+						display: inline-block;
+						height: 8px;
+						margin-left: 0;
+						position: relative;
+						top: 5px;
+						width: 8px;
+					}
+				}
+			}
+		}
+
+		&.slick-active {
+			display: inline-block;
+
+			> button {
+				background: color('accent-turquois');
+			}
+		}
+
+		&:hover {
+			> button {
+				background: color('ci-hover');
+			}
+		}
+	}
+}
+
+.#{$component}__arrow {
+	position: absolute;
+	top: 50%;
+	z-index: 3;
+	font-size: 0;
+	border: none;
+	background: color('accent-turquois');
+	color: color('white');
+	border-radius: 50%;
+	width: 30px !important;
+	height: 30px;
+	margin-top: -25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: all 200ms ease;
+
+	@include respondMin(point('min-sm')) {
+		width: 50px !important;
+		height: 50px;
+	}
+
+	&:hover {
+		background: color('ci-hover');
+		transform: scale3d(1.15, 1.15, 1);
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&:before {
+		@include font($ff-icon);
+		@include fontSizeREM(16);
+		width: 100%;
+
+		@include respondMin(point('min-sm')) {
+			@include fontSizeREM(21);
+		}
+	}
+}
+
+.#{$component}__arrow--prev {
+	left: $grid-gutter-width;
+
+	&:before {
+		content: icon('arrow-left');
+		margin-left: -4px;
+	}
+}
+
+.#{$component}__arrow--next {
+	right: $grid-gutter-width;
+
+	&:before {
+		content: icon('arrow-right');
+		margin-right: -3px;
+	}
+}
+
+
+// modifier
+.#{$component}--teaser {
+	.slick-track {
+		@include respondMin(point('min-sm')) {
+			display: flex;
+		}
+	}
+
+	.#{$component}__slide {
+		display: block;
+		max-height: unset;
+		outline: none;
+		margin: 0 10px;
+		padding-bottom: 1px;
+		height: auto;
+	}
+}
+
+.#{$component}--init-md {
+	opacity: 1;
+
+	.#{$component}__slide {
+		margin: 0;
+	}
+
+	.#{$component}__arrow {
+		top: 25%;
+
+		@include respondMin(point('min-md')) {
+			top: 30%;
+		}
+	}
+
+	.#{$component}__arrow--prev {
+		left: -5px;
+
+		@include respondMin(point('min-sm')) {
+			left: -10px;
+		}
+	}
+
+	.#{$component}__arrow--next {
+		right: -5px;
+
+		@include respondMin(point('min-sm')) {
+			right: -10px;
+		}
+	}
+
+	.slick-track {
+		display: block;
+
+		@include respondMin(point('min-md')) {
+			display: flex;
+		}
+	}
+
+	.slick-slide {
+		& > div > * {
+			flex: 1 0 100%;
+			max-width: 100%;
+		}
+	}
+}
+
+.#{$component}--testimonial {
+	@include respondMin(point('min-xl')) {
+		margin: 0 auto;
+		max-width: 83.33333%;
+	}
+
+	.slick-slide {
+		// get slides and contents to equal heights
+		&,
+		& > div,
+		& > div > * {
+			flex-direction: row;
+		}
+	}
+
+	.#{$component}__arrow {
+		top: 25%;
+
+		@include respondMin(point('min-md')) {
+			top: 30%;
+		}
+
+		@include respondMin(point('min-lg')) {
+			top: 50%;
+		}
+	}
+
+	.#{$component}__arrow--prev {
+		left: -10px;
+
+		@include respondMin(point('min-sm')) {
+			left: -20px;
+		}
+
+		@include respondMin(point('min-xl')) {
+			left: calc((100% - 83.33333%)/-2);
+		}
+	}
+
+	.#{$component}__arrow--next {
+		right: -10px;
+
+		@include respondMin(point('min-sm')) {
+			right: -20px;
+		}
+
+		@include respondMin(point('min-xl')) {
+			right: calc((100% - 83.33333%)/-2);
+		}
+	}
+}
+
+.#{$component}--events {
+	.slick-slide {
+		// get slides and contents to equal heights
+		&,
+		& > div {
+			@include respondMin(point('min-lg')) {
+				flex-direction: row;
+			}
+		}
+	}
+
+	.#{$component}__arrow {
+		top: 26%;
+
+		@include respondMin(point('min-md')) {
+			top: 30%;
+		}
+
+		@include respondMin(point('min-lg')) {
+			top: 50%;
+		}
+	}
+}
+
+.#{$component}--expert {
+	opacity: 1;
+
+	@include respondMin(point('min-xl')) {
+		margin: 0 auto;
+		max-width: 83.33333%;
+	}
+
+	.#{$component}__slide {
+		flex-direction: row;
+		margin: 0;
+	}
+
+	.#{$component}__arrow {
+		top: 35%;
+	}
+
+	.#{$component}__arrow--prev {
+		left: 0;
+
+		@include respondMin(point('min-sm')) {
+			left: -20px;
+		}
+
+		@include respondMin(point('min-xl')) {
+			left: calc((100% - 83.33333%)/-2);
+		}
+	}
+
+	.#{$component}__arrow--next {
+		right: 0;
+
+		@include respondMin(point('min-sm')) {
+			right: -20px;
+		}
+
+		@include respondMin(point('min-xl')) {
+			right: calc((100% - 83.33333%)/-2);
+		}
+	}
+
+	.slick-list {
+		height: auto !important;
+
+		.slick-track {
+			display: block;
+
+			@include respondMin(point('min-md')) {
+				display: flex;
+			}
+		}
+	}
+
+	.slick-slide {
+		// get slides and contents to equal heights
+		&,
+		& > div,
+		& > div > * {
+			flex-direction: row;
+			justify-content: center;
+		}
+
+		& > div > * {
+			flex: 1 0 100%;
+			max-width: 100%;
+		}
+
+		.slider__slide {
+			max-width: 349px;
+			align-self: center;
+		}
+	}
+}
+
+.#{$component}--teaser-news {
+	@include respondMin(point('min-lg')) {
+	    align-items: flex-start;
+	}
+
+	.#{$component}__arrow {
+		top: 30%;
+
+		@include respondMin(point('min-md')) {
+			top: 27%;
+		}
+	}
+}
+
+.#{$component}--portrait {
+	
+	.slick-slide {
+		// get slides and contents to equal heights
+		&,
+		& > div,
+		& > div > * {
+			flex-direction: row;
+		}
+	}
+	
+	.#{$component}__slide {
+		margin: 0;
+	}
+	
+	.slick-list {
+		height: auto !important;
+		
+		.slick-track {
+			display: block;
+			
+			@include respondMin(point('min-md')) {
+				display: flex;
+			}
+		}
+	}
+	
+	.slick-list {
+		@include respondMin(point('min-sm')) {
+			margin: 0 40px;
+		}
+	}
+	
+	@include respondMin(point('min-lg')) {
+	    align-items: flex-start;
+	}
+
+	.#{$component}__arrow {
+		top: 30%;
+
+		@include respondMin(point('min-sm')) {
+			top: 50%;
+		}
+	}
+	
+	.#{$component}__arrow--prev {
+		left: -10px;
+		
+		@include respondMin(point('min-sm')) {
+			left: -20px;
+		}
+	}
+	
+	.#{$component}__arrow--next {
+		right: -10px;
+		
+		@include respondMin(point('min-sm')) {
+			right: -20px;
+		}
+	}
+}
+
+.#{$component}--disease {
+	
+	.slick-list {
+		width: calc(90% - 10%);
+		margin: 0 10%;
+	}
+	
+	.#{$component}__slide {
+		padding: $grid-gutter-width*2 $grid-gutter-width $grid-gutter-width $grid-gutter-width;
+		
+		@include respondMin(point('min-md')) {
+			padding: $grid-gutter-width*2 $grid-gutter-width*3 $grid-gutter-width $grid-gutter-width*3;
+		}
+	}
+	
+	.#{$component}__arrow--prev {
+		left: -5px;
+		
+		@include respondMin(point('min-sm')) {
+			left: -10px;
+		}
+	}
+	
+	.#{$component}__arrow--next {
+		right: -5px;
+		
+		@include respondMin(point('min-sm')) {
+			right: -10px;
+		}
+	}
+}
+
+.#{$component}--disease-minimal {
+	
+	.slick-list {
+		width: 100%;
+		margin: 0 auto;
+		padding: 0 15% !important;
+		
+		@include respondMin(point('min-md')) {
+			padding: 0 25% !important;
+		}
+		
+		@include respondMin(point('min-xxl')) {
+			padding: 0 33% !important;
+		}
+	}
+	
+	.#{$component}__slide {
+		padding: $grid-gutter-width*2 $grid-gutter-width $grid-gutter-width $grid-gutter-width;
+		
+		@include respondMin(point('min-md')) {
+			padding: $grid-gutter-width*2 $grid-gutter-width*2 $grid-gutter-width $grid-gutter-width*2;
+		}
+		
+		@include respondMin(point('min-lg')) {
+			padding: $grid-gutter-width*2 $grid-gutter-width*5 $grid-gutter-width $grid-gutter-width*5;
+		}
+		
+		@include respondMin(point('min-xxl')) {
+			max-width: 40em;
+			margin: 0 auto;
+		}
+	}
+	
+	.slick-slide {
+		@include prefix(transition, 'opacity ease .4s');
+		opacity: .5;
+		
+		&.slick-center,
+		&.slick-active {
+			opacity: 1;
+		}
+	}
+
+	.#{$component}__arrow--prev {
+		left: -5px;
+
+		@include respondMin(point('min-sm')) {
+			left: -10px;
+		}
+	}
+
+	.#{$component}__arrow--next {
+		right: -5px;
+
+		@include respondMin(point('min-sm')) {
+			right: -10px;
+		}
+	}
+}
+
+.#{$component}--related-news {
+
+	.slick-slide {
+		// get slides and contents to equal heights
+		&,
+		& > div,
+		& > div > * {
+			flex-direction: row;
+		}
+	}
+
+	.#{$component}__slide {
+		margin: 0;
+	}
+
+	.slick-list {
+		height: auto !important;
+
+		.slick-track {
+			display: block;
+
+			@include respondMin(point('min-md')) {
+				display: flex;
+			}
+		}
+	}
+
+	.slick-list {
+		@include respondMin(point('min-sm')) {
+			margin: 0;
+		}
+	}
+
+	@include respondMin(point('min-lg')) {
+		align-items: flex-start;
+	}
+	
+	.#{$component}__arrow {
+		top: 20%;
+		
+		@include respondMin(point('min-sm')) {
+			top: 30%;
+		}
+	}
+	
+	.#{$component}__arrow--prev {
+		left: -5px;
+		
+		@include respondMin(point('min-sm')) {
+			left: -10px;
+		}
+	}
+	
+	.#{$component}__arrow--next {
+		right: -5px;
+		
+		@include respondMin(point('min-sm')) {
+			right: -10px;
+		}
+	}
+}
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

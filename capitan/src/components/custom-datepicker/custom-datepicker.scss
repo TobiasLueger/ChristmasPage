@@ -1,0 +1,194 @@
+@charset "utf-8";
+/**
+ * Capitan custom-datepicker.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2017-08-29
+ * MIT License (MIT)
+ */
+
+@import '../../sass/partials/functions';
+@import '../../sass/partials/variables';
+@import '../../sass/partials/mixins';
+
+$component: 'custom-datepicker';
+$plugin: 'flatpickr';
+
+// block
+%#{$component} {
+	position: relative;
+
+	&:after {
+		@include font($ff-icon);
+		@include fontSizeREM(24);
+		transition: transform 200ms ease;
+		// content: icon('date');
+		display: block;
+		position: absolute;
+		transform: translateY(-50%);
+		bottom: -7px;
+		right: 15px;
+	}
+
+	&.is-active {
+		input[type="date"] {
+			background: rgba(color('ci'), 0.2);
+		}
+	}
+
+	.is-valid &,
+	.is-invalid & {
+		&:after {
+			right: 50px;
+		}
+	}
+}
+
+
+// element
+.#{$plugin}-input {
+	&::-webkit-input-placeholder {
+		color: color('placeholder');
+	}
+
+	&::-moz-placeholder {
+		color: color('placeholder');
+	}
+
+	&:-ms-input-placeholder {
+		color: color('placeholder');
+	}
+}
+
+.#{$plugin}-calendar {
+	@include fontSizeREM(16);
+	padding: $grid-gutter-width-half 0;
+	right: 6px !important;
+
+	@include respondMin(point('min-sm')) {
+		right: inherit !important;
+	}
+
+	@include respondMin(point('min-md')) {
+		padding: $grid-gutter-width-half $grid-gutter-width;
+		width: auto;
+	}
+
+	.#{$plugin}-month {
+		// border-bottom: 2px solid color('ci');
+		height: 28px;
+		margin-bottom: $grid-gutter-width-half;
+		padding: 0 5px $grid-gutter-width-half;
+	}
+
+	.#{$plugin}-current-month {
+		height: 28px;
+		line-height: 36px;
+		padding: 0;
+
+		span {
+			&.cur-month {
+				@include font($ff-regular, $typo-weight-bold);
+				font-size: 1rem;
+				&:hover {
+					background: rgba(color('ci'), 0.1);
+				}
+			}
+		}
+
+		.numInputWrapper {
+			input.cur-year {
+				height: 28px;
+				line-height: 28px;
+			}
+
+			&:hover {
+				background: rgba(color('ci'), 0.1);
+			}
+		}
+	}
+
+	.#{$plugin}-prev-month,
+	.#{$plugin}-next-month {
+		height: 50px;
+		line-height: 25px;
+
+		&:hover {
+			svg {
+				fill: color('ci');
+			}
+		}
+	}
+
+	.#{$plugin}-weekdays {
+		span {
+			color: color('ci');
+		}
+	}
+
+	.#{$plugin}-day {
+		line-height: 37px;
+		border-radius: 8px;
+
+		&.today {
+			border: 2px solid color('ci');
+
+			&:hover,
+			&:focus {
+				background: color('ci-hover');
+				border-color: color('ci-hover');
+			}
+		}
+
+		&.selected,
+		&.startRange,
+		&.endRange,
+		&.selected.inRange,
+		&.startRange.inRange,
+		&.endRange.inRange,
+		&.selected:focus,
+		&.startRange:focus,
+		&.endRange:focus,
+		&.selected:hover,
+		&.startRange:hover,
+		&.endRange:hover,
+		&.selected.prevMonthDay,
+		&.startRange.prevMonthDay,
+		&.endRange.prevMonthDay,
+		&.selected.nextMonthDay,
+		&.startRange.nextMonthDay,
+		&.endRange.nextMonthDay {
+			background: color('ci');
+			border-color: color('ci');
+		}
+
+		&.selected.startRange + .endRange,
+		&.startRange.startRange + .endRange,
+		&.endRange.startRange + .endRange {
+			box-shadow: -10px 0 0 #e6e6e6;
+		}
+	}
+}
+
+// modifier
+.#{$component}--small {
+	&:after {
+		bottom: -11px;
+	}
+
+	label {
+		display: none;
+	}
+
+	.#{$plugin}-input:not([type='checkbox']):not([type='radio']):not([type='submit']) {
+		height: 38px;
+		line-height: 16px;
+	}
+}
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

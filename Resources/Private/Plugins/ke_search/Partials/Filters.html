@@ -1,0 +1,9 @@
+<!--
+	=====================
+	Partials/Filters.html
+-->
+
+<f:for each="{filters}" as="filter">
+	<f:render partial="Filters/Desktop" arguments="{conf: conf, numberofresults: numberofresults, filter: filter}"/>
+	<f:render partial="Filters/Mobile" arguments="{conf: conf, numberofresults: numberofresults, filter: filter}"/>
+</f:for>

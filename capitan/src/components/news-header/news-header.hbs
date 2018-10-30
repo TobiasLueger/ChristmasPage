@@ -1,0 +1,38 @@
+{{!-- components/news-header --}}
+<div class="news-header{{#if class}} {{class}}{{/if}}">
+	<div class="row news-header__wrapper">
+		<div class="col-xs-12 col-lg-6 news-header__first-container">
+				<picture class="news-header__media">
+					<!-- 479px max-width MOBILES BILD -->
+					<source media="(max-width: 479px)"
+							srcset="{{imagePlaceholder width='479' height='233' bg="#eee" fg="#333" size="34px"}}">
+					<!-- 991px max-width MOBILES BILD -->
+					<source media="(max-width: 991px)"
+							srcset="{{imagePlaceholder width='991' height='482' bg="#eee" fg="#333" size="34px"}}">
+					<!-- original 562px -->
+					<img src="{{imagePlaceholder width='562' height='281' bg="#eee" fg="#333" size="34px"}}" alt="[ALT]">
+					{{> button type="anker" text="Zurück" url="#" class="btn--secondary util-hidden-lg"}}
+				</picture>
+		</div>
+		<div class="col-xs-12 col-lg-6  news-header__second-container">
+			<div class="news-header__icon-listing">
+				<span class="util-icon--before util-icon--calendar util-text-small">
+					09.02.2018
+				</span>
+				<span class="util-icon--before util-icon--tag news-header__tag util-text-small">
+					MediClin Zentrum für Psychische Gesundheit Donaueschingen, Lorem ipsum, solor sit amet test bla hey
+				</span>
+			</div>
+			<div class="news-header__title">
+				<h1>MediClin Reha-Zentrum Gernsbach: Andrea Ritz wird Nachfolgerin von Jürgen Knosp</h1>
+			</div>
+			<div class="news-header__links">
+				<span>Teilen:</span>
+				<a class="util-icon--before util-icon--xing" href="https://www.xing-share.com/app/user?op=share;sc_p=xing-share;url= [URL]"></a>
+				<a class="util-icon--before util-icon--whatsapp" href="https://api.whatsapp.com/send?phone=whatsappphonenumber&text= [URL]"></a>
+				<a class="util-icon--before util-icon--mail" href="mailto:?subject= [URL]"></a>
+				<a class="util-icon--before util-icon--facebook" href="https://www.facebook.com/sharer.php?u= [URL]"></a>
+			</div>
+		</div>
+	</div>
+</div>

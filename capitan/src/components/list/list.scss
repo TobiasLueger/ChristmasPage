@@ -1,0 +1,224 @@
+@charset "utf-8";
+/**
+ * Capitan quicklistlinks.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2018-06-13
+ * MIT License (MIT)
+ */
+
+@import '../../sass/partials/functions';
+@import '../../sass/partials/variables';
+@import '../../sass/partials/mixins';
+
+$component: 'list';
+
+// block
+%#{$component} {
+	position: relative;
+	margin-top: 0; //hack for user agent style
+}
+
+
+// element
+ul.#{$component}:not(.#{$component}--quicklinks):not(.#{$component}--icon):not(.#{$component}--links):not(.mm-listview),
+ol.#{$component} {
+	margin: 0 0 $grid-gutter-width 0;
+	padding: 0;
+
+	> li {
+		display: inline-block;
+		padding: $grid-gutter-width-half $grid-gutter-width-half $grid-gutter-width-half $grid-gutter-width-half * 4;
+		position: relative;
+		width: 100%;
+
+		&::before {
+			@include fontSizeREM(14);
+			background-color: color('ci');
+			color: color('white');
+			left: 0;
+			position: absolute;
+			text-align: center;
+			width: $grid-gutter-width-half;
+		}
+
+		> span {
+			display: inline-block;
+			padding-left: $grid-gutter-width * 2;
+		}
+	}
+}
+
+ul.#{$component}:not(.#{$component}--quicklinks):not(.#{$component}--icon):not(.#{$component}--links):not(.mm-listview) {
+	list-style-type: square;
+
+	> li {
+		&::before {
+			border-radius: 3px;
+			content: ('');
+			height: $grid-gutter-width-half;
+			left: 18px;
+			top: 16px;
+		}
+	}
+}
+
+ol.#{$component} {
+	list-style-type: none;
+	counter-reset: list-counter;
+
+	> li {
+		counter-increment: list-counter;
+
+		&::before {
+			border-radius: 5px;
+			content: counter(list-counter) ".";
+			padding: 2px 8px;
+		}
+	}
+}
+
+.#{$component}__headline {
+	@include font($ff-semibold);
+}
+
+
+// modifier
+.#{$component}--quicklinks {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	> li {
+		align-items: center;
+		border-top: 1px solid color('green-light');
+		display: flex;
+		margin-bottom: 0;
+		padding: $grid-gutter-width $grid-gutter-width-half;
+		position: relative;
+		text-decoration: none;
+		width: 100%;
+
+		> a {
+			@include font($ff-medium);
+			align-items: baseline;
+			color: color('black');
+			padding-left: 35px;
+			position: relative;
+
+			&::before {
+				@include fontSizeREM(24);
+				color: color('black');
+				left: 0;
+				position: absolute;
+				top: 0;
+			}
+
+			&:hover {
+				text-decoration: none;
+
+				&::before {
+					color: color('ci-hover');
+				}
+			}
+		}
+
+		> span {
+			margin-right: 10px;
+		}
+	}
+
+	.#{$component}__headline {
+		border-top: none;
+		margin-bottom: $grid-gutter-width*1.5;
+		margin-top: 70px;
+		padding: 0 $grid-gutter-width-half;
+	}
+}
+
+.#{$component}--column-double,
+.#{$component}--column-triple {
+	-webkit-column-gap: 1em;
+	-moz-column-gap: 1em;
+	column-gap: 1em;
+	-moz-column-fill: balance;
+	column-fill: balance;
+}
+
+.#{$component}--column-double {
+	-webkit-columns: 1;
+	-moz-columns: 1;
+	columns: 1;
+
+	@include respondMin(point('min-md')) {
+		-webkit-column-count: 2;
+		-moz-column-count: 2;
+		column-count: 2;
+	}
+}
+
+.#{$component}--column-triple {
+	-webkit-columns: 1;
+	-moz-columns: 1;
+	columns: 1;
+
+	@include respondMin(point('min-md')) {
+		-webkit-column-count: 2;
+		-moz-column-count: 2;
+		column-count: 2;
+	}
+
+	@include respondMin(point('min-lg')) {
+		-webkit-column-count: 3;
+		-moz-column-count: 3;
+		column-count: 3;
+	}
+}
+
+.#{$component}--icon {
+	padding-left: 0;
+
+	> li {
+		color: color('black');
+		padding: $grid-gutter-width-half $grid-gutter-width-half $grid-gutter-width-half $grid-gutter-width*2;
+		position: relative;
+
+		&::before {
+			@include fontSizeREM(20);
+			color: color('ci');
+			left: 0;
+			position: absolute;
+			top: $grid-gutter-width-half;
+
+			@include respondMin(point('min-lg')) {
+				@include fontSizeREM(24);
+			}
+		}
+
+		> span {
+			@include fontSizeREM(14);
+			color: color('black');
+
+			@include respondMin(point('min-lg')) {
+				@include fontSizeREM(16);
+			}
+		}
+	}
+}
+
+.#{$component}--table-block {
+	> li:before {
+		left: 0!important;
+	}
+
+	> span {
+		padding-left: 16px!important;
+	}
+}
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

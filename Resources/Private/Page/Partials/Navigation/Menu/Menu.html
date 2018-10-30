@@ -1,0 +1,16 @@
+<li role="presentation" class="level0 nav-{itemIter} level-top {menuAddedClass}">
+    <a href="{menu.link}"
+       class="level-top"
+       aria-haspopup="true"
+       tabindex="-1"
+       role="menuitem"
+       title="{menu.title}">
+        <span class="pointer"></span>
+        <div>
+            <span>{menu.title}</span>
+            <f:if  condition="{menu.data.subtitle}">
+                <span>{menu.data.subtitle}</span>
+            </f:if>
+        </div>
+    </a>
+</li>

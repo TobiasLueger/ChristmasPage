@@ -1,0 +1,72 @@
+{{!-- components/table --}}
+{{#if modifier}}
+	{{#ifCond modifier '==' 'table-single-twoColumns'}}
+		<div class="table{{#if class}} {{class}}{{/if}}">
+			{{#if showCaption}}
+				<caption>Lorem ipsum</caption>
+			{{/if}}
+			<table>
+				<thead>
+				<tr>
+					<th>Lorem ipsum</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>consectetuer</td>
+					<td>2 min</td>
+				</tr>
+				<tr>
+					<td>consectetuer</td>
+					<td>2 min</td>
+				</tr>
+				<tr>
+					<td>consectetuer</td>
+					<td>2 Euro</td>
+				</tr>
+				<tr>
+					<td>consectetuer</td>
+					<td>2 min</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	{{/ifCond}}
+{{else }}
+	<div class="table{{#if class}} {{class}}{{/if}}">
+		<table>
+			{{#if showCaption}}
+				<caption>Lorem ipsum</caption>
+			{{/if}}
+			<thead>
+			<tr>
+				<th>Lorem ipsum</th>
+				<th>Dolor sit amet</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</td>
+				<td>Cum sociis natoque penatibus et</td>
+			</tr>
+			<tr>
+				<td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</td>
+				<td>Cum sociis natoque penatibus et magnis</td>
+			</tr>
+			<tr>
+				<td>Lorem ipsum dolor sit amet, consectetuer</td>
+				<td>Cum sociis natoque penatibus et magnis</td>
+			</tr>
+			<tr>
+				<td>Lorem ipsum dolor sit amet, consectetuer</td>
+				<td>Cum sociis natoque penatibus et magnis</td>
+			</tr>
+			<tr>
+				<td>Lorem ipsum dolor sit amet, consectetuer</td>
+				<td>Cum sociis natoque penatibus et magnis</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+{{/if}}
+

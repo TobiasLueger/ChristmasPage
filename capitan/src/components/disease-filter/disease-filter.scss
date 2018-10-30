@@ -1,0 +1,168 @@
+@charset "utf-8";
+
+/**
+ * Capitan diseases v1.5.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.Capitan.de/
+ *
+ * Date: 2018-10-04
+ * MIT License (MIT)
+ *
+ */
+
+$component: 'disease-filter';
+
+// block
+%#{$component} {
+	display: block;
+}
+
+// element
+.#{$component}__list {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	padding-left: 0;
+}
+
+.#{$component}__item {
+	width: calc(100% - 20px);
+	margin: 0 10px;
+	border-top: 1px solid color('grey-lightest');
+	border-bottom: 1px solid color('grey-lightest');
+
+	@include respondMin(point('min-md')) {
+		width: calc(50% - 20px);
+	}
+
+	@include respondMin(point('min-xl')) {
+		width: calc(33% - 20px);
+	}
+
+	a {
+		display: flex;
+		padding: 25px 0;
+		width: 100%;
+		justify-content: space-between;
+
+		@include respondMin(point('min-md')) {
+			padding: 25px 50px;
+		}
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+.#{$component}__category {
+	@include fontSizeREM(22);
+	@include font($ff-semibold);
+	border-bottom: 1px solid color('grey');
+	width: 100%;
+	padding: 10px;
+}
+
+.#{$component}__filter {
+	width: 100%;
+	display: flex;
+	list-style: none;
+	padding: 0;
+
+	@include respondMax(point('max-sm')) {
+		overflow: scroll;
+		width: calc(100vw - 20px);
+	}
+}
+
+.#{$component}__filter-link {
+	flex: 1;
+	text-align: center;
+	cursor: pointer;
+	border: 1px solid transparent;
+
+	@include respondMax(point('max-sm')) {
+		@include fontSizeREM(20);
+		min-width: 50px;
+	}
+
+	&.active {
+		text-decoration: none !important;
+		color: color('ci-hover');
+	}
+
+	&:hover {
+		text-decoration: none !important;
+
+		@include respondMin(point('min-md')) {
+			color: color('ci-hover');
+		}
+	}
+}
+
+.#{$component}__filter-link--disabled {
+	flex: 1;
+	text-align: center;
+	color: rgba(color('black'), 0.15) !important;
+	cursor: default;
+
+	@include respondMax(point('max-sm')) {
+		@include fontSizeREM(20);
+		min-width: 50px;
+
+		.has-searchinput & {
+			display: none;
+		}
+	}
+
+	&:hover {
+		text-decoration: none !important;
+	}
+}
+
+.#{$component}__searchfield {
+	width: 100%;
+	padding: 10px;
+	margin: 0 0 25px 0;
+
+	&::placeholder {
+		color: rgba(color('black'), 0.3);
+	}
+}
+
+.#{$component}__no-result {
+	margin: 50px 0;
+	color: rgba(color('black'), 0.3);
+	width: 100%;
+	text-align: center;
+}
+
+.#{$component}__searchfield-wrapper {
+	background-color: color('ci');
+	padding: 20px 0;
+	position: relative;
+
+	p {
+		color: color('white');
+	}
+}
+
+.#{$component}__clearsearch {
+	position: absolute;
+	top: 46px;
+	right: 25px;
+	cursor: pointer;
+}
+
+.#{$component}__fancybox {
+	@include respondMin(point('min-md')) {
+		max-width: 800px !important;
+	}
+}
+// modifier
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

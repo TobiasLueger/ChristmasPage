@@ -1,0 +1,160 @@
+@charset "utf-8";
+
+/**
+ * Capitan footer.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2016-09-05
+ * MIT License (MIT)
+ */
+
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+$component: 'footer';
+
+// block
+%#{$component} {
+	@include clearfix();
+	
+	ul, li {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+
+// element
+.#{$component}__main {
+	border-top: 1px solid color('grey-light');
+	padding: 0 0 $grid-gutter-width*2;
+	
+	@include respondMin(point('min-lg')) {
+		padding: $grid-gutter-width*3 0;
+	}
+	
+	.#{$component}__content {
+		position: relative;
+	}
+	
+	.#{$component}__heading {
+		display: inline-block;
+		margin-bottom: 0;
+		padding: 22px 0;
+		
+		a {
+			@include font($ff-semibold, $typo-weight-bold);
+			@include fontSizeREM(18);
+			color: color('black');
+		}
+		
+		&:after {
+			float: right;
+		}
+		
+		@include respondMin(point('min-lg')) {
+			display: flex;
+			min-height: 50px;
+			margin-bottom: 0;
+			padding: 0;
+		}
+	}
+	
+	.#{$component}__list {
+		li {
+			padding: 13px 0;
+			
+			&:not(:nth-of-type(1)) {
+				@include respondMin(point('min-lg')) {
+					border-top: 1px solid color('green-light');
+				}
+			}
+		}
+		
+		a {
+			@include font($ff-regular, $typo-weight-normal);
+			color: color('black');
+		}
+	}
+	
+	.#{$component}__logo {
+		margin-top: 50px;
+		
+		@include respondMin(point('min-lg')) {
+			margin-top: -17px;
+		}
+		
+		+ p {
+			margin-bottom: $grid-gutter-width*2;
+			margin-top: $grid-gutter-width*1.5;
+			
+			@include respondMin(point('min-lg')) {
+				margin-top: 44px;
+			}
+		}
+	}
+	
+	.#{$component}__sociallinks {
+		@include clearfix;
+		
+		li {
+			display: inline-block;
+			float: left;
+			margin-right: $grid-gutter-width-half;
+		}
+	}
+}
+
+.#{$component}__secondary {
+	background: color('green-lightest');
+	box-shadow: inset 0 24px 24px -12px rgba(color('black'), 0.1);
+	
+	.row {
+		margin-bottom: 0;
+	}
+	
+	.#{$component}__content {
+		padding: 25px 0;
+		
+		@include respondMin(point('min-lg')) {
+			align-items: center;
+			display: flex;
+			justify-content: space-between;
+		}
+		
+		small {
+			margin-bottom: 0;
+			
+			@include respondMin(point('min-lg')) {
+				line-height: 0;
+			}
+		}
+	}
+}
+
+.#{$component}__links {
+	li {
+		display: inline-block;
+		
+		@include respondMin(point('min-lg')) {
+			margin-left: $grid-gutter-width*2;
+		}
+		
+		a {
+			@include fontSizeREM(13);
+		}
+	}
+}
+
+// modifier
+
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

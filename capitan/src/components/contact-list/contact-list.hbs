@@ -1,0 +1,18 @@
+{{!-- components/contact-list --}}
+<ul class="contact-list">
+	{{#if address}}
+		<li class="util-link util-icon--before util-icon--facilities align-items-xs-start"><span>Dünenstr. 1</br>17449 Ostseebad Trassenheide&nbsp;</br><a href="#" title="[TITLE]" class="util-text-link util-icon--after util-icon--arrow-right">Jetzt Route planen</a></span></li>
+	{{/if}}
+	{{#if tel}}
+		<li class="util-link util-icon--before util-icon--tel">Tel.:&nbsp;<a href="tel:+4978219251200" title="[TITLE]">+4978219251200</a></li>
+	{{/if}}
+	{{#if fax}}
+		<li class="util-link util-icon--before util-icon--fax">Fax: +4978219251210</li>
+	{{/if}}
+	{{#if mail}}
+		<li class="util-link util-icon--before util-icon--mail"><a href="mailto:test@mediclin.de" title="[TITLE]">Nachricht schreiben</a></li>
+	{{/if}}
+	{{#if contactLayer}}
+		<li class="util-link util-icon--before util-icon--mail"><a data-fancybox data-type="ajax" href="https://career-stage.mcl.kundenheimat.de/?type=1535104065&tx_brafacilitymdc_expert[person]=1&no_cache=1" title="[TITLE]">Nachricht schreiben</a></li>
+	{{/if}}
+</ul>

@@ -1,0 +1,63 @@
+<f:layout name="General"/>
+<!--
+=====================
+Templates/ResultList.html
+
+Settings are available via
+{conf}
+{extConf}
+{extConfPremium}
+-->
+
+<f:section name="content">
+    <f:if condition="{wordsTooShort}">
+        <section class="section section--bg-grey">
+            <div class="container">
+                <div class="row">
+                    <div class="offset-lg-3 col-xs-12 col-lg-9">
+                        <p>
+                            <f:translate key="LLL:EXT:ke_search/pi1/locallang.xml:searchword_length_error"
+                                         arguments="{0:extConf.searchWordLength}"/>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </f:if>
+    <f:if condition="{resultListAdditionalRawContent}">
+        <f:format.raw>{resultListAdditionalRawContent}</f:format.raw>
+    </f:if>
+
+    <f:if condition="{isEmptySearch}">
+        <f:then>
+            <f:if condition="{conf.showTextInsteadOfResults}">
+                <f:then>
+                    <section class="section section--bg-grey">
+                        <div class="container">
+                            <div class="row">
+                                <div class="offset-lg-3 col-xs-12 col-lg-9">
+                                    <f:format.raw>{conf.textForResults}</f:format.raw>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </f:then>
+                <f:else>
+                    <f:render partial="ResultRows"
+                              arguments="{conf: conf, numberofresults: numberofresults, resultrows: resultrows, sortingLinks: sortingLinks, pagebrowser:pagebrowser, queryTime:queryTime, queryTimeText:queryTimeText, filters: filters, searchword: searchword}"/>
+                </f:else>
+            </f:if>
+        </f:then>
+        <f:else>
+            <f:if condition="{numberofresults} == 0">
+                <f:then>
+                    <f:render partial="NoResults" arguments="{conf: conf, noResultsText: noResultsText}"/>
+                </f:then>
+                <f:else>
+                    <f:render partial="ResultRows"
+                              arguments="{conf: conf, numberofresults: numberofresults, resultrows: resultrows, sortingLinks: sortingLinks, pagebrowser:pagebrowser, queryTime:queryTime, queryTimeText:queryTimeText, filters: filters, searchword: searchword}"/>
+                </f:else>
+            </f:if>
+        </f:else>
+    </f:if>
+</f:section>

@@ -1,0 +1,138 @@
+@charset "utf-8";
+
+/**
+ * Capitan header.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2016-09-05
+ * MIT License (MIT)
+ */
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+@import '../../sass/partials/functions';
+@import '../../sass/partials/variables';
+@import '../../sass/partials/mixins';
+
+$component: 'fancybox';
+
+
+
+// block
+%#{$component} {
+	display: block;
+}
+
+
+
+// element
+.#{$component}-inner {
+
+	.#{$component}-slide {
+
+		& > * {
+			padding: 20px 15px;
+
+			@include respondMin(point('min-sm')) {
+				padding: 40px 30px;
+			}
+		}
+
+		.#{$component}-content {
+
+			.#{$component}-image {
+				border: $grid-gutter-width solid color('white');
+			}
+		}
+		&--video {
+			.#{$component}-content {
+				border: $grid-gutter-width solid color('white');
+			}
+		}
+	}
+
+	.#{$component}-button {
+		background-color: color('ci');
+		color: color('white');
+		position: absolute;
+
+		&.disabled {
+			background-color: color('green-light');
+
+			&:hover {
+				background-color: color('green-light');
+				color: color('white');
+			}
+		}
+
+		&:hover {
+			background-color: color('ci-hover');
+			color: color('white');
+		}
+
+		&:before {
+			@include font($ff-icon);
+			@include fontSizeREM(16);
+			color: color('white');
+			line-height: 12px;
+			top: 2px;
+			position: relative;
+		}
+
+		&.#{$component}-button--close {
+			border-radius: 5px;
+			top: 5px;
+			right: 5px;
+		}
+
+		&.#{$component}-button--arrow-left,
+		&.#{$component}-button--arrow-right {
+			transform: translate(0, -50%);
+			text-align: center;
+			width: 36px;
+			height: 36px;
+			padding: 0;
+			border-radius: 50%;
+			top: 50%;
+		}
+
+		&.#{$component}-button--arrow-left {
+			left: 5px;
+
+			&:before {
+				content: icon('arrow-left');
+			}
+		}
+
+		&.#{$component}-button--arrow-right {
+			right: 5px;
+
+			&:before {
+				content: icon('arrow-right');
+			}
+		}
+	}
+
+	.#{$component}-caption {
+		background-color: color('white');
+		color: color('black');
+		padding: $grid-gutter-width $grid-gutter-width;
+		opacity: 1;
+
+		&:after,
+		&:before {
+			display: none;
+		}
+	}
+}
+
+
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

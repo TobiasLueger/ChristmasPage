@@ -1,0 +1,177 @@
+@charset "utf-8";
+/**
+ * Capitan countup.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2018-07-05
+ * MIT License (MIT)
+ */
+
+$component: 'countup';
+
+// block
+%#{$component} {
+	align-items: baseline;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	text-align: center;
+	width: 100%;
+	z-index: 1;
+
+	> * {
+		display: block;
+	}
+}
+
+// element
+.#{$component}__digit,
+.#{$component}__unit {
+	flex: 1 1 auto !important;
+
+	@include font($ff-semibold, bold);
+	@include fontSizeREM(24);
+
+	@include respondMin(point('min-md')) {
+		@include fontSizeREM(32);
+	}
+
+	@include respondMin(point('min-lg')) {
+		@include fontSizeREM(66);
+	}
+}
+
+.#{$component}__label {
+	@include font($ff-regular);
+	@include fontSizeREM(14);
+
+	@include respondMin(point('min-md')) {
+		@include fontSizeREM(16);
+	}
+
+	@include respondMin(point('min-lg')) {
+		@include fontSizeREM(20);
+	}
+
+	.#{$component}__digit + & {
+		flex-basis: 100%;
+	}
+
+	.#{$component}__unit + & {
+		flex-basis: 100%;
+	}
+}
+
+.#{$component}__unit {
+	margin-left: .25em;
+}
+
+	// modifier
+.#{$component}--wow {
+	.#{$component}__digit,
+	.#{$component}__unit {
+		display: flex;
+
+		@include fontSizeREM(45);
+
+		@include respondMin(point('min-lg')) {
+			@include fontSizeREM(90);
+		}
+	}
+
+	.#{$component}__digit {
+		justify-content: flex-end;
+	}
+
+	.#{$component}__unit {
+		justify-content: flex-start;
+	}
+
+	.#{$component}__label {
+		@include font($ff-regular);
+		@include fontSizeREM(14);
+
+		@include respondMin(point('min-md')) {
+			@include fontSizeREM(16);
+		}
+
+		@include respondMin(point('min-lg')) {
+			@include fontSizeREM(30);
+		}
+	}
+}
+
+.#{$component}--small {
+	justify-content: flex-start;
+	text-align: left;
+
+	@include respondMin(point('min-md')) {
+		justify-content: center;
+		text-align: center;
+	}
+
+	.#{$component}__digit,
+	.#{$component}__unit {
+		@include fontSizeREM(24);
+
+		@include respondMin(point('min-md')) {
+			@include fontSizeREM(30);
+		}
+	}
+
+	.#{$component}__label {
+		@include font($ff-regular);
+		@include fontSizeREM(14);
+
+		@include respondMin(point('min-md')) {
+			@include fontSizeREM(16);
+		}
+	}
+}
+
+
+.#{$component}--icon {
+	@include respondMin(point('min-md')) {
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.util-icon--before {
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: center;
+
+		@include respondMin(point('min-md')) {
+			flex-direction: column-reverse;
+		}
+
+		&::before {
+			@include fontSizeREM(40);
+			color: color('accent-yellow');
+			margin-right: $grid-gutter-width;
+
+			@include respondMin(point('min-md')) {
+				margin-right: 0;
+			}
+		}
+	}
+
+	.#{$component}__content {
+		display: flex;
+		flex-direction: column-reverse;
+
+		.#{$component}__digit {
+			@include respondMin(point('min-md')) {
+				flex-basis: 100%;
+			}
+		}
+	}
+}
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

@@ -1,0 +1,26 @@
+<div class="embed-video">
+	{{#if showHeadline}}
+		<h2>Prof. Dr. med. Eberhard von Hodenberg im Interview</h2>
+	{{/if}}
+
+	{{#if showTeaserTextOver}}
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos doloremque eos expedita explicabo facilis fugiat inventore iure laboriosam neque officiis possimus praesentium quam, repellendus sint soluta sunt ut. Asperiores, totam!</p>
+	{{/if}}
+
+	<div class="embed-video__wrapper">
+		<div class="embed-video__placeholder" data-embed-id={{id}}{{#if platform}} data-embed-url="{{url}}"{{/if}}{{#if imageUrl}} data-embed-image={{imageUrl}}{{/if}}>
+			<div class="embed-video__play-button"></div>
+
+            <div class="embed-video__privacy-text">
+                <span>
+                    Mit Klick / Tap des Abspiel-Buttons öffnet sich ein YouTube Video.
+                    Dafür gelten die <a href="https://policies.google.com/privacy" target="_blank">Datenschutzbedingungen</a> von Google.
+                </span>
+            </div>
+		</div>
+	</div>
+
+	{{#if showTeaserTextUnder}}
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos doloremque eos expedita explicabo facilis fugiat inventore iure laboriosam neque officiis possimus praesentium quam, repellendus sint soluta sunt ut. Asperiores, totam!</p>
+	{{/if}}
+</div>

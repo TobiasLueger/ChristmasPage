@@ -1,0 +1,37 @@
+@charset "utf-8";
+/**
+ * Capitan contact-list.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2018-07-11
+ * MIT License (MIT)
+ */
+
+$component: 'contact-list';
+
+// block
+%#{$component} {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	li {
+		@include fontSizeREM(14);
+		padding: $grid-gutter-width-half/2 0;
+
+		.teaser--contact-person & {
+			@include fontSizeREM(16);
+		}
+	}
+}
+
+// element
+
+// modifier
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

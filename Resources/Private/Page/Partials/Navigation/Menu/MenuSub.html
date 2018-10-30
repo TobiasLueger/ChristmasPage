@@ -1,0 +1,44 @@
+<li role="presentation" class="level0 nav-{itemIter} level-top {menuAddedClass}">
+    <span class="level-top" aria-haspopup="true" tabindex="{itemIter}" role="menuitem">
+        <span class="pointer"></span>
+        <div>
+            <span>{menu.title}</span>
+            <f:if  condition="{menu.data.subtitle}">
+                <span>{menu.data.subtitle}</span>
+            </f:if>
+        </div>
+
+    </span>
+
+    <f:if condition="{menu.children}">
+        <div class="level0 nav-main__flyout">
+
+            <f:if condition="{menu.data.quicklinksnavi}">
+                <div class="nav-main__highlight">
+                    <f:render partial="Content" arguments="{data:menu.data.quicklinksnavi}"/>
+                </div>
+            </f:if>
+
+            <ul role="menu" aria-hidden="true" aria-="false">
+                <f:for each="{menu.children}" as="childMenu" iteration="childMenuIter">
+                    <li class="level1 nav-{itemIter}-{childMenuIter.cycle}" role="presentation">
+                        <a
+                                href="{childMenu.link}"
+                                aria-haspopup="true"
+                                class="util-center"
+                                tabindex="-1"
+                                role="menuitem"
+                                title="{childMenu.title}">
+                            <span>{childMenu.title}</span>
+                        </a>
+
+                        <f:if condition="{childMenu.children}">
+                            <f:render partial="Navigation/Menu/MenuSubSub" arguments="{childMenu: childMenu.children}"/>
+                        </f:if>
+                    </li>
+                </f:for>
+
+            </ul>
+        </div>
+    </f:if>
+</li>

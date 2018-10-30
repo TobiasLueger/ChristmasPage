@@ -1,0 +1,44 @@
+@charset "utf-8";
+/**
+ * Capitan listing-results.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2018-07-05
+ * MIT License (MIT)
+ */
+
+$component: 'listing-results';
+
+// block
+%#{$component} {
+	border-bottom: 1px solid color('green-light');
+	margin-bottom: $grid-gutter-width*2;
+
+	.container > & {
+		border-bottom: none;
+		margin-bottom: 0;
+	}
+}
+
+// element
+
+
+// modifier
+.#{$component}--bottom {
+	border-bottom: none;
+	border-top: 1px solid color('green-light');
+	margin-bottom: 0;
+	margin-top: $grid-gutter-width*2;
+
+	.container > & {
+		border-top: none;
+		margin-top: 0;
+	}
+}
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

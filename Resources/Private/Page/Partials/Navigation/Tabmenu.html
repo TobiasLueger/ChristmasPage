@@ -1,0 +1,77 @@
+<f:if condition="{data.tabNaviHeader} && {data.tabNaviText}">
+    <section class="section {f:if(condition: '{data.tabColor}  == 2', then: 'stage--filter--bg-green')}">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                    <f:if condition="{data.tabNaviHeader}">
+                        <h2 class="util-text-center">{data.tabNaviHeader}</h2>
+                    </f:if>
+                    <f:if condition="{data.tabNaviText}">
+                        <p class="util-wow-paragraph util-text-center">
+                            {data.tabNaviText}
+                        </p>
+                    </f:if>
+                </div>
+            </div>
+        </div>
+    </section>
+</f:if>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <div class="tabs tabs--redirect">
+                    <div class="tabs__dropdown custom-select">
+                        <select>
+                            <f:for each="{tabMenu}" as="item">
+                                <f:if condition="{item.data.showTabNaviSubpages}">
+                                    <f:if condition="{item.active}">
+                                        <f:then>
+                                            <option value="{item.link}" selected >
+                                                {item.title}
+                                            </option>
+                                        </f:then>
+                                        <f:else>
+                                            <option value="{item.link}" >
+                                                {item.title}
+                                            </option>
+                                        </f:else>
+                                    </f:if>
+                                </f:if>
+                            </f:for>
+                        </select>
+                    </div>
+
+                    <div class="tabs__wrapper">
+                        <ul class="tabs__navigation">
+                            <f:for each="{tabMenu}" as="item">
+                                <f:if condition="{item.data.showTabNaviSubpages}">
+                                    <f:if condition="{item.active}">
+                                        <f:then>
+                                            <li class="active">
+                                                <a href="{item.link}" target="_self" title="{item.title}">{item.title}</a>
+                                            </li>
+                                        </f:then>
+                                        <f:else>
+                                            <li>
+                                                <a href="{item.link}" target="_self" title="{item.title}">{item.title}</a>
+                                            </li>
+                                        </f:else>
+                                    </f:if>
+                                </f:if>
+                            </f:for>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+

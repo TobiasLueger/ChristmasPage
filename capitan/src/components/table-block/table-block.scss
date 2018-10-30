@@ -1,0 +1,81 @@
+@charset "utf-8";
+/**
+ * Capitan table-block.scss v1.0.0
+ *
+ * Copyright brandung GmbH & Co.KG
+ * http://www.brandung.de/
+ *
+ * Date: 2018-07-05
+ * MIT License (MIT)
+ */
+
+$component: 'table-block';
+
+// block
+%#{$component} {
+	@include clearfix();
+	
+	img {
+		width: 100%;
+	}
+}
+// element
+
+.#{$component}__header {
+	border-bottom: solid 1px color('green-light');
+	margin-top: $grid-gutter-width*2;
+	margin-bottom: $grid-gutter-width*2;
+}
+
+.#{$component}__title {
+	font-weight: bold;
+}
+
+// modifier
+.#{$component}--text-fluent-double {
+	p {
+		column-count: 2;
+	}
+}
+
+.#{$component}--text-fluent-triple {
+	p {
+		column-count: 3;
+	}
+}
+
+.#{$component}__icon-container {
+
+	.#{$component}__icon {
+		@include fontSizeREM(12);
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 20px;
+
+		&::before {
+			@include fontSizeREM(50);
+			color: color('ci');
+			margin-right: 0;
+			margin-bottom: 5px;
+		}
+	}
+}
+
+.#{$component}--accordion {
+	@include respondMax(point('max-sm')) {
+		border-bottom: 1px solid color('green-light');
+		margin-bottom: $grid-gutter-width;
+	}
+
+	.row {
+		@include respondMax(point('max-sm')) {
+			margin-bottom: 0;
+			margin-top: 0;
+		}
+	}
+}
+
+// component class selector
+.#{$component} {
+	@extend %#{$component};
+}

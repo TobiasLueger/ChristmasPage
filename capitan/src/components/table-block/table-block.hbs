@@ -1,0 +1,582 @@
+{{!-- components/table-block --}}
+{{#if modifier}}
+	{{#ifCond modifier '==' 'text-double'}}
+		<div class="table-block{{#if class}} {{class}}{{/if}}">
+			{{#if showHeader}}
+				<div class="row">
+					<div class="col-xs-12 table-block__header">
+						<h2>Text Double headline</h2>
+					</div>
+				</div>
+			{{/if}}
+
+			<div class="row">
+				<div class="col-xs-12 col-lg-3">
+					<p class="util-h5">Text Double</p>
+				</div>
+
+				<div class="col-xs-12 col-lg-9">
+					<div class="row">
+						<div class="col-xs-12 col-lg-6">
+							{{#if showTitle}}
+								<p class="util-h5">Title</p>
+							{{/if}}
+
+							<p>Lorem ipsum dolor sit amet, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing.</p>
+						</div>
+
+						<div class="col-xs-12 col-lg-6">
+							{{#if showTitle}}
+								<p class="util-h5">Title</p>
+							{{/if}}
+
+							<p>Lorem ipsum dolor sit amet, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'text-triple'}}
+		<div class="table-block{{#if class}} {{class}}{{/if}}">
+			{{#if showHeader}}
+				<div class="row">
+					<div class="col-xs-12 table-block__header">
+						<h2>Text Triple headline</h2>
+					</div>
+				</div>
+			{{/if}}
+
+			<div class="row">
+				<div class="col-xs-12 col-lg-3">
+					<p class="util-h5">Text Triple</p>
+				</div>
+
+				<div class="col-xs-12 col-lg-9">
+					<div class="row">
+						<div class="col-xs-12 col-lg-4">
+							{{#if showTitle}}
+								<p class="util-h5">Title</p>
+							{{/if}}
+
+							<p>Lorem ipsum dolor sit amet, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing.</p>
+						</div>
+
+						<div class="col-xs-12 col-lg-4">
+							{{#if showTitle}}
+								<p class="util-h5">Title</p>
+							{{/if}}
+
+							<p>Lorem ipsum dolor sit amet, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing.</p>
+						</div>
+
+						<div class="col-xs-12 col-lg-4">
+							{{#if showTitle}}
+								<p class="util-h5">Title</p>
+							{{/if}}
+
+							<p>Lorem ipsum dolor sit amet, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'mixed'}}
+		<div class="table-block{{#if class}} {{class}}{{/if}}">
+			{{#if showHeader}}
+				<div class="row">
+					<div class="col-xs-12 table-block__header">
+						<h2>Mixed headline</h2>
+					</div>
+				</div>
+			{{/if}}
+
+			<div class="row">
+				<div class="col-xs-12 col-lg-3">
+					<p class="util-h5">Mixed</p>
+				</div>
+
+				<div class="col-xs-12 col-lg-9">
+					<div class="row">
+						<div class="col-xs-12">
+							{{#if showTitle}}
+								<p class="util-h5">Title</p>
+							{{/if}}
+
+							<p>Lorem ipsum dolor sit amet, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing.</p>
+
+							{{> list modifier=false class="list--table-block" }}
+							{{> table modifier=false class="table--highlighted-rows" showCaption=false }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'picture-single'}}
+		<div class="table-block{{#if class}} {{class}}{{/if}}">
+			{{#if showHeader}}
+				<div class="row">
+					<div class="col-xs-12 table-block__header">
+						<h2>Picture Single headline</h2>
+					</div>
+				</div>
+			{{/if}}
+
+			<div class="row">
+				<div class="col-xs-12 col-lg-3">
+					<p class="util-h5">Picture Single</p>
+				</div>
+
+				<div class="col-xs-12 col-lg-9">
+					<div class="row">
+						<div class="col-xs-12">
+							<img src="{{imagePlaceholder width='446' height='234' bg="#eee" size="50px"}}" alt="[ALT]" title="[TITLE]" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'picture-double'}}
+		<div class="table-block{{#if class}} {{class}}{{/if}}">
+			{{#if showHeader}}
+				<div class="row">
+					<div class="col-xs-12 table-block__header">
+						<h2>Picture double headline</h2>
+					</div>
+				</div>
+			{{/if}}
+
+			<div class="row">
+				<div class="col-xs-12 col-lg-3">
+					<p class="util-h5">Picture Double</p>
+				</div>
+
+				<div class="col-xs-12 col-lg-9">
+					<div class="row">
+						<div class="col-xs-12 col-lg-6">
+							<img src="{{imagePlaceholder width='446' height='234' bg="#eee" size="50px"}}" alt="[ALT]" title="[TITLE]" />
+						</div>
+						<div class="col-xs-12 col-lg-6">
+							<img src="{{imagePlaceholder width='446' height='234' bg="#eee" size="50px"}}" alt="[ALT]" title="[TITLE]" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'picture-textLeft'}}
+		<div class="table-block{{#if class}} {{class}}{{/if}}">
+			{{#if showHeader}}
+				<div class="row">
+					<div class="col-xs-12 table-block__header">
+						<h2>Picture textleft headline</h2>
+					</div>
+				</div>
+			{{/if}}
+
+			<div class="row">
+				<div class="col-xs-12 col-lg-3">
+					<p class="util-h5">Picture Text Left</p>
+				</div>
+
+				<div class="col-xs-12 col-lg-9">
+					<div class="row">
+						<div class="col-xs-12 col-lg-6">
+							{{#if showTitle}}
+								<p class="util-h5">Title</p>
+							{{/if}}
+
+							<p>Lorem ipsum dolor sit amet, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing.</p>
+						</div>
+
+						<div class="col-xs-12 col-lg-6">
+							<img src="{{imagePlaceholder width='446' height='234' bg="#eee" size="50px"}}" alt="[ALT]" title="[TITLE]" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'picture-textRight'}}
+		<div class="table-block{{#if class}} {{class}}{{/if}}">
+			{{#if showHeader}}
+				<div class="row">
+					<div class="col-xs-12 table-block__header">
+						<h2>picture textright headline</h2>
+					</div>
+				</div>
+			{{/if}}
+
+			<div class="row">
+				<div class="col-xs-12 col-lg-3">
+					<p class="util-h5">Picture Text Right</p>
+				</div>
+
+				<div class="col-xs-12 col-lg-9">
+					<div class="row">
+						<div class="col-xs-12 col-lg-6">
+							<img src="{{imagePlaceholder width='446' height='234' bg="#eee" size="50px"}}" alt="[ALT]" title="[TITLE]" />
+						</div>
+
+						<div class="col-xs-12 col-lg-6">
+							{{#if showTitle}}
+								<p class="util-h5">Title</p>
+							{{/if}}
+
+							<p>Lorem ipsum dolor sit amet, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing.</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'picture-textTop'}}
+		<div class="table-block{{#if class}} {{class}}{{/if}}">
+			{{#if showHeader}}
+				<div class="row">
+					<div class="col-xs-12 table-block__header">
+						<h2>picture texttop headline</h2>
+					</div>
+				</div>
+			{{/if}}
+
+			<div class="row">
+				<div class="col-xs-12 col-lg-3">
+					<p class="util-h5">Picture Text Top</p>
+				</div>
+
+				<div class="col-xs-12 col-lg-9">
+					<div class="row">
+						<div class="col-xs-12">
+							{{#if showTitle}}
+								<p class="util-h5">Title</p>
+							{{/if}}
+
+							<p>Lorem ipsum dolor sit amet, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing.</p>
+
+							<img src="{{imagePlaceholder width='446' height='234' bg="#eee" size="50px"}}" alt="[ALT]" title="[TITLE]" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'picture-textBottom'}}
+		<div class="table-block{{#if class}} {{class}}{{/if}}">
+			{{#if showHeader}}
+				<div class="row">
+					<div class="col-xs-12 table-block__header">
+						<h2>Picture textbottom headline</h2>
+					</div>
+				</div>
+			{{/if}}
+
+			<div class="row">
+				<div class="col-xs-12 col-lg-3">
+					<p class="util-h5">Picture Text Bottom</p>
+				</div>
+
+				<div class="col-xs-12 col-lg-9">
+					<div class="row">
+						<div class="col-xs-12">
+							<img src="{{imagePlaceholder width='446' height='234' bg="#eee" size="50px"}}" alt="[ALT]" title="[TITLE]" />
+
+							{{#if showTitle}}
+								<p class="util-h5">Title</p>
+							{{/if}}
+
+							<p>Lorem ipsum dolor sit amet, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'picture-tableLeft'}}
+		<div class="table-block{{#if class}} {{class}}{{/if}}">
+			{{#if showHeader}}
+				<div class="row">
+					<div class="col-xs-12 table-block__header">
+						<h2>Picture left headline</h2>
+					</div>
+				</div>
+			{{/if}}
+			<div class="row">
+				<div class="col-xs-12 col-lg-3">
+					<p class="util-h5">Picture Text Left</p>
+				</div>
+
+				<div class="col-xs-12 col-lg-9">
+					<div class="row">
+						<div class="col-xs-12 col-lg-6">
+							{{> table modifier="table-single-twoColumns" class="table--single-twoColumns"}}
+						</div>
+
+						<div class="col-xs-12 col-lg-6">
+							<img src="{{imagePlaceholder width='446' height='234' bg="#eee" size="50px"}}" alt="[ALT]" title="[TITLE]" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'picture-tableRight'}}
+		<div class="table-block{{#if class}} {{class}}{{/if}}">
+			{{#if showHeader}}
+				<div class="row">
+					<div class="col-xs-12 table-block__header">
+						<h2>Picture Right headline</h2>
+					</div>
+				</div>
+			{{/if}}
+
+			<div class="row">
+				<div class="col-xs-12 col-lg-3">
+					<p class="util-h5">Picture Text Right</p>
+				</div>
+
+				<div class="col-xs-12 col-lg-9">
+					<div class="row">
+						<div class="col-xs-12 col-lg-6">
+							<img src="{{imagePlaceholder width='446' height='234' bg="#eee" size="50px"}}" alt="[ALT]" title="[TITLE]" />
+						</div>
+
+						<div class="col-xs-12 col-lg-6">
+							{{> table modifier="table-single-twoColumns" class="table--single-twoColumns" }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'video'}}
+		<div class="table-block{{#if class}} {{class}}{{/if}}">
+			{{#if showHeader}}
+				<div class="row">
+					<div class="col-xs-12 table-block__header">
+						<h2>Video headline</h2>
+					</div>
+				</div>
+			{{/if}}
+
+			<div class="row">
+				<div class="col-xs-12 col-lg-3">
+					<p class="util-h5">Video</p>
+				</div>
+
+				<div class="col-xs-12 col-lg-9">
+					<div class="row">
+						<div class="col-xs-12">
+							{{> embed-video id="qicY-onepyQ" platform=true url="https://www.youtube-nocookie.com/embed/m3j4FZn1izM?autoplay=1" showHeadline=false showTeaserTextOver=false showTeaserTextUnder=false }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'video-textTop'}}
+		<div class="table-block{{#if class}} {{class}}{{/if}}">
+			{{#if showHeader}}
+				<div class="row">
+					<div class="col-xs-12 table-block__header">
+						<h2>Video texttop headline</h2>
+					</div>
+				</div>
+			{{/if}}
+
+			<div class="row">
+				<div class="col-xs-12 col-lg-3">
+					<p class="util-h5">Video Text Top</p>
+				</div>
+
+				<div class="col-xs-12 col-lg-9">
+					<div class="row">
+						<div class="col-xs-12">
+							{{> embed-video id="qicY-onepyQ" showHeadline=false showTeaserTextOver=true showTeaserTextUnder=false }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'video-textBottom'}}
+		<div class="table-block{{#if class}} {{class}}{{/if}}">
+			{{#if showHeader}}
+				<div class="row">
+					<div class="col-xs-12 table-block__header">
+						<h2>Video Text bottom headline</h2>
+					</div>
+				</div>
+			{{/if}}
+
+			<div class="row">
+				<div class="col-xs-12 col-lg-3">
+					<p class="util-h5">Video Text Bottom</p>
+				</div>
+
+				<div class="col-xs-12 col-lg-9">
+					<div class="row">
+						<div class="col-xs-12">
+							{{> embed-video id="qicY-onepyQ" showHeadline=false showTeaserTextOver=false showTeaserTextUnder=true }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'icon'}}
+		<div class="table-block{{#if class}} {{class}}{{/if}}">
+			{{#if showHeader}}
+				<div class="row">
+					<div class="col-xs-12 table-block__header">
+						<h2>Text Icon headline</h2>
+					</div>
+				</div>
+			{{/if}}
+			<div class="row">
+				<div class="col-xs-12 col-lg-3">
+					<p class="util-h5">Icon</p>
+				</div>
+
+				<div class="col-xs-12 col-lg-9">
+					<div class="row table-block__icon-container">
+						<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+							<span class="table-block__icon util-icon--before util-icon--checkmark">
+								Checkmark
+							</span>
+						</div>
+						<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+							<span class="table-block__icon util-icon--before util-icon--attachment">
+								Checkmark
+							</span>
+						</div>
+						<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+							<span class="table-block__icon util-icon--before util-icon--calendar">
+								Checkmark
+							</span>
+						</div>
+						<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+							<span class="table-block__icon util-icon--before util-icon--cardiology">
+								Checkmark
+							</span>
+						</div>
+						<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+							<span class="table-block__icon util-icon--before util-icon--diabetology">
+								Checkmark
+							</span>
+						</div>
+						<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+							<span class="table-block__icon util-icon--before util-icon--facilities">
+								Checkmark
+							</span>
+						</div>
+						<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+							<span class="table-block__icon util-icon--before util-icon--cardiology">
+								Checkmark
+							</span>
+						</div>
+						<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+							<span class="table-block__icon util-icon--before util-icon--diabetology">
+								Checkmark
+							</span>
+						</div>
+						<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+							<span class="table-block__icon util-icon--before util-icon--facilities">
+								Checkmark
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{{/ifCond}}
+
+	{{#ifCond modifier '==' 'title-accordion'}}
+		<div class="table-block{{#if class}} {{class}}{{/if}}">
+			{{#if showHeader}}
+				<div class="row">
+					<div class="col-xs-12 table-block__header">
+						<h2>Header Accordion on Mobile</h2>
+					</div>
+				</div>
+			{{/if}}
+
+			<div class="row">
+				<div class="col-xs-12 col-lg-4">
+					<p class="util-h4">Title is accordion trigger on mobile</p>
+				</div>
+
+				<div class="col-xs-12 col-lg-8">
+					<div class="row">
+						<div class="col-xs-12">
+							{{#if showTitle}}
+								<p class="util-h5">Title</p>
+							{{/if}}
+
+							<p>Lorem ipsum dolor sit amet, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing.</p>
+
+							{{#if showTitle}}
+								<p class="util-h5">Title</p>
+							{{/if}}
+
+							<p>Lorem ipsum dolor sit amet, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{{/ifCond}}
+
+{{else }}
+	<div class="table-block{{#if class}} {{class}}{{/if}}">
+		{{#if showHeader}}
+			<div class="row">
+				<div class="col-xs-12 table-block__header">
+					<h2>Text headline</h2>
+				</div>
+			</div>
+		{{/if}}
+
+		<div class="row">
+			<div class="col-xs-12 col-lg-3">
+				<p class="util-h5">{{title}}</p>
+			</div>
+
+			<div class="col-xs-12 col-lg-9">
+				<div class="row">
+					<div class="col-xs-12">
+						{{#if showTitle}}
+							<p class="util-h5">Title</p>
+						{{/if}}
+
+						<p>Lorem ipsum dolor sit amet, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing, consetetur sadipscing.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{{/if}}
+
+
+
+
+
+

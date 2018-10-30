@@ -1,0 +1,42 @@
+{{!-- components/info-box --}}
+{{#if modifier}}
+	{{#ifCond modifier '==' 'info-box-emergency'}}
+		<div class="info-box {{class}}{{#if icon}} info-box--icon{{/if}}">
+			<div class="row">
+				<div class="col-xs-12 col-lg-10 offset-lg-1">
+					{{> contact-list address=true tel=true fax=true mail=true }}
+				</div>
+			</div>
+		</div>
+	{{/ifCond}}
+	{{#ifCond modifier '==' 'info-box-icon'}}
+		<div class="info-box {{class}} info-box--icon">
+			<div class="row">
+				<div class="col-xs-12 col-lg-10 offset-lg-1">
+					{{> contact-list address=true tel=true fax=true mail=true }}
+				</div>
+			</div>
+		</div>
+	{{/ifCond}}
+{{else}}
+	<div class="info-box{{#if icon}} info-box--icon{{/if}}">
+		<div class="row">
+			<div class="col-xs-12 col-lg-10 offset-lg-1">
+				{{> teaser title="Eine mögliche Variante der Infobox" showCopytext=true showCTA=true }}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-lg-12 col-xl-10 offset-xl-1">
+				<hr class="util-add-margin-bottom-triple">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-lg-6 col-xl-5 offset-xl-1">
+				{{> teaser modifier="teaser-contact-person" class="teaser--contact-person" pictureArea=true teaser-title=true name="Rita Wanninger" expert-title-area=false teaserSpecial-normal=true teaserSpecial-small=false specialField="Leitung Personal" clinic="MediClin Dünewald-Klinik" contactList-telFax=false contactList=true }}
+			</div>
+			<div class="col-xs-12 col-lg-6 col-xl-5">
+				{{> teaser modifier="teaser-contact-person" class="teaser--contact-person" pictureArea=true teaser-title=true name="Max Mustermann" expert-title-area=false teaserSpecial-normal=true teaserSpecial-small=false specialField="Zuständigkeitsbereich" clinic="MediClin Zentrum für Psychische Gesundheit Donaueschingen" contactList-telFax=false contactList=true }}
+			</div>
+		</div>
+	</div>
+{{/if}}

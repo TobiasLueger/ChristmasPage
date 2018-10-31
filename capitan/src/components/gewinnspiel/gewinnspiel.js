@@ -1,19 +1,15 @@
 /**
- * Capitan tabs.js v1.0.0
- *
- * Copyright brandung GmbH & Co.KG
- * http://www.brandung.de/
+ * Capitan gewinnspiel.js v1.0.0
  *
  *
- * Date: 2018-08-14
+ *
+ * Date: 2018-10-31
  * MIT License (MIT)
  */
 
-import * as ajaxHandler from '../../js/handle/ajax-handler';
-
 const _ = {
 	defaults: {
-		componentSelector: '.tabs',
+		componentSelector: '.gewinnspiel',
 
 		classes: {
 			isActive: 'active',
@@ -49,77 +45,13 @@ const _ = {
 
 const o = _.defaults;
 
-
-/**
- * Initialize Tabs
- *
- * @desc Initializes each tab component.
- */
-function initializeTabs() {
-    let settings = {};
-
-	const $tabsComponents = $(o.componentSelector);
-
-	$tabsComponents.each(function () {
-		const $tabsComponent = $(this);
-		const $tabsDropdown = $tabsComponent.find(o.selectors.tabsDropdown).find('select');
-		const $tabsWrapper = $tabsComponent.find(o.selectors.tabsWrapper);
-
-		// Bind events
-		$tabsDropdown.on('change', function (event) {
-            if ($tabsComponent[0].classList.contains(o.classes.tabsRedirect)) {
-                handleRedirect(event);
-            } else {
-                handleDropdownChange(event);
-			}
-		});
-
-        if ($tabsComponent[0].classList.contains(o.classes.tabsRedirect)) {
-            Object.assign(settings, o.pluginOptions.settings, o.pluginOptions.settingsRedirect);
-        } else {
-            Object.assign(settings, o.pluginOptions.settings);
-        }
-
-		// Initialize the tab plugin
-        $tabsWrapper.tabslet(settings);
-	});
-}
-
-
-/**
- * Handle Dropdown Change
- *
- * @param event
- */
-function handleDropdownChange(event) {
-	const $accordingTabNavItem = $('[href="#' + event.target.value + '"]');
-
-	$accordingTabNavItem.trigger('click');
-}
-
-
-/**
- * Handle Redirect
- *
- * @param event
- */
-function handleRedirect(event) {
-    window.location.href = event.target.value;
-}
-
-
-/**
- * re init tabs
- */
-export function reInitTabs() {
-    initializeTabs();
-}
-
+//alert('gewinnspiel');
 
 /**
  * initialize the component
  * @export function
  */
+
 export function init() {
 	if (document.querySelector(o.componentSelector)) {
 		import(/* webpackChunkName: "tabs" */ 'tabslet/jquery.tabslet.min').then(tabslet => {

@@ -296,6 +296,14 @@ function loadComponents() {
 			}
 		);
 	}
+
+	if (document.querySelector('.gewinnspiel')) {
+		import(/* webpackChunkName: "gewinnspiel" */ '../components/gewinnspiel/gewinnspiel').then(
+			component => {
+				component.init();
+			}
+		);
+	}
 }
 
 (function() {

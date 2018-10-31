@@ -131,11 +131,10 @@ $component: 'header';
 .#{$component}__main-wrapper {
 	@include prefix(transition, 'padding 400ms ease');
 	padding: 25px 30px;
-	border-bottom: 2px solid transparent;
+	border-bottom: none;
 	
 	@include respondMax(point('max-sm')) {
 		padding: 25px 10px;
-		border-bottom: none;
 	}
 
 	.container {
@@ -172,7 +171,7 @@ $component: 'header';
 		@include prefix(transition, 'transform 400ms ease');
 		display: block;
 		transform-origin: 0 50%;
-		max-width: 150px;
+		max-width: 55px;
 		height: 100%;
 
 		@include respondMin(point('min-lg')) {

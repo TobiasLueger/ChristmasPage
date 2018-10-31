@@ -151,10 +151,6 @@ html.mm-wrapper_opening .mm-page__blocker {
 		& > span {
 			@include font($ff-semibold);
 			padding: $grid-gutter-width $grid-gutter-width-half $grid-gutter-width $grid-gutter-width;
-
-			@include respondMin(point('min-md')) {
-				padding: 25px $grid-gutter-width-half 25px $grid-gutter-width;
-			}
 		}
 	}
 

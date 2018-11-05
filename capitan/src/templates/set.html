@@ -169,7 +169,45 @@
 			<div class="container">
 				<div class="row util-add-margin-top-full">
                     <div class="col-xs-12">
-						<p>Dies ist ein Projekt was nur für den Zeitraum vom 01.12.2018 bis zum 01.01.2019 geht.</p>
+						<p></p>
+						<script>
+							function win(x) {
+								document.querySelector("p").innerHTML =
+										"<h1>Du hast Gewonnen!</h1>" +
+										"<p>" +
+											"Du hast die Gewinnzahl " +
+											x +
+											" in deinem Türchen gezogen." +
+										"</p>" +
+										"<p>" +
+											"Nenne mir unter den angegebenen Möglichkeiten deine Gewinnzahl und hole dir deinen Gewinn ab:" +
+											"<br><br>" +
+											"<a href='tel:015758849649' class='util-icon util-icon--before util-icon--tel'>015758849649</a>" +
+											"<a href='mailto:tobias-lueger@web.de' class='util-icon util-icon--before util-icon--mail'>tobias-lueger@web.de</a>" +
+										"</p>" +
+										"<p>" +
+											"Viel Spaß noch mit unserem Adventskalender :)" +
+										"</p>";
+							}
+
+							function lose(x) {
+								document.querySelector("p").innerHTML =
+										"<h1>Du hast leider Verloren!</h1>" +
+										"<p>" +
+											"Trotzdem wünsche ich dir noch wieterhin viel Spaß mit unserem Adventskalender :)"
+										"</p>";
+							}
+
+							let x = localStorage[ "gesetzt" ];
+
+							if (x == "18") {
+								win(x);
+
+							}
+							else {
+								lose(x);
+							}
+						</script>
 					</div>
 				</div>
 			</div>

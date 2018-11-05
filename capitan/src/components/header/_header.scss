@@ -171,16 +171,16 @@ $component: 'header';
 		@include prefix(transition, 'transform 400ms ease');
 		display: block;
 		transform-origin: 0 50%;
-		max-width: 55px;
+		max-width: 200px;
 		height: 100%;
 
-		@include respondMin(point('min-lg')) {
+		/*@include respondMin(point('min-lg')) {
 			max-width: 160px;
 		}
 		
 		@include respondMin(point('min-xl')) {
 			max-width: 200px;
-		}
+		}*/
 	}
 }
 

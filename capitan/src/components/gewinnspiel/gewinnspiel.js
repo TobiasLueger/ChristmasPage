@@ -45,7 +45,8 @@ const _ = {
 
 const o = _.defaults;
 
-//alert('gewinnspiel');
+
+
 
 /**
  * initialize the component
@@ -53,13 +54,5 @@ const o = _.defaults;
  */
 
 export function init() {
-	if (document.querySelector(o.componentSelector)) {
-		import(/* webpackChunkName: "tabs" */ 'tabslet/jquery.tabslet.min').then(tabslet => {
-			import(/* webpackChunkName: "tabs" */ '../custom-select/custom-select').then(() => {
 
-				// Initialize the tab component.
-				initializeTabs();
-			});
-		});
-	}
 }

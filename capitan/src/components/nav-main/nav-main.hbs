@@ -122,6 +122,18 @@
 			{{else}}
 				<li class="level0 nav-1 level-top" role="presentation">
 					<a
+							href="index.html"
+							class="level-top"
+							aria-haspopup="true"
+							tabindex="-1"
+							role="menuitem">
+						<div>
+							<span>Home</span>
+						</div>
+					</a>
+				</li>
+				<li class="level0 nav-2 level-top" role="presentation">
+					<a
 							href="creator.html"
 							class="level-top"
 							aria-haspopup="true"
@@ -132,19 +144,20 @@
 						</div>
 					</a>
 				</li>
-				<li class="level0 nav-2 level-top" role="presentation">
+				<li class="level0 nav-3 level-top" role="presentation">
 					<a
 							href="projekt.html"
 							class="level-top"
 							aria-haspopup="true"
 							tabindex="-1"
 							role="menuitem">
+						<span class="pointer"></span>
 						<div>
 							<span>Das Projekt</span>
 						</div>
 					</a>
 				</li>
-				<li class="level0 nav-3 level-top" role="presentation">
+				<li class="level0 nav-4 level-top" role="presentation">
 					<a
 							href="neighbour.html"
 							class="level-top"
@@ -153,295 +166,11 @@
 							role="menuitem">
 						<span class="pointer"></span>
 						<div>
-							<span>Für die Nachbarn</span>
-						</div>
-					</a>
-					<!--
-					<div class="level0 nav-main__flyout">
-						<ul role="menu" aria-hidden="true" aria-="false">
-							<li class="level1 nav-3-1" role="presentation">
-								<a
-										href="/"
-										aria-haspopup="true"
-										class=""
-										tabindex="-1"
-										role="menuitem">
-									<span>Eintrag 1</span>
-								</a>
-								<ul class="nav-mobile__vertical">
-									<li class="level2 nav-4-1" role="presentation">
-										<a href="/">
-											<span>Eintrag 1</span>
-										</a>
-									</li>
-									<li class="level2 nav-4-2" role="presentation">
-										<a href="/">
-											<span>Eintrag 2</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="level1 nav-3-2" role="presentation">
-								<a
-										href="/"
-										aria-haspopup="true"
-										class=""
-										tabindex="-1"
-										role="menuitem">
-									<span>Eintrag 2</span>
-								</a>
-								<ul class="nav-mobile__vertical">
-									<li class="level2 nav-4-1" role="presentation">
-										<a href="/">
-											<span>Eintrag 1</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="level1 nav-3-3" role="presentation">
-								<a
-										href="/"
-										aria-haspopup="true"
-										class=""
-										tabindex="-1"
-										role="menuitem">
-									<span>Eintrag 3</span>
-								</a>
-								<ul class="nav-mobile__vertical">
-									<li class="level2 nav-4-1" role="presentation">
-										<a href="/">
-											<span>Eintrag 1</span>
-										</a>
-									</li>
-									<li class="level2 nav-4-2" role="presentation">
-										<a href="/">
-											<span>Eintrag 2</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="level1 nav-3-4" role="presentation">
-								<a
-										href="/"
-										aria-haspopup="true"
-										class=""
-										tabindex="-1"
-										role="menuitem">
-									<span>Eintrag 4</span>
-								</a>
-							</li>
-							<li class="level1 nav-3-5" role="presentation">
-								<a
-										href="/"
-										aria-haspopup="true"
-										class=""
-										tabindex="-1"
-										role="menuitem">
-									<span>Eintrag 5</span>
-								</a>
-							</li>
-						</ul>
-					</div>-->
-				</li>
-				<!--<li class="level0 nav-4 level-top" role="presentation">
-					<span
-							class="level-top"
-							aria-haspopup="true"
-							tabindex="-1"
-							role="menuitem">
-						<span class="pointer"></span>
-						<div>
-							<span>Als Patient</span>
-							<span>oder Bewohner</span>
-						</div>
-
-					</span>
-					<div class="level0 nav-main__flyout">
-						<div class="nav-main__highlight">
-							{{!--{{> list modifier="quicklinks" class="list--quicklinks"}}--}}
-						</div>
-						<ul role="menu" aria-hidden="true" aria-="false">
-							<li class="level1 nav-4-1" role="presentation">
-								<a
-										href="/"
-										aria-haspopup="true"
-										class=""
-										tabindex="-1"
-										role="menuitem">
-									<span>Eintrag 1</span>
-								</a>
-								<ul class="nav-mobile__vertical">
-									<li class="level2 nav-4-1" role="presentation">
-										<a href="/">
-											<span>Eintrag 1</span>
-										</a>
-									</li>
-									<li class="level2 nav-4-2" role="presentation">
-										<a href="/">
-											<span>Eintrag 2</span>
-										</a>
-									</li>
-									<li class="level2 nav-4-3" role="presentation">
-										<a href="/">
-											<span>Eintrag 3</span>
-										</a>
-									</li>
-									<li class="level2 nav-4-4" role="presentation">
-										<a href="/">
-											<span>Eintrag 4</span>
-										</a>
-									</li>
-									<li class="level2 nav-4-5" role="presentation">
-										<a href="/" class="util-link util-icon--after util-icon--arrow-right">
-											<span>Alle Themen anzeigen</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="level1 nav-4-2" role="presentation">
-								<a
-										href="/"
-										aria-haspopup="true"
-										class=""
-										tabindex="-1"
-										role="menuitem">
-									<span>Eintrag 2</span>
-								</a>
-								<ul class="nav-mobile__vertical">
-									<li class="level2 nav-4-1" role="presentation">
-										<a href="/">
-											<span>Eintrag 1</span>
-										</a>
-									</li>
-									<li class="level2 nav-4-2" role="presentation">
-										<a href="/">
-											<span>Eintrag 2</span>
-										</a>
-									</li>
-									<li class="level2 nav-4-3" role="presentation">
-										<a href="/">
-											<span>Eintrag 3</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="level1 nav-4-3" role="presentation">
-								<a
-										href="/"
-										aria-haspopup="true"
-										class=""
-										tabindex="-1"
-										role="menuitem">
-									<span>Eintrag 3</span>
-								</a>
-								<ul class="nav-mobile__vertical">
-									<li class="level2 nav-4-1" role="presentation">
-										<a href="/">
-											<span>Eintrag 1</span>
-										</a>
-									</li>
-									<li class="level2 nav-4-2" role="presentation">
-										<a href="/">
-											<span>Eintrag 2</span>
-										</a>
-									</li>
-									<li class="level2 nav-4-3" role="presentation">
-										<a href="/">
-											<span>Eintrag 3</span>
-										</a>
-									</li>
-									<li class="level2 nav-4-4" role="presentation">
-										<a href="/">
-											<span>Eintrag 4</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="level1 nav-4-4" role="presentation">
-								<a
-										href="/"
-										aria-haspopup="true"
-										class=""
-										tabindex="-1"
-										role="menuitem">
-									<span>Eintrag 4</span>
-								</a>
-								<ul class="nav-mobile__vertical">
-									<li class="level2 nav-4-1" role="presentation">
-										<a href="/">
-											<span>Eintrag 1</span>
-										</a>
-									</li>
-									<li class="level2 nav-4-2" role="presentation">
-										<a href="/">
-											<span>Eintrag 2</span>
-										</a>
-									</li>
-									<li class="level2 nav-4-3" role="presentation">
-										<a href="/">
-											<span>Eintrag 3</span>
-										</a>
-									</li>
-									<li class="level2 nav-4-4" role="presentation">
-										<a href="/">
-											<span>Eintrag 4</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="level1 nav-4-5" role="presentation">
-								<a
-										href="/"
-										aria-haspopup="true"
-										class=""
-										tabindex="-1"
-										role="menuitem">
-									<span>Eintrag 5</span>
-								</a>
-								<ul class="nav-mobile__vertical">
-									<li class="level2 nav-4-1" role="presentation">
-										<a href="/">
-											<span>Eintrag 1</span>
-										</a>
-									</li>
-									<li class="level2 nav-4-2" role="presentation">
-										<a href="/">
-											<span>Eintrag 2</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</li>
-				<li class="level0 nav-5 level-top" role="presentation">
-					<a
-							href="/"
-							class="level-top"
-							aria-haspopup="true"
-							tabindex="-1"
-							role="menuitem">
-						<span class="pointer"></span>
-						<div>
-							<span>Ihr</span>
-							<span>Gesundheitsmagazin</span>
+							<span>Für die Teilnehmer</span>
 						</div>
 
 					</a>
 				</li>
-				<li class="level0 nav-6 level-top" role="presentation">
-					<a
-							href="/"
-							class="level-top"
-							aria-haspopup="true"
-							tabindex="-1"
-							role="menuitem">
-						<div>
-							<span>Für Ärzte</span>
-							<span>& Sozialdienst</span>
-						</div>
-					</a>
-				</li>-->
 		{{/each}}
 	</ul>
 </nav>

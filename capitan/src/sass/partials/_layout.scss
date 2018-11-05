@@ -155,3 +155,15 @@ div[class*='offset'] {
 		}
 	}
 }
+
+/* ==========================================================================
+  Swal Alert Box
+  ========================================================================== */
+
+.swal-button {
+	background-color: color("ci");
+}
+
+.swal-button:not([disabled]):hover {
+	background-color: color("ci-hover");
+}

@@ -1,41 +1,50 @@
 {{!-- components/gewinnspiel --}}
 <div class="gewinnspiel{{#if class}} {{class}}{{/if}}">
-	<h2>Adventsgewinnspiel</h2>
-	<p>Klicke auf deine Nummer aus dem Türchen und gewinne mit etwas Glück einen tollen Preis.</p>
-	<div class="">
-		<button class="btn btn-primary">1</button>
-		<button class="btn btn-primary">2</button>
-		<button class="btn btn-primary">3</button>
-		<button class="btn btn-primary">4</button>
-	</div>
-	<div class="">
-		<button class="btn btn-primary">5</button>
-		<button class="btn btn-primary">6</button>
-		<button class="btn btn-primary">7</button>
-		<button class="btn btn-primary">8</button>
-	</div>
-	<div class="">
-		<button class="btn btn-primary">9</button>
-		<button class="btn btn-primary">10</button>
-		<button class="btn btn-primary">11</button>
-		<button class="btn btn-primary">12</button>
-	</div>
-	<div class="">
-		<button class="btn btn-primary">13</button>
-		<button class="btn btn-primary">14</button>
-		<button class="btn btn-primary">15</button>
-		<button class="btn btn-primary">16</button>
-	</div>
-	<div class="">
-		<button class="btn btn-primary">17</button>
-		<button class="btn btn-primary">18</button>
-		<button class="btn btn-primary">19</button>
-		<button class="btn btn-primary">20</button>
-	</div>
-	<div class="">
-		<button class="btn btn-primary">21</button>
-		<button class="btn btn-primary">22</button>
-		<button class="btn btn-primary">23</button>
-		<button class="btn btn-primary">24</button>
+	<div class="row">
+		<div class="col-xs-12">
+			<h2>Adventsgewinnspiel</h2>
+			<p>Klicke auf deine Nummer aus dem Türchen und gewinne mit etwas Glück einen tollen Preis.</p>
+			<div class="">
+				<button class="btn" onclick="myFunction(this.innerHTML)">1</button>
+				<button class="btn" onclick="myFunction(this.innerHTML)">2</button>
+				<button class="btn" onclick="myFunction(this.innerHTML)">3</button>
+				<button class="btn" onclick="myFunction(this.innerHTML)">4</button>
+				<button class="btn" onclick="myFunction(this.innerHTML)">5</button>
+				<button class="btn" onclick="myFunction(this.innerHTML)">6</button>
+				<button class="btn" onclick="myFunction(this.innerHTML)">7</button>
+				<button class="btn" onclick="myFunction(this.innerHTML)">8</button>
+				<button class="btn" onclick="myFunction(this.innerHTML)">9</button>
+				<button class="btn" onclick="myFunction(this.innerHTML)">10</button>
+				<button class="btn" onclick="myFunction(this.innerHTML)">11</button>
+				<button class="btn" onclick="myFunction(this.innerHTML)">12</button>
+				<button class="btn" onclick="myFunction(this.innerHTML)">13</button>
+				<button class="btn" onclick="myFunction(this.innerHTML)">14</button>
+				<button class="btn" onclick="myFunction(this.innerHTML)">15</button>
+				<button class="btn" onclick="myFunction(this.innerHTML)">16</button>
+				<button class="btn" onclick="myFunction(this.innerHTML)">17</button>
+				<button class="btn" onclick="myFunction(this.innerHTML)">18</button>
+				<button class="btn" onclick="myFunction(this.innerHTML)">19</button>
+				<button class="btn" onclick="myFunction(this.innerHTML)">20</button>
+				<button class="btn" onclick="myFunction(this.innerHTML)">21</button>
+				<button class="btn" onclick="myFunction(this.innerHTML)">22</button>
+				<button class="btn" onclick="myFunction(this.innerHTML)">23</button>
+				<button class="btn" onclick="myFunction(this.innerHTML)">24</button>
+
+				<script>
+
+
+					function myFunction(x) {
+						if (localStorage[ "gesetzt" ] == null) {
+							localStorage[ "gesetzt" ] = x;
+							window.location.href = "set.html";
+						}
+						else if (localStorage[ "gesetzt" ] != null) {
+							swal("Du hast schon an dem Gewinnspiel teilgenommen!", "Viel Spaß noch mit unserem Adventskalender :)" );
+						}
+					}
+
+				</script>
+			</div>
+		</div>
 	</div>
 </div>

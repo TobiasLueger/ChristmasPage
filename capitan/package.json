@@ -102,6 +102,7 @@
 		"promise-polyfill": "7.1.0",
 		"select2": "^4.0.6-rc.1",
 		"slick-carousel": "^1.8.1",
+		"sweetalert": "^2.1.2",
 		"tabslet": "^1.7.3",
 		"tooltipster": "^4.2.5",
 		"whatwg-fetch": "^2.0.3"

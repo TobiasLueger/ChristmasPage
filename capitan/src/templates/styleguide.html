@@ -6,21 +6,21 @@
 		<title>Styleguide</title>
 
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="description" content="MediClin ist ein Klinikbetreiber mit über 50 Akutkliniken, Fachkrankenhäusern, Reha Kliniken, medizinischen Versorgungszentren und Pflegeeinrichtungen." />
-		<meta name="keywords" content="Akutklinik, Fachkrankenhaus, MVZ" />
+		<meta name="description" content="Gewinnspiel Seite für den Advent" />
+		<meta name="keywords" content="Gewinnspiel, Advent, " />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 		
 		<!-- favicon and app icons -->
-		<link rel="apple-touch-icon" sizes="180x180" href="/typo3conf/ext/bra_projectfiles_esb/Resources/Public/favicon/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/typo3conf/ext/bra_projectfiles_esb/Resources/Public/favicon/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/typo3conf/ext/bra_projectfiles_esb/Resources/Public/favicon/favicon-16x16.png">
-		<link rel="manifest" href="/typo3conf/ext/bra_projectfiles_esb/Resources/Public/favicon/manifest.json">
-		<link rel="mask-icon" href="/typo3conf/ext/bra_projectfiles_esb/Resources/Public/favicon/safari-pinned-tab.svg" color="#cd1719">
-		<link rel="shortcut icon" href="/typo3conf/ext/bra_projectfiles_esb/Resources/Public/favicon/favicon.ico">
-		<meta name="msapplication-config" content="/typo3conf/ext/bra_projectfiles_esb/Resources/Public/favicon/browserconfig.xml">
+		<link rel="apple-touch-icon" sizes="180x180" href="/Resources/Public/favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/Resources/Public/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/Resources/Public/favicon/favicon-16x16.png">
+		<link rel="manifest" href="/Resources/Public/favicon/manifest.json">
+		<link rel="mask-icon" href="/Resources/Public/favicon/safari-pinned-tab.svg" color="#cd1719">
+		<link rel="shortcut icon" href="/Resources/Public/favicon/favicon.ico">
+		<meta name="msapplication-config" content="/Resources/Public/favicon/browserconfig.xml">
 		
 		<!-- web app config -->
 		<meta name="theme-color" content="#ffffff">
@@ -37,6 +37,41 @@
 		<!-- public files -->
 		<link rel="stylesheet" href="/Resources/Public/css/main.css" />
 		<script defer src="/Resources/Public/js/main.js"></script>
+		<script defer src="/Resources/Public/js/accordion.bundle.js"></script>
+		<script defer src="/Resources/Public/js/anchor-nav.bundle.js"></script>
+		<script defer src="/Resources/Public/js/animations.bundle.js"></script>
+		<script defer src="/Resources/Public/js/capitan.bundle.js"></script>
+		<script defer src="/Resources/Public/js/content-block.bundle.js"></script>
+		<script defer src="/Resources/Public/js/contrastTheme.bundle.js"></script>
+		<script defer src="/Resources/Public/js/cookie-layer.bundle.js"></script>
+		<script defer src="/Resources/Public/js/countup.bundle.js"></script>
+		<script defer src="/Resources/Public/js/custom-datepicker.bundle.js"></script>
+		<script defer src="/Resources/Public/js/custom-select.bundle.js"></script>
+		<script defer src="/Resources/Public/js/diseases.bundle.js"></script>
+		<script defer src="/Resources/Public/js/embed-video.bundle.js"></script>
+		<script defer src="/Resources/Public/js/expert-finder.bundle.js"></script>
+		<script defer src="/Resources/Public/js/fancybox.bundle.js"></script>
+		<script defer src="/Resources/Public/js/form.bundle.js"></script>
+		<script defer src="/Resources/Public/js/form-validation.bundle.js"></script>
+		<script defer src="/Resources/Public/js/gewinnspiel.bundle.js"></script>
+		<script defer src="/Resources/Public/js/gmaps.bundle.js"></script>
+		<script defer src="/Resources/Public/js/header.bundle.js"></script>
+		<script defer src="/Resources/Public/js/modernizr.bundle.js"></script>
+		<script defer src="/Resources/Public/js/nav-main.bundle.js"></script>
+		<script defer src="/Resources/Public/js/nav-meta.bundle.js"></script>
+		<script defer src="/Resources/Public/js/nav-mobile.bundle.js"></script>
+		<script defer src="/Resources/Public/js/nav-services.bundle.js"></script>
+		<script defer src="/Resources/Public/js/notification.bundle.js"></script>
+		<script defer src="/Resources/Public/js/pagination.bundle.js"></script>
+		<script defer src="/Resources/Public/js/polyfill.bundle.js"></script>
+		<script defer src="/Resources/Public/js/reveal.bundle.js"></script>
+		<script defer src="/Resources/Public/js/scrolltop.bundle.js"></script>
+		<script defer src="/Resources/Public/js/slick-slider.bundle.js"></script>
+		<script defer src="/Resources/Public/js/slider.bundle.js"></script>
+		<script defer src="/Resources/Public/js/stage.bundle.js"></script>
+		<script defer src="/Resources/Public/js/switch.bundle.js"></script>
+		<script defer src="/Resources/Public/js/tabs.bundle.js"></script>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 		
 
 	</head>
@@ -66,6 +101,18 @@
 									<ul class="nav-main__list" itemscope itemtype="http://schema.org/SiteNavigationElement" role="menu" tabindex="0">
 												<li class="level0 nav-1 level-top" role="presentation">
 													<a
+															href="index.html"
+															class="level-top"
+															aria-haspopup="true"
+															tabindex="-1"
+															role="menuitem">
+														<div>
+															<span>Home</span>
+														</div>
+													</a>
+												</li>
+												<li class="level0 nav-2 level-top" role="presentation">
+													<a
 															href="creator.html"
 															class="level-top"
 															aria-haspopup="true"
@@ -76,19 +123,20 @@
 														</div>
 													</a>
 												</li>
-												<li class="level0 nav-2 level-top" role="presentation">
+												<li class="level0 nav-3 level-top" role="presentation">
 													<a
 															href="projekt.html"
 															class="level-top"
 															aria-haspopup="true"
 															tabindex="-1"
 															role="menuitem">
+														<span class="pointer"></span>
 														<div>
 															<span>Das Projekt</span>
 														</div>
 													</a>
 												</li>
-												<li class="level0 nav-3 level-top" role="presentation">
+												<li class="level0 nav-4 level-top" role="presentation">
 													<a
 															href="neighbour.html"
 															class="level-top"
@@ -97,294 +145,11 @@
 															role="menuitem">
 														<span class="pointer"></span>
 														<div>
-															<span>Für die Nachbarn</span>
-														</div>
-													</a>
-													<!--
-													<div class="level0 nav-main__flyout">
-														<ul role="menu" aria-hidden="true" aria-="false">
-															<li class="level1 nav-3-1" role="presentation">
-																<a
-																		href="/"
-																		aria-haspopup="true"
-																		class=""
-																		tabindex="-1"
-																		role="menuitem">
-																	<span>Eintrag 1</span>
-																</a>
-																<ul class="nav-mobile__vertical">
-																	<li class="level2 nav-4-1" role="presentation">
-																		<a href="/">
-																			<span>Eintrag 1</span>
-																		</a>
-																	</li>
-																	<li class="level2 nav-4-2" role="presentation">
-																		<a href="/">
-																			<span>Eintrag 2</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-															<li class="level1 nav-3-2" role="presentation">
-																<a
-																		href="/"
-																		aria-haspopup="true"
-																		class=""
-																		tabindex="-1"
-																		role="menuitem">
-																	<span>Eintrag 2</span>
-																</a>
-																<ul class="nav-mobile__vertical">
-																	<li class="level2 nav-4-1" role="presentation">
-																		<a href="/">
-																			<span>Eintrag 1</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-															<li class="level1 nav-3-3" role="presentation">
-																<a
-																		href="/"
-																		aria-haspopup="true"
-																		class=""
-																		tabindex="-1"
-																		role="menuitem">
-																	<span>Eintrag 3</span>
-																</a>
-																<ul class="nav-mobile__vertical">
-																	<li class="level2 nav-4-1" role="presentation">
-																		<a href="/">
-																			<span>Eintrag 1</span>
-																		</a>
-																	</li>
-																	<li class="level2 nav-4-2" role="presentation">
-																		<a href="/">
-																			<span>Eintrag 2</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-															<li class="level1 nav-3-4" role="presentation">
-																<a
-																		href="/"
-																		aria-haspopup="true"
-																		class=""
-																		tabindex="-1"
-																		role="menuitem">
-																	<span>Eintrag 4</span>
-																</a>
-															</li>
-															<li class="level1 nav-3-5" role="presentation">
-																<a
-																		href="/"
-																		aria-haspopup="true"
-																		class=""
-																		tabindex="-1"
-																		role="menuitem">
-																	<span>Eintrag 5</span>
-																</a>
-															</li>
-														</ul>
-													</div>-->
-												</li>
-												<!--<li class="level0 nav-4 level-top" role="presentation">
-													<span
-															class="level-top"
-															aria-haspopup="true"
-															tabindex="-1"
-															role="menuitem">
-														<span class="pointer"></span>
-														<div>
-															<span>Als Patient</span>
-															<span>oder Bewohner</span>
-														</div>
-								
-													</span>
-													<div class="level0 nav-main__flyout">
-														<div class="nav-main__highlight">
-														</div>
-														<ul role="menu" aria-hidden="true" aria-="false">
-															<li class="level1 nav-4-1" role="presentation">
-																<a
-																		href="/"
-																		aria-haspopup="true"
-																		class=""
-																		tabindex="-1"
-																		role="menuitem">
-																	<span>Eintrag 1</span>
-																</a>
-																<ul class="nav-mobile__vertical">
-																	<li class="level2 nav-4-1" role="presentation">
-																		<a href="/">
-																			<span>Eintrag 1</span>
-																		</a>
-																	</li>
-																	<li class="level2 nav-4-2" role="presentation">
-																		<a href="/">
-																			<span>Eintrag 2</span>
-																		</a>
-																	</li>
-																	<li class="level2 nav-4-3" role="presentation">
-																		<a href="/">
-																			<span>Eintrag 3</span>
-																		</a>
-																	</li>
-																	<li class="level2 nav-4-4" role="presentation">
-																		<a href="/">
-																			<span>Eintrag 4</span>
-																		</a>
-																	</li>
-																	<li class="level2 nav-4-5" role="presentation">
-																		<a href="/" class="util-link util-icon--after util-icon--arrow-right">
-																			<span>Alle Themen anzeigen</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-															<li class="level1 nav-4-2" role="presentation">
-																<a
-																		href="/"
-																		aria-haspopup="true"
-																		class=""
-																		tabindex="-1"
-																		role="menuitem">
-																	<span>Eintrag 2</span>
-																</a>
-																<ul class="nav-mobile__vertical">
-																	<li class="level2 nav-4-1" role="presentation">
-																		<a href="/">
-																			<span>Eintrag 1</span>
-																		</a>
-																	</li>
-																	<li class="level2 nav-4-2" role="presentation">
-																		<a href="/">
-																			<span>Eintrag 2</span>
-																		</a>
-																	</li>
-																	<li class="level2 nav-4-3" role="presentation">
-																		<a href="/">
-																			<span>Eintrag 3</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-															<li class="level1 nav-4-3" role="presentation">
-																<a
-																		href="/"
-																		aria-haspopup="true"
-																		class=""
-																		tabindex="-1"
-																		role="menuitem">
-																	<span>Eintrag 3</span>
-																</a>
-																<ul class="nav-mobile__vertical">
-																	<li class="level2 nav-4-1" role="presentation">
-																		<a href="/">
-																			<span>Eintrag 1</span>
-																		</a>
-																	</li>
-																	<li class="level2 nav-4-2" role="presentation">
-																		<a href="/">
-																			<span>Eintrag 2</span>
-																		</a>
-																	</li>
-																	<li class="level2 nav-4-3" role="presentation">
-																		<a href="/">
-																			<span>Eintrag 3</span>
-																		</a>
-																	</li>
-																	<li class="level2 nav-4-4" role="presentation">
-																		<a href="/">
-																			<span>Eintrag 4</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-															<li class="level1 nav-4-4" role="presentation">
-																<a
-																		href="/"
-																		aria-haspopup="true"
-																		class=""
-																		tabindex="-1"
-																		role="menuitem">
-																	<span>Eintrag 4</span>
-																</a>
-																<ul class="nav-mobile__vertical">
-																	<li class="level2 nav-4-1" role="presentation">
-																		<a href="/">
-																			<span>Eintrag 1</span>
-																		</a>
-																	</li>
-																	<li class="level2 nav-4-2" role="presentation">
-																		<a href="/">
-																			<span>Eintrag 2</span>
-																		</a>
-																	</li>
-																	<li class="level2 nav-4-3" role="presentation">
-																		<a href="/">
-																			<span>Eintrag 3</span>
-																		</a>
-																	</li>
-																	<li class="level2 nav-4-4" role="presentation">
-																		<a href="/">
-																			<span>Eintrag 4</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-															<li class="level1 nav-4-5" role="presentation">
-																<a
-																		href="/"
-																		aria-haspopup="true"
-																		class=""
-																		tabindex="-1"
-																		role="menuitem">
-																	<span>Eintrag 5</span>
-																</a>
-																<ul class="nav-mobile__vertical">
-																	<li class="level2 nav-4-1" role="presentation">
-																		<a href="/">
-																			<span>Eintrag 1</span>
-																		</a>
-																	</li>
-																	<li class="level2 nav-4-2" role="presentation">
-																		<a href="/">
-																			<span>Eintrag 2</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-														</ul>
-													</div>
-												</li>
-												<li class="level0 nav-5 level-top" role="presentation">
-													<a
-															href="/"
-															class="level-top"
-															aria-haspopup="true"
-															tabindex="-1"
-															role="menuitem">
-														<span class="pointer"></span>
-														<div>
-															<span>Ihr</span>
-															<span>Gesundheitsmagazin</span>
+															<span>Für die Teilnehmer</span>
 														</div>
 								
 													</a>
 												</li>
-												<li class="level0 nav-6 level-top" role="presentation">
-													<a
-															href="/"
-															class="level-top"
-															aria-haspopup="true"
-															tabindex="-1"
-															role="menuitem">
-														<div>
-															<span>Für Ärzte</span>
-															<span>& Sozialdienst</span>
-														</div>
-													</a>
-												</li>-->
 									</ul>
 								</nav>
 							</div>

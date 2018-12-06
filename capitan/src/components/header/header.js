@@ -29,7 +29,7 @@ const o = _.defaults;
 let timer;
 
 export function init() {
-	if (document.querySelector(o.componentSelector)) {
+	/*if (document.querySelector(o.componentSelector)) {
 		const $component = $(o.componentSelector);
 		let headerHeight = $(o.componentSelector).outerHeight(true);
 
@@ -48,5 +48,5 @@ export function init() {
 			headerHeight = $(o.componentSelector).outerHeight(true);
 			document.body.style.paddingTop = headerHeight + 'px';
 		});
-	}
+	}*/
 }

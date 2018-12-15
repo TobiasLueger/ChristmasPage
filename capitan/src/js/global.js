@@ -298,12 +298,20 @@ function loadComponents() {
 	}
 
 	if (document.querySelector('.gewinnspiel')) {
-		import(/* webpackChunkName: "gewinnspiel" */ '../components/gewinnspiel/gewinnspiel').then(
-			component => {
-				component.init();
-			}
-		);
-	}
+        import(/* webpackChunkName: "gewinnspiel" */ '../components/gewinnspiel/gewinnspiel').then(
+            component => {
+                component.init();
+            }
+        );
+    }
+
+    if (document.querySelector('.canvasSF')) {
+        import(/* webpackChunkName: "canvasSF" */ '../components/canvasSF/canvasSF').then(
+            component => {
+                component.init();
+            }
+        );
+    }
 }
 
 (function() {

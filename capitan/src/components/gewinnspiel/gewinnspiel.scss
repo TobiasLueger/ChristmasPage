@@ -51,20 +51,21 @@ $component: 'gewinnspiel';
 				content: '';
 				position: absolute;
 				z-index: -1;
-				width: 30px;
-
-				margin-left: -5px;
-				margin-top: -5px;
+				width: 40px;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
 
 				border-radius: 50px;
 
-				height: 30px;
+				height: 40px;
 				background-color: hsla(114, 0%, 4%, 0.61);
 			}
 		}
 
 		&-1 {
 			left:53.5%; top:25.5%; width:13%; height:7.5%;
+			border-radius: 50px;
 			background-image: url("/Resources/Public/img/jpg/geschenk/0132-geschenkpapier-weihnachten-gruen-ausschnitt.jpg");
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -72,6 +73,7 @@ $component: 'gewinnspiel';
 
 		&-2 {
 			left:68%; top:34%; width:12.5%; height:7.5%;
+			border-radius: 50px;
 			background-image: url("/Resources/Public/img/jpg/geschenk/3060_0.jpg");
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -79,6 +81,7 @@ $component: 'gewinnspiel';
 
 		&-3 {
 			left:17%; top:39.5%; width:13.5%; height:8%;
+			border-radius: 50px;
 			background-image: url("/Resources/Public/img/jpg/geschenk/4023.180908.172141_kkr-wellen-gruen.jpg");
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -86,6 +89,7 @@ $component: 'gewinnspiel';
 
 		&-4 {
 			left:31%; top:76.5%; width:19%; height:11%;
+			border-radius: 50px;
 			background-image: url("/Resources/Public/img/jpg/geschenk/179502_verpackungskuenstler_weihnachten-skandinavisch_innen-1.jpg");
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -93,6 +97,7 @@ $component: 'gewinnspiel';
 
 		&-5 {
 			left:72.5%; top:70.5%; width:12.5%; height:10%;
+			border-radius: 50px;
 			background-image: url("/Resources/Public/img/jpg/geschenk/550024_-geschenkpapier-weihnachten-rot-gold-50cm-x-100m.jpg");
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -100,6 +105,7 @@ $component: 'gewinnspiel';
 
 		&-6 {
 			left:53.5%; top:51.5%; width:13%; height:5.5%;
+			border-radius: 50px;
 			background-image: url("/Resources/Public/img/jpg/geschenk/550025_-geschenkpapier-weihnachten-schwarz-kupfer-50cm-x-100m.jpg");
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -107,6 +113,7 @@ $component: 'gewinnspiel';
 
 		&-7 {
 			left:33%; top:39.5%; width:17.5%; height:8%;
+			border-radius: 50px;
 			background-image: url("/Resources/Public/img/jpg/geschenk/550026_-geschenkpapier-weihnachten-silber-schwarz-50cm-x-100m.jpg");
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -114,6 +121,7 @@ $component: 'gewinnspiel';
 
 		&-8 {
 			left:69%; top:42.5%; width:22%; height:14.5%;
+			border-radius: 50px;
 			background-image: url("/Resources/Public/img/jpg/geschenk/550031_-geschenkpapier-elegant-bordeaux-gold-50cm-x-100m_600x600.jpg");
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -121,6 +129,7 @@ $component: 'gewinnspiel';
 
 		&-9 {
 			left:12%; top:79%; width:15%; height:9%;
+			border-radius: 50px;
 			background-image: url("/Resources/Public/img/jpg/geschenk/550037_-geschenkpapier-winter-rot-weiss-50cm-x-100m-65g-qm_600x600.jpg");
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -128,6 +137,7 @@ $component: 'gewinnspiel';
 
 		&-10 {
 			left:53.5%; top:81.5%; width:29%; height:12.5%;
+			border-radius: 50px;
 			background-image: url("/Resources/Public/img/jpg/geschenk/64615291.jpg");
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -135,6 +145,7 @@ $component: 'gewinnspiel';
 
 		&-11 {
 			left: 53.5%; top:42.5%; width:12.5%; height:8%;
+			border-radius: 50px;
 			background-image: url("/Resources/Public/img/jpg/geschenk/christmas-paper-554687_960_720.jpg");
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -142,6 +153,7 @@ $component: 'gewinnspiel';
 
 		&-12 {
 			left:33.5%; top:26%; width:16%; height:12.5%;
+			border-radius: 50px;
 			background-image: url("/Resources/Public/img/jpg/geschenk/christmas-paper-554691_960_720.jpg");
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -149,6 +161,7 @@ $component: 'gewinnspiel';
 
 		&-13 {
 			left:54%; top:70.5%; width:15.5%; height:10%;
+			border-radius: 50px;
 			background-image: url("/Resources/Public/img/jpg/geschenk/depositphotos_33404793-stock-illustration-abstract-vector-christmas-wrapping-paper.jpg");
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -156,6 +169,7 @@ $component: 'gewinnspiel';
 
 		&-14 {
 			left:16.5%; top:49%; width:16%; height:13%;
+			border-radius: 50px;
 			background-image: url("/Resources/Public/img/jpg/geschenk/depositphotos_93716328-stock-illustration-gift-wrapping-paper-in-christmas.jpg");
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -163,6 +177,7 @@ $component: 'gewinnspiel';
 
 		&-15 {
 			left:53.5%; top:34%; width:12.5%; height:7.5%;
+			border-radius: 50px;
 			background-image: url("/Resources/Public/img/jpg/geschenk/Download.jpg");
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -170,6 +185,7 @@ $component: 'gewinnspiel';
 
 		&-16 {
 			left:29.5%; top:63.5%; width:20%; height:11.5%;
+			border-radius: 50px;
 			background-image: url("/Resources/Public/img/jpg/geschenk/Fahrrad_Geschenkpapier_ml.jpg");
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -177,6 +193,7 @@ $component: 'gewinnspiel';
 
 		&-17 {
 			left:13%; top:25.5%; width:13%; height:5%;
+			border-radius: 50px;
 			background-image: url("/Resources/Public/img/jpg/geschenk/geschenkpapier-milano-00s-064-704-2.jpg");
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -184,6 +201,7 @@ $component: 'gewinnspiel';
 
 		&-18 {
 			left:38%; top:88.5%; width:12%; height:7%;
+			border-radius: 50px;
 			background-image: url("/Resources/Public/img/jpg/geschenk/geschenkpapier-weihnachten-kinder-weihnachtsmaenner-rentiere-rot_3.jpg");
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -191,6 +209,7 @@ $component: 'gewinnspiel';
 
 		&-19 {
 			left:11.5%; top:31%; width:17.5%; height:7.5%;
+			border-radius: 50px;
 			background-image: url("/Resources/Public/img/jpg/geschenk/Geschenkpapier-Weihnachten-marine-blau-gold-wei-Schneeblume-.jpg");
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -198,6 +217,7 @@ $component: 'gewinnspiel';
 
 		&-20 {
 			left:17%; top:88.5%; width:18%; height:7%;
+			border-radius: 50px;
 			background-image: url("/Resources/Public/img/jpg/geschenk/geschenkpapier_mini_herzchen_hochzeit_geschenk_papierbogen_ja_hochzeitsshop.jpg");
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -205,6 +225,7 @@ $component: 'gewinnspiel';
 
 		&-21 {
 			left:76.5%; top:58%; width:16.5%; height:10%;
+			border-radius: 50px;
 			background-image: url("/Resources/Public/img/jpg/geschenk/K401576-3_-_Flowers_Black-Gold.jpg");
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -212,6 +233,7 @@ $component: 'gewinnspiel';
 
 		&-22 {
 			left:34%; top:49%; width:15.5%; height:13%;
+			border-radius: 50px;
 			background-image: url("/Resources/Public/img/jpg/geschenk/susy-geschenkpapier-weihnachten-bambi-friends.jpg");
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -219,6 +241,7 @@ $component: 'gewinnspiel';
 
 		&-23 {
 			left:68%; top:25.5%; width:12.5%; height:7.5%;
+			border-radius: 50px;
 			background-image: url("/Resources/Public/img/jpg/geschenk/depositphotos_37068743-stock-illustration-christmas-texture-for-wrapping-paper.jpg");
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -226,6 +249,7 @@ $component: 'gewinnspiel';
 
 		&-24 {
 			left:53.5%; top:58.5%; width:21%; height:11%;
+			border-radius: 50px;
 			background-image: url("/Resources/Public/img/jpg/geschenk/geschenkpapier-weihnachten-merry-christmas-gruen_2.jpg");
 			background-repeat: no-repeat;
 			background-size: auto;

@@ -16,9 +16,7 @@
 
 	</head>
 	<body>
-		{{#> header-block}}
-				{{> header }}
-		{{/header-block}}
+
 		<div id="page-wrapper">
 			{{!-- Custom service content goes here. --}}
 			{{#> services-block}}
@@ -33,16 +31,6 @@
 			{{!-- Main content goes here. --}}
 			{{#> main-block}}
 			{{/main-block}}
-
-			{{!-- Custom <footer> content per page could be added. --}}
-			{{#> footer-block}}
-			{{!--
-			The `includes/footer` partial is the default content,
-			but can be overridden.
-			--}}
-			{{> cookie-layer }}
-			{{> footer }}
-			{{/footer-block}}
 
 			{{!-- Custom scripts per page can be added. --}}
 			{{#> scripts-block}}
